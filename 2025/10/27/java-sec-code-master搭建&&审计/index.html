@@ -1,0 +1,1092 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="running">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="java-sec-code-master搭建&amp;&amp;审计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java-sec-code-master搭建&amp;&amp;审计">
+<meta property="og:url" content="http://example.com/2025/10/27/java-sec-code-master%E6%90%AD%E5%BB%BA&&%E5%AE%A1%E8%AE%A1/index.html">
+<meta property="og:site_name" content="running">
+<meta property="og:description" content="java-sec-code-master搭建&amp;&amp;审计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193038076.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193041520.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193044839.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193049362.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193055028.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193059050.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193154913.png">
+<meta property="article:published_time" content="2025-10-27T11:33:00.000Z">
+<meta property="article:modified_time" content="2025-10-27T11:33:43.995Z">
+<meta property="article:author" content="running">
+<meta property="article:tag" content="Java代码审计">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193038076.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>java-sec-code-master搭建&amp;&amp;审计 - running</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>running</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="java-sec-code-master搭建&amp;&amp;审计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-27 19:33" pubdate>
+          2025年10月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">java-sec-code-master搭建&amp;&amp;审计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="java-sec-code-master搭建"><a href="#java-sec-code-master搭建" class="headerlink" title="java-sec-code-master搭建"></a>java-sec-code-master搭建</h1><h2 id="源码地址："><a href="#源码地址：" class="headerlink" title="源码地址："></a>源码地址：</h2><p><a target="_blank" rel="noopener" href="https://github.com/JoyChou93/java-sec-code">https://github.com/JoyChou93/java-sec-code</a></p>
+<h2 id="搭建环境："><a href="#搭建环境：" class="headerlink" title="搭建环境："></a>搭建环境：</h2><p>IDEA</p>
+<p>apache-maven-3.9.1</p>
+<p>apache-tomcat-9.0.105</p>
+<p>JDK 1.8</p>
+<p>MySQL 5.7.26</p>
+<p>数据库：小皮面板自带的MySQL，导入sql文件</p>
+<ol>
+<li><p>在项目结构里面，然后填上你的jdk1.8的bin目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193038076.png" srcset="/img/loading.gif" lazyload alt="image-20250827162302231"></p>
+</li>
+<li><p>直接创建数据库</p>
+<p>我使用的是phpstudy</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193041520.png" srcset="/img/loading.gif" lazyload alt="image-20250827162426689"></p>
+</li>
+<li><p>然后把 <code>create_db.sql</code>文件的连接数据库的好密码改为自己的</p>
+<p>（记得到导入数据库配置文件    <code>create_db.sql</code>）</p>
+</li>
+<li><p>然后配置一下tomcat</p>
+<p>去官网下载tomcat，解压出来就是这样的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193044839.png" srcset="/img/loading.gif" lazyload alt="image-20250827162630334"></p>
+</li>
+<li><p>然后在设置里的这个地方添加这个 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193049362.png" srcset="/img/loading.gif" lazyload alt="image-20250827162731912"></p>
+</li>
+<li><p>maven使用IDEA自带就行</p>
+<p>（也可以自己下载）</p>
+<p>和之前一样，使用 IDEA 打开项目，执行 <code>mvn clean install</code>，然后运行主类即可启动。</p>
+<p>运行application.java（成功后会显示这个）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193055028.png" srcset="/img/loading.gif" lazyload alt="image-20250827163223030"></p>
+</li>
+<li><p>运行成功之后，下次直接使用这个就可以启动啦</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193059050.png" srcset="/img/loading.gif" lazyload alt="image-20250827163153762"></p>
+</li>
+<li><p>直接登录就好了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027193154913.png" srcset="/img/loading.gif" lazyload alt="image-20250827163341209"></p>
+</li>
+</ol>
+<h1 id="java-sec-code-master审计"><a href="#java-sec-code-master审计" class="headerlink" title="java-sec-code-master审计"></a>java-sec-code-master审计</h1><p>使用IDEA搭建了java-sec-code-master</p>
+<p>（使用时，要打开phpstudy运行mysql）</p>
+<h2 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h2><p>src\main\java\org\joychou\controller\CommandInject.java</p>
+<ol>
+<li><p>存在三个方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/codeinject&quot;)</span><br><span class="hljs-meta">@GetMapping(&quot;/codeinject/host&quot;)</span><br><span class="hljs-meta">@GetMapping(&quot;/codeinject/sec&quot;)</span><br><span class="hljs-comment">//codeinject/sec是安全方法（其它两个存在漏洞）</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><ul>
+<li><p>&#x2F;codeInject</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/codeinject&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">codeInject</span><span class="hljs-params">(String filepath)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br><br>        <span class="hljs-comment">//String[] cmdList = new String[]&#123;&quot;cmd&quot;, &quot;-c&quot;, &quot;dir -la &quot; + filepath&#125;;</span><br>        String[] cmdList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-string">&quot;/c&quot;</span>, <span class="hljs-string">&quot;dir  &quot;</span> + filepath&#125;;<br>        <span class="hljs-type">ProcessBuilder</span> <span class="hljs-variable">builder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProcessBuilder</span>(cmdList);<br>        builder.redirectErrorStream(<span class="hljs-literal">true</span>);<br>        <span class="hljs-type">Process</span> <span class="hljs-variable">process</span> <span class="hljs-operator">=</span> builder.start();<br>        <span class="hljs-keyword">return</span> WebUtils.convertStreamToString(process.getInputStream());<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>filepath并未做任何的过滤，直接拼接</p>
+<p>在windows中<strong>使用&amp;符号拼接cmd命令</strong></p>
+<p>由于是web服务应用，<strong>使用&amp;符号拼接url命令</strong></p>
+</li>
+<li><p>payload</p>
+<p>localhost:9000&#x2F;codeinject?filepath&#x3D;.%26ipconfig</p>
+<p>（页面返回主机配置）</p>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><p>&#x2F;codeinject&#x2F;host</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/codeinject/host&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">codeInjectHost</span><span class="hljs-params">(HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">host</span> <span class="hljs-operator">=</span> request.getHeader(<span class="hljs-string">&quot;host&quot;</span>);<br>        logger.info(host);<br>        <span class="hljs-comment">//String[] cmdList = new String[]&#123;&quot;cmd&quot;, &quot;-c&quot;, &quot;curl &quot; + host&#125;;</span><br>        String[] cmdList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-string">&quot;/c&quot;</span>, <span class="hljs-string">&quot;dir  &quot;</span> + host&#125;;<br>        <span class="hljs-type">ProcessBuilder</span> <span class="hljs-variable">builder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProcessBuilder</span>(cmdList);<br>        builder.redirectErrorStream(<span class="hljs-literal">true</span>);<br>        <span class="hljs-type">Process</span> <span class="hljs-variable">process</span> <span class="hljs-operator">=</span> builder.start();<br>        <span class="hljs-keyword">return</span> WebUtils.convertStreamToString(process.getInputStream());<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>http的请求头host（无过滤）</p>
+</li>
+<li><p>payload</p>
+<p>抓包之后，在数据包中修改   <code>host：localhost&amp;ipconfig</code></p>
+<p>(返回包显示主机信息)</p>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><p>codeinject&#x2F;sec（不行）</p>
+<p>原因：（存在过滤）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@GetMapping(&quot;/codeinject/sec&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">codeInjectSec</span><span class="hljs-params">(String filepath)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">filterFilePath</span> <span class="hljs-operator">=</span> SecurityUtil.cmdFilter(filepath);  <span class="hljs-comment">//过滤</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-literal">null</span> == filterFilePath) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Bad boy. I got u.&quot;</span>;<br>        &#125;<br>        <span class="hljs-comment">//String[] cmdList = new String[]&#123;&quot;cmd&quot;, &quot;-c&quot;, &quot;dir -la &quot; + filterFilePath&#125;;</span><br>        String[] cmdList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-string">&quot;/c&quot;</span>, <span class="hljs-string">&quot;dir  &quot;</span> + filterFilePath&#125;;<br>        <span class="hljs-type">ProcessBuilder</span> <span class="hljs-variable">builder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProcessBuilder</span>(cmdList);<br>        builder.redirectErrorStream(<span class="hljs-literal">true</span>);<br>        <span class="hljs-type">Process</span> <span class="hljs-variable">process</span> <span class="hljs-operator">=</span> builder.start();<br>        <span class="hljs-keyword">return</span> WebUtils.convertStreamToString(process.getInputStream());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>追踪<code>cmdFilter</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> string <span class="hljs-title function_">cmdFilter</span><span class="hljs-params">(string input)</span>&#123;<br>    <span class="hljs-keyword">if</span>(!FILTER PATTERN.matcher(input).matches())&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br><span class="hljs-keyword">return</span> input;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>查看FILTER PATTERN（常量）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Pattern <span class="hljs-type">FILTER</span> <span class="hljs-variable">PATTERN</span> <span class="hljs-operator">=</span> Pattern.compile(<span class="hljs-string">&quot;^[a-zA-Z0-9 /\\.-]+$&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>FILTER PATTERN过滤（大小写，特殊字符）</p>
+<p>出现命令注入时，有特殊字符返回null</p>
+</li>
+<li><p>所以不行</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h2><p>\src\main\java\org\joychou\controller\Rce.java</p>
+<p>（已经展示了命令执行过程）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/rce&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Rce</span> &#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/runtime/exec&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">CommandExec</span><span class="hljs-params">(String cmd)</span> &#123;<br>        <span class="hljs-type">Runtime</span> <span class="hljs-variable">run</span> <span class="hljs-operator">=</span> Runtime.getRuntime();<span class="hljs-comment">//直接执行，无过滤</span><br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">Process</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> run.exec(cmd);<br>            <span class="hljs-type">BufferedInputStream</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedInputStream</span>(p.getInputStream());<br>            <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">inBr</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(in));<br>            String tmpStr;<br><br>            <span class="hljs-keyword">while</span> ((tmpStr = inBr.readLine()) != <span class="hljs-literal">null</span>) &#123;<br>                sb.append(tmpStr);<br>            &#125;<br><br>            <span class="hljs-keyword">if</span> (p.waitFor() != <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">if</span> (p.exitValue() == <span class="hljs-number">1</span>)<br>                    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Command exec failed!!&quot;</span>;<br>            &#125;<br><br>            inBr.close();<br>            in.close();<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">return</span> e.toString();<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString();<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>Runtime.getRuntime().exec()，ProcessBuilder、通过yaml加载恶意Java对象进行命令执行，通过groovyShell进行命令执行</p>
+<p>执行之后执行结果推送回前端显示</p>
+<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p>\src\main\java\org\joychou\controller\SQLI.java</p>
+<p>定义的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java">jdbc_sqli_vul（漏洞方法）<br>jdbc_sqli_sec（安全方法）<br>jdbc_ps_vuln<br>mybatisVuln01（漏洞方法）<br>mybatisVuln02（漏洞方法）<br>mybatisVuln03（漏洞方法）<br>mybatisSec01（安全方法）<br>mybatisSec02（安全方法）<br>mybatisSec03（安全方法）<br>mybatisOrderBySec04（安全方法）<br></code></pre></td></tr></table></figure>
+
+<h3 id="jdbc-sqli-vul"><a href="#jdbc-sqli-vul" class="headerlink" title="jdbc_sqli_vul"></a>jdbc_sqli_vul</h3><ol>
+<li><pre><code class="java">/**
+     * &lt;p&gt;Sql injection jbdc vuln code.&lt;/p&gt;&lt;br&gt;
+     *
+     * &lt;a href=&quot;http://localhost:8080/sqli/jdbc/vuln?username=joychou&quot;&gt;http://localhost:8080/sqli/jdbc/vuln?username=joychou&lt;/a&gt;
+     */
+    @RequestMapping(&quot;/jdbc/vuln&quot;)
+    public String jdbc_sqli_vul(@RequestParam(&quot;username&quot;) String username) &#123;
+
+        StringBuilder result = new StringBuilder();
+
+        try &#123;
+            Class.forName(driver);
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            if (!con.isClosed())
+                System.out.println(&quot;Connect to database successfully.&quot;);
+
+            // sqli vuln code
+            Statement statement = con.createStatement();
+            String sql = &quot;select * from users where username = &#39;&quot; + username + &quot;&#39;&quot;;    //直接拼接語句存在sql漏洞
+            logger.info(sql);
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) &#123;
+                String res_name = rs.getString(&quot;username&quot;);
+                String res_pwd = rs.getString(&quot;password&quot;);
+                String info = String.format(&quot;%s: %s\n&quot;, res_name, res_pwd);
+                result.append(info);
+                logger.info(info);
+            &#125;
+            rs.close();
+            con.close();
+
+
+        &#125; catch (ClassNotFoundException e) &#123;
+            logger.error(&quot;Sorry, can&#39;t find the Driver!&quot;);
+        &#125; catch (SQLException e) &#123;
+            logger.error(e.toString());
+        &#125;
+        return result.toString();
+    &#125;
+
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br>   直接拼接語句存在<span class="hljs-keyword">sql</span>漏洞（对于参数username进行带入数据库查询）<br><br><span class="hljs-number">2.</span> payload<br><br>   username=<span class="hljs-number">1</span><span class="hljs-string">&#x27; or &#x27;</span><span class="hljs-number">1</span><span class="hljs-string">&#x27;=&#x27;</span><span class="hljs-number">1</span><br>   url编码：username=<span class="hljs-number">1</span>%<span class="hljs-number">27</span>%<span class="hljs-number">20</span><span class="hljs-keyword">or</span>%<span class="hljs-number">20</span>%<span class="hljs-number">271</span>%<span class="hljs-number">27</span>=%<span class="hljs-number">271</span><br><br>   最终的payload：sqli/jdbc/vuln?username=<span class="hljs-number">1</span>%<span class="hljs-number">27</span>%<span class="hljs-number">20</span><span class="hljs-keyword">or</span>%<span class="hljs-number">20</span>%<span class="hljs-number">271</span>%<span class="hljs-number">27</span>=%<span class="hljs-number">271</span><br><br>### jdbc_sqli_sec<br><br><span class="hljs-number">1.</span> ```java<br>       <span class="hljs-comment">/**</span><br><span class="hljs-comment">        * &lt;p&gt;Sql injection jbdc security code by using &#123;@link PreparedStatement&#125;.&lt;/p&gt;&lt;br&gt;</span><br><span class="hljs-comment">        *</span><br><span class="hljs-comment">        * &lt;a href=&quot;http://localhost:8080/sqli/jdbc/sec?username=joychou&quot;&gt;http://localhost:8080/sqli/jdbc/sec?username=joychou&lt;/a&gt;</span><br><span class="hljs-comment">        */</span><br>       @RequestMapping(&quot;/jdbc/sec&quot;)<br>       <span class="hljs-built_in">public</span> String jdbc_sqli_sec(@RequestParam(&quot;username&quot;) String username) &#123;<br>   <br>           StringBuilder result = <span class="hljs-built_in">new</span> StringBuilder();<br>           try &#123;<br>               <span class="hljs-keyword">Class</span>.forName(driver);<br>               <span class="hljs-keyword">Connection</span> con = DriverManager.getConnection(url, <span class="hljs-keyword">user</span>, <span class="hljs-keyword">password</span>);<br>   <br>               <span class="hljs-keyword">if</span> (!con.isClosed())<br>                   <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;Connect to database successfully.&quot;);<br>   <br>               // fix code<br>               String <span class="hljs-keyword">sql</span> = &quot;select * from users where username = ?&quot;;<br>               <br>               PreparedStatement st = con.prepareStatement(<span class="hljs-keyword">sql</span>);//使用了PreparedStatement接口来访问数据库   <br>               <br>               st.setString(<span class="hljs-number">1</span>, username);<br>   <br>               logger.<span class="hljs-keyword">info</span>(st.toString());  // <span class="hljs-keyword">sql</span> <span class="hljs-keyword">after</span> <span class="hljs-keyword">prepare</span> <span class="hljs-keyword">statement</span><br>               ResultSet rs = st.executeQuery();<br>   <br>               <span class="hljs-keyword">while</span> (rs.next()) &#123;<br>                   String res_name = rs.getString(&quot;username&quot;);<br>                   String res_pwd = rs.getString(&quot;password&quot;);<br>                   String <span class="hljs-keyword">info</span> = String.format(&quot;%s: %s\n&quot;, res_name, res_pwd);<br>                   result.append(<span class="hljs-keyword">info</span>);<br>                   logger.<span class="hljs-keyword">info</span>(<span class="hljs-keyword">info</span>);<br>               &#125;<br>   <br>               rs.<span class="hljs-keyword">close</span>();<br>               con.<span class="hljs-keyword">close</span>();<br>   <br>           &#125; catch (ClassNotFoundException e) &#123;<br>               logger.error(&quot;Sorry, can&#x27;t find the Driver!&quot;);<br>               e.printStackTrace();<br>           &#125; catch (SQLException e) &#123;<br>               logger.error(e.toString());<br>           &#125;<br>           <span class="hljs-keyword">return</span> result.toString();<br>       &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">st</span> <span class="hljs-operator">=</span> con.prepareStatement(sql);<span class="hljs-comment">//使用了PreparedStatement接口来访问数据库</span><br></code></pre></td></tr></table></figure>
+
+- `PreparedStatement` 接口是 Java 中用于执行预编译 SQL 语句的关键接口，它继承自 `Statement` 接口，主要用于执行参数化 SQL 语句。使用 `PreparedStatement` 可以有效防止 SQL 注入攻击，并且在执行多次相同结构的 SQL 语句时能提高性能。
+
+  **防护sql：**
+
+  1. 使用预编译：使用？（占位符）传递参数，数据库自动处理参数转义
+
+     解释：对于php使用？传入的未限制是数字还是字符；但是java中使用？传入限制只能是数字，如果不是数字，那么会加以过滤（转义/加入特殊字符）
+
+     eg：
+
+     | **用户输入**           | **字符串拼接结果**                             | **预编译处理结果**                           |
+     | ---------------------- | ---------------------------------------------- | -------------------------------------------- |
+     | `1`                    | `WHERE id = &#39;1&#39;`                               | `WHERE id = 1`                               |
+     | `1 OR 1=1`             | `WHERE id = &#39;1 OR 1=1&#39;`（逻辑被篡改）          | `WHERE id = &#39;1 OR 1=1&#39;`（纯字符串）          |
+     | `1&#39;; DROP TABLE users` | `WHERE id = &#39;1&#39;; DROP TABLE users`（表被删除） | `WHERE id = &#39;1\&#39;; DROP TABLE users&#39;`（安全） |
+
+  2. 存在对于特殊字符的转义
+
+  3. 禁用动态 SQL 拼接：避免在代码中手动拼接 SQL，尤其是包含用户输入的部分。若必须使用动态 SQL，需严格验证输入。
+</code></pre>
+</li>
+<li><p>所以java中：<br>不只order by，凡是字符串但又不能加引号的位置都不能参数化；包括sql关键字、库名表名字段名函数名等等”，（在有些SQL语句中还是会必然使用到拼接的方式）</p>
+<p>所以不可注入</p>
+</li>
+</ol>
+<h3 id="jdbc-ps-vuln"><a href="#jdbc-ps-vuln" class="headerlink" title="jdbc_ps_vuln"></a>jdbc_ps_vuln</h3><p>也是使用预处理（同上）</p>
+<h3 id="mybatisVuln01-02-03"><a href="#mybatisVuln01-02-03" class="headerlink" title="mybatisVuln01   02   03"></a>mybatisVuln01   02   03</h3><p>\src\main\java\org\joychou\controller\SQLI.java</p>
+<ol>
+<li><pre><code class="java"> @GetMapping(&quot;/mybatis/sec01&quot;)
+    public User mybatisSec01(@RequestParam(&quot;username&quot;) String username) &#123;
+        return userMapper.findByUserName(username);
+    &#125;
+ @GetMapping(&quot;/mybatis/sec02&quot;)
+    public User mybatisSec02(@RequestParam(&quot;id&quot;) Integer id) &#123;
+        return userMapper.findById(id);
+    &#125;
+  @GetMapping(&quot;/mybatis/sec03&quot;)
+    public User mybatisSec03() &#123;
+        return userMapper.OrderByUsername();
+    &#125;
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">2.</span> 查看map类 <br><br>   \src\main\resources\mapper\UserMapper.xml<br><br>   **<span class="hljs-number">02</span>**<br><br>   ```<span class="hljs-type">xml</span><br>    &lt;<span class="hljs-keyword">select</span> id=&quot;findByUserNameVuln02&quot; parameterType=&quot;String&quot; resultMap=&quot;User&quot;&gt;<br>           <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> users <span class="hljs-keyword">where</span> username <span class="hljs-keyword">like</span> <span class="hljs-string">&#x27;%$&#123;_parameter&#125;%&#x27;</span><br>       &lt;/<span class="hljs-keyword">select</span>&gt;<br>   <br>   #使用<span class="hljs-keyword">like</span>进行拼接<span class="hljs-keyword">sql</span>语句$&#123;_parameter&#125;是 MyBatis 的字符串替换，会直接将参数内容拼接到 <span class="hljs-keyword">SQL</span> 中<br></code></pre></td></tr></table></figure>
+
+解决：
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;findByUserNameSafe&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;User&quot;</span>&gt;</span><br>    select * from users where username like concat(&#x27;%&#x27;,#&#123;_parameter&#125;,&#x27;%&#x27;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><br>#使用concat(&#x27;%&#x27;,#&#123;_parameter&#125;,&#x27;%&#x27;)的方式进行查询<br></code></pre></td></tr></table></figure>
+
+**03**
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"> <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;findByUserNameVuln03&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;User&quot;</span>&gt;</span><br>        select * from users<br>        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;order != null&quot;</span>&gt;</span><br>            order by $&#123;order&#125; asc<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><br>#$&#123;&#125;使用的是拼接的方式导致的漏洞产生<br></code></pre></td></tr></table></figure>
+
+解决：
+
+如果是order by后的占位，则最好根据情况通过`if-elseif-else`来分情况实现。
+
+`mybatisOrderBySec04`
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">   <br></code></pre></td></tr></table></figure>
+
+**01**
+
+\target\classes\org\joychou\mapper\UserMapper.class
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserMapper</span> &#123;<br>    <span class="hljs-meta">@Select(&#123;&quot;select * from users where username = #&#123;username&#125;&quot;&#125;)</span><br>    User <span class="hljs-title function_">findByUserName</span><span class="hljs-params">(<span class="hljs-meta">@Param(&quot;username&quot;)</span> String var1)</span>;<br><br>    <span class="hljs-meta">@Select(&#123;&quot;select * from users where username = &#x27;$&#123;username&#125;&#x27;&quot;&#125;)</span><br>    List&lt;User&gt; <span class="hljs-title function_">findByUserNameVuln01</span><span class="hljs-params">(<span class="hljs-meta">@Param(&quot;username&quot;)</span> String var1)</span>;<br><br>#$&#123;&#125;使用的是拼接的方式导致的漏洞产生<br></code></pre></td></tr></table></figure>
+
+解决：
+
+正确的使用方法应该是使用`#`号来进行占位
+</code></pre>
+</li>
+</ol>
+<h3 id="mybatisOrderBySec04"><a href="#mybatisOrderBySec04" class="headerlink" title="mybatisOrderBySec04"></a>mybatisOrderBySec04</h3><ol>
+<li><pre><code class="java">@GetMapping(&quot;/mybatis/orderby/sec04&quot;)
+public List&lt;User&gt; mybatisOrderBySec04(@RequestParam(&quot;sort&quot;) String sort) &#123;
+    return userMapper.findByUserNameVuln03(SecurityUtil.sqlFilter(sort));//存在过滤函数
+&#125;
+<figure class="highlight wren"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs wren"><br><span class="hljs-number">2.</span> 追溯<span class="hljs-variable">sqlFilter</span><br><br>   \<span class="hljs-variable">src</span>\<span class="hljs-variable">main</span>\<span class="hljs-variable">java</span>\<span class="hljs-variable">org</span>\<span class="hljs-variable">joychou</span>\<span class="hljs-variable">security</span>\<span class="hljs-title class_">SecurityUtil</span>.<span class="hljs-property">java</span><br><br>   ```<span class="hljs-variable">java</span><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">        * 过滤mybatis中order by不能用#的情况。</span><br><span class="hljs-comment">        * 严格限制用户输入只能包含&lt;code&gt;a-zA-Z0-9_-.&lt;/code&gt;字符。</span><br><span class="hljs-comment">        *</span><br><span class="hljs-comment">        * <span class="hljs-doctag">@param</span> sql sql</span><br><span class="hljs-comment">        * <span class="hljs-doctag">@return</span> 安全sql，否则返回null</span><br><span class="hljs-comment">        */</span><br>       <span class="hljs-variable">public</span> <span class="hljs-keyword">static</span> <span class="hljs-title class_">String</span> <span class="hljs-title function_">sqlFilter</span>(<span class="hljs-params">String</span> <span class="hljs-params">sql</span>) &#123;<br>           <span class="hljs-keyword">if</span> (<span class="hljs-operator">!</span><span class="hljs-variable">FILTER_PATTERN</span>.<span class="hljs-property">matcher</span>(<span class="hljs-variable">sql</span>).<span class="hljs-property">matches</span>()) &#123;<br>               <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>           &#125;<br>           <span class="hljs-keyword">return</span> <span class="hljs-variable">sql</span>;<br>       &#125;<br></code></pre></td></tr></table></figure>
+
+FILTER_PATTERN：
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Pattern</span> <span class="hljs-variable">FILTER_PATTERN</span> <span class="hljs-operator">=</span> Pattern.compile(<span class="hljs-string">&quot;^[a-zA-Z0-9_/\\.-]+$&quot;</span>);<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>过滤mybatis中order by不能用#的情况。<br> 严格限制用户输入只能包含<code>a-zA-Z0-9_-.</code>字符</p>
+<p>@param sql sql<br>@return 安全sql，否则返回null</p>
+</li>
+</ol>
+<h2 id="SSTI服务器模板注入"><a href="#SSTI服务器模板注入" class="headerlink" title="SSTI服务器模板注入"></a>SSTI服务器模板注入</h2><p>\src\main\java\org\joychou\controller\SSTI.java</p>
+<p>主要是使用<strong>Velocity组件</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/ssti&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SSTI</span> &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * SSTI of Java velocity. The latest Velocity version still has this problem.</span><br><span class="hljs-comment">     * Fix method: Avoid to use Velocity.evaluate method.</span><br><span class="hljs-comment">     * &lt;p&gt;</span><br><span class="hljs-comment">     * http://localhost:8080/ssti/velocity?template=%23set($e=%22e%22);$e.getClass().forName(%22java.lang.Runtime%22).getMethod(%22getRuntime%22,null).invoke(null,null).exec(%22open%20-a%20Calculator%22)</span><br><span class="hljs-comment">     * Open a calculator in MacOS.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> template exp</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@GetMapping(&quot;/velocity&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">velocity</span><span class="hljs-params">(String template)</span> &#123;<br>        Velocity.init();<br><br>        <span class="hljs-type">VelocityContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">VelocityContext</span>();<br><br>        context.put(<span class="hljs-string">&quot;author&quot;</span>, <span class="hljs-string">&quot;Elliot A.&quot;</span>);<br>        context.put(<span class="hljs-string">&quot;address&quot;</span>, <span class="hljs-string">&quot;217 E Broadway&quot;</span>);<br>        context.put(<span class="hljs-string">&quot;phone&quot;</span>, <span class="hljs-string">&quot;555-1337&quot;</span>);<br><br>        <span class="hljs-type">StringWriter</span> <span class="hljs-variable">swOut</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringWriter</span>();<br>        Velocity.evaluate(context, swOut, <span class="hljs-string">&quot;test&quot;</span>, template);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>主要是Velocity组件模板·存在漏洞</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/news/14795">https://xz.aliyun.com/news/14795</a></p>
+<h2 id="路径遍历"><a href="#路径遍历" class="headerlink" title="路径遍历"></a>路径遍历</h2><ol>
+<li><p>\src\main\java\org\joychou\controller\PathTraversal.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">     * http://localhost:8080/path_traversal/vul?filepath=../../../../../etc/passwd</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@GetMapping(&quot;/path_traversal/vul&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getImage</span><span class="hljs-params">(String filepath)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-keyword">return</span> getImgBase64(filepath);<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>输入路径之后，<code>filepath</code> 参数直接传递给 <code>getImgBase64</code> 方法，未做任何验证，只存在一个basa64编码（getImgBase64）</p>
+</li>
+<li><p>追溯getImgBase64</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String <span class="hljs-title function_">getImgBase64</span><span class="hljs-params">(String imgFile)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br><br>        logger.info(<span class="hljs-string">&quot;Working directory: &quot;</span> + System.getProperty(<span class="hljs-string">&quot;user.dir&quot;</span>));<br>        logger.info(<span class="hljs-string">&quot;File path: &quot;</span> + imgFile);<br><br>        <span class="hljs-type">File</span> <span class="hljs-variable">f</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(imgFile);<br>        <span class="hljs-keyword">if</span> (f.exists() &amp;&amp; !f.isDirectory()) &#123;<br>            <span class="hljs-type">byte</span>[] data = Files.readAllBytes(Paths.get(imgFile));<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(Base64.encodeBase64(data));<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;File doesn&#x27;t exist or is not a file.&quot;</span>;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>payload：<a target="_blank" rel="noopener" href="http://localhost:9000/path_traversal/vul?filepath=d:/test.txt">http://localhost:9000/path_traversal/vul?filepath=d:/test.txt</a></p>
+<p>读取D盘下的测试文件（发现可以成功读取内容）</p>
+</li>
+</ol>
+<p><strong>解决：</strong>（过滤）</p>
+<ol>
+<li>使用白名单过滤、</li>
+<li>使用 <code>Path</code> 和 <code>normalize()</code> 方法（根目录怕拼接）<ul>
+<li>使用 <code>Path.resolve()</code> 而非字符串拼接。</li>
+<li>使用 <code>normalize()</code> 方法规范化路径，防止 <code>../</code> 绕过。</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>\src\main\java\org\joychou\controller\FileUpload.java</p>
+<ol>
+<li><p>无过滤</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@PostMapping(&quot;/upload&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">singleFileUpload</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> MultipartFile file,</span><br><span class="hljs-params">                                   RedirectAttributes redirectAttributes)</span> &#123;<br>        <span class="hljs-keyword">if</span> (file.isEmpty()) &#123;<br>            <span class="hljs-comment">// 赋值给uploadStatus.html里的动态参数message</span><br>            redirectAttributes.addFlashAttribute(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-string">&quot;Please select a file to upload&quot;</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/file/status&quot;</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">// Get the file and save it somewhere</span><br>            <span class="hljs-type">byte</span>[] bytes = file.getBytes();<br>            <span class="hljs-type">Path</span> <span class="hljs-variable">path</span> <span class="hljs-operator">=</span> Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());<br>            Files.write(path, bytes);<br><br>            redirectAttributes.addFlashAttribute(<span class="hljs-string">&quot;message&quot;</span>,<br>                    <span class="hljs-string">&quot;You successfully uploaded &#x27;&quot;</span> + UPLOADED_FOLDER + file.getOriginalFilename() + <span class="hljs-string">&quot;&#x27;&quot;</span>);<br><br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            redirectAttributes.addFlashAttribute(<span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-string">&quot;upload failed&quot;</span>);<br>            logger.error(e.toString());<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/file/status&quot;</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>上传文件  未判断文件的类型、扩展名等信息，未对生成文件的文件名进行重置</p>
+<p>​				 直接将文件上传到文件保存目录中</p>
+</li>
+<li><p>payload</p>
+<p>直接上传</p>
+</li>
+</ol>
+<p>解决：</p>
+<ol>
+<li>使用<strong>白名单</strong>校验扩展名（如 <code>jpg</code>, <code>png</code>, <code>pdf</code>）</li>
+<li>双重验证 MIME 类型（<code>file.getContentType()</code>）</li>
+<li>对上传图片实际内容的判断，如果图片可以正常读取，就判断其为允许上传文件，否则上传失败。</li>
+<li>生成安全文件名（设置成随机字符拼接…）（防止路径遍历和注入）</li>
+</ol>
+<ul>
+<li>如果上传文件名是路径（..&#x2F;是向上跳转，最后会出现路劲遍历的漏洞）</li>
+<li>攻击者知道服务器上已有重要文件（比如其他用户上传的合法文件 <code>avatar.jpg</code>），可以故意使用相同的文件名上传恶意文件（攻击文件），直接覆盖原文件。后续用户访问执行恶意代码</li>
+</ul>
+<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>\src\main\java\org\joychou\controller\XSS.java</p>
+<ul>
+<li><ol>
+<li><pre><code class="java">/**
+     * Vuln Code.
+     * ReflectXSS
+     * http://localhost:8080/xss/reflect?xss=&lt;script&gt;alert(1)&lt;/script&gt;
+     *
+     * @param xss unescape string
+     */
+    @RequestMapping(&quot;/reflect&quot;)
+    @ResponseBody
+    public static String reflect(String xss) &#123;
+        return xss;
+    &#125;
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br>   参数未做过滤，直接显示在前端页面<br><br>2. payload<br><br>   直接在url中编写xss脚本即可<br><br>   ```html<br>   localhost:9000/xss/reflect?xss=<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>alert(1)<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><pre><code class="java"> /**
+     * Vul Code.
+     * StoredXSS Step1
+     * http://localhost:8080/xss/stored/store?xss=&lt;script&gt;alert(1)&lt;/script&gt;
+     *
+     * @param xss unescape string
+     */
+    @RequestMapping(&quot;/stored/store&quot;)
+    @ResponseBody
+    public String store(String xss, HttpServletResponse response) &#123;
+        Cookie cookie = new Cookie(&quot;xss&quot;, xss);
+        response.addCookie(cookie);
+        return &quot;Set param into cookie&quot;;
+    &#125;
+   
+    /**
+     * Vul Code.
+     * StoredXSS Step2
+     * http://localhost:8080/xss/stored/show
+     *
+     * @param xss unescape string
+     */
+    @RequestMapping(&quot;/stored/show&quot;)
+    @ResponseBody
+    public String show(@CookieValue(&quot;xss&quot;) String xss) &#123;
+        return xss;
+    &#125;
+   
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><br>   存储型xss漏洞<br><br>   ​	store方法将未经过滤的参数直接存储于cookie中<br><br>   ​	show方法在cookie中将存储的漏洞参数直接显示在页面上<br><br><span class="hljs-bullet">2.</span> payload<br><br></code></pre></td></tr></table></figure>
+写入&lt;script&gt;alert(1)&lt;/script&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<p>解决：</p>
+<ol>
+<li>输入转义（重要）</li>
+<li>限制长度</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="category-chain-item">代码审计</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="print-no-link">#Java代码审计</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>java-sec-code-master搭建&amp;&amp;审计</div>
+      <div>http://example.com/2025/10/27/java-sec-code-master搭建&amp;&amp;审计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>running</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/27/sqlilab%E9%A2%98%E8%A7%A3&amp;&amp;%E6%80%BB%E7%BB%93/" title="sqlilab题解&amp;&amp;总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">sqlilab题解&amp;&amp;总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/27/SmartBi-8.5%E6%90%AD%E5%BB%BA&amp;&amp;%E5%AE%A1%E8%AE%A1/" title="SmartBi-8.5搭建&amp;&amp;审计">
+                        <span class="hidden-mobile">SmartBi-8.5搭建&amp;&amp;审计</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
