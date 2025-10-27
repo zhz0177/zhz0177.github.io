@@ -1,0 +1,1025 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="running">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="newbee mall搭建&amp;&amp;审计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="newbee mall搭建&amp;&amp;审计">
+<meta property="og:url" content="http://example.com/2025/10/27/newbee%20mall%E6%90%AD%E5%BB%BA&&%E5%AE%A1%E8%AE%A1/index.html">
+<meta property="og:site_name" content="running">
+<meta property="og:description" content="newbee mall搭建&amp;&amp;审计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162925796.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162930502.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162944166.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162946291.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162948432.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162949866.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162953339.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163139933.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162956964.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162958998.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163002814.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163004797.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163006124.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163008180.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163010034.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163014918.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163016401.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163018219.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163019713.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163021921.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163024553.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163026770.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163028092.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163029780.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163031202.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163033016.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163034498.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163036179.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163037476.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163038729.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163215149.png">
+<meta property="og:image" content="c:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20251015214259650.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163044634.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163046794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163048125.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163053058.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163055483.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163105549.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163106531.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163113629.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163114921.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163116396.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163118857.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163121952.png">
+<meta property="article:published_time" content="2025-10-27T08:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-27T08:38:09.909Z">
+<meta property="article:author" content="running">
+<meta property="article:tag" content="Java代码审计">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162925796.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>newbee mall搭建&amp;&amp;审计 - running</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>running</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="newbee mall搭建&amp;&amp;审计"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-27 16:00" pubdate>
+          2025年10月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">newbee mall搭建&amp;&amp;审计</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="搭建："><a href="#搭建：" class="headerlink" title="搭建："></a>搭建：</h1><p>我用的是IDEA</p>
+<ol>
+<li><p>下载源码</p>
+<p>链接如下：<a target="_blank" rel="noopener" href="https://github.com/newbee-ltd/newbee-mall">https://github.com/newbee-ltd/newbee-mall</a></p>
+<p>直接在github下载即可</p>
+</li>
+<li><p>在phpstudy打开web环境，新建数据库，如下：（<strong>数据库名称一定要是newbee_mall_db</strong>）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162925796.png" srcset="/img/loading.gif" lazyload alt="image-20250929102955907"></p>
+</li>
+<li><p>然后导入sql文件（源码包里面就有）</p>
+<p>记得先修改这个配置文件<code>（修改数据库名和用户名）</code></p>
+<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162930502.png" srcset="/img/loading.gif" lazyload alt="image-20250926153103159" style="zoom:50%;" />
+
+<p>然后导入即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">\newbee-mall-master\src\main\resources\newbee_mall_schema.sql<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在Navicat Premium 17连接数据库</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162944166.png" srcset="/img/loading.gif" lazyload alt="image-20250929103058046"></p>
+</li>
+<li><p>弹出即说明成功启动</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162946291.png" srcset="/img/loading.gif" lazyload alt="image-20250926153457729"></p>
+</li>
+<li><p>直接输入</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:28089/%E5%8D%B3%E5%8F%AF">http://localhost:28089/即可</a></p>
+</li>
+</ol>
+<h1 id="审计："><a href="#审计：" class="headerlink" title="审计："></a>审计：</h1><h2 id="初审"><a href="#初审" class="headerlink" title="初审"></a>初审</h2><p><strong>先看pom.xml配置文件以及README.md</strong></p>
+<ol>
+<li><p>README.md中存在<strong>MyBatis</strong>，可能存在sql注入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162948432.png" srcset="/img/loading.gif" lazyload alt="image-20250929104432693"></p>
+</li>
+<li><p>通过搜索发现存在拦截器<strong>interceptor</strong>，可能存在越权漏洞</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162949866.png" srcset="/img/loading.gif" lazyload alt="image-20250929104637782"></p>
+</li>
+<li><p>controller目录中也可能存在越权漏洞，下面具体审计可以跟着看一下</p>
+<p>水平越权漏洞</p>
+<ul>
+<li>或者在篡改相关参数（请求参数 &#x2F; 表单字段 &#x2F; JSON 字段）</li>
+<li>要么就是修改之中存在注入点，需要替换用户</li>
+<li>在url使用参数切换用户或者管理员id未校验，尝试替换 ID（+1、-1、随机大&#x2F;小 ID、其它已知用户的 ID）</li>
+<li>文件&#x2F;图片等直接用可访问 URL，访问其它用户的文件路径或修改 URL（没有权限校验或短期 token）</li>
+<li>token 换取其他用户的数据</li>
+<li>直接访问管理&#x2F;内部接口，扫列出隐藏路由、尝试访问 <code>/admin</code>、<code>/internal</code>、<code>/debug</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h2><ol>
+<li><p>接上面说的，存在MyBatis，直接检索${，主要是查看${} 拼接 SQL 语句</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162953339.png" srcset="/img/loading.gif" lazyload alt="image-20251014104614955"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163139933.png" srcset="/img/loading.gif" lazyload alt="image-20251014104622698"></p>
+<p>都找不到和sql相关的东西</p>
+<p>说明可能使用<code>#代替$</code>实现sql的预编译，防止了sql注入（可能是版本问题，这个漏洞修复了emmm）</p>
+</li>
+<li><p>查找<code>#&#123;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162956964.png" srcset="/img/loading.gif" lazyload alt="image-20251014105140910"></p>
+<p>进去分析一下</p>
+<p>使用了直接拼接的方式向数据库进行查询（但是预编译即已修复）</p>
+</li>
+<li><p>所以可以查看NewBeeMallGoodsMapper.java <strong>（逆向追踪）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162958998.png" srcset="/img/loading.gif" lazyload alt="image-20251014145410972"></p>
+<p>找到传参定义，跟近函数</p>
+</li>
+<li><p>跟进到getTotalNewBeeMallGoods</p>
+<p>C:\Users\95227\Desktop\newbee-mall-master\src\main\java\ltd\newbee\mall\service\impl\NewBeeMallGoodsServiceImpl.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> PageResult <span class="hljs-title function_">getNewBeeMallGoodsPage</span><span class="hljs-params">(PageQueryUtil pageUtil)</span> &#123;<br>        List&lt;NewBeeMallGoods&gt; goodsList = goodsMapper.findNewBeeMallGoodsList(pageUtil);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> goodsMapper.getTotalNewBeeMallGoods(pageUtil);<br>        <span class="hljs-type">PageResult</span> <span class="hljs-variable">pageResult</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageResult</span>(goodsList, total, pageUtil.getLimit(), pageUtil.getPage());<br>        <span class="hljs-keyword">return</span> pageResult;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>查看谁调用了getNewBeeMallGoodsPage 方法</p>
+</li>
+<li><p>跟进到NewBeeMallGoodsController</p>
+<p>C:\Users\95227\Desktop\newbee-mall-master\src\main\java\ltd\newbee\mall\controller\admin\NewBeeMallGoodsController.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value = &quot;/goods/list&quot;, method = RequestMethod.GET)</span><br>    <span class="hljs-meta">@ResponseBody</span><br>    <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">list</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> Map&lt;String, Object&gt; params)</span> &#123;<br>        <span class="hljs-keyword">if</span> (ObjectUtils.isEmpty(params.get(<span class="hljs-string">&quot;page&quot;</span>)) || ObjectUtils.isEmpty(params.get(<span class="hljs-string">&quot;limit&quot;</span>))) &#123;<br>            <span class="hljs-keyword">return</span> ResultGenerator.genFailResult(<span class="hljs-string">&quot;参数异常！&quot;</span>);<br>        &#125;<br>        <span class="hljs-type">PageQueryUtil</span> <span class="hljs-variable">pageUtil</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageQueryUtil</span>(params);<br>        <span class="hljs-keyword">return</span> ResultGenerator.genSuccessResult(newBeeMallGoodsService.getNewBeeMallGoodsPage(pageUtil));<br>    &#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>传入了 pageUtil 参数，而该参数同样通过 PageQueryUtil 类创建一个 pageUtil 对象，传入 params 作为参数，以及 params 同样是个 Map 对象。未对其进行过滤处理</p>
+</li>
+<li><p>针对版本低的源码（未修复的）</p>
+<p>直接抓包，报错注入，sqlmap跑就行了（我的漏洞已经“预编译”修复，所以我就不演示了哈）</p>
+</li>
+</ol>
+<h2 id="后台权限绕过"><a href="#后台权限绕过" class="headerlink" title="后台权限绕过"></a>后台权限绕过</h2><p>说到后台，肯定先看admin相关文件啊，所以可以找找登录后台的文件（AdminLogin）</p>
+<ol>
+<li><p>进入src&#x2F;main&#x2F;java&#x2F;ltd&#x2F;newbee&#x2F;mall&#x2F;interceptor&#x2F;AdminLoginInterceptor.java</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163002814.png" srcset="/img/loading.gif" lazyload alt="image-20251014191955489"></p>
+<p>第一步：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">requestServletPath</span> <span class="hljs-operator">=</span> request.getServletPath();<br></code></pre></td></tr></table></figure>
+
+<p>使用getServletPath传入url： getRequestURI 方法返回的路径是未经过服务器端处理的原始路径，可能包含特殊字符或路径跳转，从而绕过服务器端的安全控制</p>
+<p>第二步：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (requestServletPath.startsWith(<span class="hljs-string">&quot;/admin&quot;</span>) &amp;&amp; <span class="hljs-literal">null</span> == request.getSession().getAttribute(<span class="hljs-string">&quot;loginUser&quot;</span>)) &#123;<br></code></pre></td></tr></table></figure>
+
+<p>先判断 Uri 路径中是否以 &#x2F;admin 开头，然后以及获取并判断Session 中的 loginUser 属性是否为 null</p>
+<p>两个条件 &amp;&amp; 在一起结果为 True 的话进入条件代码</p>
+</li>
+<li><p>payload：</p>
+<ul>
+<li><p>登陆后台寻找一个后台接口（账号密码是弱密码，考考大家吧🤭）<br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163004797.png" srcset="/img/loading.gif" lazyload alt="image-20251014193025547"></p>
+</li>
+<li><p>删除cookic之后，查看回显</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163006124.png" srcset="/img/loading.gif" lazyload alt="image-20251014193040005"></p>
+<p>明显报错了</p>
+</li>
+<li><p>绕过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163008180.png" srcset="/img/loading.gif" lazyload alt="image-20251014193103330"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="XSS漏洞（1，2）"><a href="#XSS漏洞（1，2）" class="headerlink" title="XSS漏洞（1，2）"></a>XSS漏洞（1，2）</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
+<li><p>啥也不知道，先在前端进行测试（找那种可以保留的对话框，类似于评论&#x2F;弹幕的那种）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163010034.png" srcset="/img/loading.gif" lazyload alt="image-20251014193404446"></p>
+<p>搜索xss的代码<strong>没有弹窗</strong>（我觉得应该是因为存在双引号，将代码包起来了）</p>
+</li>
+<li><p>去源码中找找原因（源代码好找，看现在的url，在源代码文件夹寻找相关的代码就行）</p>
+<p>（不明确的话，存在keyword传参，所以直接在项目文件里面搜索keyword即可）</p>
+<p><strong>存在转义</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163014918.png" srcset="/img/loading.gif" lazyload alt="image-20251014194012915"></p>
+</li>
+<li><p><strong>thymeleaf模版</strong>在对th:text标签进行渲染的时候，默认对特殊字符进行了转义</p>
+<p>接着进入search.html<br>src\main\resources\templates\mall\search.html</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163016401.png" srcset="/img/loading.gif" lazyload alt="image-20251014201622548"></p>
+<p>找thymeleaf未作转义的输出，th:utext不会将字符转义</p>
+<ul>
+<li><p>第一个，存在th:utext，所以这两个功能点存在XSS。</p>
+</li>
+<li><p>第二个，detail.html因为显示的是商品信息，商品信息使用富文本编辑器，不能简单的转义处理，需要考虑正常的html标签传输，所以作者在这里使用th:utext来显示商品详细。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="xss（1）："><a href="#xss（1）：" class="headerlink" title="xss（1）："></a>xss（1）：</h3><p>进入商品信息，添加xss的payload</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163018219.png" srcset="/img/loading.gif" lazyload alt="image-20251014204318619"><br>然后（提交即可弹窗）<br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163019713.png" srcset="/img/loading.gif" lazyload alt="image-20251014204241804"></p>
+<h3 id="xss（2）："><a href="#xss（2）：" class="headerlink" title="xss（2）："></a>xss（2）：</h3><ol>
+<li><p>进入订单管理，然后添加payload</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163021921.png" srcset="/img/loading.gif" lazyload alt="image-20251014204504188"></p>
+</li>
+<li><p>提交即可弹窗</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163024553.png" srcset="/img/loading.gif" lazyload alt="image-20251014204615252"></p>
+</li>
+</ol>
+<h2 id="垂直越权"><a href="#垂直越权" class="headerlink" title="垂直越权"></a>垂直越权</h2><ol>
+<li><p>上面提到过，存在interceptor拦截器（可以寻找相关函数）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163026770.png" srcset="/img/loading.gif" lazyload alt="image-20251015154849036"></p>
+</li>
+<li><p>步入看一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163028092.png" srcset="/img/loading.gif" lazyload alt="image-20251015155304419"></p>
+<p>对url路径设置了不同的interceptor</p>
+<p>addPathPatterns表示其中的路径会经过设置的拦截器，excludePathPatterns不过该拦截器</p>
+<p><code>其中两个星**表示匹配任意字符。如果出现一个星*则表示匹配单个路径</code></p>
+</li>
+<li><p>找到拦截器，下面就要看登录页面，所以可以跟进一下NewBeeMallLoginInterceptor</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163029780.png" srcset="/img/loading.gif" lazyload alt="image-20251015210304376"></p>
+<p>用 getServletPath() 来获取最后真正分发到路由地方的 path，getRequestURI() 只是获取了请求的 URl</p>
+<p>这个意义不大</p>
+<p>所以找一下下一个类AdminLoginInterceptor</p>
+</li>
+<li><p>AdminLoginInterceptor，就是第二步骤里面的类名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163031202.png" srcset="/img/loading.gif" lazyload alt="image-20251015210714466"></p>
+<p>使用了 getRequestURI() 来获取URI来判断URI是否以 &#x2F;admin 开头，如果是 &#x2F;admin 开头则校验 session，不是则不用校验（其实这个和上面那个后台权限绕过的类似，都定位到这里了）</p>
+</li>
+<li><p>payload</p>
+<ul>
+<li><p>进入dashboard模块</p>
+<p>输入&#x2F;&#x2F;admin 或 &#x2F;index&#x2F;..;&#x2F;admin也可以成功访问到页面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163033016.png" srcset="/img/loading.gif" lazyload alt="image-20251015211040611"></p>
+<p>成功绕过了目录访问字符限制</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="水平越权漏洞（1，2）"><a href="#水平越权漏洞（1，2）" class="headerlink" title="水平越权漏洞（1，2）"></a>水平越权漏洞（1，2）</h2><p>上面的分析已经提前说过了</p>
+<p>可以看一下Controller的<strong>相关文件</strong>，直接看controller<strong>目录</strong>也行，可能存在<strong>水平越权漏洞</strong></p>
+<h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><ol>
+<li><p>在文件里面全局搜索<strong>Controller</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163034498.png" srcset="/img/loading.gif" lazyload alt="image-20251015211548470"></p>
+</li>
+<li><p>寻找到目标文件（初审里面总结一小部分注入点）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163036179.png" srcset="/img/loading.gif" lazyload alt="image-20251015212148806"></p>
+</li>
+<li><p>接着看 updateUserInfo() 的<strong>实现</strong><br>src\main\java\ltd\newbee\mall\service\impl\NewBeeMallUserServiceImpl.java</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163037476.png" srcset="/img/loading.gif" lazyload alt="image-20251015213516667"></p>
+<p>发现这里从数据库查找用户并未用到 session ，而是直接以传递过来的 userId 为参数来查找并修改数据的，所以这里存在水平越权漏洞，修改 userId 便可修改其他用户的信息。</p>
+</li>
+<li><p>payload</p>
+<ul>
+<li><p>注册一个用户，然后查看个人信息</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163038729.png" srcset="/img/loading.gif" lazyload alt="image-20251015213807750"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163215149.png" srcset="/img/loading.gif" lazyload alt="image-20251015213844712"></p>
+</li>
+<li><p>使用burp抓包，修改用户 userId <img src="C:\Users\95227\AppData\Roaming\Typora\typora-user-images\image-20251015214259650.png" srcset="/img/loading.gif" lazyload alt="image-20251015214259650" style="zoom:33%;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163044634.png" srcset="/img/loading.gif" lazyload alt="image-20251015214436198"></p>
+<p>ok，回显成功</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><ol>
+<li><p>还是根据上面的流程进入OrderController（查询订单）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163046794.png" srcset="/img/loading.gif" lazyload alt="image-20251015215316713"></p>
+</li>
+<li><p>跟进getOrderDetailByOrderNo() 函数<br>src\main\java\ltd\newbee\mall\service\impl\NewBeeMallOrderServiceImpl.java</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163048125.png" srcset="/img/loading.gif" lazyload alt="image-20251015215401216"></p>
+<p>还是id问题，输入其他id，可以查看其他人的cookic，没有绕过限制</p>
+</li>
+<li><p>payload</p>
+<p>跟上面一样抓包+改数据即可</p>
+<p>我就不演示了🤭，我相信各位大佬可以</p>
+</li>
+</ol>
+<h2 id="Csrf漏洞"><a href="#Csrf漏洞" class="headerlink" title="Csrf漏洞"></a>Csrf漏洞</h2><ol>
+<li><p>添加购物车功能，抓包，查看请求内容，没有任何token值来进行校验</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163053058.png" srcset="/img/loading.gif" lazyload alt="image-20251015215926101"></p>
+</li>
+<li><p>由于是json格式的请求，不能直接使用burp Generate CSRF PoC，因为burp生成的PoC无法伪造Content-Type。burp生成的CSRF PoC请求内容如下，可以看到Content-Type: text&#x2F;plain，并且post数据多出一个等号</p>
+<p>直接在bp的插件里面生成csrf的代码就行</p>
+<p>是一个html</p>
+</li>
+<li><p>payload</p>
+<ul>
+<li><p>对上面生成csrf的poc进行抓包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163055483.png" srcset="/img/loading.gif" lazyload alt="image-20251015220131216"></p>
+</li>
+<li><p>然后成功写入xss的payload</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163105549.png" srcset="/img/loading.gif" lazyload alt="image-20251015220157720"></p>
+</li>
+<li><p>查看页面，成功添加</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163106531.png" srcset="/img/loading.gif" lazyload alt="image-20251015220232223"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="逻辑漏洞"><a href="#逻辑漏洞" class="headerlink" title="逻辑漏洞"></a>逻辑漏洞</h2><ol>
+<li><p>下订单但未支付时，访问&#x2F;orders&#x2F;{orderNo}&#x2F;finish可直接完成交易</p>
+<p>直接看代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163113629.png" srcset="/img/loading.gif" lazyload alt="image-20251015220420234"></p>
+<p>从代码中发现直接调用newBeeMallOrderService.finishOrder(orderNo, user.getUserId())，对于该订单是否支付，是否出库等过程都<strong>没有校验</strong></p>
+</li>
+<li><p>put方式去请求即可（左边标黄的就是  <strong>putmapping</strong>）<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163114921.png" srcset="/img/loading.gif" lazyload alt="image-20251015220657894"></p>
+</li>
+<li><p>payload</p>
+<ul>
+<li><p>添加一件物品到购物车，然后提交订单</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163116396.png" srcset="/img/loading.gif" lazyload alt="image-20251015220904271"></p>
+</li>
+<li><p>点击去支付，一系列流程下来可以购买商品</p>
+<p>管理员查看显示  待支付</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163118857.png" srcset="/img/loading.gif" lazyload alt="image-20251015221005435"></p>
+</li>
+<li><p>我们使用put方式去请求</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163121952.png" srcset="/img/loading.gif" lazyload alt="image-20251015221101972"></p>
+</li>
+<li><p>查看回显成功支付商品</p>
+</li>
+</ul>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" class="print-no-link">#Java代码审计</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>newbee mall搭建&amp;&amp;审计</div>
+      <div>http://example.com/2025/10/27/newbee mall搭建&amp;&amp;审计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>running</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/27/java%E5%85%A5%E9%97%A8/" title="java入门">
+                        <span class="hidden-mobile">java入门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
