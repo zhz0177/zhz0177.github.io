@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251114213825672.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251114213825688.png">
 <meta property="article:published_time" content="2025-11-14T14:00:00.000Z">
-<meta property="article:modified_time" content="2025-11-14T13:41:45.893Z">
+<meta property="article:modified_time" content="2025-11-14T13:45:46.582Z">
 <meta property="article:author" content="running">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          734 字
+          829 字
         
       </span>
     
@@ -378,6 +378,31 @@
 <p>拼接两条链（任意-&gt;固定）</p>
 </li>
 </ul>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>本质</th>
+<th>代码谁来写？</th>
+<th>可代理方法数量</th>
+<th>是否需要接口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>静态代理</strong></td>
+<td>提前写死的代理类</td>
+<td><strong>你写代理类</strong></td>
+<td>固定（写几个代理几个）</td>
+<td>要求接口或继承</td>
+</tr>
+<tr>
+<td><strong>动态代理</strong></td>
+<td>JVM 运行时生成代理类</td>
+<td><strong>JVM 自动生成</strong></td>
+<td>无限制，自动代理全部方法</td>
+<td>JDK 要有接口（CGLIB 可无接口）</td>
+</tr>
+</tbody></table>
 
                 
               </div>
