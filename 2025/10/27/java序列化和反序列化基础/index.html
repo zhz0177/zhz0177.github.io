@@ -19,23 +19,26 @@
   <meta name="author" content="running">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="java序列化和反序列化基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2024/12/22/hello-world/index.html">
+<meta property="og:title" content="java序列化和反序列化基础">
+<meta property="og:url" content="http://example.com/2025/10/27/java%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="running">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="java序列化和反序列化基础">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-22T06:44:05.567Z">
-<meta property="article:modified_time" content="2025-11-09T09:16:27.535Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251114195036260.png">
+<meta property="article:published_time" content="2025-10-27T05:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-14T11:51:40.423Z">
 <meta property="article:author" content="running">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251114195036260.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Hello World - running</title>
+  <title>java序列化和反序列化基础 - running</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="java序列化和反序列化基础"></span>
           
         </div>
 
@@ -225,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-22 14:44" pubdate>
-          2024年12月22日 下午
+        <time datetime="2025-10-27 13:00" pubdate>
+          2025年10月27日 下午
         </time>
       </span>
     
@@ -237,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          868 字
         
       </span>
     
@@ -248,7 +251,7 @@
         
         
         
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -294,24 +297,87 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">java序列化和反序列化基础</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <h1 id="java序列化和反序列化基础"><a href="#java序列化和反序列化基础" class="headerlink" title="java序列化和反序列化基础"></a>java序列化和反序列化基础</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p> <strong>Java序列化</strong>是指把Java对象转换为字节序列的过程（将对象在内存中的状态（字段的值等）转化为序列）</p>
+<p><strong>Java反序列化</strong>是指把字节序列恢复为Java对象的过程。</p>
+<p>这样做可以将属性存放到数据库中</p>
+<p><strong>这么做原因</strong>：要在两台机器之间通过这些序列<strong>传输</strong>对象</p>
+<p><strong>常见的序列化和反序列化协议</strong>：</p>
+<ul>
+<li>XML&amp;SOAP</li>
+<li>JSON（Javascript Object Notation）</li>
+<li>Protobuf</li>
+</ul>
+<p><strong>序列化是针对对象的</strong></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><strong>序列化：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SerializationTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">serialize</span><span class="hljs-params">(Object obj)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">oos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(<span class="hljs-string">&quot;ser.bin&quot;</span>));<br>        oos.writeObject(obj);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<p>写一个类，将内容存入文件，调用writeObject方法将其序列化</p>
+<p><strong>反序列化</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UnserializeTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title function_">unserialize</span><span class="hljs-params">(String Filename)</span> <span class="hljs-keyword">throws</span> IOException, ClassNotFoundException &#123;<br>        ObjectInputStream ois= <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectInputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(Filename));<br>        <span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> ois.readObject();<br>        <span class="hljs-keyword">return</span> obj;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<p>将序列化内容存入文件，readObject读取实现反序列化</p>
+<p>注意：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><strong>读取接口</strong><code>Serializable</code>才可以序列化</p>
+<h2 id="输入输出流"><a href="#输入输出流" class="headerlink" title="输入输出流"></a>输入输出流</h2><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li><p>ObjectOutputStream代表对象输出流：</p>
+<p>它的writeObject(Object obj)方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出流中。</p>
+</li>
+<li><p>ObjectInputStream代表对象输入流：</p>
+<p>它的readObject()方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回。</p>
+</li>
+<li><p>一个实现 Serializable 接口的子类也是可以被序列化的。</p>
+</li>
+<li><p>静态成员变量是不能被序列化，<strong>序列化是针对对象属性的</strong>，而静态成员变量是属于类的。</p>
+</li>
+<li><p>transient 标识的对象成员变量不参与序列化</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251114195036260.png" srcset="/img/loading.gif" lazyload alt="image-20251111200638153"></p>
+<p>此处name的变量被transient标记</p>
+</li>
+<li><p>idea原生可以自己写readObject()和writeObject()</p>
+<p>比如在建立一个数组下限是100，但是实际使用了30，而全部序列化产生了浪费</p>
+<p>所以可以自己写方法，调用时，<strong>优先调用自己写的方法</strong></p>
+</li>
+<li><p>serialVersionUID， 用于验证版本一致性</p>
+<p>发生改变有三种情况：</p>
+<ol>
+<li>手动去修改导致当前的 serialVersionUID 与序列化前的不一样。</li>
+<li>我们根本就没有手动去写这个 serialVersionUID 常量，那么 JVM 内部会根据类结构去计算得到这个 serialVersionUID 值，在类结构发生改变时(属性增加，删除或者类型修改了)这种也是会导致 serialVersionUID 发生变化。</li>
+<li>假如类结构没有发生改变，并且没有定义 serialVersionUID ，但是反序列和序列化操作的虚拟机不一样也可能导致计算出来的 serialVersionUID 不一样。</li>
+</ol>
+</li>
+</ul>
+<h3 id="漏洞危害"><a href="#漏洞危害" class="headerlink" title="漏洞危害"></a>漏洞危害</h3><p><strong>为什么会产生安全问题?：</strong></p>
+<p>只要服务端反序列化数据，客户端传递类的readObject中代码会<strong>自动执行</strong>，给予攻击者在服务器上运行代码的能力。</p>
+<p><strong>可能的形式</strong>：</p>
+<ol>
+<li><p>入口类的readObject直接调用危险方法。</p>
+<p>自己写的readObject，直接加<strong>命令执行</strong>的危害代码</p>
+</li>
+<li><p>入口类参数中包含可控类，该类有危险方法，readObject时调用。<strong>（类套类）</strong></p>
+<ul>
+<li><p>共同条件 继承Serializable</p>
+<ul>
+<li><p>入口类 source (重写readObject 参数类型宽泛 最好jdk自带)———&gt;mapper   HashMapper</p>
+<p>接口重写readObject原因：不同主机jvm，所写出来的哈希值不同，需要拆解对象，单独计算元素，需要重新指向readObject</p>
+</li>
+<li><p>调用链 gadget chain     （相同名称   相同类型）</p>
+</li>
+<li><p>执行类 sink     (rce ssrf 写文件等等）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>入口类参数中包含可控类，该类又调用其他有危险方法的类，readObject时调用。</p>
+</li>
+</ol>
 
                 
               </div>
@@ -320,6 +386,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/" class="print-no-link">#Java</a>
+      
+    </div>
   
 </div>
 
@@ -329,8 +423,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://example.com/2024/12/22/hello-world/</div>
+      <div>java序列化和反序列化基础</div>
+      <div>http://example.com/2025/10/27/java序列化和反序列化基础/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +436,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月22日</div>
+          <div>2025年10月27日</div>
         </div>
       
       
@@ -374,9 +468,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/10/27/java%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%9F%BA%E7%A1%80/" title="java序列化和反序列化基础">
+                      <a href="/2025/10/27/java%E5%85%A5%E9%97%A8/" title="java入门">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">java序列化和反序列化基础</span>
+                        <span class="hidden-mobile">java入门</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -384,8 +478,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/10/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
-                        <span class="hidden-mobile">测试文章</span>
+                      <a href="/2024/12/22/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
