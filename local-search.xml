@@ -399,31 +399,6 @@
   
   
   <entry>
-    <title>php高危</title>
-    <link href="/2025/10/27/php%E9%AB%98%E5%8D%B1/"/>
-    <url>/2025/10/27/php%E9%AB%98%E5%8D%B1/</url>
-    
-    <content type="html"><![CDATA[<ul><li><p>yes 需要  no 不需要</p></li><li><p>文件类型操作</p></li><li><ul><li>file() 函数读取整个文件</li><li>fgets() 读取一行数据</li><li>fgetc() 读取一个字符</li><li>fwrite()函数  可以进行文件写入操作</li><li>file_put_contentt()函数 可以对文件进行写入操作</li><li>file_get_contents()函数 可以进行读取文件 yes</li><li>unlink() 函数  进行文件的删除</li><li>rmdir() 直接删除一个目录</li><li>tempanam() 创建一个临时文件</li><li>tmofile() 创建一个临时文件</li><li>fopen() 函数 打开或者远程读取一个url</li><li>readfile() 输出一个文件</li><li>fread() 读取里面文件，no</li><li>rename 重命名一个文件</li><li>fputs  文件上传类似于fwrite</li></ul></li><li><p>其他 </p></li><li><ul><li><p>目录遍历</p></li><li><ul><li><p>opendir()</p></li><li><p>readdir()</p></li><li><p>closedir() </p></li><li><ul><li>函数都会导致一个目录遍历</li></ul></li></ul></li></ul></li><li><p>命令执行函数</p></li><li><ul><li>exec() 函数 执行命令       yes</li><li>system() 函数    no</li><li>shell_exec() 函数 执行命令              yes</li><li>passthru()函数 执行命令类似于exec      no</li><li>preg_replace()函数 执行命令但是需要&#x2F;e模式</li><li>escapeshellcmd()函数</li><li>popen() 此函数需要写入一个文本当中 &gt; D:&#x2F;1.txt’, ‘r’ ); ?&gt;</li><li>proc_open()</li><li>pcntl_exec()   也是写入一个文件当中pcntl_exec( “&#x2F;bin&#x2F;bash” , array(“whoami”));</li><li>create_funtion()</li><li>array_map()</li></ul></li><li><p>文件包含</p></li><li><ul><li>require()</li><li>include()</li><li>require_once()</li><li>include_once()</li></ul></li><li><p>SSRF漏洞</p></li><li><ul><li>curl_exec()  </li><li>file_get_content()  在内容当中参数可控可以进行SSRF漏洞读取</li><li>fopen()  </li><li>fsockopen()</li></ul></li><li><p>变量覆盖</p></li><li><ul><li>$$</li></ul></li><li><p>反序列化</p></li><li><ul><li>unserialize反序列化函数，参数可控，存在可利用类和魔术方法</li><li>serialize</li></ul></li><li><p>文件下载</p></li><li><ul><li>header(‘Content-Disposition: attachment; filename&#x3D;’.$filename);</li></ul></li><li><p>URL跳转</p></li><li><ul><li>header(“Location:</li></ul></li></ul><p><a href="http://www.baidu.com/">http://www.baidu.com</a>“)</p><ul><li><p>XML外部实体加载</p></li><li><ul><li>PHP XML解析函数</li><li>simplexml_load_file</li><li>simplexml_load_string</li><li>SimpleXMLElement</li></ul></li><li><ul><li>DOMDocument</li><li>xml_parse</li></ul></li><li><p>正则表达式小技巧</p></li><li><ul><li>file_get_contents($this-&gt;([a-zA-Z0-9]+)</li><li>适用于pop链分析</li></ul></li><li><p>文件上传</p></li><li><ul><li><p>$_file[‘file’][‘name’]   客户端上传的原名称</p></li><li><p>$_file[‘file’][‘type’]   文件·类型</p></li><li><p>$_file[‘file’][‘size’]     文件大小</p></li><li><p>$_file[‘file’][‘tmp_name’]    文件上传之后在服务器临时存储的名称</p></li><li><p>$_file[‘file’][‘error’]   上传之后产生的错误代码</p></li><li><ul><li>最终 move_upload_file  进行文件移动</li></ul></li></ul></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>PHP</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>PHP</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>yccms V3.4审计</title>
     <link href="/2025/10/27/yccms%20V3.4%E5%AE%A1%E8%AE%A1/"/>
     <url>/2025/10/27/yccms%20V3.4%E5%AE%A1%E8%AE%A1/</url>
@@ -443,6 +418,31 @@
     <tags>
       
       <tag>PHP代码审计</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>php高危</title>
+    <link href="/2025/10/27/php%E9%AB%98%E5%8D%B1/"/>
+    <url>/2025/10/27/php%E9%AB%98%E5%8D%B1/</url>
+    
+    <content type="html"><![CDATA[<ul><li><p>yes 需要  no 不需要</p></li><li><p>文件类型操作</p></li><li><ul><li>file() 函数读取整个文件</li><li>fgets() 读取一行数据</li><li>fgetc() 读取一个字符</li><li>fwrite()函数  可以进行文件写入操作</li><li>file_put_contentt()函数 可以对文件进行写入操作</li><li>file_get_contents()函数 可以进行读取文件 yes</li><li>unlink() 函数  进行文件的删除</li><li>rmdir() 直接删除一个目录</li><li>tempanam() 创建一个临时文件</li><li>tmofile() 创建一个临时文件</li><li>fopen() 函数 打开或者远程读取一个url</li><li>readfile() 输出一个文件</li><li>fread() 读取里面文件，no</li><li>rename 重命名一个文件</li><li>fputs  文件上传类似于fwrite</li></ul></li><li><p>其他 </p></li><li><ul><li><p>目录遍历</p></li><li><ul><li><p>opendir()</p></li><li><p>readdir()</p></li><li><p>closedir() </p></li><li><ul><li>函数都会导致一个目录遍历</li></ul></li></ul></li></ul></li><li><p>命令执行函数</p></li><li><ul><li>exec() 函数 执行命令       yes</li><li>system() 函数    no</li><li>shell_exec() 函数 执行命令              yes</li><li>passthru()函数 执行命令类似于exec      no</li><li>preg_replace()函数 执行命令但是需要&#x2F;e模式</li><li>escapeshellcmd()函数</li><li>popen() 此函数需要写入一个文本当中 &gt; D:&#x2F;1.txt’, ‘r’ ); ?&gt;</li><li>proc_open()</li><li>pcntl_exec()   也是写入一个文件当中pcntl_exec( “&#x2F;bin&#x2F;bash” , array(“whoami”));</li><li>create_funtion()</li><li>array_map()</li></ul></li><li><p>文件包含</p></li><li><ul><li>require()</li><li>include()</li><li>require_once()</li><li>include_once()</li></ul></li><li><p>SSRF漏洞</p></li><li><ul><li>curl_exec()  </li><li>file_get_content()  在内容当中参数可控可以进行SSRF漏洞读取</li><li>fopen()  </li><li>fsockopen()</li></ul></li><li><p>变量覆盖</p></li><li><ul><li>$$</li></ul></li><li><p>反序列化</p></li><li><ul><li>unserialize反序列化函数，参数可控，存在可利用类和魔术方法</li><li>serialize</li></ul></li><li><p>文件下载</p></li><li><ul><li>header(‘Content-Disposition: attachment; filename&#x3D;’.$filename);</li></ul></li><li><p>URL跳转</p></li><li><ul><li>header(“Location:</li></ul></li></ul><p><a href="http://www.baidu.com/">http://www.baidu.com</a>“)</p><ul><li><p>XML外部实体加载</p></li><li><ul><li>PHP XML解析函数</li><li>simplexml_load_file</li><li>simplexml_load_string</li><li>SimpleXMLElement</li></ul></li><li><ul><li>DOMDocument</li><li>xml_parse</li></ul></li><li><p>正则表达式小技巧</p></li><li><ul><li>file_get_contents($this-&gt;([a-zA-Z0-9]+)</li><li>适用于pop链分析</li></ul></li><li><p>文件上传</p></li><li><ul><li><p>$_file[‘file’][‘name’]   客户端上传的原名称</p></li><li><p>$_file[‘file’][‘type’]   文件·类型</p></li><li><p>$_file[‘file’][‘size’]     文件大小</p></li><li><p>$_file[‘file’][‘tmp_name’]    文件上传之后在服务器临时存储的名称</p></li><li><p>$_file[‘file’][‘error’]   上传之后产生的错误代码</p></li><li><ul><li>最终 move_upload_file  进行文件移动</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
       
     </tags>
     
