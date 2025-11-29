@@ -1,70 +1,41 @@
-function lastUpdate() {
-    fetch('/sitemap.xml')
-        .then(resp => resp.text())
-        .then(str => (new DOMParser()).parseFromString(str, "text/xml"))
-        .then(xml => {
-            const dates = Array.from(xml.querySelectorAll('url > lastmod')).map(n => new Date(n.textContent));
-            if (!dates.length) return;
-            const latest = new Date(Math.max(...dates));
-            const diff = Math.floor(Math.abs(new Date() - latest) / (1000*60*60*24));
-            const el = document.getElementById('sidebar-site-update');
-            if(el) el.innerText = diff === 0 ? '今天' : diff + '天前';
-        });
-}
+document.addEventListener("DOMContentLoaded", function() {
+    if (!document.body.classList.contains("post")) return;
 
-function updateSidebar() {
-    const map = {
-        'sidebar-post-count': 'g-total-posts-id',
-        'sidebar-word-count': 'g-total-word-id',
-        'sidebar-site-pv': 'vercount_value_site_pv',
-        'sidebar-site-uv': 'vercount_value_site_uv',
-        'sidebar-site-age': 'time-day'
-    };
-    Object.entries(map).forEach(([sidebarId, sourceId]) => {
-        const s = document.getElementById(sidebarId);
-        const t = document.getElementById(sourceId);
-        if(s && t) s.innerText = sidebarId==='sidebar-site-age' ? t.innerText + '天' : t.innerText;
-    });
-    lastUpdate();
-}
+    const sidebar = document.getElementById("sidebar-related-posts");
+    if (!sidebar) return;
 
-function createSidebar() {
-    const main = document.querySelector('main') || document.body;
-    if(!main) return;
+    const category = document.querySelector("meta[name='category']");
+    if (!category) return;
 
-    const sideBar = document.createElement('aside');
-    sideBar.id = 'site-stats';
+    const categoryName = category.getAttribute("content");
 
-    const items = [
-        ['文章总数', 'sidebar-post-count'],
-        ['全站字数', 'sidebar-word-count'],
-        ['总访问量', 'sidebar-site-pv'],
-        ['总访客数', 'sidebar-site-uv'],
-        ['建站时长', 'sidebar-site-age'],
-        ['上次更新', 'sidebar-site-update']
-    ];
+    if (!window.ALL_POSTS) return;
 
-    items.forEach(([label, id]) => {
-        const div = document.createElement('div');
-        div.className = 'sidebar-element';
-        div.innerHTML = `<span>${label}</span><span id="${id}"></span>`;
-        sideBar.appendChild(div);
-    });
+    const posts = window.ALL_POSTS.filter(post => 
+        post.categories && post.categories.includes(categoryName) &&
+        post.url !== window.location.pathname
+    );
 
-    // 插入文章前
-    main.insertBefore(sideBar, main.firstChild);
+    if (posts.length === 0) return;
 
-    updateSidebar();
+    const html = `
+        <div class="sidebar-posts">
+            <h3>更多 ${categoryName} 文章</h3>
+            <ul>
+                ${posts.map(p => `<li><a href="${p.url}">${p.title}</a></li>`).join('')}
+            </ul>
+        </div>
+    `;
+    sidebar.innerHTML = html;
 
-    // 响应式隐藏
-    const resizeFn = () => {
-        sideBar.style.display = window.innerWidth < 992 ? 'none' : 'block';
-    };
-    window.addEventListener('resize', resizeFn);
-    resizeFn();
-}
+    // 设置毛玻璃背景色，自动匹配白天/夜晚模式
+    const isDark = document.documentElement.getAttribute("data-user-color-scheme") === "dark";
 
-// 仅在文章页执行
-if(document.querySelector('meta[property="og:type"][content="article"]')){
-    document.addEventListener('DOMContentLoaded', createSidebar);
-}
+    // 配置文件颜色（可以直接从全局 JS 对象读取，也可以硬编码）
+    const boardColor = isDark ? "#15172280" : "#ffffff80"; 
+
+    sidebar.style.background = boardColor;
+    sidebar.style.backdropFilter = "blur(10px)";
+    sidebar.style.webkitBackdropFilter = "blur(10px)";
+    sidebar.style.border = isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.4)";
+});
