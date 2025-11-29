@@ -4,99 +4,66 @@ function lastUpdate() {
     .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
     .then(data => {
         const lastmodDates = Array.from(data.querySelectorAll('url > lastmod')).map(node => new Date(node.textContent));
+        if (!lastmodDates.length) return;
         const mostRecentDate = new Date(Math.max(...lastmodDates));
         const now = new Date();
         const diffTime = Math.abs(now - mostRecentDate);
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        if (diffDays === 0) {
-            document.getElementById('sidebar-site-update').innerText = `今天`;
-        } else {
-            document.getElementById('sidebar-site-update').innerText = `${diffDays}天前`;
-        }
-    })
+        const el = document.getElementById('sidebar-site-update');
+        if(el) el.innerText = diffDays === 0 ? '今天' : diffDays + '天前';
+    });
 }
 
 function updateSidebar() {
-    document.getElementById('sidebar-word-count').innerHTML = document.getElementById('g-total-word-id').innerText;
-    document.getElementById('sidebar-post-count').innerHTML = document.getElementById('g-total-posts-id').innerText;
-    document.getElementById('sidebar-site-age').innerHTML = document.getElementById('time-day').innerText + '天';
-    document.getElementById('sidebar-site-pv').innerHTML = document.getElementById('vercount_value_site_pv').innerText;
-    document.getElementById('sidebar-site-uv').innerHTML = document.getElementById('vercount_value_site_uv').innerText;
-    lastUpdate(); 
+    const mapping = {
+        'sidebar-word-count': 'g-total-word-id',
+        'sidebar-post-count': 'g-total-posts-id',
+        'sidebar-site-age': 'time-day',
+        'sidebar-site-pv': 'vercount_value_site_pv',
+        'sidebar-site-uv': 'vercount_value_site_uv'
+    };
+    for (const [sidebarId, sourceId] of Object.entries(mapping)) {
+        const sidebarEl = document.getElementById(sidebarId);
+        const sourceEl = document.getElementById(sourceId);
+        if (sidebarEl && sourceEl) {
+            sidebarEl.innerText = sidebarId === 'sidebar-site-age' ? sourceEl.innerText + '天' : sourceEl.innerText;
+        }
+    }
+    lastUpdate();
 }
 
 function createSidebar() {
-    const main = document.querySelector('main');
+    const main = document.querySelector('main') || document.body;
 
     const sideCol = document.createElement('div');
-    sideCol.className = "side-col d-none d-lg-block col-lg-2";
-    sideCol.style.paddingTop = "60px";
-    sideCol.style.float = "right";
-    sideCol.style.position = "sticky";
-    sideCol.style.top = "2rem";
+    sideCol.id = 'custom-sidebar';
+    sideCol.style.position = 'sticky';
+    sideCol.style.top = '2rem';
+    sideCol.style.width = '200px';
+    sideCol.style.padding = '1rem';
+    sideCol.style.marginLeft = 'auto';
+    sideCol.style.border = '1px solid #ddd';
+    sideCol.style.borderRadius = '8px';
+    sideCol.style.backgroundColor = '#f9f9f9';
+    sideCol.style.fontSize = '0.9rem';
+    sideCol.style.lineHeight = '1.5';
+    sideCol.style.color = '#333';
 
-    const sideBar= `
-        <aside class="sidebar" id="site-stats">
-            <div class="sidebar-element">
-                <span><i class="fas fa-file-alt"></i> &nbsp;文章总数</span>
-                <span id="sidebar-post-count"></span>
-            </div>
-            <div class="sidebar-element">
-                <span><i class="fas fa-chart-bar" style="font-size: 0.72rem;"></i> &nbsp;全站字数</span>
-                <span id="sidebar-word-count"></span>
-            </div>
-            <div class="sidebar-element">
-                <span><i class="fas fa-eye" style="font-size: 0.72rem;"></i> &nbsp;总访问量</span>
-                <span id="sidebar-site-pv"></span>
-            </div>
-            <div class="sidebar-element">
-                <span><i class="fas fa-user"></i> &nbsp;总访客数</span>
-                <span id="sidebar-site-uv"></span>
-            </div>
-            <div class="sidebar-element">
-                <span><i class="fas fa-calendar-alt"></i> &nbsp;建站时长</span>
-                <span id="sidebar-site-age"></span>
-            </div>
-            <div class="sidebar-element">
-                <span><i class="fa-solid fa-pen-nib"></i> &nbsp;上次更新</span>
-                <span id="sidebar-site-update"></span>
-            </div>
-        </aside>
+    sideCol.innerHTML = `
+        <div><strong>站点统计</strong></div>
+        <div>文章总数: <span id="sidebar-post-count"></span></div>
+        <div>全站字数: <span id="sidebar-word-count"></span></div>
+        <div>总访问量: <span id="sidebar-site-pv"></span></div>
+        <div>总访客数: <span id="sidebar-site-uv"></span></div>
+        <div>建站时长: <span id="sidebar-site-age"></span></div>
+        <div>上次更新: <span id="sidebar-site-update"></span></div>
     `;
-    sideCol.innerHTML = sideBar;
-    main.insertBefore(sideCol, main.firstChild);
+
+    main.appendChild(sideCol);
     updateSidebar();
-    judgeSidebarHidden();
-
-    const sidebar_pv = document.getElementById('sidebar-site-pv').innerHTML;
-    if (sidebar_pv === '1314') {
-        var vercount_pv = document.getElementById('vercount_value_site_pv').innerHTML;
-        var intervalId = setInterval(() => {
-            vercount_pv = document.getElementById('vercount_value_site_pv').innerHTML;
-            if (vercount_pv !== '1314') {
-                updateSidebar();
-                clearInterval(intervalId);
-            }
-        }, 100);
-    }
 }
 
-function judgeSidebarHidden() {
-    const boardRect = document.getElementById('board').getBoundingClientRect();
-    const sideColRect = document.querySelector('.side-col.d-none.d-lg-block.col-lg-2').getBoundingClientRect();
-    const sideBar = document.getElementById('site-stats');
-    // console.log(boardRect.right, sideColRect.left);
-    if (boardRect.right - 10 > sideColRect.left) {
-        sideBar.style.display = 'none';
-    } else {
-        sideBar.style.display = 'block';
-    }
-}
-
-if (document.querySelector('meta[property="og:url"][content="https://youyeyejie.github.io/index.html"]') ||
-    document.querySelector('meta[property="og:url"][content^="https://youyeyejie.github.io/page/"]')) {
+// 只在文章页显示侧边栏
+if (document.querySelector('meta[property="og:type"][content="article"]')) {
     document.addEventListener('DOMContentLoaded', createSidebar);
-    window.addEventListener('resize', () => {
-        judgeSidebarHidden();
-    });
 }
