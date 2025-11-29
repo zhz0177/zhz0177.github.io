@@ -1,18 +1,23 @@
 #sidebar-related-posts {
-    position: fixed;
-    left: 20px;
-    top: 100px;
-    width: 250px;
+    position: fixed;       /* 固定在页面 */
+    top: 100px;            /* 距离顶部 */
+    left: 20px;            /* 距离左边 */
+    width: 250px;          /* 侧边栏宽度 */
+    max-height: 80vh;      /* 避免太长 */
+    overflow-y: auto;      /* 内容超出可滚动 */
     padding: 15px;
     border-radius: 12px;
+    background: rgba(255,255,255,0.3); /* 半透明毛玻璃背景 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.4);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    z-index: 999;
+    z-index: 9999;         /* 确保在最上层 */
 }
 
 #sidebar-related-posts h3 {
     margin-top: 0;
     font-size: 16px;
-    color: inherit; /* 使用页面文字颜色，跟随主题 */
 }
 
 #sidebar-related-posts ul {
@@ -26,7 +31,7 @@
 
 #sidebar-related-posts a {
     text-decoration: none;
-    color: #007acc; /* 可改成主题链接色 */
+    color: #007acc;
 }
 
 #sidebar-related-posts a:hover {
