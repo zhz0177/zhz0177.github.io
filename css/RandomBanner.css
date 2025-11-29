@@ -1,0 +1,8 @@
+/* 添加到你的主题 CSS 或 style 标签 */
+#banner {
+    width: 100vw;          /* 全屏宽 */
+    height: 100vh;         /* 全屏高 */
+    background-size: cover; /* 背景图片覆盖整个容器 */
+    background-position: center;
+    background-repeat: no-repeat;
+}
