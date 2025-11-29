@@ -108,11 +108,6 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
   
@@ -120,13 +115,21 @@
 <link rel="stylesheet" href="/css/cloudedGlass.css">
 <link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
 <link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/Background.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -154,11 +157,43 @@
   
   <script src="/js/backgroundize.js"></script>
   <script src="/js/injector.js"></script>
-<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 
-<body>
-  
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
 
   <header>
     
@@ -167,7 +202,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -368,7 +403,7 @@
 <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162930502.png" srcset="/img/loading.gif" lazyload alt="image-20250926153103159" style="zoom:50%;" />
 
 <p>然后导入即可</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">\newbee-mall-master\src\main\resources\newbee_mall_schema.sql<br></code></pre></td></tr></table></figure>
+<figure class="shiki html"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">\newbee-mall-master\src\main\resources\newbee_mall_schema.sql</span></span></code></pre></div></div></figure>
 </li>
 <li><p>在Navicat Premium 17连接数据库</p>
 <p> <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027162944166.png" srcset="/img/loading.gif" lazyload alt="image-20250929103058046"></p>
@@ -418,13 +453,27 @@
 </li>
 <li><p>跟进到getTotalNewBeeMallGoods</p>
 <p>C:\Users\95227\Desktop\newbee-mall-master\src\main\java\ltd\newbee\mall\service\impl\NewBeeMallGoodsServiceImpl.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> PageResult <span class="hljs-title function_">getNewBeeMallGoodsPage</span><span class="hljs-params">(PageQueryUtil pageUtil)</span> &#123;<br>        List&lt;NewBeeMallGoods&gt; goodsList = goodsMapper.findNewBeeMallGoodsList(pageUtil);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> goodsMapper.getTotalNewBeeMallGoods(pageUtil);<br>        <span class="hljs-type">PageResult</span> <span class="hljs-variable">pageResult</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageResult</span>(goodsList, total, pageUtil.getLimit(), pageUtil.getPage());<br>        <span class="hljs-keyword">return</span> pageResult;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PageResult</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getNewBeeMallGoodsPage</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">PageQueryUtil</span><span style="color: #E06C75"> pageUtil) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">List</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">NewBeeMallGoods</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> goodsList </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">goodsMapper</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">findNewBeeMallGoodsList</span><span style="color: #ABB2BF">(pageUtil);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> total </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">goodsMapper</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getTotalNewBeeMallGoods</span><span style="color: #ABB2BF">(pageUtil);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">PageResult</span><span style="color: #E06C75"> pageResult </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">PageResult</span><span style="color: #E06C75">(goodsList</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> total</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">pageUtil</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getLimit</span><span style="color: #ABB2BF">(),</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">pageUtil</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPage</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> pageResult</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure>
 
 <p>查看谁调用了getNewBeeMallGoodsPage 方法</p>
 </li>
 <li><p>跟进到NewBeeMallGoodsController</p>
 <p>C:\Users\95227\Desktop\newbee-mall-master\src\main\java\ltd\newbee\mall\controller\admin\NewBeeMallGoodsController.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value = &quot;/goods/list&quot;, method = RequestMethod.GET)</span><br>    <span class="hljs-meta">@ResponseBody</span><br>    <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">list</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> Map&lt;String, Object&gt; params)</span> &#123;<br>        <span class="hljs-keyword">if</span> (ObjectUtils.isEmpty(params.get(<span class="hljs-string">&quot;page&quot;</span>)) || ObjectUtils.isEmpty(params.get(<span class="hljs-string">&quot;limit&quot;</span>))) &#123;<br>            <span class="hljs-keyword">return</span> ResultGenerator.genFailResult(<span class="hljs-string">&quot;参数异常！&quot;</span>);<br>        &#125;<br>        <span class="hljs-type">PageQueryUtil</span> <span class="hljs-variable">pageUtil</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageQueryUtil</span>(params);<br>        <span class="hljs-keyword">return</span> ResultGenerator.genSuccessResult(newBeeMallGoodsService.getNewBeeMallGoodsPage(pageUtil));<br>    &#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">RequestMapping</span><span style="color: #E06C75">(</span><span style="color: #D19A66">value</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;/goods/list&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">method</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">RequestMethod</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">GET</span><span style="color: #E06C75">)</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">ResponseBody</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Result</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">list</span><span style="color: #E06C75">(</span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">RequestParam</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Map</span><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">String</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> Object</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> params) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">ObjectUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEmpty</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">params</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;page&quot;</span><span style="color: #ABB2BF">))</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ObjectUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEmpty</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">params</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;limit&quot;</span><span style="color: #ABB2BF">))</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ResultGenerator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">genFailResult</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;参数异常！&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">PageQueryUtil</span><span style="color: #E06C75"> pageUtil </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">PageQueryUtil</span><span style="color: #E06C75">(params)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ResultGenerator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">genSuccessResult</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">newBeeMallGoodsService</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getNewBeeMallGoodsPage</span><span style="color: #ABB2BF">(pageUtil));</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure>
 
 <p>传入了 pageUtil 参数，而该参数同样通过 PageQueryUtil 类创建一个 pageUtil 对象，传入 params 作为参数，以及 params 同样是个 Map 对象。未对其进行过滤处理</p>
 </li>
@@ -437,11 +486,11 @@
 <li><p>进入src&#x2F;main&#x2F;java&#x2F;ltd&#x2F;newbee&#x2F;mall&#x2F;interceptor&#x2F;AdminLoginInterceptor.java</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251027163002814.png" srcset="/img/loading.gif" lazyload alt="image-20251014191955489"></p>
 <p>第一步：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">requestServletPath</span> <span class="hljs-operator">=</span> request.getServletPath();<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">String</span><span style="color: #E06C75"> requestServletPath </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletPath</span><span style="color: #ABB2BF">();</span></span></code></pre></div></div></figure>
 
 <p>使用getServletPath传入url： getRequestURI 方法返回的路径是未经过服务器端处理的原始路径，可能包含特殊字符或路径跳转，从而绕过服务器端的安全控制</p>
 <p>第二步：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (requestServletPath.startsWith(<span class="hljs-string">&quot;/admin&quot;</span>) &amp;&amp; <span class="hljs-literal">null</span> == request.getSession().getAttribute(<span class="hljs-string">&quot;loginUser&quot;</span>)) &#123;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">requestServletPath</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">startsWith</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;/admin&quot;</span><span style="color: #ABB2BF">)</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getSession</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getAttribute</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;loginUser&quot;</span><span style="color: #ABB2BF">)</span><span style="color: #E06C75">) {</span></span></code></pre></div></div></figure>
 
 <p>先判断 Uri 路径中是否以 &#x2F;admin 开头，然后以及获取并判断Session 中的 loginUser 属性是否为 null</p>
 <p>两个条件 &amp;&amp; 在一起结果为 True 的话进入条件代码</p>
@@ -787,12 +836,6 @@
 
 
 
-  
-
-
-
-  
-
 
 
   
@@ -970,11 +1013,6 @@
 </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
   
 <script>
   Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
@@ -1037,7 +1075,8 @@
 <script src="/js/scrollAnimation.js"></script>
 <script src="/js/snow.js"></script>
 <script src="/custom/ReadingProgress/ReadingProgress.js"></script>
-<script src="/js/backgroundize.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/Background.js"></script>
 
 
 
@@ -1051,5 +1090,28 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-</body>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 </html>

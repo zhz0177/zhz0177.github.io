@@ -81,11 +81,6 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
 
 
   
@@ -93,13 +88,21 @@
 <link rel="stylesheet" href="/css/cloudedGlass.css">
 <link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
 <link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/Background.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -127,11 +130,43 @@
   
   <script src="/js/backgroundize.js"></script>
   <script src="/js/injector.js"></script>
-<meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 
-<body>
-  
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
 
   <header>
     
@@ -140,7 +175,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -336,12 +371,30 @@
 <li>每个 Java 类都有一个引用指向加载它的 <code>ClassLoader</code></li>
 <li>数组类不是通过 <code>ClassLoader</code> 创建的（数组类没有对应的二进制字节流），是由 JVM 直接生成的</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Class</span>&lt;T&gt; &#123;<br>  ...<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ClassLoader classLoader;<br>  <span class="hljs-meta">@CallerSensitive</span><br>  <span class="hljs-keyword">public</span> ClassLoader <span class="hljs-title function_">getClassLoader</span><span class="hljs-params">()</span> &#123;<br>     <span class="hljs-comment">//...</span><br>  &#125;<br>  ...<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">T</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #ABB2BF">...</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> classLoader</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">CallerSensitive</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #61AFEF"> getClassLoader</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">     </span><span style="color: #7F848E; font-style: italic">//...</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #ABB2BF">...</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
 <p><strong>主要作用就是动态加载 Java 类的字节码（ <code>.class</code> 文件）到 JVM 中（在内存中生成一个代表该类的 <code>Class</code> 对象）。</strong></p>
 <h2 id="加载规则"><a href="#加载规则" class="headerlink" title="加载规则"></a>加载规则</h2><p>JVM 启动的时候，并不会一次性加载所有的类，而是根据需要去<strong>动态加载</strong>（调用才加载）</p>
 <p>对于已经加载的类会被放在 <code>ClassLoader</code> 中。在类加载的时候，系统会首先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载。也就是说，对于一个类加载器来说，相同二进制名称的类只会被加载一次</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClassLoader</span> &#123;<br>  ...<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ClassLoader parent;<br>  <span class="hljs-comment">// 由这个类加载器加载的类。</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Vector&lt;Class&lt;?&gt;&gt; classes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Vector</span>&lt;&gt;();<br>  <span class="hljs-comment">// 由VM调用，用此类加载器记录每个已加载类。</span><br>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">addClass</span><span class="hljs-params">(Class&lt;?&gt; c)</span> &#123;<br>        classes.addElement(c);<br>   &#125;<br>  ...<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">abstract</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #ABB2BF">...</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> parent</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #7F848E; font-style: italic">// 由这个类加载器加载的类。</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Vector</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;&gt;</span><span style="color: #E06C75"> classes </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Vector</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #7F848E; font-style: italic">// 由VM调用，用此类加载器记录每个已加载类。</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> addClass</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75; font-style: italic">c</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">classes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addElement</span><span style="color: #ABB2BF">(c);</span></span>
+<span class="line"><span style="color: #ABB2BF">   }</span></span>
+<span class="line"><span style="color: #E06C75">  </span><span style="color: #ABB2BF">...</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
 
 
@@ -356,14 +409,26 @@
 <li><strong>只执行一次</strong></li>
 <li><strong>最早执行</strong>（甚至早于 main）</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;静态代码块：类加载时执行一次&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Demo</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;静态代码块：类加载时执行一次&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
 <h3 id="构造代码块（实例代码块）"><a href="#构造代码块（实例代码块）" class="headerlink" title="构造代码块（实例代码块）"></a>构造代码块（实例代码块）</h3><p><code>&#123; &#125;</code>，每创建一个对象时执行一次，而且执行顺序在构造方法之前。</p>
 <p><strong>用途：</strong></p>
 <ul>
 <li>多个构造方法间共享代码（避免重复）</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;<br>    &#123;<br>        System.out.println(<span class="hljs-string">&quot;构造代码块：每次 new 对象时都会执行&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Demo</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;构造函数：最后执行&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Demo</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;构造代码块：每次 new 对象时都会执行&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> Demo</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;构造函数：最后执行&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
 
 <h3 id="构造函数（构造方法）"><a href="#构造函数（构造方法）" class="headerlink" title="构造函数（构造方法）"></a>构造函数（构造方法）</h3><p>每创建一个对象时执行一次，在构造代码块之后。</p>
 <p><strong>用途：</strong></p>
@@ -371,7 +436,9 @@
 <li>初始化对象的成员变量</li>
 <li>创建对象时执行特定逻辑</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-title function_">Demo</span><span class="hljs-params">()</span> &#123;<br>    System.out.println(<span class="hljs-string">&quot;构造方法执行！&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Demo</span><span style="color: #E06C75">() {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;构造方法执行！&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
 
 <p><strong>对比</strong></p>
 <table>
@@ -425,10 +492,13 @@
 <p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251115223127547.png" srcset="/img/loading.gif" lazyload alt="image-20251115223127503"></p>
 <p>默认是true，也就是说默认是初始化的</p>
 <p><strong>所以：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ClassLoader</span> <span class="hljs-variable">cl</span> <span class="hljs-operator">=</span>ClassLoader.getPlatformClassLoader();<br>       Class.forName(<span class="hljs-string">&quot;com.example.demo.Person&quot;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> cl </span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">ClassLoader</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPlatformClassLoader</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">       </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;com.example.demo.Person&quot;</span><span style="color: #ABB2BF">);</span></span></code></pre></div></div></figure>
 
 <p>手动修改，不会默认进行初始化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ClassLoader</span> <span class="hljs-variable">cl</span> <span class="hljs-operator">=</span>ClassLoader.getPlatformClassLoader();<br>      Class.forName(<span class="hljs-string">&quot;com.example.demo.Person&quot;</span>);<br>      c.newInstance<br></code></pre></td></tr></table></figure>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> cl </span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">ClassLoader</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPlatformClassLoader</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">      </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;com.example.demo.Person&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">      </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #C678DD">new</span><span style="color: #E06C75">Instance</span></span></code></pre></div></div></figure>
 
 <p>即可初始化</p>
 <p> <code>c.newInstance</code>用于创建一个类的实例，相当于调用它的 <strong>无参构造方法</strong>。</p>
@@ -677,12 +747,6 @@
 
 
 
-  
-
-
-
-  
-
 
 
   
@@ -860,11 +924,6 @@
 </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
   
 <script>
   Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
@@ -927,7 +986,8 @@
 <script src="/js/scrollAnimation.js"></script>
 <script src="/js/snow.js"></script>
 <script src="/custom/ReadingProgress/ReadingProgress.js"></script>
-<script src="/js/backgroundize.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/Background.js"></script>
 
 
 
@@ -941,5 +1001,28 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-</body>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
 </html>
