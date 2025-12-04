@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CC链总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CC链总结">
+<meta property="og:url" content="http://example.com/2025/12/04/CC%E9%93%BE%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="CC链总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204215131135.png">
+<meta property="article:published_time" content="2025-12-04T13:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-04T13:55:49.401Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204215131135.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CC链总结 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CC链总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-04 21:00" pubdate>
+          2025年12月4日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          357 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CC链总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="CC1"><a href="#CC1" class="headerlink" title="CC1"></a>CC1</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>利用 <code>InvokerTransformer</code> 调用 <code>Runtime.getRuntime().exec()</code></li>
+<li><code>LazyMap</code> 懒加载触发 Transformer</li>
+<li>反序列化入口：<code>AnnotationInvocationHandler.readObject()</code></li>
+</ul>
+<p><strong>关键节点链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">invoke()</span></span>
+<span class="line"><span style="color: #abb2bf">LazyMap.get()</span></span>
+<span class="line"><span style="color: #abb2bf">ChainedTransformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">InvokerTransformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
+
+<h1 id="CC2"><a href="#CC2" class="headerlink" title="CC2"></a>CC2</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>利用 <code>TemplatesImpl</code> 执行恶意字节码（而不是直接 Runtime.exec）</li>
+<li>触发 <code>defineTransletClasses() -&gt; newInstance()</code></li>
+<li>反序列化入口：<code>PriorityQueue</code></li>
+</ul>
+<p><strong>关键节点链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">PriorityQueue.heapify()</span></span>
+<span class="line"><span style="color: #abb2bf">Comparable.compare()</span></span>
+<span class="line"><span style="color: #abb2bf">TrAXFilter.newTransformer()</span></span>
+<span class="line"><span style="color: #abb2bf">TemplatesImpl.getTransletInstance()</span></span>
+<span class="line"><span style="color: #abb2bf">&lt;恶意类初始化执行&gt;</span></span></code></pre></div></div></figure>
+
+<h1 id="CC3"><a href="#CC3" class="headerlink" title="CC3"></a>CC3</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>核心依旧是 <code>TemplatesImpl</code></li>
+<li>入口由 CC1 的 <code>LazyMap</code> 换成了 <code>BadAttributeValueExpException</code></li>
+<li><code>toString()</code> 触发</li>
+</ul>
+<p><strong>关键链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">BadAttributeValueExpException.readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">toString()</span></span>
+<span class="line"><span style="color: #abb2bf">TiedMapEntry.getValue()</span></span>
+<span class="line"><span style="color: #abb2bf">LazyMap.get()</span></span>
+<span class="line"><span style="color: #abb2bf">InvokerTransformer(TemplatesImpl.newTransformer)</span></span>
+<span class="line"><span style="color: #abb2bf">payload 执行</span></span></code></pre></div></div></figure>
+
+<h1 id="CC4"><a href="#CC4" class="headerlink" title="CC4"></a>CC4</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>利用 <code>PriorityQueue + TransformingComparator</code></li>
+<li>不再使用 AnnotationInvocationHandler</li>
+<li>仍然是 Runtime.exec()</li>
+</ul>
+<p><strong>关键链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">PriorityQueue.heapify()</span></span>
+<span class="line"><span style="color: #abb2bf">TransformingComparator.compare()</span></span>
+<span class="line"><span style="color: #abb2bf">Transformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
+
+<h1 id="CC5"><a href="#CC5" class="headerlink" title="CC5"></a>CC5</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>利用 <code>BadAttributeValueExpException.toString()</code></li>
+<li>利用 <code>TiedMapEntry.getValue()</code></li>
+<li><code>LazyMap</code> 触发 transformer 链</li>
+</ul>
+<p><strong>关键链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">BadAttributeValueExpException.readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">toString()</span></span>
+<span class="line"><span style="color: #abb2bf">TiedMapEntry.getValue()</span></span>
+<span class="line"><span style="color: #abb2bf">LazyMap.get()</span></span>
+<span class="line"><span style="color: #abb2bf">Transformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
+
+<blockquote>
+<p>与 CC3 的差别：CC3 使用 TemplatesImpl，CC5 使用 Runtime.exec</p>
+</blockquote>
+<h1 id="CC6"><a href="#CC6" class="headerlink" title="CC6"></a>CC6</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>入口：<code>Method.invoke()</code></li>
+<li>利用 <code>HashMap</code> 反序列化过程中调用 <code>hashCode()</code></li>
+<li><code>TiedMapEntry.hashCode()</code> 触发 LazyMap</li>
+</ul>
+<p><strong>关键链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">HashMap.readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">HashMap.hash()</span></span>
+<span class="line"><span style="color: #abb2bf">TiedMapEntry.hashCode()</span></span>
+<span class="line"><span style="color: #abb2bf">LazyMap.get()</span></span>
+<span class="line"><span style="color: #abb2bf">Transformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
+
+<h1 id="CC7"><a href="#CC7" class="headerlink" title="CC7"></a>CC7</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li><code>Hashtable</code> 的 <code>readObject()</code> 触发</li>
+<li>利用 <code>equals()</code> → <code>LazyMap.get()</code> 执行链</li>
+<li>执行 Runtime.exec()</li>
+</ul>
+<p><strong>关键链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">Hashtable.readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">rehash()</span></span>
+<span class="line"><span style="color: #abb2bf">equals()</span></span>
+<span class="line"><span style="color: #abb2bf">TiedMapEntry.getValue()</span></span>
+<span class="line"><span style="color: #abb2bf">LazyMap.get()</span></span>
+<span class="line"><span style="color: #abb2bf">Transformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
+
+<hr>
+<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><table>
+<thead>
+<tr>
+<th>链</th>
+<th>执行来源</th>
+<th>反序列化触发点</th>
+<th>执行方式</th>
+<th>常见利用 Payload</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CC1</td>
+<td>LazyMap</td>
+<td>AnnotationInvocationHandler</td>
+<td>InvokerTransformer</td>
+<td>Runtime.exec</td>
+</tr>
+<tr>
+<td>CC2</td>
+<td>PriorityQueue</td>
+<td>heapify() - compare()</td>
+<td>TemplatesImpl</td>
+<td>恶意字节码执行</td>
+</tr>
+<tr>
+<td>CC3</td>
+<td>BadAttributeValueExpException.toString</td>
+<td>TiedMapEntry</td>
+<td>TemplatesImpl</td>
+<td>恶意类构造执行</td>
+</tr>
+<tr>
+<td>CC4</td>
+<td>PriorityQueue</td>
+<td>TransformingComparator.compare</td>
+<td>InvokerTransformer</td>
+<td>Runtime.exec</td>
+</tr>
+<tr>
+<td>CC5</td>
+<td>BadAttributeValueExpException.toString</td>
+<td>LazyMap</td>
+<td>InvokerTransformer</td>
+<td>Runtime.exec</td>
+</tr>
+<tr>
+<td>CC6</td>
+<td>HashMap.hash()</td>
+<td>TiedMapEntry.hashCode</td>
+<td>InvokerTransformer</td>
+<td>Runtime.exec</td>
+</tr>
+<tr>
+<td>CC7</td>
+<td>Hashtable.equals</td>
+<td>TiedMapEntry.equals&#x2F;getValue</td>
+<td>InvokerTransformer</td>
+<td>Runtime.exec</td>
+</tr>
+</tbody></table>
+<h2 id="主要触发："><a href="#主要触发：" class="headerlink" title="主要触发："></a>主要触发：</h2><ol>
+<li>CC1  LazyMap + AnnotationInvocationHandler</li>
+<li>CC2  PriorityQueue + TemplatesImpl</li>
+<li>CC3  BadAttrExpException + TemplatesImpl</li>
+<li>CC4  PriorityQueue + TransformingComparator</li>
+<li>CC5  BadAttrExpException + LazyMap</li>
+<li>CC6  HashMap.hash() + LazyMap</li>
+<li>CC7  Hashtable.equals() + LazyMap</li>
+</ol>
+<h2 id="流程图："><a href="#流程图：" class="headerlink" title="流程图："></a>流程图：</h2><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204215131135.png" srcset="/img/loading.gif" lazyload alt="image-20251204215131056"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CC链总结</div>
+      <div>http://example.com/2025/12/04/CC链总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/04/CC5&amp;CC7/" title="CC5&amp;CC7">
+                        <span class="hidden-mobile">CC5&amp;CC7</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
