@@ -21,25 +21,25 @@
   
     <meta name="description" content="CC链总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CC链总结">
-<meta property="og:url" content="http://example.com/2025/12/04/CC%E9%93%BE%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="Commons-Collections 篇 --CC链总结">
+<meta property="og:url" content="http://example.com/2025/11/25/CC%E9%93%BE%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Piggy Sprint&#39;s blog">
 <meta property="og:description" content="CC链总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204215131135.png">
-<meta property="article:published_time" content="2025-12-04T13:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-05T03:48:32.644Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251217174013195.png">
+<meta property="article:published_time" content="2025-11-25T12:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-17T09:48:17.036Z">
 <meta property="article:author" content="Piggy Sprint">
 <meta property="article:tag" content="Java安全">
 <meta property="article:tag" content="CC链">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204215131135.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251217174013195.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>CC链总结 - Piggy Sprint&#39;s blog</title>
+  <title>Commons-Collections 篇 --CC链总结 - Piggy Sprint&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -266,7 +266,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CC链总结"></span>
+            <span id="subtitle" data-typed-text="Commons-Collections 篇 --CC链总结"></span>
           
         </div>
 
@@ -277,8 +277,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-04 21:00" pubdate>
-          2025年12月4日 晚上
+        <time datetime="2025-11-25 20:00" pubdate>
+          2025年11月25日 晚上
         </time>
       </span>
     
@@ -289,7 +289,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          357 字
+          424 字
         
       </span>
     
@@ -300,7 +300,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -346,7 +346,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CC链总结</h1>
+            <h1 id="seo-header">Commons-Collections 篇 --CC链总结</h1>
             
             
               <div class="markdown-body">
@@ -456,6 +456,22 @@
 <span class="line"><span style="color: #abb2bf">Transformer.transform()</span></span>
 <span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
 
+<h1 id="CC11"><a href="#CC11" class="headerlink" title="CC11"></a>CC11</h1><p><strong>核心要点：</strong></p>
+<ul>
+<li>利用 <code>PriorityQueue</code> 反序列化时 <strong>必然触发比较器</strong></li>
+<li>通过 <code>TransformingComparator</code> 将 <code>compare()</code> 行为转换为 <code>Transformer.transform()</code></li>
+<li><strong>不依赖 <code>TemplatesImpl</code></strong></li>
+<li>执行方式通常为 <code>Runtime.exec()</code>（或等价方法调用）</li>
+</ul>
+<p><strong>关键链：</strong></p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">PriorityQueue.readObject()</span></span>
+<span class="line"><span style="color: #abb2bf">heapify()</span></span>
+<span class="line"><span style="color: #abb2bf">TransformingComparator.compare()</span></span>
+<span class="line"><span style="color: #abb2bf">ChainedTransformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">InvokerTransformer.transform()</span></span>
+<span class="line"><span style="color: #abb2bf">Runtime.exec()</span></span></code></pre></div></div></figure>
+
 <hr>
 <h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><table>
 <thead>
@@ -516,6 +532,13 @@
 <td>InvokerTransformer</td>
 <td>Runtime.exec</td>
 </tr>
+<tr>
+<td>CC11</td>
+<td>PriorityQueue</td>
+<td>TransformingComparator.compare</td>
+<td>nvokerTransformer</td>
+<td>Runtime.exec</td>
+</tr>
 </tbody></table>
 <h2 id="主要触发："><a href="#主要触发：" class="headerlink" title="主要触发："></a>主要触发：</h2><ol>
 <li>CC1  LazyMap + AnnotationInvocationHandler</li>
@@ -525,8 +548,9 @@
 <li>CC5  BadAttrExpException + LazyMap</li>
 <li>CC6  HashMap.hash() + LazyMap</li>
 <li>CC7  Hashtable.equals() + LazyMap</li>
+<li>CC11 PriorityQueue + TransformingComparator</li>
 </ol>
-<h2 id="流程图："><a href="#流程图：" class="headerlink" title="流程图："></a>流程图：</h2><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251204215131135.png" srcset="/img/loading.gif" lazyload alt="image-20251204215131056"></p>
+<h2 id="流程图："><a href="#流程图：" class="headerlink" title="流程图："></a>流程图：</h2><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20251217174013195.png" srcset="/img/loading.gif" lazyload alt="image-20251217162804674"></p>
 
                 
               </div>
@@ -581,8 +605,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CC链总结</div>
-      <div>http://example.com/2025/12/04/CC链总结/</div>
+      <div>Commons-Collections 篇 --CC链总结</div>
+      <div>http://example.com/2025/11/25/CC链总结/</div>
     </div>
     <div class="license-meta">
       
@@ -594,7 +618,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月4日</div>
+          <div>2025年11月25日</div>
         </div>
       
       
@@ -626,9 +650,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/12/07/SpringSecurity/" title="SpringSecurity">
+                      <a href="/2025/11/25/CC11/" title="Commons-Collections 篇 --CC11">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SpringSecurity</span>
+                        <span class="hidden-mobile">Commons-Collections 篇 --CC11</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -636,8 +660,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/12/04/CC5&amp;CC7/" title="CC5&amp;CC7">
-                        <span class="hidden-mobile">CC5&amp;CC7</span>
+                      <a href="/2025/11/25/CC6/" title="Commons-Collections 篇 --CC6">
+                        <span class="hidden-mobile">Commons-Collections 篇 --CC6</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
