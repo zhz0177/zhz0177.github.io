@@ -1,0 +1,22 @@
+/* ===== 全站随机背景层 ===== */
+#bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ===== 内容毛玻璃面板 ===== */
+#board {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+}
+
+/* ===== 夜间模式 ===== */
+html[data-color-scheme="dark"] #board {
+  background: rgba(0, 0, 0, 0.55);
+}
