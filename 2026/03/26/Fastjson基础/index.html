@@ -1,0 +1,1449 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Fastjson基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fastjson基础">
+<meta property="og:url" content="http://example.com/2026/03/26/Fastjson%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="Fastjson基础">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309210009200.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309211249169.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309213114553.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309222928040.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311212819967.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311213654817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311213956578.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311220302592.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311220329782.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311220720145.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311221238096.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312162551287.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312162828814.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163014697.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163322134.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163414576.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163921372.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312164737085.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312165029261.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312165259223.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312165538803.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312174526064.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312174641685.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312174901173.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312175012397.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312175940940.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312175708022.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312180246647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312204549294.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312204713729.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312205121375.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312205339076.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260316221734015.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320212536111.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320213218424.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320213354920.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320213829794.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320214318943.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320214705609.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320215336811.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320215633649.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320220616045.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320222455820.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320223421375.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320223743970.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320223855306.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321140930044.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321141604360.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321141755737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321142642930.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144225892.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144507334.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144644667.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144807272.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144836846.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321150417483.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321150938708.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321200720657.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321200850947.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201241522.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321221825348.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201331757.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201649136.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201717373.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321204437317.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321221959776.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222808184.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222244349.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222554353.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222721530.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321223306823.png">
+<meta property="article:published_time" content="2026-03-26T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-26T07:33:37.744Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta property="article:tag" content="Fastjson">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309210009200.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Fastjson基础 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+   <div id="bg-layer"></div>
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Fastjson基础"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-26 21:00" pubdate>
+          2026年3月26日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Fastjson基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Fastjson 是阿里巴巴开源的一个 Java 语言编写的高性能 JSON 库</p>
+<p>主要就是<strong>序列化</strong>：将 Java Bean转换成 JSON 字符串（<code>JSON.toJSONString(obj)</code>）。</p>
+<p>​	   		<strong>反序列化</strong>：将 JSON 字符串转换回 Java Bean（<code>JSON.parseObject(jsonStr, User.class)</code>）。</p>
+<p>前端（App&#x2F;网页）给后端发了一个 JSON，后端 Java 代码里有一个 <code>User</code> 类。如果要把这个 JSON 里的数据取出来，  <strong>Fastjson</strong> 这样的工具可以实现自动化</p>
+<p>先导入依赖</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependencies</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;com.alibaba&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;fastjson&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;1.2.24&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependencies</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+
+<p>1.2.24是最先报出漏洞的版本</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="引出漏洞"><a href="#引出漏洞" class="headerlink" title="引出漏洞"></a>引出漏洞</h2><ul>
+<li><p>最先开始演示一段代码</p>
+<p><strong>将 JSON 字符串转化为 <code>JSONObject</code> 对象</strong>。（转成通用的java对象）</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JSONUnser</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;{</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">param1</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">aaa</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">,</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">param2</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">bbb</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">}&quot;</span><span style="color: #ABB2BF">;</span><span style="color: #7F848E; font-style: italic">//将字符串键值对变成json格式</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">JSONObject</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">jsonObject</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">JSON</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">parseObject</span><span style="color: #ABB2BF">(s);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(jsonObject);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">jsonObject</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getString</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;param1&quot;</span><span style="color: #ABB2BF">));</span></span></code></pre></div></div></figure>
+
+<p>通过<code>parseObject</code>将字符串键值对变成json格式</p>
+<p>输出：<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309210009200.png" srcset="/img/loading.gif" lazyload alt="image-20260309210002119"></p>
+</li>
+<li><p>演示将写个将 <strong>JSON 字符串转化为 JavaBean 对象</strong>，获取这个对象的方法（转成特定的Person对象）</p>
+<p>先写个java Bean的规范的Person类</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Person</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> age</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">private</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> name</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> Person</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;constructor&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">int</span><span style="color: #61AFEF"> getAge</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;getAge&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> age;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setAge</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">age</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;setAge&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">age</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> age;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">String</span><span style="color: #61AFEF"> getName</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;getName&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> name;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setName</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">name</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;setName&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">name</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> name;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309211249169.png" srcset="/img/loading.gif" lazyload alt="image-20260309211249040"></p>
+<p>也就是说传入age    和   name，通过set方法传入对象</p>
+</li>
+<li><p>还有一个功能也就是我们的漏洞产生点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309213114553.png" srcset="/img/loading.gif" lazyload alt="image-20260309213114470"></p>
+<p>代码里明明写的是 <code>JSON.parseObject(s)</code>，但 Fastjson 却听从了 JSON 字符串里的指令，去加载了 <code>Person</code>。因为写了 <code>@type</code></p>
+<p>当 Fastjson 看到 <code>@type</code> 时，它会：</p>
+<p><strong>去加载</strong> 这个类：<code>org.example.Person</code>。</p>
+<p><strong>去实例化</strong> 这个类（创建对象）。—————&gt;输出<code>constructor</code></p>
+<p>**还原属性 ** 解析到后面有 <code>age</code> 和 <code>name</code> 的值，找对应的 Setter————–&gt;输出<code>setAge、setName</code></p>
+<p><strong>序列化输出</strong> 执行了 <code>System.out.println(jsonObject)</code>，Fastjson 在把 <code>jsonObject</code> 转换成字符串打印出来时，会通过 Getter 获取值。————-&gt;输出：<code>getAge</code>、<code>getName</code>。</p>
+<p>要是我们传入的是一个恶意方法，就会造成问题</p>
+</li>
+</ul>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>调试一下它是如何返回这些东西的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260309222928040.png" srcset="/img/loading.gif" lazyload alt="image-20260309222927982"></p>
+<ul>
+<li><p>先进来是一个只传<code>String text</code>的<code>parseObject</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311212819967.png" srcset="/img/loading.gif" lazyload alt="image-20260311212819836"></p>
+<p>主要逻辑就是先将这个已经解析（parse）好的文本传成obj对象（其实就是Person）</p>
+<p>要是这个对象继承JSONObject，就按照JSONObject类型返回对象</p>
+<p>这个JSONObject就是个<code>map</code>键值对</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311213654817.png" srcset="/img/loading.gif" lazyload alt="image-20260311213654770"></p>
+</li>
+<li><p>进<code>parse</code>方法</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">parse</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> text) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">parse</span><span style="color: #E06C75">(text</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> DEFAULT_PARSER_FEATURE)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p>再进</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311213956578.png" srcset="/img/loading.gif" lazyload alt="image-20260311213956524"></p>
+<p>到这个地方就是将这些东西传到<code>DefaultJSONParser</code>对象中</p>
+<p>他的作用主要就是一个解析器，对你传入的<code>text</code>进行解析</p>
+<p>后面的<code>features</code>就是对于解析的规范（比如：对出现的多个逗号的处理  啥的）</p>
+</li>
+<li><p>接下来就是调用parse（），进行解析</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311220302592.png" srcset="/img/loading.gif" lazyload alt="image-20260311220302546"></p>
+</li>
+<li><p>到<code>parse（）</code>的核心逻辑</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">parse</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> fieldName) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JSONLexer</span><span style="color: #E06C75"> lexer </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">switch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">token</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> SET</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">HashSet</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> set </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HashSet</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #61AFEF">parseArray</span><span style="color: #E06C75">(set</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> fieldName)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> set</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> TREE_SET</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">TreeSet</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> treeSet </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TreeSet</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #61AFEF">parseArray</span><span style="color: #E06C75">(treeSet</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> fieldName)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> treeSet</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> LBRACKET</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">JSONArray</span><span style="color: #E06C75"> array </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONArray</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #61AFEF">parseArray</span><span style="color: #E06C75">(array</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> fieldName)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEnabled</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Feature</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">UseObjectArray</span><span style="color: #ABB2BF">)</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">array</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toArray</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> array</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> LBRACE</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">JSONObject</span><span style="color: #E06C75"> object </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONObject</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEnabled</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Feature</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">OrderedField</span><span style="color: #ABB2BF">)</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">parseObject</span><span style="color: #E06C75">(object</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> fieldName)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> LITERAL_INT</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Number</span><span style="color: #E06C75"> intValue </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">integerValue</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> intValue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> LITERAL_FLOAT</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> value </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decimalValue</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEnabled</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Feature</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">UseBigDecimal</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> value</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> LITERAL_STRING</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> stringLiteral </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">stringVal</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">COMMA</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEnabled</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Feature</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">AllowISO8601DateFormat</span><span style="color: #ABB2BF">)</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #E5C07B">JSONScanner</span><span style="color: #E06C75"> iso8601Lexer </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONScanner</span><span style="color: #E06C75">(stringLiteral)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">iso8601Lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">scanISO8601DateIfMatch</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">iso8601Lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getCalendar</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getTime</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"><span style="color: #E06C75">                } </span><span style="color: #C678DD">finally</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">iso8601Lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">close</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                }</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> stringLiteral</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> NULL</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> UNDEFINED</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> TRUE</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Boolean</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">TRUE</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> FALSE</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Boolean</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">FALSE</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> NEW</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">IDENTIFIER</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">token</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">IDENTIFIER</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONException</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;syntax error&quot;</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">LPAREN</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #61AFEF">accept</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">LPAREN</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">long</span><span style="color: #E06C75"> time </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> ((Number) </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">integerValue</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">longValue</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #61AFEF">accept</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">LITERAL_INT</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #61AFEF">accept</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">RPAREN</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Date</span><span style="color: #E06C75">(time)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> EOF</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isBlankInput</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONException</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;unterminated json string, &quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">info</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">case</span><span style="color: #E06C75"> ERROR</span><span style="color: #C678DD">:</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">default:</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONException</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;syntax error, &quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">info</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311220329782.png" srcset="/img/loading.gif" lazyload alt="image-20260311220329728"></p>
+<p>就是进行匹配解析，下面的case就对于xxxx，进行的解析逻辑（有什么左大括号，右大括号这些）</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">String</span><span style="color: #E06C75"> s </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;{</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">@type</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">org.example.Person</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">,</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">age</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:18,</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">name</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">ttt</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">}&quot;</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+
+<p>我们传的s先是有<code>&#123;</code>，所以就跳到了左大括号的解析这里</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311220720145.png" srcset="/img/loading.gif" lazyload alt="image-20260311220720110"></p>
+<p>以对象解析，存到空的<code>JSONObject</code>（它是一个map）里面</p>
+</li>
+<li><p>接下来就是<code>parseObject</code>()<strong>接收map</strong>对你的<code>object</code>解析，我们来看一下parseObject()（它是在fastjson中最重要的一个函数）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260311221238096.png" srcset="/img/loading.gif" lazyload alt="image-20260311221238046"></p>
+<p>这个函数的逻辑主要就是将map解析成对象，先解析key，在解析value</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312162551287.png" srcset="/img/loading.gif" lazyload alt="image-20260312162551185"></p>
+<p>这里就出现了我们前面提到的<code>features</code>，此处是对逗号进行处理的</p>
+</li>
+<li><p>解析key，对里面的值进行匹配解析</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312162828814.png" srcset="/img/loading.gif" lazyload alt="image-20260312162828760"></p>
+</li>
+<li><p>对key值的形式进行匹配</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163014697.png" srcset="/img/loading.gif" lazyload alt="image-20260312163014636"></p>
+<p>要是@type，就进第一个if逻辑、</p>
+</li>
+<li><p>我们看一下第一个if的逻辑</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">if</span><span style="color: #E06C75"> (key </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JSON</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">DEFAULT_TYPE_KEY</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">!</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEnabled</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Feature</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">DisableSpecialKeyDetect</span><span style="color: #ABB2BF">)</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> typeName </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">scanSymbol</span><span style="color: #ABB2BF">(symbolTable, </span><span style="color: #98C379">&#39;&quot;&#39;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> clazz </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TypeUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">loadClass</span><span style="color: #ABB2BF">(typeName, </span><span style="color: #E5C07B">config</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDefaultClassLoader</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (clazz </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #E5C07B">object</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSON</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">DEFAULT_TYPE_KEY</span><span style="color: #ABB2BF">, typeName);</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #C678DD">continue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">COMMA</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">token</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">RBRACE</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #E5C07B">lexer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">nextToken</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSONToken</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">COMMA</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">                            </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> instance </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                            </span><span style="color: #E5C07B">ObjectDeserializer</span><span style="color: #E06C75"> deserializer </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">config</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeserializer</span><span style="color: #ABB2BF">(clazz);</span></span>
+<span class="line"><span style="color: #E06C75">                            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (deserializer </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> JavaBeanDeserializer) {</span></span>
+<span class="line"><span style="color: #E06C75">                                instance </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> ((JavaBeanDeserializer) deserializer)</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">createInstance</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">, clazz);</span></span>
+<span class="line"><span style="color: #E06C75">                            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (instance </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                                </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (clazz </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Cloneable</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                                    instance </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">HashMap</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                                } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #98C379">&quot;java.util.Collections$EmptyMap&quot;</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equals</span><span style="color: #ABB2BF">(typeName)</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                                    instance </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Collections</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">emptyMap</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                                } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">                                    instance </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">clazz</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                                }</span></span>
+<span class="line"><span style="color: #E06C75">                            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                            </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> instance</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                        } </span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                            </span><span style="color: #C678DD">throw</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JSONException</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;create instance error&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> e)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                        }</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"><span style="color: #E06C75">                    </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setResolveStatus</span><span style="color: #ABB2BF">(TypeNameRedirect);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">context</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">!</span><span style="color: #E06C75">(fieldName </span><span style="color: #C678DD">instanceof</span><span style="color: #E06C75"> Integer)) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">popContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"><span style="color: #E06C75">                    </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">object</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75"> newObj </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TypeUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">cast</span><span style="color: #ABB2BF">(object, clazz, </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">config</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">parseObject</span><span style="color: #ABB2BF">(newObj);</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> newObj</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">ObjectDeserializer</span><span style="color: #E06C75"> deserializer </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">config</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeserializer</span><span style="color: #ABB2BF">(clazz);</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">deserializer</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">deserialze</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">, clazz, fieldName);</span></span>
+<span class="line"><span style="color: #E06C75">                }</span></span></code></pre></div></div></figure>
+
+<ul>
+<li><p>先进行类加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163322134.png" srcset="/img/loading.gif" lazyload alt="image-20260312163212910"></p>
+<p>类加载逻辑：加载过，就到mapping缓存里面直接加载</p>
+<p>后面的if是对于类加载的具体形式</p>
+<p>字节码第一位是{，则为数组形式加载</p>
+<p>字节码第一位是L以 <code>;</code> 结尾的，之则自动把前后的 <code>L</code> 和 <code>;</code> 删掉，提取出中间真正的类名，然后<strong>递归</strong>调用 <code>loadClass</code> 去加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163414576.png" srcset="/img/loading.gif" lazyload alt="image-20260312163414508"></p>
+</li>
+<li><p>接下来就是放东西</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312163921372.png" srcset="/img/loading.gif" lazyload alt="image-20260312163921331"></p>
+<p>每次加载完一轮，然后就往里面放东西，现在由于我们object是0（这个我们前面创建的那个空JSONobject），所以直接就跳过了这个if</p>
+<blockquote>
+<p>疑问：</p>
+<p><code>size</code> 一直是 0，这个 <code>if</code> 块不久永远进不去了？？？</p>
+<p>当你使用 <code>&#123;&quot;@type&quot;: &quot;...&quot;&#125;</code> 时，Fastjson 的解析逻辑是 <strong>流式解析</strong>。</p>
+<ul>
+<li><strong>常规路径</strong>：如果 JSON 只是普通的 <code>&#123;&quot;name&quot;:&quot;abc&quot;&#125;</code>，Fastjson 会把键值对一个个放进 <code>object</code> 这个容器里，此时 <code>size</code> 会大于 0，然后通过 <code>TypeUtils.cast</code> 转成类。</li>
+<li><strong>AutoType 路径</strong>：当解析器读到关键的 <code>@type</code> 时，它会<strong>立刻跳出</strong>当前的常规解析流程，直接去调用 <code>checkAutoType</code> 加载类并创建对象。</li>
+<li><strong>结果</strong>：数据直接被塞进了新创建的 <code>Person</code> 实例里，而没有经过这个临时的 <code>object</code> 容器。所以对这个容器来说，它确实从头到尾都是空的（<code>size = 0</code>）。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>接下来，也是最重要的一部，反序列化</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312164737085.png" srcset="/img/loading.gif" lazyload alt="image-20260312164737051"></p>
+<p>先<code>getDeserializer</code>获取反序列化器，然后利用反序化器的<code>deserialze</code>来反序列化，得到Person</p>
+<ul>
+<li><p>获取到PEerson后，进到<code>getDeserializer</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312165029261.png" srcset="/img/loading.gif" lazyload alt="image-20260312165029210"></p>
+</li>
+<li><p>在getDeserializer逻辑里面，这里是获取注解（自己写的活，相当于自己配了反序列化器）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312165259223.png" srcset="/img/loading.gif" lazyload alt="image-20260312165259185"></p>
+</li>
+<li><p>接着里面有一个黑名单</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312165538803.png" srcset="/img/loading.gif" lazyload alt="image-20260312165538713"></p>
+<p>里面禁止了<code>java.lang.Thread</code>，不允许解析线程（既然存在黑名单，接下来的修复可能就会在这个地方有限制）</p>
+</li>
+<li><p>一直匹配匹配，最后到了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312174526064.png" srcset="/img/loading.gif" lazyload alt="image-20260312174525992">还是匹配，都不是的话就创建一个反序列化器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312174641685.png" srcset="/img/loading.gif" lazyload alt="image-20260312174641648"></p>
+<p>按照javabean解析</p>
+</li>
+<li><p>到内部<code>createJavaBeanDeserializer</code></p>
+<p><code>asmEnable</code>存在于java底层是动态创建类，动态加载的一个技术</p>
+<p><code>asmEnable</code>默认是<code>true</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312174901173.png" srcset="/img/loading.gif" lazyload alt="image-20260312174901124"></p>
+<p>这是他不支持的一些判断</p>
+</li>
+<li><p>接下来到了**<code>JavaBeanInfo.build</code>**</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312175012397.png" srcset="/img/loading.gif" lazyload alt="image-20260312175012357"></p>
+<p>创建类对应的反序列化器的时候，要了解这个对象里面的所有东西（getname，setname….），然后组成<code>JavaBeanInfo</code></p>
+<p>说一下这个函数的逻辑：</p>
+<p>先是遍历这个对象的字段，对应到我们这里就是age    name</p>
+<p>接下来获取默认构造器，对应我们这里的无参构造</p>
+<p>然后就把构造函数<code>setAccessible</code>，允许访问</p>
+<p>之后就到了一个for循环</p>
+<p>先整体看一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312175940940.png" srcset="/img/loading.gif" lazyload alt="image-20260312175940896"></p>
+<p>先遍历<code>methods</code>，主要是为了得到所有的<code>set</code>字段</p>
+<p>再遍历<code>field</code></p>
+<p>又遍历<code>methods</code>，主要是为了得到所有的<code>get</code>‘字段</p>
+<ul>
+<li><p>第一个<code>methods</code><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312175708022.png" srcset="/img/loading.gif" lazyload alt="image-20260312175707951">遍历所有<code>methods</code>来获取字段（这个地方先获取的是name)<br>下面的<code>if</code>就是在满足<code>set</code>的条件（返回void ，字段长度…..)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312180246647.png" srcset="/img/loading.gif" lazyload alt="image-20260312180246615"><br>上面都满足之后，就要在这个地方将其转为小写<br>此处<code>propertyName</code>值就变成了name</p>
+<p>这里的判断是为了应对一些特殊写法（_    f）<br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312204549294.png" srcset="/img/loading.gif" lazyload alt="image-20260312204549235"></p>
+<p>获取字段<br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312204713729.png" srcset="/img/loading.gif" lazyload alt="image-20260312204713695"><br>还要找<code>is</code>的<br>看一下getfield</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">static</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getField</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> clazz</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> fieldName</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75">[] declaredFields) {</span></span>
+<span class="line"><span style="color: #E06C75">     </span><span style="color: #C678DD">for</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> field </span><span style="color: #C678DD">:</span><span style="color: #E06C75"> declaredFields) {</span></span>
+<span class="line"><span style="color: #E06C75">         </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">fieldName</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equals</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">field</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">())</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">             </span><span style="color: #C678DD">return</span><span style="color: #E06C75"> field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">         }</span></span>
+<span class="line"><span style="color: #E06C75">     }</span></span></code></pre></div></div></figure>
+
+<p>就是在所有已经有的字段去匹配</p>
+<p>找到之后就要创建<code>FieldInfo</code><br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312205121375.png" srcset="/img/loading.gif" lazyload alt="image-20260312205121323"></p>
+<p>FieldInfo：<br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260312205339076.png" srcset="/img/loading.gif" lazyload alt="image-20260312205339031"><br>有个逻辑就是说，先创建一个<code>getOnly</code>字段，走else（如果长度不是一)，就把<code>getOnly改成true</code></p>
+<p>接下来走出<code>FieldInfo</code>，add就是把字段放到<code>filedlist</code>里面</p>
+</li>
+<li><p><code>Field（字段/成员变量）</code></p>
+<p>主要作用：<br>1处理“没有 Setter”的公有字段（public类里面没有set方法。Fastjson 遍历 <code>field</code> 时，发现这个字段是 <code>public</code> 的，它就会记录下来。这样反序列化时，它能直接通过反射把值塞进这个变量里，而不必非要找 <code>set</code> 方法。）<br>2识别注解（遍历 <code>field</code> 才能读到这个注解。）<br>3为“私有字段直接注入”做准备（遍历 <code>field</code> 拿到所有字段的名单。如果在第一步遍历 <code>methods</code> 时没找到对应的 <code>set</code> 方法，它会回过头来看看能不能直接通过修改 <code>field.setAccessible(true)</code> 来暴力赋值。）</p>
+</li>
+<li><p>第二个<code>methods</code></p>
+<p>遍历完setter之后，获取所有的public</p>
+<p>然后遍历所有getter</p>
+<p>说一下接下来的逻辑</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Collection</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isAssignableFrom</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">method</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getReturnType</span><span style="color: #ABB2BF">())</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isAssignableFrom</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">method</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getReturnType</span><span style="color: #ABB2BF">())</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">AtomicBoolean</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">method</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getReturnType</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">AtomicInteger</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">method</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getReturnType</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #56B6C2">||</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">AtomicLong</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">method</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getReturnType</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                ) {</span><span style="color: #7F848E; font-style: italic">//规定返回形式</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> propertyName</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">JSONField</span><span style="color: #E06C75"> annotation </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">method</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getAnnotation</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">JSONField</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (annotation </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">annotation</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">deserialize</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #C678DD">continue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"><span style="color: #E06C75">                    </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (annotation </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">annotation</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">name</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">length</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        propertyName </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">annotation</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">name</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                    } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">                        propertyName </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Character</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toLowerCase</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">methodName</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">charAt</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">))</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">+</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">methodName</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">substring</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">4</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"><span style="color: #E06C75">                    </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">FieldInfo</span><span style="color: #E06C75"> fieldInfo </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">getField</span><span style="color: #E06C75">(fieldList</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> propertyName)</span><span style="color: #ABB2BF">;</span><span style="color: #7F848E; font-style: italic">//从fieldList里面获取propertyName，查看是否符合只有get，没有set的情况（上面说了set会放到fieldList里面）</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (fieldInfo </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        </span><span style="color: #C678DD">continue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (propertyNamingStrategy </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">                        propertyName </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">propertyNamingStrategy</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">translate</span><span style="color: #ABB2BF">(propertyName);</span></span>
+<span class="line"><span style="color: #E06C75">                    }</span></span>
+<span class="line"><span style="color: #E06C75">                    </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #61AFEF">add</span><span style="color: #E06C75">(fieldList</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">FieldInfo</span><span style="color: #E06C75">(propertyName</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> method</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> clazz</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> type</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> annotation</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">))</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+
+<p>如果返回的是<code>Map、AtomicBoolean、AtomicInteger、AtomicLong</code>这几种形式，而且是只有get，没有set的情况的话，就会放在新的<code>fieldList</code>里面</p>
+<p>不满足的话就到了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260316221734015.png" srcset="/img/loading.gif" lazyload alt="image-20260316221708865"></p>
+<p>进<code>JavaBeanInfo</code>看看</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">JavaBeanInfo</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> clazz</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">Class</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> builderClass</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">Constructor</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> defaultConstructor</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">Constructor</span><span style="color: #56B6C2">&lt;</span><span style="color: #C678DD">?</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> creatorConstructor</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">Method</span><span style="color: #E06C75"> factoryMethod</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">Method</span><span style="color: #E06C75"> buildMethod</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">JSONType</span><span style="color: #E06C75"> jsonType</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> </span><span style="color: #7F848E; font-style: italic">//</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">List</span><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">FieldInfo</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75"> fieldList){</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">clazz</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> clazz</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">builderClass</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> builderClass</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">defaultConstructor</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> defaultConstructor</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">creatorConstructor</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> creatorConstructor</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">factoryMethod</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> factoryMethod</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">parserFeatures</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">TypeUtils</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParserFeatures</span><span style="color: #ABB2BF">(clazz);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">buildMethod</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> buildMethod</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">jsonType</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> jsonType</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (jsonType </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> typeName </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">jsonType</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">typeName</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">typeName</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">length</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">typeName</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> typeName</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">typeName</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">clazz</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span>
+<span class="line"><span style="color: #E06C75">    } </span><span style="color: #C678DD">else</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">typeName</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">clazz</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    fields </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">FieldInfo</span><span style="color: #E06C75">[</span><span style="color: #E5C07B">fieldList</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">size</span><span style="color: #ABB2BF">()</span><span style="color: #E06C75">]</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">fieldList</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toArray</span><span style="color: #ABB2BF">(fields);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">FieldInfo</span><span style="color: #E06C75">[] sortedFields </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">FieldInfo</span><span style="color: #E06C75">[</span><span style="color: #E5C07B">fields</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">length</span><span style="color: #E06C75">]</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">arraycopy</span><span style="color: #ABB2BF">(fields, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, sortedFields, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">fields</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">length</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Arrays</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">sort</span><span style="color: #ABB2BF">(sortedFields);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Arrays</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">equals</span><span style="color: #ABB2BF">(fields, sortedFields)</span><span style="color: #E06C75">) {</span></span>
+<span class="line"><span style="color: #E06C75">        sortedFields </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> fields</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">sortedFields</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> sortedFields</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    defaultConstructorParameterSize </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> defaultConstructor </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75"> </span><span style="color: #C678DD">?</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">defaultConstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameterTypes</span><span style="color: #ABB2BF">().</span><span style="color: #E5C07B">length</span><span style="color: #E06C75"> </span><span style="color: #C678DD">:</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p>就是把我们刚刚得到的东西传到<code>JavaBeanInfo</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320212536111.png" srcset="/img/loading.gif" lazyload alt="image-20260320212528989"></p>
+<p>通过上面的一系列操作，找到了两个字段<code>name</code> 以及<code>age</code>。字段里面还有对应的setter方法，没有getter（前面我们提到过，有setter就不会有getter，因为反序列化的时候主要是传值赋值，主要用的就是setter）</p>
+<p>再往下就是对于修改<code>asmEnable值</code>的if<br>对于<code>asmEnable</code>这个开关的作用：<br>如果开关是<strong>关着的</strong>，就会调用原生的<code>JavaBeanDeserializer</code><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320213218424.png" srcset="/img/loading.gif" lazyload alt="image-20260320213218388"><br>如果是<strong>开着的</strong>，就会调用<code>asmFactory</code>临时创建一个<code>createJavaBeanDeserializer</code><br><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320213354920.png" srcset="/img/loading.gif" lazyload alt="image-20260320213354878"></p>
+<p>所以现在就有一个问题，因为是临时创建的，所以我们调试不到，流程在走但是我们跳到了<code>JavaBeanDeserializer</code>（应为这是他的父类，为了能看到代码，咱们就直接看这个类）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320213829794.png" srcset="/img/loading.gif" lazyload alt="image-20260320213829738"></p>
+</li>
+</ul>
+<p><strong>扫描 Methods</strong>：首选 <code>setXXX</code>，因为这是最正规的。</p>
+<p><strong>扫描 Fields</strong>：查漏补缺。看看有没有公有变量，或者有没有被注解标记的特殊字段。</p>
+<p><strong>二次扫描 Methods</strong>：寻找符合特定条件的 <code>getXXX</code>（比如返回类型是 Map 或 Collection 的，这种 getter 也能用来还原数据）。</p>
+</li>
+<li><p>现在我们要想能够调试的到，就不能让<code>asmEnable</code>开关开着，想办法给他关了，这样就会走默认的<code>javabeaninfo</code></p>
+<p>前面我们提到了很多让开关关闭的限制</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320214318943.png" srcset="/img/loading.gif" lazyload alt="image-20260320214318906"></p>
+<p>找到了这个方法，就是字段是getonly的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320214705609.png" srcset="/img/loading.gif" lazyload alt="image-20260320214705513"></p>
+<p>只有走这个地方才能让<code>getonly</code>打开，让<code>asmEnable</code>关了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320215336811.png" srcset="/img/loading.gif" lazyload alt="image-20260320215336745"></p>
+<p>要想实现，就得不进if，进else，得满足条件，要求方法的参数长度不等于一</p>
+<blockquote>
+<p>前面我们提到了，在setter的时候长度不为1则退出，所以在setter的时候添加不到fieldinfo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320215633649.png" srcset="/img/loading.gif" lazyload alt="image-20260320215633613"></p>
+<p>所以我们只能从getter那边入手，要想走getter就得满足上面说的<code>Map、AtomicBoolean、AtomicInteger、AtomicLong</code>这几种形式返回值</p>
+</blockquote>
+</li>
+<li><p>所以我们现在就要在Person类里面加点东西，以符合条件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320220616045.png" srcset="/img/loading.gif" lazyload alt="image-20260320220616017"></p>
+<p>只有get方法，而且返回值是map</p>
+<p>现在的相对于上面的变化呢，就是在第二个<code>method</code>这里</p>
+<p>咱们先把前两个setname和setage过了，直接看getmap</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320222455820.png" srcset="/img/loading.gif" lazyload alt="image-20260320222455472"></p>
+<p>符合条件，直接就add到了fieldinfo里面</p>
+<p>进fieldinfo：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320223421375.png" srcset="/img/loading.gif" lazyload alt="image-20260320223421329"></p>
+<p><strong>方法的参数长度，参数值是0</strong>，所以直接走else，让getonly变成true</p>
+<p>接下里就走到了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320223743970.png" srcset="/img/loading.gif" lazyload alt="image-20260320223743824"></p>
+<p>将开关<code>asmEnable</code>关闭</p>
+<p>达到了我们的目的，走内置的javabeaninfo来断点分析</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260320223855306.png" srcset="/img/loading.gif" lazyload alt="image-20260320223855250"></p>
+<p>这个地方要build一下，所以还会走前面的逻辑，咱们就直接跳过</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321140930044.png" srcset="/img/loading.gif" lazyload alt="image-20260321140929997"></p>
+<p>接着往下走就是将值放进去，derializer里面就有三个值（加了一个map）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321141604360.png" srcset="/img/loading.gif" lazyload alt="image-20260321141604276"></p>
+<p>先获取这个反序列化器，然后调用反序列化方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321141755737.png" srcset="/img/loading.gif" lazyload alt="image-20260321141755708"></p>
+<p>进<code>deserialze</code></p>
+</li>
+<li><p>具体看deserialze里面到底是如何反序列化调用  构造函数  setter getter</p>
+<p>遍历所有字段</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321142642930.png" srcset="/img/loading.gif" lazyload alt="image-20260321142642878"></p>
+<p>如果有反序列化器（前面我们调用的默认的反序列化构造器）</p>
+<p>接下来又很多if，走的是json字符串，我们跟着代码逻辑看看</p>
+<p>创建实例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144225892.png" srcset="/img/loading.gif" lazyload alt="image-20260321144225847"></p>
+<p>内部逻辑就是：要是接口就创建动态代理，否则就调构造函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144507334.png" srcset="/img/loading.gif" lazyload alt="image-20260321144507297"></p>
+<p>调用完构造函数之后，赋值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144644667.png" srcset="/img/loading.gif" lazyload alt="image-20260321144643641"></p>
+<p>赋值的话，要么反射赋值，要么就是使用set方法赋值</p>
+<p>这个地方用的是setter，直接就走到了invoke</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144807272.png" srcset="/img/loading.gif" lazyload alt="image-20260321144807242"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321144836846.png" srcset="/img/loading.gif" lazyload alt="image-20260321144836798"></p>
+<p>invoke   method对象的setAge方法</p>
+<p>接下来的流程就是name和map的</p>
+<p>name和age的流程一样样</p>
+<p>看map</p>
+<p>调用<code>getter</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321150417483.png" srcset="/img/loading.gif" lazyload alt="image-20260321150417431"></p>
+<p>obj就变成了Person对象，后面<code>parseObject</code>调用toJSON的时候就调用了getter</p>
+<p>逻辑就是前面先是将json变成对象（调setter），后面tojson将对象变成json（调getter）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321150938708.png" srcset="/img/loading.gif" lazyload alt="image-20260321150938673"></p>
+<p>走getObjectWriter，因为前面走的反序列化，这边就是序列化</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321200720657.png" srcset="/img/loading.gif" lazyload alt="image-20260321200720565"></p>
+<p>在这添加到field，下面在获取fieldlist</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321200850947.png" srcset="/img/loading.gif" lazyload alt="image-20260321200850800"></p>
+<p>接下来寻找method</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201241522.png" srcset="/img/loading.gif" lazyload alt="image-20260321201241409"></p>
+<blockquote>
+<p>如何找到method的：</p>
+<p>**<code>ParserConfig.parserAllFieldToCache</code>**： 这个方法的名字里带有 <code>Field</code>。它进去之后第一件事就是调用 <code>clazz.getDeclaredFields()</code>。</p>
+<p>利用反射实现</p>
+<p><code>TypeUtils.computeGetters</code>，内部会调用 <code>clazz.getMethods()</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321221825348.png" srcset="/img/loading.gif" lazyload alt="image-20260321221825273"></p>
+</blockquote>
+<p>调用这个方法<code>getFieldValuesMap</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201331757.png" srcset="/img/loading.gif" lazyload alt="image-20260321201331722"></p>
+<p>内部要获取值<code>getPropertyValue</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201649136.png" srcset="/img/loading.gif" lazyload alt="image-20260321201457915"></p>
+<p><code>getPropertyValue</code>里面的<code>get</code>方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321201717373.png" srcset="/img/loading.gif" lazyload alt="image-20260321201717328"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321204437317.png" srcset="/img/loading.gif" lazyload alt="image-20260321204437278"></p>
+<p>到了invoke</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><ol>
+<li><p>先是按照字符串解析，对于有<code>@type</code>的类型，就按照javabean解析，而且需要一个反序列化器，获取到之后调用反序列化方法</p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321221959776.png" srcset="/img/loading.gif" lazyload alt="image-20260321221959724"></p>
+<ul>
+<li>使用反序列化解析调用构造方法，constructor</li>
+<li>赋值使用setter</li>
+<li>parseObject(s)会走到tojson，将getter方法调用</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222808184.png" srcset="/img/loading.gif" lazyload alt="image-20260321222808154"></p>
+</li>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222244349.png" srcset="/img/loading.gif" lazyload alt="image-20260321222244310"></p>
+<p>这个map满足我们上面提到的，四种类型返回，而且只有getter，那么也会调用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222554353.png" srcset="/img/loading.gif" lazyload alt="image-20260321222554305"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321222721530.png" srcset="/img/loading.gif" lazyload alt="image-20260321222721493"></p>
+<p>多的这个map就是上面满足条件的map</p>
+</li>
+</ol>
+<h1 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h1><p>Fastjson 盲目地根据这个 <code>@type</code> 去创建对象，我们就可以指定一个系统自带的、具有破坏性的类。</p>
+<p>演示：</p>
+<p>测试类：</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #C678DD">org.example</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Test</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setCmd</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">cmd</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>触发：</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">JSONUnser</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">static</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> main</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75; font-style: italic">args</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        String s = &quot;{\&quot;param1\&quot;:\&quot;aaa\&quot;,\&quot;param2\&quot;:\&quot;bbb\&quot;}&quot;;</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//         String s = &quot;{\&quot;age\&quot;:18,\&quot;name\&quot;:\&quot;abc\&quot;}&quot;;</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//         String s = &quot;{\&quot;@type\&quot;:\&quot;org.example.Person\&quot;,\&quot;age\&quot;:18,\&quot;name\&quot;:\&quot;ttt\&quot;,\&quot;map\&quot;:{}}&quot;;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;{</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">@type</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">org.example.Test</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">,</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">cmd</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">:</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">calc</span><span style="color: #56B6C2">\&quot;</span><span style="color: #98C379">}&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">JSONObject</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">jsonObject</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">JSON</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">parseObject</span><span style="color: #ABB2BF">(s);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(jsonObject);</span></span></code></pre></div></div></figure>
+
+<p>成功<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260321223306823.png" srcset="/img/loading.gif" lazyload alt="image-20260321223306680"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+        <a href="/tags/Fastjson/" class="print-no-link">#Fastjson</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Fastjson基础</div>
+      <div>http://example.com/2026/03/26/Fastjson基础/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/03/26/Fastjson%E5%88%A9%E7%94%A8/" title="Fastjson利用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Fastjson利用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/08/JEP%20290%E7%BB%95%E8%BF%87%EF%BC%9AJRMPClient%E4%B8%8E%E4%BA%8C%E6%AC%A1%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%86%E6%9E%90/" title="JEP 290绕过：JRMPClient与二次反序列化分析">
+                        <span class="hidden-mobile">JEP 290绕过：JRMPClient与二次反序列化分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
